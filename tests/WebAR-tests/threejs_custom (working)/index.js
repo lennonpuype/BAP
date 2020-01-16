@@ -7,12 +7,12 @@ var arSource,
     arContext,
     arMarker = [];
 
-var 
+var
     mesh;
 
 init();
 
-function init(){
+function init() {
 
 
 
@@ -30,7 +30,7 @@ function init(){
     scene.visible = false;
 
 
-    mesh = new THREE.Mesh(new THREE.BoxGeometry(1,1,1), new THREE.MeshBasicMaterial({
+    mesh = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial({
         color: 0xFF00FF,
         transparent: true,
         opacity: 0.5
@@ -42,7 +42,7 @@ function init(){
 
 
     arSource = new THREEx.ArToolkitSource({
-        sourceType : 'webcam',
+        sourceType: 'webcam',
     });
 
     arContext = new THREEx.ArToolkitContext({
@@ -51,54 +51,57 @@ function init(){
     });
 
     arMarker[0] = new THREEx.ArMarkerControls(arContext, camera, {
-        type : 'pattern',
-        patternUrl : './assets/data/patt.hiro',
+        type: 'pattern',
+        patternUrl: './assets/data/patt.hiro',
         changeMatrixMode: 'cameraTransformMatrix'
     });
 
     arMarker[1] = new THREEx.ArMarkerControls(arContext, camera, {
-        type : 'pattern',
-        patternUrl : './assets/data/u4bi.patt',
+        type: 'pattern',
+        patternUrl: './assets/data/u4bi.patt',
         changeMatrixMode: 'cameraTransformMatrix'
     });
 
+    arMarker[2] = new THREEx.ArMarkerControls(arContext, camera, {
+        type: 'pattern',
+        patternUrl: './assets/data/dog.patt',
+        changeMatrixMode: 'cameraTransformMatrix'
+    });
 
-
-
+    arMarker[3] = new THREEx.ArMarkerControls(arContext, camera, {
+        type: 'pattern',
+        patternUrl: './assets/data/photoshop.patt',
+        changeMatrixMode: 'cameraTransformMatrix'
+    });
 
     /* handle */
-    arSource.init(function(){
+    arSource.init(function () {
         arSource.onResize();
         arSource.copySizeTo(renderer.domElement);
-
-        if(arContext.arController !== null) arSource.copySizeTo(arContext.arController.canvas);
-
+        if (arContext.arController !== null) arSource.copySizeTo(arContext.arController.canvas);
     });
 
-    arContext.init(function onCompleted(){
-        
+    arContext.init(function onCompleted() {
         camera.projectionMatrix.copy(arContext.getProjectionMatrix());
-
     });
 
 
-    render();   
-    
-}   
+    render();
+}
 
 
 
 
-function render(){
+function render() {
     requestAnimationFrame(render);
-    renderer.render(scene,camera);                
+    renderer.render(scene, camera);
 
-    if(arSource.ready === false) return;
+    if (arSource.ready === false) return;
 
     arContext.update(arSource.domElement);
     scene.visible = camera.visible;
 
-
-    mesh.rotateX(.1);
+    // mesh.rotateX(.1);
+    mesh.position.y = .5;
 
 }          
