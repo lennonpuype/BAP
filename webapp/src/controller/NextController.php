@@ -8,9 +8,22 @@ class NextController extends Controller {
 
   public function index(){
     $this->detectMobile("mobile");
+
+    // if(!empty($_POST)){
+    //   if(!empty($_POST['action'])){
+    //     if($_POST['action'] === `entercode`){
+    //       $_SESSION['user']['l'] = $_POST['l'];
+    //       $_SESSION['user']['codes'] = array();
+    //       $_SESSION['user']['codes'] = array_push($_POST['code']);
+    //     }
+    //   }
+    // }
   }
 
   public function routes(){
+    if(!empty($_SESSION['user'])){
+      var_dump($_SESSION['user']);
+    }
 
   }
 
@@ -19,6 +32,10 @@ class NextController extends Controller {
   }
 
   public function ar(){
+
+  }
+
+  public function arscene(){
 
   }
 
@@ -41,13 +58,13 @@ class NextController extends Controller {
     $detect = new Mobile_Detect();
 
     // Check for any mobile device.
-    if (!$detect->isMobile()){
+    if ($detect->isMobile()){
       // mobile content
       header('Location: index.php?page='.$currentPage.'');
       exit();
     }else{
       // other content for desktops
-      header('Location: index.php?page=desktop');
+      header('Location: index.php?page=mobile');
       exit();
     }
   }

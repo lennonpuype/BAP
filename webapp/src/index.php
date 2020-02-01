@@ -32,6 +32,10 @@ $routes = array(
   'mobile' => array(
     'controller' => 'Next',
     'action' => 'mobile'
+  ),
+  'arscene' => array(
+    'controller' => 'Next',
+    'action' => 'arscene'
   )
 );
 

@@ -30,7 +30,9 @@
           $page3.innerHTML = `<a class="back_btn">Terug</a>
           <h1>Test de A.R. Experience</h1>
           <p class="sub_info">Sta je bij de installatie?<br/>Scan het A.R. vlak en kijk wat er gebeurt</p>
-          <div></div>
+          <div class="arscene_div">
+            <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
+          </div>
           <a class="page_btn">Voer de code in</a>`;
 
           openPage4();
@@ -41,7 +43,9 @@
           $page3.innerHTML = `<a class="back_btn">Retour</a>
           <h1>Teste d'experience A.R.</h1>
           <p class="sub_info">Êtes-vous à l'installation?<br/>Scannez le A.R. à plat et regardez ce qui se passe</p>
-          <div></div>
+          <div class="arscene_div">
+            <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
+          </div>
           <a class="page_btn">Entrez le code</a>`;
 
           openPage4();
@@ -52,11 +56,12 @@
           $page3.innerHTML = `<a class="back_btn">Back</a>
           <h1>Test the A.R. Experience</h1>
           <p class="sub_info">Are you next to a installation?<br/>Scan the A.R. image an see what happens</p>
-          <div></div>
+          <div class="arscene_div">
+            <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
+          </div>
           <a class="page_btn">Enter your code</a>`;
           goBackToPage2();
           openPage4();
-
         }
       });
     });
@@ -80,21 +85,66 @@
         $page4.innerHTML = `<a class="back_btn">Terug</a>
       <h1>Voer je persoonlijke code<br/>hier in</h1>
       <p class="sub_info">Deze kan je vinden op het<br/>door jou gekozen ticketje</p>
-      <a href="index.php?page=routes&l=nl" class="page_btn">Start!</a>`;
+      <form>
+        <input type="hidden" name="action" value="entercode"/>
+        <input type="hidden" name="l" value="nl"/>
+        <div class="code_div">
+          <input type="text" name="code" class="code" maxlength="5"/>
+        </div>
+      </form>`;
+
+        const $codeDiv = document.querySelector(`.code_div`);
+        const $code = document.querySelector(`.code`);
+        const $a = document.createElement(`a`);
+        $codeDiv.appendChild($a);
+        $a.innerHTML = `Start!`;
+        $code.addEventListener(`input`, () => {
+          $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${$code.value}`);
+        });
       }
 
       if (currentLanguage === `french`) {
-        $page4.innerHTML = `<a class="back_btn">Retour</a>
-      <h1>Entrez votre code personnel<br/>ici</h1>
-      <p class="sub_info">Vous pouvez le trouver dessus<br/>billet choisi par vous</p>
-      <a href="index.php?page=routes&l=fr" class="page_btn">Allons-y!</a>`;
+        $page4.innerHTML = `<a class="back_btn" > Retour</a >
+          <h1>Entrez votre code personnel<br />ici</h1>
+          <p class="sub_info">Vous pouvez le trouver dessus<br />billet choisi par vous</p>
+          <form>
+        <input type="hidden" name="action" value="entercode"/>
+        <input type="hidden" name="l" value="nl"/>
+        <div class="code_div">
+          <input type="text" name="code" class="code" maxlength="5"/>
+        </div>
+      </form>`;
+
+        const $codeDiv = document.querySelector(`.code_div`);
+        const $code = document.querySelector(`.code`);
+        const $a = document.createElement(`a`);
+        $codeDiv.appendChild($a);
+        $a.innerHTML = `Commencer!`;
+        $code.addEventListener(`input`, () => {
+          $a.setAttribute(`href`, `index.php?page=routes&l=fr&code=${$code.value}`);
+        });
       }
 
       if (currentLanguage === `english`) {
-        $page4.innerHTML = `<a class="back_btn">Back</a>
-      <h1>Enter your personal code here</h1>
-      <p class="sub_info">You can find it on<br/>the ticket you've chosen</p>
-      <a href="index.php?page=routes&l=en" class="page_btn">Lets go!</a>`;
+        $page4.innerHTML = `< a class="back_btn" > Back</a >
+          <h1>Enter your personal code here</h1>
+          <p class="sub_info">You can find it on<br />the ticket you've chosen</p>
+          <form>
+        <input type="hidden" name="action" value="entercode"/>
+        <input type="hidden" name="l" value="nl"/>
+        <div class="code_div">
+          <input type="text" name="code" class="code" maxlength="5"/>
+        </div>
+      </form>`;
+
+        const $codeDiv = document.querySelector(`.code_div`);
+        const $code = document.querySelector(`.code`);
+        const $a = document.createElement(`a`);
+        $codeDiv.appendChild($a);
+        $a.innerHTML = `Start!`;
+        $code.addEventListener(`input`, () => {
+          $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${$code.value}`);
+        });
       }
 
       const pageBtn = $page4.querySelector(`.back_btn`);
@@ -111,6 +161,33 @@
     const $index = document.querySelector(`.index`);
     if ($index) {
       manageHomePage();
+
+      const startTags = ["Start exploring", "Commencez à explorer", "Start met verkennen"];
+
+      // for (let i = 0; i < startTags.length; i++) {
+      //   console.log(i);
+
+
+      // }
+      let iPrev = 0;
+      const $startBtn = document.querySelector(`.startBtn`);
+
+      setInterval(() => {
+        const iNew = iPrev;
+
+        if (iNew === startTags.length - 1) {
+          iPrev = 0;
+        } else {
+          iPrev++;
+        }
+
+        $startBtn.textContent = startTags[iNew];
+
+      }, 1500);
+
+      const $body = document.querySelector(`.body`);
+      $body.removeAttribute("style");
+
     }
   };
 

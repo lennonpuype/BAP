@@ -149,3 +149,48 @@ a{
 .route_startbtn {
   grid-area: route_startbtn;
 }
+
+.arscene_div{
+  width: 80%;
+  height: 70%;
+  margin: 2rem 0;
+}
+
+.arscene_iframe{
+  width: 100%;
+  height: 100%;
+}
+
+/* input{
+  border: .2rem solid black;
+  border-radius: 0.4rem;
+  padding: 1rem 2rem;
+} */
+
+.code_div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  height: 8rem;
+}
+
+input {
+  border: none;
+  width: 7.5ch;
+  background:
+    repeating-linear-gradient(90deg,
+        black 0,
+        black 1ch,
+        transparent 0,
+        transparent 1.5ch)
+      0 100%/100% 2px no-repeat;
+  color: black;
+  font: 5ch arial, monospace;
+  letter-spacing: .5ch;
+}
+input:focus {
+  outline: none;
+  color: dodgerblue;
+}

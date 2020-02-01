@@ -2,25 +2,25 @@
 if(!empty($_GET['l']) && empty($_SESSION['user'])){
   if($_GET['l'] == 'nl'){
     if(empty($_SESSION)){
-      // session_set_cookie_params(3600 * 72, "/");
-
       $_SESSION['user']['l'] = "nl";
+      $_SESSION['user']['codes'] = array();
+      array_push($_SESSION['user']['codes'], $_GET['code']);
     }
   }
 
   if($_GET['l'] == 'fr'){
     if(empty($_SESSION)){
-      // session_set_cookie_params(3600 * 72, "/");
-      //session_start();
       $_SESSION['user']['l'] = "fr";
+      $_SESSION['user']['codes'] = array();
+      array_push($_SESSION['user']['codes'], $_GET['code']);
     }
   }
 
   if($_GET['l'] == 'en'){
     if(empty($_SESSION)){
-      // session_set_cookie_params(3600 * 72, "/");
-      //session_start();
       $_SESSION['user']['l'] = "en";
+      $_SESSION['user']['codes'] = array();
+      array_push($_SESSION['user']['codes'], $_GET['code']);
     }
   }
 }
@@ -125,3 +125,9 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
   header('Location: index.php');
   exit();
 } ?>
+
+<?php if(!empty($_SESSION['user'])){ ?>
+        <a href="index.php?page=logout" class="logout">Logout</a>
+      <?php }else{
+        echo '<span class="logout">No active session</span>';
+      } ?>

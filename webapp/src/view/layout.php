@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl" style="overflow: hidden;">
 
 <head>
   <meta charset="UTF-8">
@@ -10,6 +10,10 @@
   <link rel="icon" type="image/png" href="./assets/img/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+  <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+  <script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.4/aframe/build/aframe-ar.js"></script>
+
+  <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
   <title>BAP</title>
   <?php echo $css;?>
@@ -31,7 +35,7 @@
     </script>
 </head>
 
-<body>
+<body class="body">
       <?php
         if(!empty($_SESSION['error'])) {
           echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
@@ -45,12 +49,5 @@
       ?>
       <?php echo $content; ?>
       <?php echo $js; ?>
-
-
-      <?php if(!empty($_SESSION['user'])){ ?>
-        <a href="index.php?page=logout" class="logout">Logout</a>
-      <?php }else{
-        echo '<span class="logout">No active session</span>';
-      } ?>
   </body>
 </html>
