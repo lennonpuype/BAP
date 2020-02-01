@@ -1,0 +1,21 @@
+:root {
+  --black: #121212;
+  --blue: #4AACDE;
+  --darkblue:#011F2B;
+  --blueaccent: #092e3e;
+  --blueaccent2: #0f3241;
+  --red: #EA212D;
+  --darkred: rgb(190, 26, 37);
+  --lightpurple: #9285df;
+  --purple: #81398A;
+  --evenpurple: rgb(204, 127, 214);
+  --oddpurple: rgb(163, 101, 172);
+  --darkpurple:rgb(111, 41, 121);
+  --evenblue: rgb(111, 198, 241);
+  --oddblue: #3b9fd2;
+  --darkblue:#011F2B;
+  --red: #EA212D;
+  --darkred: rgb(190, 26, 37);
+  --green: rgb(46, 163, 23);
+  --green2: rgb(137, 231, 118);
+}
