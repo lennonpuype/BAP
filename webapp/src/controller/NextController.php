@@ -8,16 +8,6 @@ class NextController extends Controller {
 
   public function index(){
     $this->detectMobile("mobile");
-
-    // if(!empty($_POST)){
-    //   if(!empty($_POST['action'])){
-    //     if($_POST['action'] === `entercode`){
-    //       $_SESSION['user']['l'] = $_POST['l'];
-    //       $_SESSION['user']['codes'] = array();
-    //       $_SESSION['user']['codes'] = array_push($_POST['code']);
-    //     }
-    //   }
-    // }
   }
 
   public function routes(){
@@ -64,7 +54,7 @@ class NextController extends Controller {
       exit();
     }else{
       // other content for desktops
-      header('Location: index.php?page=mobile');
+      header('Location: index.php?page=desktop');
       exit();
     }
   }
