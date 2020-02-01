@@ -33,8 +33,6 @@ $routes = array(
     'controller' => 'Next',
     'action' => 'mobile'
   )
-
-
 );
 
 if(empty($_GET['page'])) {
