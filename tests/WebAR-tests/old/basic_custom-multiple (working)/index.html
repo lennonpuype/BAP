@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WebAR</title>
+  <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+  <script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.4/aframe/build/aframe-ar.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+  <a-scene embedded arjs='sourceType: webcam;'>
+    <a-marker type='pattern' url='./assets/data/twitter.patt'>
+      <a-entity gltf-model="url(./assets/test-BAP.gltf)"></a-entity>
+    </a-marker>
+
+    <a-marker type='pattern' url='./assets/data/dog.patt'>
+      <a-entity gltf-model="url(./assets/test-BAP.gltf)"></a-entity>
+    </a-marker>
+
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+
+</html>

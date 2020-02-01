@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WebAR</title>
+  <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+  <script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.4/aframe/build/aframe-ar.js"></script>
+
+  <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+  <a-scene embedded arjs="sourceType: webcam;" class="scene">
+
+    <a-assets>
+      <a-asset-item id="animated-asset1" src="./assets/1/test-BAP-1.glb">
+      </a-asset-item>
+      <a-asset-item id="animated-asset2" src="./assets/2/test-BAP-2.glb">
+      </a-asset-item>
+    </a-assets>
+
+    <a-marker type='pattern' url='./assets/data/dog.patt' class="marker">
+      <a-entity animation-mixer gltf-model="#animated-asset1" class="entity" scale="2 2 2">
+      </a-entity>
+    </a-marker>
+
+    <a-marker type='pattern' url='./assets/data/emoji.patt' class="marker">
+      <a-entity animation-mixer gltf-model="#animated-asset2" class="entity" scale="2 2 2">
+      </a-entity>
+    </a-marker>
+
+    <a-entity camera>
+    </a-entity>
+  </a-scene>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

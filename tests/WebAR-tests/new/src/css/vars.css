@@ -1,0 +1,7 @@
+:root {
+  --color-black: #000;
+  --color-white: white;
+  --color-bluebg: #dce4e8;
+  --color-textbgalpha: rgba(201, 215, 226, .8);
+  --color-textbg: #c2d3df;
+}

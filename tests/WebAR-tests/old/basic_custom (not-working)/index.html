@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WebAR</title>
+  <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+  <script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.4/aframe/build/aframe-ar.js"></script>
+  <script>THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js'</script>
+</head>
+
+<body class="body">
+  <a-scene embedded artoolkit='sourceType: webcam;'>
+    <a-marker-camera type='pattern' url='./assets/pattern-pattern.patt'>
+      <a-box position='0 .5 0' material='opacity: 1;'></a-box>
+    </a-marker-camera>
+  </a-scene>
+</body>
+
+</html>
