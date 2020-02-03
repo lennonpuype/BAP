@@ -5,7 +5,10 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       $_SESSION['user']['l'] = "nl";
       $_SESSION['user']['codes'] = array();
       array_push($_SESSION['user']['codes'], $_GET['code']);
+      //$_SESSION['user']['unlockedroutes'] =
     }
+
+
   }
 
   if($_GET['l'] == 'fr'){
@@ -23,44 +26,27 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       array_push($_SESSION['user']['codes'], $_GET['code']);
     }
   }
+
+
 }
 ?>
 <?php if(!empty($_SESSION['user'])){ ?>
-  <?php var_dump($_SESSION['user']['l']); ?>
   <?php if($_SESSION['user']['l'] == 'nl'){ ?>
     <header class="header">
       <div class="icon"></div>
       <h1 class="page_title">Routes</h1>
       <a href="#">Hamburger</a>
     </header>
-    <main>
+    <main class="routePage">
       <nav class="cities_nav">
         <ul class="cities">
-          <li class="city">Kortrijk</li>
-          <li class="city">Rijsel</li>
-          <li class="city">Doornik</li>
-          <li class="city">Valenciennes</li>
+          <li class="city active" data-id="0">Kortrijk</li>
+          <li class="city" data-id="1">Rijsel</li>
+          <li class="city" data-id="2">Doornik</li>
+          <li class="city" data-id="3">Valenciennes</li>
         </ul>
       </nav>
-      <section class="routes">
-        <article class="route">
-          <h1 class="route_name">1. Kortrijk Kunst</h1>
-          <ul class="route_parameters">
-            <li class="route_parameter">3km</li>
-            <li class="route_parameter">40min</li>
-          </ul>
-          <a href="index.php?page=route&id=1" class="route_startbtn">Start</a>
-        </article>
-
-        <article class="route">
-          <h1 class="route_name">2. Kortrijk Historiek</h1>
-          <ul class="route_parameters">
-            <li class="route_parameter">3km</li>
-            <li class="route_parameter">40min</li>
-          </ul>
-          <a href="index.php?page=route&id=1" class="route_startbtn">Start</a>
-        </article>
-      </section>
+      <section class="routes"></section>
     </main>
   <?php } ?>
 
@@ -94,7 +80,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
   <?php } ?>
 
   <?php if($_SESSION['user']['l'] == 'en'){ ?>
-    <section>
+    <section class="routePage">
       <h1>Routes</h1>
       <ul>
         <li>Kortrijk</li>

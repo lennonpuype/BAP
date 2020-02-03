@@ -5,6 +5,80 @@
   const $page4 = document.querySelector(`.page4`);
 
   let currentLanguage;
+  let activeCityId = 0;
+
+  const init = () => {
+    const $index = document.querySelector(`.index`);
+    if ($index) {
+      manageHomePage();
+
+      const startTags = ["Start exploring", "Commencez à explorer", "Start met verkennen"];
+
+      let iPrev = 0;
+      const $startBtn = document.querySelector(`.startBtn`);
+
+      setInterval(() => {
+        const iNew = iPrev;
+
+        if (iNew === startTags.length - 1) {
+          iPrev = 0;
+        } else {
+          iPrev++;
+        }
+
+        $startBtn.textContent = startTags[iNew];
+
+      }, 1500);
+
+      const $body = document.querySelector(`.body`);
+      $body.removeAttribute("style");
+
+
+    }
+
+    const $routePage = document.querySelector(`.routePage`);
+
+    if ($routePage) {
+      manageRoutePage();
+    }
+  };
+
+  const manageRoutePage = () => {
+    console.log("lsfdjdsflkj");
+
+    handleRouteJSON();
+
+
+  };
+
+  const handleRouteJSON = () => {
+    const url = `./assets/data/cities.json`;
+    fetch(url)
+      .then(r => r.json())
+      .then(parseCities);
+  };
+
+  const parseCities = data => {
+    const city = data.cities[0];
+    const routes = city.routes;
+
+    routes.map(route => {
+      createRouteCards(route);
+    });
+  };
+
+  const createRouteCards = route => {
+    const $routes = document.querySelector(`.routes`);
+    $routes.innerHTML = `<article class="route">
+    <h1 class="route_name">${route.name}</h1>
+    <ul class="route_parameters">
+      <li class="route_parameter">${route.distance}</li>
+      <li class="route_parameter">${route.time}</li>
+      <li class="route_parameter">${route.waypoints.length} points</li>
+    </ul>
+    <a href="index.php?page=route&id=1" class="route_startbtn">Start</a>
+  </article>`;
+  };
 
   const manageHomePage = () => {
     //Handle Page 1
@@ -89,18 +163,80 @@
         <input type="hidden" name="action" value="entercode"/>
         <input type="hidden" name="l" value="nl"/>
         <div class="code_div">
-          <input type="text" name="code" class="code" maxlength="5"/>
+          <input type="text" name="code" class="code" maxlength="5" disabled/>
+          <div class="character_btns">
+            <button class="char_btn code_btn" type="button">0</button>
+            <button class="char_btn code_btn" type="button">1</button>
+            <button class="char_btn code_btn" type="button">2</button>
+            <button class="char_btn code_btn" type="button">3</button>
+            <button class="char_btn code_btn" type="button">4</button>
+            <button class="char_btn code_btn" type="button">5</button>
+            <button class="char_btn code_btn" type="button">6</button>
+            <button class="char_btn code_btn" type="button">7</button>
+            <button class="char_btn code_btn" type="button">8</button>
+            <button class="char_btn code_btn" type="button">9</button>
+            <button class="char_btn code_btn" type="button">S</button>
+            <button class="char_btn code_btn" type="button">T</button>
+            <button class="char_btn code_btn" type="button">F</button>
+            <button class="char_btn code_btn" type="button">K</button>
+            <button class="char_btn code_btn" type="button">L</button>
+            <button class="char_btn code_btn" type="button">V</button>
+            <button class="extra_btn clear_btn code_btn" data-type="clear" type="button">C</button>
+            <button class="extra_btn delete_btn code_btn" data-type="remove" type="button"><</button>
+          </div>
         </div>
       </form>`;
+
+        let codeValue = ``;
 
         const $codeDiv = document.querySelector(`.code_div`);
         const $code = document.querySelector(`.code`);
         const $a = document.createElement(`a`);
         $codeDiv.appendChild($a);
         $a.innerHTML = `Start!`;
-        $code.addEventListener(`input`, () => {
-          $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${$code.value}`);
+
+        const $allBtns = document.querySelectorAll(`.char_btn`);
+        const allBtnArray = Array.from($allBtns);
+        console.log($allBtns);
+
+        const $allExtraBtns = document.querySelectorAll(`.extra_btn`);
+        const allExtraBtnArray = Array.from($allExtraBtns);
+
+
+        allExtraBtnArray.map(btn => {
+          btn.addEventListener(`click`, e => {
+
+            if (e.currentTarget.dataset.type === `clear`) {
+              console.log("clear");
+              codeValue = ``;
+              $code.value = ``;
+            }
+
+            if (e.currentTarget.dataset.type === `remove`) {
+              console.log("remove");
+              codeValue = codeValue.substring(0, codeValue.length - 1);
+              $code.value = codeValue;
+            }
+          });
         });
+
+
+        allBtnArray.map(btn => {
+          btn.addEventListener(`click`, e => {
+            if (codeValue.length >= 5) {
+              codeValue = codeValue;
+            } else {
+              codeValue += e.currentTarget.textContent;
+            }
+
+            $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${codeValue}`);
+            $code.value = codeValue;
+
+
+          });
+        });
+
+
       }
 
       if (currentLanguage === `french`) {
@@ -112,6 +248,25 @@
         <input type="hidden" name="l" value="nl"/>
         <div class="code_div">
           <input type="text" name="code" class="code" maxlength="5"/>
+          <div class="character_btns">
+            <button class="char_btn" type="button">0</button>
+            <button class="char_btn" type="button">1</button>
+            <button class="char_btn" type="button">2</button>
+            <button class="char_btn" type="button">3</button>
+            <button class="char_btn" type="button">4</button>
+            <button class="char_btn" type="button">5</button>
+            <button class="char_btn" type="button">6</button>
+            <button class="char_btn" type="button">7</button>
+            <button class="char_btn" type="button">8</button>
+            <button class="char_btn" type="button">9</button>
+            <button class="char_btn" type="button">S</button>
+            <button class="char_btn" type="button">T</button>
+            <button class="char_btn" type="button">F</button>
+            <button class="char_btn" type="button">K</button>
+            <button class="char_btn" type="button">L</button>
+            <button class="char_btn" type="button">V</button>
+            <button class="char_btn" type="button">T</button>
+          </div>
         </div>
       </form>`;
 
@@ -120,8 +275,13 @@
         const $a = document.createElement(`a`);
         $codeDiv.appendChild($a);
         $a.innerHTML = `Commencer!`;
-        $code.addEventListener(`input`, () => {
-          $a.setAttribute(`href`, `index.php?page=routes&l=fr&code=${$code.value}`);
+
+        const $allBtns = document.querySelectorAll(`char_btn`);
+        const allBtnArray = Array.from($allBtns);
+        allBtnArray.map(btn => {
+          btn.addEventListener(`click`, () => {
+            $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${$code.value}`);
+          });
         });
       }
 
@@ -133,7 +293,26 @@
         <input type="hidden" name="action" value="entercode"/>
         <input type="hidden" name="l" value="nl"/>
         <div class="code_div">
-          <input type="text" name="code" class="code" maxlength="5"/>
+          <input type="text" name="code" class="code" maxlength="5" disabled/>
+          <div class="character_btns">
+            <button class="char_btn" type="button">0</button>
+            <button class="char_btn" type="button">1</button>
+            <button class="char_btn" type="button">2</button>
+            <button class="char_btn" type="button">3</button>
+            <button class="char_btn" type="button">4</button>
+            <button class="char_btn" type="button">5</button>
+            <button class="char_btn" type="button">6</button>
+            <button class="char_btn" type="button">7</button>
+            <button class="char_btn" type="button">8</button>
+            <button class="char_btn" type="button">9</button>
+            <button class="char_btn" type="button">S</button>
+            <button class="char_btn" type="button">T</button>
+            <button class="char_btn" type="button">F</button>
+            <button class="char_btn" type="button">K</button>
+            <button class="char_btn" type="button">L</button>
+            <button class="char_btn" type="button">V</button>
+            <button class="char_btn" type="button">T</button>
+          </div>
         </div>
       </form>`;
 
@@ -142,8 +321,13 @@
         const $a = document.createElement(`a`);
         $codeDiv.appendChild($a);
         $a.innerHTML = `Start!`;
-        $code.addEventListener(`input`, () => {
-          $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${$code.value}`);
+
+        const $allBtns = document.querySelectorAll(`char_btn`);
+        const allBtnArray = Array.from($allBtns);
+        allBtnArray.map(btn => {
+          btn.addEventListener(`click`, () => {
+            $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${$code.value}`);
+          });
         });
       }
 
@@ -155,40 +339,6 @@
     });
 
 
-  };
-
-  const init = () => {
-    const $index = document.querySelector(`.index`);
-    if ($index) {
-      manageHomePage();
-
-      const startTags = ["Start exploring", "Commencez à explorer", "Start met verkennen"];
-
-      // for (let i = 0; i < startTags.length; i++) {
-      //   console.log(i);
-
-
-      // }
-      let iPrev = 0;
-      const $startBtn = document.querySelector(`.startBtn`);
-
-      setInterval(() => {
-        const iNew = iPrev;
-
-        if (iNew === startTags.length - 1) {
-          iPrev = 0;
-        } else {
-          iPrev++;
-        }
-
-        $startBtn.textContent = startTags[iNew];
-
-      }, 1500);
-
-      const $body = document.querySelector(`.body`);
-      $body.removeAttribute("style");
-
-    }
   };
 
   init();
