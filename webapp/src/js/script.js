@@ -55,8 +55,6 @@
   };
 
   const manageRoutePage = () => {
-    console.log("lsfdjdsflkj");
-
     handleRouteJSON();
   };
 
@@ -78,16 +76,290 @@
 
   const createRouteCards = route => {
     const $routes = document.querySelector(`.routes`);
-    $routes.innerHTML = `<article class="route">
-    <h1 class="route_name">${route.name}</h1>
-    <ul class="route_parameters">
-      <li class="route_parameter">${route.distance}</li>
-      <li class="route_parameter">${route.time}</li>
-      <li class="route_parameter">${route.waypoints.length} points</li>
-    </ul>
-    <a href="index.php?page=route&id=1" class="route_startbtn">Start</a>
-  </article>`;
+    const $article = document.createElement(`article`);
+    $routes.appendChild($article);
+    $article.classList.add(`route`);
+
+    const $h1 = document.createElement(`h1`);
+    const $ul = document.createElement(`ul`);
+    const $li = document.createElement(`li`);
+    const $a = document.createElement(`a`);
+
+    $article.appendChild($h1);
+    $article.appendChild($ul);
+    $article.appendChild($a);
+    $ul.appendChild($li);
+
+    $h1.classList.add(`route_name`);
+    $ul.classList.add(`route_parameters`);
+    $li.classList.add(`route_parameter`);
+
+    $h1.textContent = route.name;
+
+    $ul.innerHTML = `<li class="route_parameter">${route.distance}</li>
+    <li class="route_parameter">${route.time}</li>
+    <li class="route_parameter">${route.waypoints.length} points</li>`;
+
+    const $routeIds = document.querySelectorAll(`.routeId`);
+    const routeIdArray = Array.from($routeIds);
+    routeIdArray.map(routeIdEl => {
+      const routeId = routeIdEl.textContent;
+
+      if (parseInt(routeId) !== route.id) {
+        $a.setAttribute(`href`, `#`);
+        $a.classList.add(`locked`);
+        $a.textContent = `Voer code in`;
+      } else {
+        $a.setAttribute(`href`, `index.php?page=route&id=${route.id}`);
+        $a.classList.add(`unlocked`);
+        $a.textContent = `Start`;
+      }
+    });
+
+    const $lockedRoutes = document.querySelectorAll(`.locked`);
+    const lockedRoutesArray = Array.from($lockedRoutes);
+    lockedRoutesArray.map(lockedRoute => {
+      lockedRoute.addEventListener(`click`, e => {
+        const $popup = document.querySelector(`.popup_code`);
+        $popup.classList.remove(`hidden`);
+
+        showPopupCodeScreen(currentLanguage, $popup);
+      });
+    });
   };
+
+  const showPopupCodeScreen = (language, $popup) => {
+    let codeValue = ``;
+    const $a = document.createElement(`a`);
+
+    $popup.innerHTML = `<form>
+    <input type="hidden" name="action" value="entercode"/>
+    <input type="hidden" name="l" value="nl"/>
+    <div class="code_div">
+      <input type="text" name="code" class="code" maxlength="5" disabled/>
+      <div class="character_btns">
+        <button class="char_btn code_btn" type="button">0</button>
+        <button class="char_btn code_btn" type="button">1</button>
+        <button class="char_btn code_btn" type="button">2</button>
+        <button class="char_btn code_btn" type="button">3</button>
+        <button class="char_btn code_btn" type="button">4</button>
+        <button class="char_btn code_btn" type="button">5</button>
+        <button class="char_btn code_btn" type="button">6</button>
+        <button class="char_btn code_btn" type="button">7</button>
+        <button class="char_btn code_btn" type="button">8</button>
+        <button class="char_btn code_btn" type="button">9</button>
+        <button class="char_btn code_btn" type="button">S</button>
+        <button class="char_btn code_btn" type="button">T</button>
+        <button class="char_btn code_btn" type="button">F</button>
+        <button class="char_btn code_btn" type="button">K</button>
+        <button class="char_btn code_btn" type="button">L</button>
+        <button class="char_btn code_btn" type="button">V</button>
+        <button class="extra_btn clear_btn code_btn" data-type="clear" type="button">C</button>
+        <button class="extra_btn delete_btn code_btn" data-type="remove" type="button"><</button>
+      </div>
+    </div>
+  </form>`;
+
+    const $codeDiv = document.querySelector(`.code_div`);
+
+    $codeDiv.appendChild($a);
+    $a.innerHTML = `Unlock nieuwe route!`;
+
+    const $code = document.querySelector(`.code`);
+
+    const $allBtns = document.querySelectorAll(`.char_btn`);
+    const allBtnArray = Array.from($allBtns);
+
+    const $allExtraBtns = document.querySelectorAll(`.extra_btn`);
+    const allExtraBtnArray = Array.from($allExtraBtns);
+
+    allExtraBtnArray.map(btn => {
+      btn.addEventListener(`click`, e => {
+        if (e.currentTarget.dataset.type === `clear`) {
+          codeValue = ``;
+          $code.value = ``;
+        }
+
+        if (e.currentTarget.dataset.type === `remove`) {
+          codeValue = codeValue.substring(0, codeValue.length - 1);
+          $code.value = codeValue;
+        }
+      });
+    });
+
+    allBtnArray.map(btn => {
+      btn.addEventListener(`click`, e => {
+        if (codeValue.length >= 5) {
+          codeValue = codeValue;
+        } else {
+          codeValue += e.currentTarget.textContent;
+        }
+
+        $a.setAttribute(
+          `href`,
+          `index.php?page=routes&l=nl&code=${codeValue}`
+        );
+        $code.value = codeValue;
+      });
+    });
+  }
+
+  const showCodeScreen = (page, language) => {
+    let codeValue = ``;
+    const $a = document.createElement(`a`);
+
+    if (language === "dutch") {
+      page.innerHTML = `<a class="back_btn">Terug</a>
+    <h1>Voer je persoonlijke code<br/>hier in</h1>
+    <p class="sub_info">Deze kan je vinden op het<br/>door jou gekozen ticketje</p>
+    <form>
+      <input type="hidden" name="action" value="entercode"/>
+      <input type="hidden" name="l" value="nl"/>
+      <div class="code_div">
+        <input type="text" name="code" class="code" maxlength="5" disabled/>
+        <div class="character_btns">
+          <button class="char_btn code_btn" type="button">0</button>
+          <button class="char_btn code_btn" type="button">1</button>
+          <button class="char_btn code_btn" type="button">2</button>
+          <button class="char_btn code_btn" type="button">3</button>
+          <button class="char_btn code_btn" type="button">4</button>
+          <button class="char_btn code_btn" type="button">5</button>
+          <button class="char_btn code_btn" type="button">6</button>
+          <button class="char_btn code_btn" type="button">7</button>
+          <button class="char_btn code_btn" type="button">8</button>
+          <button class="char_btn code_btn" type="button">9</button>
+          <button class="char_btn code_btn" type="button">S</button>
+          <button class="char_btn code_btn" type="button">T</button>
+          <button class="char_btn code_btn" type="button">F</button>
+          <button class="char_btn code_btn" type="button">K</button>
+          <button class="char_btn code_btn" type="button">L</button>
+          <button class="char_btn code_btn" type="button">V</button>
+          <button class="extra_btn clear_btn code_btn" data-type="clear" type="button">C</button>
+          <button class="extra_btn delete_btn code_btn" data-type="remove" type="button"><</button>
+        </div>
+      </div>
+    </form>`;
+
+      const $codeDiv = document.querySelector(`.code_div`);
+
+      $codeDiv.appendChild($a);
+      $a.innerHTML = `Start!`;
+    }
+
+    if (language === "french") {
+      page.innerHTML = `<a class="back_btn">Retour</a>
+    <h1>Entrez votre code personnel</h1>
+    <p class="sub_info">Vous le trouverez<br/>au le ticket vous choisisez</p>
+    <form>
+      <input type="hidden" name="action" value="entercode"/>
+      <input type="hidden" name="l" value="nl"/>
+      <div class="code_div">
+        <input type="text" name="code" class="code" maxlength="5" disabled/>
+        <div class="character_btns">
+          <button class="char_btn code_btn" type="button">0</button>
+          <button class="char_btn code_btn" type="button">1</button>
+          <button class="char_btn code_btn" type="button">2</button>
+          <button class="char_btn code_btn" type="button">3</button>
+          <button class="char_btn code_btn" type="button">4</button>
+          <button class="char_btn code_btn" type="button">5</button>
+          <button class="char_btn code_btn" type="button">6</button>
+          <button class="char_btn code_btn" type="button">7</button>
+          <button class="char_btn code_btn" type="button">8</button>
+          <button class="char_btn code_btn" type="button">9</button>
+          <button class="char_btn code_btn" type="button">S</button>
+          <button class="char_btn code_btn" type="button">T</button>
+          <button class="char_btn code_btn" type="button">F</button>
+          <button class="char_btn code_btn" type="button">K</button>
+          <button class="char_btn code_btn" type="button">L</button>
+          <button class="char_btn code_btn" type="button">V</button>
+          <button class="extra_btn clear_btn code_btn" data-type="clear" type="button">C</button>
+          <button class="extra_btn delete_btn code_btn" data-type="remove" type="button"><</button>
+        </div>
+      </div>
+    </form>`;
+
+      const $codeDiv = document.querySelector(`.code_div`);
+
+      $codeDiv.appendChild($a);
+      $a.innerHTML = `Commencer!`;
+    }
+
+    if (language === "english") {
+      page.innerHTML = `<a class="back_btn">Back</a>
+    <h1>Enter you personal code here</h1>
+    <p class="sub_info">You can find the code on the<br/>ticket you've chosen</p>
+    <form>
+      <input type="hidden" name="action" value="entercode"/>
+      <input type="hidden" name="l" value="nl"/>
+      <div class="code_div">
+        <input type="text" name="code" class="code" maxlength="5" disabled/>
+        <div class="character_btns">
+          <button class="char_btn code_btn" type="button">0</button>
+          <button class="char_btn code_btn" type="button">1</button>
+          <button class="char_btn code_btn" type="button">2</button>
+          <button class="char_btn code_btn" type="button">3</button>
+          <button class="char_btn code_btn" type="button">4</button>
+          <button class="char_btn code_btn" type="button">5</button>
+          <button class="char_btn code_btn" type="button">6</button>
+          <button class="char_btn code_btn" type="button">7</button>
+          <button class="char_btn code_btn" type="button">8</button>
+          <button class="char_btn code_btn" type="button">9</button>
+          <button class="char_btn code_btn" type="button">S</button>
+          <button class="char_btn code_btn" type="button">T</button>
+          <button class="char_btn code_btn" type="button">F</button>
+          <button class="char_btn code_btn" type="button">K</button>
+          <button class="char_btn code_btn" type="button">L</button>
+          <button class="char_btn code_btn" type="button">V</button>
+          <button class="extra_btn clear_btn code_btn" data-type="clear" type="button">C</button>
+          <button class="extra_btn delete_btn code_btn" data-type="remove" type="button"><</button>
+        </div>
+      </div>
+    </form>`;
+
+      const $codeDiv = document.querySelector(`.code_div`);
+
+      $codeDiv.appendChild($a);
+      $a.innerHTML = `Start!`;
+    }
+
+    const $code = document.querySelector(`.code`);
+
+    const $allBtns = document.querySelectorAll(`.char_btn`);
+    const allBtnArray = Array.from($allBtns);
+
+    const $allExtraBtns = document.querySelectorAll(`.extra_btn`);
+    const allExtraBtnArray = Array.from($allExtraBtns);
+
+    allExtraBtnArray.map(btn => {
+      btn.addEventListener(`click`, e => {
+        if (e.currentTarget.dataset.type === `clear`) {
+          codeValue = ``;
+          $code.value = ``;
+        }
+
+        if (e.currentTarget.dataset.type === `remove`) {
+          codeValue = codeValue.substring(0, codeValue.length - 1);
+          $code.value = codeValue;
+        }
+      });
+    });
+
+    allBtnArray.map(btn => {
+      btn.addEventListener(`click`, e => {
+        if (codeValue.length >= 5) {
+          codeValue = codeValue;
+        } else {
+          codeValue += e.currentTarget.textContent;
+        }
+
+        $a.setAttribute(
+          `href`,
+          `index.php?page=routes&l=nl&code=${codeValue}`
+        );
+        $code.value = codeValue;
+      });
+    });
+  }
 
   const manageHomePage = () => {
     //Handle Page 1
@@ -165,181 +437,15 @@
       $page4.classList.remove(`inactive`);
 
       if (currentLanguage === `dutch`) {
-        $page4.innerHTML = `<a class="back_btn">Terug</a>
-      <h1>Voer je persoonlijke code<br/>hier in</h1>
-      <p class="sub_info">Deze kan je vinden op het<br/>door jou gekozen ticketje</p>
-      <form>
-        <input type="hidden" name="action" value="entercode"/>
-        <input type="hidden" name="l" value="nl"/>
-        <div class="code_div">
-          <input type="text" name="code" class="code" maxlength="5" disabled/>
-          <div class="character_btns">
-            <button class="char_btn code_btn" type="button">0</button>
-            <button class="char_btn code_btn" type="button">1</button>
-            <button class="char_btn code_btn" type="button">2</button>
-            <button class="char_btn code_btn" type="button">3</button>
-            <button class="char_btn code_btn" type="button">4</button>
-            <button class="char_btn code_btn" type="button">5</button>
-            <button class="char_btn code_btn" type="button">6</button>
-            <button class="char_btn code_btn" type="button">7</button>
-            <button class="char_btn code_btn" type="button">8</button>
-            <button class="char_btn code_btn" type="button">9</button>
-            <button class="char_btn code_btn" type="button">S</button>
-            <button class="char_btn code_btn" type="button">T</button>
-            <button class="char_btn code_btn" type="button">F</button>
-            <button class="char_btn code_btn" type="button">K</button>
-            <button class="char_btn code_btn" type="button">L</button>
-            <button class="char_btn code_btn" type="button">V</button>
-            <button class="extra_btn clear_btn code_btn" data-type="clear" type="button">C</button>
-            <button class="extra_btn delete_btn code_btn" data-type="remove" type="button"><</button>
-          </div>
-        </div>
-      </form>`;
-
-        let codeValue = ``;
-
-        const $codeDiv = document.querySelector(`.code_div`);
-        const $code = document.querySelector(`.code`);
-        const $a = document.createElement(`a`);
-        $codeDiv.appendChild($a);
-        $a.innerHTML = `Start!`;
-
-        const $allBtns = document.querySelectorAll(`.char_btn`);
-        const allBtnArray = Array.from($allBtns);
-        console.log($allBtns);
-
-        const $allExtraBtns = document.querySelectorAll(`.extra_btn`);
-        const allExtraBtnArray = Array.from($allExtraBtns);
-
-        allExtraBtnArray.map(btn => {
-          btn.addEventListener(`click`, e => {
-            if (e.currentTarget.dataset.type === `clear`) {
-              console.log("clear");
-              codeValue = ``;
-              $code.value = ``;
-            }
-
-            if (e.currentTarget.dataset.type === `remove`) {
-              console.log("remove");
-              codeValue = codeValue.substring(0, codeValue.length - 1);
-              $code.value = codeValue;
-            }
-          });
-        });
-
-        allBtnArray.map(btn => {
-          btn.addEventListener(`click`, e => {
-            if (codeValue.length >= 5) {
-              codeValue = codeValue;
-            } else {
-              codeValue += e.currentTarget.textContent;
-            }
-
-            $a.setAttribute(
-              `href`,
-              `index.php?page=routes&l=nl&code=${codeValue}`
-            );
-            $code.value = codeValue;
-          });
-        });
+        showCodeScreen($page4, 'dutch');
       }
 
       if (currentLanguage === `french`) {
-        $page4.innerHTML = `<a class="back_btn" > Retour</a >
-          <h1>Entrez votre code personnel<br />ici</h1>
-          <p class="sub_info">Vous pouvez le trouver dessus<br />billet choisi par vous</p>
-          <form>
-        <input type="hidden" name="action" value="entercode"/>
-        <input type="hidden" name="l" value="nl"/>
-        <div class="code_div">
-          <input type="text" name="code" class="code" maxlength="5"/>
-          <div class="character_btns">
-            <button class="char_btn" type="button">0</button>
-            <button class="char_btn" type="button">1</button>
-            <button class="char_btn" type="button">2</button>
-            <button class="char_btn" type="button">3</button>
-            <button class="char_btn" type="button">4</button>
-            <button class="char_btn" type="button">5</button>
-            <button class="char_btn" type="button">6</button>
-            <button class="char_btn" type="button">7</button>
-            <button class="char_btn" type="button">8</button>
-            <button class="char_btn" type="button">9</button>
-            <button class="char_btn" type="button">S</button>
-            <button class="char_btn" type="button">T</button>
-            <button class="char_btn" type="button">F</button>
-            <button class="char_btn" type="button">K</button>
-            <button class="char_btn" type="button">L</button>
-            <button class="char_btn" type="button">V</button>
-            <button class="char_btn" type="button">T</button>
-          </div>
-        </div>
-      </form>`;
-
-        const $codeDiv = document.querySelector(`.code_div`);
-        const $code = document.querySelector(`.code`);
-        const $a = document.createElement(`a`);
-        $codeDiv.appendChild($a);
-        $a.innerHTML = `Commencer!`;
-
-        const $allBtns = document.querySelectorAll(`char_btn`);
-        const allBtnArray = Array.from($allBtns);
-        allBtnArray.map(btn => {
-          btn.addEventListener(`click`, () => {
-            $a.setAttribute(
-              `href`,
-              `index.php?page=routes&l=en&code=${$code.value}`
-            );
-          });
-        });
+        showCodeScreen($page4, 'french');
       }
 
       if (currentLanguage === `english`) {
-        $page4.innerHTML = `< a class="back_btn" > Back</a >
-          <h1>Enter your personal code here</h1>
-          <p class="sub_info">You can find it on<br />the ticket you've chosen</p>
-          <form>
-        <input type="hidden" name="action" value="entercode"/>
-        <input type="hidden" name="l" value="nl"/>
-        <div class="code_div">
-          <input type="text" name="code" class="code" maxlength="5" disabled/>
-          <div class="character_btns">
-            <button class="char_btn" type="button">0</button>
-            <button class="char_btn" type="button">1</button>
-            <button class="char_btn" type="button">2</button>
-            <button class="char_btn" type="button">3</button>
-            <button class="char_btn" type="button">4</button>
-            <button class="char_btn" type="button">5</button>
-            <button class="char_btn" type="button">6</button>
-            <button class="char_btn" type="button">7</button>
-            <button class="char_btn" type="button">8</button>
-            <button class="char_btn" type="button">9</button>
-            <button class="char_btn" type="button">S</button>
-            <button class="char_btn" type="button">T</button>
-            <button class="char_btn" type="button">F</button>
-            <button class="char_btn" type="button">K</button>
-            <button class="char_btn" type="button">L</button>
-            <button class="char_btn" type="button">V</button>
-            <button class="char_btn" type="button">T</button>
-          </div>
-        </div>
-      </form>`;
-
-        const $codeDiv = document.querySelector(`.code_div`);
-        const $code = document.querySelector(`.code`);
-        const $a = document.createElement(`a`);
-        $codeDiv.appendChild($a);
-        $a.innerHTML = `Start!`;
-
-        const $allBtns = document.querySelectorAll(`char_btn`);
-        const allBtnArray = Array.from($allBtns);
-        allBtnArray.map(btn => {
-          btn.addEventListener(`click`, () => {
-            $a.setAttribute(
-              `href`,
-              `index.php?page=routes&l=en&code=${$code.value}`
-            );
-          });
-        });
+        showCodeScreen($page4, 'english');
       }
 
       const pageBtn = $page4.querySelector(`.back_btn`);

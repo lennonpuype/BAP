@@ -5,6 +5,9 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       $_SESSION['user']['l'] = "nl";
       $_SESSION['user']['codes'] = array();
       array_push($_SESSION['user']['codes'], $_GET['code']);
+
+      header('Location: index.php');
+      exit();
     }
   }
 
@@ -13,6 +16,9 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       $_SESSION['user']['l'] = "fr";
       $_SESSION['user']['codes'] = array();
       array_push($_SESSION['user']['codes'], $_GET['code']);
+
+      header('Location: index.php');
+      exit();
     }
   }
 
@@ -21,13 +27,16 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       $_SESSION['user']['l'] = "en";
       $_SESSION['user']['codes'] = array();
       array_push($_SESSION['user']['codes'], $_GET['code']);
+
+      header('Location: index.php');
+      exit();
     }
   }
 }
 ?>
 <?php if(!empty($_SESSION['user'])){ ?>
   <?php if($_SESSION['user']['l'] == 'nl'){ ?>
-    <div></div>
+    <div class="popup_code hidden"></div>
     <header class="header">
       <div class="icon"></div>
       <h1 class="page_title">Routes</h1>
@@ -45,7 +54,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       <article class="hidden">
         <?php
           foreach($routes as $route){
-            echo $route;
+            echo '<span class="routeId">'.$route.'</span>';
           }
         ?>
       </article>
