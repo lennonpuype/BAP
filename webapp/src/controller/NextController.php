@@ -15,54 +15,102 @@ class NextController extends Controller {
      $_SESSION['user']['unlockedroutes'] = array();
      foreach($_SESSION['user']['codes'] as $code){
 
-      if(strpos($code, "K") == false){
-        if(strpos($code, "K") == 0){
-          if(strpos($code, "S") == 1){
-            var_dump("Kortrijk Sporenroute");
-          }
-        }
-      }else if(strpos($code, "L") == false){
-        if(strpos($code, "L") == 0){
-          if(strpos($code, "S") == 1){
-            var_dump("Lille Sporenroute");
-          }
-        }
-      }else if(strpos($code, "V") == false){
-        if(strpos($code, "V") == 0){
-          if(strpos($code, "S") == 1){
-            var_dump("Valenciennnes Sporenroute");
-          }
-        }
-      }else if(strpos($code, "T") == false){
-        if(strpos($code, "T") == 0){
-          if(strpos($code, "S") == 1){
-            var_dump("Tournai Sporenroute");
-          }
+      $firstCharacter = $code[0];
+      $secondCharacter = $code[1];
+
+      if($firstCharacter == "K"){
+        if($secondCharacter == "T"){
+          var_dump("Kortrijk Talentroute");
+          array_push($_SESSION['user']['unlockedroutes'], "0");
         }
       }
 
-      var_dump(strpos($code, "V"));
-      // if(strpos($code, "S") == 1){
-      //     if(strpos($code, "K") == 0){
-      //       array_push($_SESSION['user']['unlockedroutes'], "0");
-      //     }
-      // }
+      if($firstCharacter == "K"){
+        if($secondCharacter == "S"){
+          var_dump("Kortrijk Sporenroute");
+          array_push($_SESSION['user']['unlockedroutes'], "1");
+        }
+      }
 
-      // if(strpos($code, "S") == 1){
-      //   if(strpos($code, "L")){
-      //     if(strpos($code, "L") == 0){
-      //       array_push($_SESSION['user']['unlockedroutes'], "3");
-      //     }
-      //   }
-      // }
+      if($firstCharacter == "K"){
+        if($secondCharacter == "F"){
+          var_dump("Kortrijk Futuristischeroute");
+          array_push($_SESSION['user']['unlockedroutes'], "2");
+        }
+      }
 
-      // if(strpos($code, "S") == 1){
-      //   if(strpos($code, "V")){
-      //     if(strpos($code, "V") == 0){
-      //       array_push($_SESSION['user']['unlockedroutes'], "6");
-      //     }
-      //   }
-      // }
+      if($firstCharacter == "L"){
+        if($secondCharacter == "T"){
+          var_dump("Lille Talentroute");
+          array_push($_SESSION['user']['unlockedroutes'], "3");
+        }
+      }
+
+      if($firstCharacter == "L"){
+        if($secondCharacter == "S"){
+          var_dump("Lille Sporenroute");
+          array_push($_SESSION['user']['unlockedroutes'], "4");
+        }
+      }
+
+      if($firstCharacter == "L"){
+        if($secondCharacter == "F"){
+          var_dump("Lille Futuristischeroute");
+          array_push($_SESSION['user']['unlockedroutes'], "5");
+        }
+      }
+
+      if($firstCharacter == "V"){
+        if($secondCharacter == "T"){
+          var_dump("Valenciennes Talentroute");
+          array_push($_SESSION['user']['unlockedroutes'], "6");
+        }
+      }
+
+
+      if($firstCharacter == "V"){
+        if($secondCharacter == "S"){
+          var_dump("Valenciennes Sporenroute");
+          array_push($_SESSION['user']['unlockedroutes'], "7");
+        }
+      }
+
+
+      if($firstCharacter == "V"){
+        if($secondCharacter == "F"){
+          var_dump("Valenciennes Futuristischeroute");
+          array_push($_SESSION['user']['unlockedroutes'], "8");
+        }
+      }
+
+
+      if($firstCharacter == "T"){
+        if($secondCharacter == "T"){
+          var_dump("Kortrijk Talentroute");
+          array_push($_SESSION['user']['unlockedroutes'], "9");
+        }
+      }
+
+
+      if($firstCharacter == "T"){
+        if($secondCharacter == "S"){
+          var_dump("Kortrijk Sporenroute");
+          array_push($_SESSION['user']['unlockedroutes'], "10");
+        }
+      }
+
+
+      if($firstCharacter == "T"){
+        if($secondCharacter == "F"){
+          var_dump("Kortrijk Futuristischeroute");
+          array_push($_SESSION['user']['unlockedroutes'], "11");
+        }
+      }
+
+
+
+
+
 
       var_dump($_SESSION['user']);
      }
