@@ -66,7 +66,7 @@ class NextController extends Controller {
     include 'mobiledetection.php';
     $detect = new Mobile_Detect();
 
-    // Check for any mobile device.
+    // Check for any mobile device. aanzetten ! weg doen
     if (!$detect->isMobile()){
       // mobile content
       header('Location: index.php?page='.$currentPage.'');
