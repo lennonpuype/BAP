@@ -12,7 +12,11 @@
     if ($index) {
       manageHomePage();
 
-      const startTags = ["Start exploring", "Commencez à explorer", "Start met verkennen"];
+      const startTags = [
+        "Start exploring",
+        "Commencez à explorer",
+        "Start met verkennen"
+      ];
 
       let iPrev = 0;
       const $startBtn = document.querySelector(`.startBtn`);
@@ -27,13 +31,10 @@
         }
 
         $startBtn.textContent = startTags[iNew];
-
       }, 1500);
 
       const $body = document.querySelector(`.body`);
       $body.removeAttribute("style");
-
-
     }
 
     const $routePage = document.querySelector(`.routePage`);
@@ -47,8 +48,6 @@
     console.log("lsfdjdsflkj");
 
     handleRouteJSON();
-
-
   };
 
   const handleRouteJSON = () => {
@@ -202,10 +201,8 @@
         const $allExtraBtns = document.querySelectorAll(`.extra_btn`);
         const allExtraBtnArray = Array.from($allExtraBtns);
 
-
         allExtraBtnArray.map(btn => {
           btn.addEventListener(`click`, e => {
-
             if (e.currentTarget.dataset.type === `clear`) {
               console.log("clear");
               codeValue = ``;
@@ -220,7 +217,6 @@
           });
         });
 
-
         allBtnArray.map(btn => {
           btn.addEventListener(`click`, e => {
             if (codeValue.length >= 5) {
@@ -229,14 +225,13 @@
               codeValue += e.currentTarget.textContent;
             }
 
-            $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${codeValue}`);
+            $a.setAttribute(
+              `href`,
+              `index.php?page=routes&l=nl&code=${codeValue}`
+            );
             $code.value = codeValue;
-
-
           });
         });
-
-
       }
 
       if (currentLanguage === `french`) {
@@ -280,7 +275,10 @@
         const allBtnArray = Array.from($allBtns);
         allBtnArray.map(btn => {
           btn.addEventListener(`click`, () => {
-            $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${$code.value}`);
+            $a.setAttribute(
+              `href`,
+              `index.php?page=routes&l=en&code=${$code.value}`
+            );
           });
         });
       }
@@ -326,7 +324,10 @@
         const allBtnArray = Array.from($allBtns);
         allBtnArray.map(btn => {
           btn.addEventListener(`click`, () => {
-            $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${$code.value}`);
+            $a.setAttribute(
+              `href`,
+              `index.php?page=routes&l=en&code=${$code.value}`
+            );
           });
         });
       }
@@ -337,8 +338,6 @@
         $page3.classList.remove(`inactive`);
       });
     });
-
-
   };
 
   init();
