@@ -58,7 +58,7 @@
   };
 
   const parseCities = data => {
-    const city = data.cities[0];
+    const city = data.cities[activeCityId];
     const routes = city.routes;
 
     routes.map(route => {
