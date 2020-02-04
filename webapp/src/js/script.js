@@ -42,6 +42,16 @@
     if ($routePage) {
       manageRoutePage();
     }
+
+    // fetch(`index.php?page=routes`, {
+    //   headers: new Headers({ Accept: 'application/json' }),
+    //   method: 'POST',
+    //   body: 'sdlfmldsfkmldsfkmldfsk'
+    // })
+    //   .then(r => r.json())
+    //   .then(json => {
+    //     console.log(json);
+    //   }).catch(err => console.log(err));
   };
 
   const manageRoutePage = () => {

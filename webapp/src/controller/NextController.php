@@ -12,6 +12,14 @@ class NextController extends Controller {
 
   public function routes(){
     if(!empty($_SESSION['user'])){
+
+      // if ($_SERVER['HTTP_ACCEPT'] == 'application/json') {
+      //   header('Content-Type: application/json');
+      //   var_dump(json_encode(array('user' => $_SESSION['user'], 'outcome' => 'success')));
+      //     echo json_encode(array('user' => $_SESSION['user'], 'outcome' => 'success')), "\n";
+      //     exit();
+      // }
+
      $_SESSION['user']['unlockedroutes'] = array();
      foreach($_SESSION['user']['codes'] as $code){
 
@@ -20,73 +28,70 @@ class NextController extends Controller {
 
       if($firstCharacter == "K"){
         if($secondCharacter == "T"){
-          var_dump("Kortrijk Talentroute");
+          //var_dump("Kortrijk Talentroute");
           array_push($_SESSION['user']['unlockedroutes'], "0");
         }
       }
 
       if($firstCharacter == "K"){
         if($secondCharacter == "S"){
-          var_dump("Kortrijk Sporenroute");
+          //var_dump("Kortrijk Sporenroute");
           array_push($_SESSION['user']['unlockedroutes'], "1");
         }
       }
 
       if($firstCharacter == "K"){
         if($secondCharacter == "F"){
-          var_dump("Kortrijk Futuristischeroute");
+          //var_dump("Kortrijk Futuristischeroute");
           array_push($_SESSION['user']['unlockedroutes'], "2");
         }
       }
 
       if($firstCharacter == "L"){
         if($secondCharacter == "T"){
-          var_dump("Lille Talentroute");
+          //var_dump("Lille Talentroute");
           array_push($_SESSION['user']['unlockedroutes'], "3");
         }
       }
 
       if($firstCharacter == "L"){
         if($secondCharacter == "S"){
-          var_dump("Lille Sporenroute");
+          //var_dump("Lille Sporenroute");
           array_push($_SESSION['user']['unlockedroutes'], "4");
         }
       }
 
       if($firstCharacter == "L"){
         if($secondCharacter == "F"){
-          var_dump("Lille Futuristischeroute");
+          //var_dump("Lille Futuristischeroute");
           array_push($_SESSION['user']['unlockedroutes'], "5");
         }
       }
 
       if($firstCharacter == "V"){
         if($secondCharacter == "T"){
-          var_dump("Valenciennes Talentroute");
+          //var_dump("Valenciennes Talentroute");
           array_push($_SESSION['user']['unlockedroutes'], "6");
         }
       }
 
-
       if($firstCharacter == "V"){
         if($secondCharacter == "S"){
-          var_dump("Valenciennes Sporenroute");
+          //var_dump("Valenciennes Sporenroute");
           array_push($_SESSION['user']['unlockedroutes'], "7");
         }
       }
 
-
       if($firstCharacter == "V"){
         if($secondCharacter == "F"){
-          var_dump("Valenciennes Futuristischeroute");
+          //var_dump("Valenciennes Futuristischeroute");
           array_push($_SESSION['user']['unlockedroutes'], "8");
         }
       }
 
-
       if($firstCharacter == "T"){
         if($secondCharacter == "T"){
-          var_dump("Kortrijk Talentroute");
+          //var_dump("Kortrijk Talentroute");
           array_push($_SESSION['user']['unlockedroutes'], "9");
         }
       }
@@ -106,14 +111,11 @@ class NextController extends Controller {
           array_push($_SESSION['user']['unlockedroutes'], "11");
         }
       }
-
-
-
-
-
-
-      var_dump($_SESSION['user']);
      }
+
+     $routes = $_SESSION['user']['unlockedroutes'];
+
+     $this->set('routes', $routes);
     }
   }
 
