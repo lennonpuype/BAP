@@ -15,21 +15,54 @@ class NextController extends Controller {
      $_SESSION['user']['unlockedroutes'] = array();
      foreach($_SESSION['user']['codes'] as $code){
 
-      if(strpos($code, "S") == 1 && strpos($code, "K") == 0){
-        array_push($_SESSION['user']['unlockedroutes'], "0");
+      if(strpos($code, "K") == false){
+        if(strpos($code, "K") == 0){
+          if(strpos($code, "S") == 1){
+            var_dump("Kortrijk Sporenroute");
+          }
+        }
+      }else if(strpos($code, "L") == false){
+        if(strpos($code, "L") == 0){
+          if(strpos($code, "S") == 1){
+            var_dump("Lille Sporenroute");
+          }
+        }
+      }else if(strpos($code, "V") == false){
+        if(strpos($code, "V") == 0){
+          if(strpos($code, "S") == 1){
+            var_dump("Valenciennnes Sporenroute");
+          }
+        }
+      }else if(strpos($code, "T") == false){
+        if(strpos($code, "T") == 0){
+          if(strpos($code, "S") == 1){
+            var_dump("Tournai Sporenroute");
+          }
+        }
       }
 
-      if(strpos($code, "S") == 1 && strpos($code, "L") == 0){
-        array_push($_SESSION['user']['unlockedroutes'], "3");
-      }
+      var_dump(strpos($code, "V"));
+      // if(strpos($code, "S") == 1){
+      //     if(strpos($code, "K") == 0){
+      //       array_push($_SESSION['user']['unlockedroutes'], "0");
+      //     }
+      // }
 
-      if(strpos($code, "S") == 1 && strpos($code, "V") == 0){
-        array_push($_SESSION['user']['unlockedroutes'], "6");
-      }
+      // if(strpos($code, "S") == 1){
+      //   if(strpos($code, "L")){
+      //     if(strpos($code, "L") == 0){
+      //       array_push($_SESSION['user']['unlockedroutes'], "3");
+      //     }
+      //   }
+      // }
 
-      if(strpos($code, "T") == 1 && strpos($code, "T") == 0){
-        array_push($_SESSION['user']['unlockedroutes'], "9");
-      }
+      // if(strpos($code, "S") == 1){
+      //   if(strpos($code, "V")){
+      //     if(strpos($code, "V") == 0){
+      //       array_push($_SESSION['user']['unlockedroutes'], "6");
+      //     }
+      //   }
+      // }
 
       var_dump($_SESSION['user']);
      }
@@ -67,7 +100,7 @@ class NextController extends Controller {
     $detect = new Mobile_Detect();
 
     // Check for any mobile device.
-    if (!$detect->isMobile()){
+    if ($detect->isMobile()){
       // mobile content
       header('Location: index.php?page='.$currentPage.'');
       exit();
