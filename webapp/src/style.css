@@ -233,3 +233,17 @@ input:focus {
   outline: none;
   color: dodgerblue;
 } */
+
+.content{
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(255,255,255,.8);
+  width: 10rem;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+#map{
+  height: 50rem;
+  width: 50rem;
+}
