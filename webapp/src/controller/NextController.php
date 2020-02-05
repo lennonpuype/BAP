@@ -11,8 +11,20 @@ class NextController extends Controller {
   }
 
   public function routes(){
-    if(!empty($_SESSION['user'])){
+    if(!empty($_GET['action']) && $_GET['action'] == "enternewcode"){
+      if(!empty($_GET['code'])){
+        array_push($_SESSION['user']['codes'], $_GET['code']);
 
+        header('Location: index.php');
+        exit();
+      }else{
+        header('Location: index.php');
+        exit();
+      }
+    }
+
+    if(!empty($_SESSION['user'])){
+      var_dump($_SESSION['user']['codes']);
       // if ($_SERVER['HTTP_ACCEPT'] == 'application/json') {
       //   header('Content-Type: application/json');
       //   var_dump(json_encode(array('user' => $_SESSION['user'], 'outcome' => 'success')));

@@ -6,6 +6,7 @@
 
   let currentLanguage;
   let activeCityId = 0;
+  let unlockedRouteId = [];
 
   const init = () => {
     const $index = document.querySelector(`.index`);
@@ -72,6 +73,48 @@
     routes.map(route => {
       createRouteCards(route);
     });
+
+    const $a = document.querySelectorAll(`.route_button`);
+    const allA = Array.from($a);
+
+    const $routeIds = document.querySelectorAll(`.routeId`);
+    const routeIdArray = Array.from($routeIds);
+    routeIdArray.map(routeId => {
+      unlockedRouteId.push(routeId.textContent);
+    });
+
+    for (let i = 0; i < allA.length; i++) {
+      const unlockedRouteIdNew = unlockedRouteId.sort();
+      console.log(allA[i]);
+      console.log(unlockedRouteIdNew[i]);
+      console.log(allA[i].dataset.id);
+      console.log("");
+
+      if (unlockedRouteIdNew[i] !== undefined) {
+        allA[i].setAttribute(`href`, `#`);
+        allA[i].classList.add(`locked`);
+        allA[i].classList.remove(`unlocked`);
+        allA[i].textContent = `Voer code in`;
+      } else {
+        //console.log("unlocked");
+        allA[i].setAttribute(`href`, `index.php?page=route&id=${routes[i].id}`);
+        allA[i].classList.add(`unlocked`);
+        allA[i].classList.remove(`locked`);
+        allA[i].textContent = `Start`;
+      }
+
+      const $lockedRoutes = document.querySelectorAll(`.locked`);
+      const lockedRoutesArray = Array.from($lockedRoutes);
+      const $routePage = document.querySelector(`.routePage`);
+      lockedRoutesArray.map(lockedRoute => {
+        lockedRoute.addEventListener(`click`, e => {
+          const $popup = document.querySelector(`.popup_code`);
+          $popup.classList.remove(`hidden`);
+          $routePage.classList.add(`hidden`);
+          showPopupCodeScreen(currentLanguage, $popup);
+        });
+      });
+    }
   };
 
   const createRouteCards = route => {
@@ -93,39 +136,15 @@
     $h1.classList.add(`route_name`);
     $ul.classList.add(`route_parameters`);
     $li.classList.add(`route_parameter`);
+    $a.classList.add(`route_button`);
+
+    $a.dataset.id = route.id;
 
     $h1.textContent = route.name;
 
     $ul.innerHTML = `<li class="route_parameter">${route.distance}</li>
     <li class="route_parameter">${route.time}</li>
     <li class="route_parameter">${route.waypoints.length} points</li>`;
-
-    const $routeIds = document.querySelectorAll(`.routeId`);
-    const routeIdArray = Array.from($routeIds);
-    routeIdArray.map(routeIdEl => {
-      const routeId = routeIdEl.textContent;
-
-      if (parseInt(routeId) !== route.id) {
-        $a.setAttribute(`href`, `#`);
-        $a.classList.add(`locked`);
-        $a.textContent = `Voer code in`;
-      } else {
-        $a.setAttribute(`href`, `index.php?page=route&id=${route.id}`);
-        $a.classList.add(`unlocked`);
-        $a.textContent = `Start`;
-      }
-    });
-
-    const $lockedRoutes = document.querySelectorAll(`.locked`);
-    const lockedRoutesArray = Array.from($lockedRoutes);
-    lockedRoutesArray.map(lockedRoute => {
-      lockedRoute.addEventListener(`click`, e => {
-        const $popup = document.querySelector(`.popup_code`);
-        $popup.classList.remove(`hidden`);
-
-        showPopupCodeScreen(currentLanguage, $popup);
-      });
-    });
   };
 
   const showPopupCodeScreen = (language, $popup) => {
@@ -197,12 +216,12 @@
 
         $a.setAttribute(
           `href`,
-          `index.php?page=routes&l=nl&code=${codeValue}`
+          `index.php?page=routes&l=nl&code=${codeValue}&action=enternewcode`
         );
         $code.value = codeValue;
       });
     });
-  }
+  };
 
   const showCodeScreen = (page, language) => {
     let codeValue = ``;
@@ -359,7 +378,7 @@
         $code.value = codeValue;
       });
     });
-  }
+  };
 
   const manageHomePage = () => {
     //Handle Page 1
