@@ -195,6 +195,10 @@ a {
   background-color: orange;
 }
 
+.hidden{
+  display: none;
+}
+
 .code_btn {
   margin: 0.5rem;
   width: 5rem;

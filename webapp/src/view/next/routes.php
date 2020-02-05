@@ -5,10 +5,10 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       $_SESSION['user']['l'] = "nl";
       $_SESSION['user']['codes'] = array();
       array_push($_SESSION['user']['codes'], $_GET['code']);
-      //$_SESSION['user']['unlockedroutes'] =
+
+      header('Location: index.php');
+      exit();
     }
-
-
   }
 
   if($_GET['l'] == 'fr'){
@@ -16,6 +16,9 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       $_SESSION['user']['l'] = "fr";
       $_SESSION['user']['codes'] = array();
       array_push($_SESSION['user']['codes'], $_GET['code']);
+
+      header('Location: index.php');
+      exit();
     }
   }
 
@@ -24,14 +27,16 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       $_SESSION['user']['l'] = "en";
       $_SESSION['user']['codes'] = array();
       array_push($_SESSION['user']['codes'], $_GET['code']);
+
+      header('Location: index.php');
+      exit();
     }
   }
-
-
 }
 ?>
 <?php if(!empty($_SESSION['user'])){ ?>
   <?php if($_SESSION['user']['l'] == 'nl'){ ?>
+    <div class="popup_code hidden"></div>
     <header class="header">
       <div class="icon"></div>
       <h1 class="page_title">Routes</h1>
@@ -46,6 +51,13 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
           <li class="city" data-id="3">Valenciennes</li>
         </ul>
       </nav>
+      <article class="hidden">
+        <?php
+          foreach($routes as $route){
+            echo '<span class="routeId">'.$route.'</span>';
+          }
+        ?>
+      </article>
       <section class="routes"></section>
     </main>
   <?php } ?>
@@ -88,13 +100,13 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
         <li>Tournai</li>
         <li>Valenciennes</li>
       </ul>
-      <article>
-        <h1>1. Route</h1>
-        <ul>
-          <li>3km</li>
-          <li>40min</li>
-        </ul>
-        <a href="index.php?page=route&id=1">Start</a>
+      <article class="hidden">
+        <?php
+var_dump($routes);
+          foreach($routes as $route){
+            var_dump($route);
+          }
+        ?>
       </article>
 
       <article>
