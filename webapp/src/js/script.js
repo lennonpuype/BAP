@@ -47,6 +47,7 @@
     const $singleRoutePage = document.querySelector(`.singleRoutePage`);
     if ($singleRoutePage) {
       handleMaps();
+      handleAR();
     }
 
     // fetch(`index.php?page=routes`, {
@@ -480,6 +481,26 @@
     });
   };
 
+  /*AR*/
+  const handleAR = () => {
+    //Show AR Screen
+    const $arBtn = document.querySelector(`.arBtn`);
+    $arBtn.addEventListener(`click`, () => {
+      const $pageTitle = document.querySelector(`.page_title`);
+      const $content = document.querySelector(`.content`);
+      const $map = document.getElementById(`map`);
+
+      $pageTitle.classList.add(`hidden`);
+      $content.classList.add(`hidden`);
+      $map.classList.add(`hidden`);
+
+      const $arPage = document.querySelector(`.arPage`);
+      $arPage.innerHTML = `<div class="arscene_div">
+      <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
+      </div>`;
+    });
+  };
+
   /*Routes*/
   let mapData = {};
   let userLocation = {};
@@ -543,14 +564,27 @@
             }
           });
 
-
+          map.addEventListener(`drag`, e => {
+            const $content = document.querySelector(`.content`);
+            $content.classList.add(`hidden`);
+          });
 
           const $h1 = document.createElement(`h1`);
+          const $p = document.createElement(`p`);
+          const $button = document.createElement(`button`);
+
           const $content = document.querySelector(`.content`);
           $content.textContent = ``;
           $content.appendChild($h1);
+          $content.appendChild($p);
+          $content.appendChild($button);
 
           $h1.textContent = clickedWaypoint.name;
+          $p.textContent = clickedWaypoint.description;
+          $button.textContent = `Meer info`;
+          $button.addEventListener(`click`, e => {
+            handleClickMoreInfoButton(clickedWaypoint);
+          });
         });
       });
 
@@ -563,24 +597,49 @@
     });
   };
 
+  const handleClickMoreInfoButton = waypoint => {
+    console.log(waypoint);
+    //Delete content for better performance
+    const $existingPage = document.querySelector(`.singleRoutePage`);
+    $existingPage.classList.add(`hidden`);
+
+    //Create Page above existing content
+    const $detailPage = document.querySelector(`.detailPage`);
+    $detailPage.classList.remove(`hidden`);
+    $detailPage.textContent = ``;
+    const $article = document.createElement(`article`);
+    const $h1 = document.createElement(`h1`);
+    const $button = document.createElement(`button`);
+    $article.classList.add(`detail_page`);
+
+
+    $detailPage.appendChild($article);
+    $article.appendChild($h1);
+    $h1.textContent = waypoint.name;
+    $article.appendChild($button);
+    $button.textContent = `Terug`;
+    $button.addEventListener(`click`, e => {
+      $existingPage.classList.remove(`hidden`);
+      $detailPage.classList.add(`hidden`);
+    });
+  };
 
   const getClickPosition = e => {
-    const xPosition = e.currentPointer.viewportX;
-    const yPosition = e.currentPointer.viewportY;
-
     const $content = document.querySelector(`.content`);
+
+    const contentStyle = getComputedStyle($content);
+
+    const xPosition = e.currentPointer.viewportX - (parseInt(contentStyle.width) / 2);
+    const yPosition = e.currentPointer.viewportY - (parseInt(contentStyle.height) / 2);
+
     $content.style.top = `${yPosition}px`;
     $content.style.left = `${xPosition}px`;
 
-
     $content.classList.remove(`hidden`);
-
-
-    console.log(e);
   };
 
   const findWaypoint = (lat, lng, waypoints) => {
-    const triggeredWaypoint = waypoints.filter(waypoint => String(waypoint.geolocation.lat).substring(0, 8) === String(lat).substring(0, 8))
+    const triggeredWaypoint = waypoints.filter(waypoint => String(waypoint.geolocation.lat).substring(0, 8) === String(lat).substring(0, 8));
     return triggeredWaypoint[0];
   };
 
@@ -592,7 +651,7 @@
     map = new H.Map(document.getElementById('map'),
       defaultLayers.vector.normal.map, {
       center: { lat: mapData.lat, lng: mapData.lng },
-      style: "alps",
+      style: "default",
       zoom: mapData.zm,
       pixelRatio: window.devicePixelRatio || 1
     });

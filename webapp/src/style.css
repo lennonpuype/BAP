@@ -238,12 +238,14 @@ input:focus {
   position: absolute;
   z-index: 1;
   background-color: rgba(255,255,255,.8);
-  width: 10rem;
   text-align: center;
   font-family: sans-serif;
+  padding: 1rem 2rem;
+  max-width: 20rem;
 }
 
 #map{
   height: 50rem;
-  width: 50rem;
+  min-width: 0;
+  max-width: 100%;
 }
