@@ -115,6 +115,13 @@
         });
       });
     }
+
+    const $startBtn = document.querySelector(`.unlocked`);
+    $startBtn.addEventListener(`click`, handleClickUnlockedStartButton);
+  };
+
+  const handleClickUnlockedStartButton = e => {
+    console.log(e);
   };
 
   const createRouteCards = route => {
