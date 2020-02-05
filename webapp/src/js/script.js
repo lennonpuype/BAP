@@ -63,6 +63,27 @@
 
   const manageRoutePage = () => {
     handleRouteJSON();
+    tabbarManager();
+  };
+
+  const tabbarManager = () => {
+    const $tabItems = document.querySelectorAll(`.city_link`);
+    const tabItemArray = Array.from($tabItems);
+    tabItemArray.map(item => {
+      item.addEventListener(`click`, e => {
+        tabItemArray.map(singleItem => {
+          singleItem.classList.remove(`active_city`);
+        });
+        handleClickTabItem(e);
+      });
+    });
+  };
+
+  const handleClickTabItem = e => {
+    const currentTarget = e.currentTarget;
+    currentTarget.classList.add(`active_city`);
+    activeCityId = currentTarget.dataset.id;
+    handleRouteJSON();
   };
 
   const handleRouteJSON = () => {
@@ -75,6 +96,9 @@
   const parseCities = data => {
     const city = data.cities[activeCityId];
     const routes = city.routes;
+
+    const $routes = document.querySelector(`.routes`);
+    $routes.textContent = ``;
 
     routes.map(route => {
       createRouteCards(route);

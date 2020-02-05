@@ -24,7 +24,7 @@ class NextController extends Controller {
     }
 
     if(!empty($_SESSION['user'])){
-      var_dump($_SESSION['user']['codes']);
+      // var_dump($_SESSION['user']['codes']);
       // if ($_SERVER['HTTP_ACCEPT'] == 'application/json') {
       //   header('Content-Type: application/json');
       //   var_dump(json_encode(array('user' => $_SESSION['user'], 'outcome' => 'success')));

@@ -45,10 +45,10 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
     <main class="routePage">
       <nav class="cities_nav">
         <ul class="cities">
-          <li class="city active" data-id="0">Kortrijk</li>
-          <li class="city" data-id="1">Rijsel</li>
-          <li class="city" data-id="2">Doornik</li>
-          <li class="city" data-id="3">Valenciennes</li>
+          <li class="city_link active_city" data-id="0">Kortrijk</li>
+          <li class="city_link" data-id="1">Rijsel</li>
+          <li class="city_link" data-id="2">Doornik</li>
+          <li class="city_link" data-id="3">Valenciennes</li>
         </ul>
       </nav>
       <article class="hidden">

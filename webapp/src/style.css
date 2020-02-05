@@ -249,3 +249,12 @@ input:focus {
   min-width: 0;
   max-width: 100%;
 }
+
+.active_city{
+  color: purple;
+  font-size: 2rem;
+}
+
+.city_link{
+  cursor: pointer;
+}
