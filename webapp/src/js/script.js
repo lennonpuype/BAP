@@ -79,28 +79,31 @@
 
     const $routeIds = document.querySelectorAll(`.routeId`);
     const routeIdArray = Array.from($routeIds);
+
     routeIdArray.map(routeId => {
       unlockedRouteId.push(routeId.textContent);
+      unlockedRouteId.sort();
     });
 
-    for (let i = 0; i < allA.length; i++) {
-      const unlockedRouteIdNew = unlockedRouteId.sort();
-      console.log(allA[i]);
-      console.log(unlockedRouteIdNew[i]);
-      console.log(allA[i].dataset.id);
-      console.log("");
+    console.log(unlockedRouteId);
 
-      if (unlockedRouteIdNew[i] !== undefined) {
-        allA[i].setAttribute(`href`, `#`);
-        allA[i].classList.add(`locked`);
-        allA[i].classList.remove(`unlocked`);
-        allA[i].textContent = `Voer code in`;
-      } else {
-        //console.log("unlocked");
+    for (let i = 0; i < allA.length; i++) {
+      // console.log(unlockedRouteIdNew[i]);
+      // console.log(allA[i].dataset.id);
+      // console.log("");
+
+      if (unlockedRouteId[i] !== undefined) {
         allA[i].setAttribute(`href`, `index.php?page=route&id=${routes[i].id}`);
         allA[i].classList.add(`unlocked`);
         allA[i].classList.remove(`locked`);
         allA[i].textContent = `Start`;
+      }
+
+      if (unlockedRouteId[i] === undefined) {
+        allA[i].setAttribute(`href`, `#`);
+        allA[i].classList.add(`locked`);
+        allA[i].classList.remove(`unlocked`);
+        allA[i].textContent = `Voer code in`;
       }
 
       const $lockedRoutes = document.querySelectorAll(`.locked`);
@@ -378,10 +381,7 @@
           codeValue += e.currentTarget.textContent;
         }
 
-        $a.setAttribute(
-          `href`,
-          `index.php?page=routes&l=nl&code=${codeValue}`
-        );
+        $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${codeValue}`);
         $code.value = codeValue;
       });
     });
@@ -463,15 +463,15 @@
       $page4.classList.remove(`inactive`);
 
       if (currentLanguage === `dutch`) {
-        showCodeScreen($page4, 'dutch');
+        showCodeScreen($page4, "dutch");
       }
 
       if (currentLanguage === `french`) {
-        showCodeScreen($page4, 'french');
+        showCodeScreen($page4, "french");
       }
 
       if (currentLanguage === `english`) {
-        showCodeScreen($page4, 'english');
+        showCodeScreen($page4, "english");
       }
 
       const pageBtn = $page4.querySelector(`.back_btn`);
