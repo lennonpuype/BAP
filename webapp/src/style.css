@@ -21,10 +21,14 @@ html {
 html,
 body {
   height: 100%;
+  font-family: Lato;
+  font-weight: 400;
 }
 
 .page_btn {
   cursor: pointer;
+  font-size: 1.8rem;
+  font-family: Raleway;
 }
 
 .inactive {
@@ -50,25 +54,55 @@ a {
   height: 100%;
 }
 
-.page1 > .page_btn,
-.page3 > .page_btn,
-.page4 > .page_btn {
+.page1 .page_btn,
+.page3 .page_btn,
+.page4 .page_btn {
   font-weight: bold;
-  padding: 1rem 2rem;
-  background-color: darkgray;
-  border-radius: 1rem;
+  font-size: 2rem;
+  padding: 2rem 3rem;
+  background: var(--darkpurple);
+  background: linear-gradient(90deg, var(--darkpurple) 0%, var(--lightpurple) 100%);
+  color: white;
+  border-radius: 1rem 0 0 1rem;
   margin-top: 2rem;
-  color: black;
+  right: 0;
+  bottom: 5rem;
+  position: absolute;
+
+  text-align: center;
+  font-family: lato;
+}
+
+.variable_button {
+  min-width: 30rem;
+}
+
+.constant_button {
+  min-width: auto;
+}
+
+.page_btn:hover{
+  background-image: url(./assets/img/button_bg.jpg);
+  background-size: cover;
+  color: white;
+  font-weight: bold;
 }
 
 .language {
   cursor: pointer;
   text-align: center;
-  font-weight: bold;
-  padding: 1rem 4rem;
-  border-radius: 2rem;
-  border: 0.2rem solid black;
+  font-weight: regular;
+  padding: 1.5rem 8rem;
+  border-radius: 1rem;
 }
+
+.language:hover {
+  background-image: url(./assets/img/button_bg.jpg);
+  background-size: cover;
+  color: white;
+  font-weight: bold;
+}
+
 
 .language:nth-of-type(2) {
   margin: 3rem 0;
@@ -152,9 +186,12 @@ a {
 }
 
 .arscene_div {
-  width: 80%;
-  height: 70%;
+  width: 90%;
+  height: 50rem;
   margin: 2rem 0;
+  border: .2rem solid var(--darkpurple);
+  border-radius: 1rem;
+  overflow: hidden;
 }
 
 .arscene_iframe {
@@ -200,39 +237,49 @@ a {
 }
 
 .code_btn {
+  font-family: Raleway;
   margin: 0.5rem;
-  width: 5rem;
-  height: 5rem;
+  width: 6rem;
+  height: 6rem;
   border-radius: 52rem;
-  color: white;
-  font-size: 2rem;
+  color: var(--lightpurple);
+  font-size: 3rem;
+  border: none;
+  background-color: white;
+}
+
+.help_btn_code{
+  padding: 1rem 1rem 0;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.extra_btn{
+  font-weight: bold;
+}
+
+.clear_btn{
+  color: var(--red);
+}
+
+.delete_btn{
+  color: var(--yellow);
+}
+
+.code_input{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .character_btns {
   display: flex;
   flex-wrap: wrap;
-  width: 25rem;
+  width: 28rem;
+  position: absolute;
+  bottom: 5rem;
 }
-
-/* input {
-  border: none;
-  width: 7.5ch;
-  background:
-    repeating-linear-gradient(90deg,
-        black 0,
-        black 1ch,
-        transparent 0,
-        transparent 1.5ch)
-      0 100%/100% 2px no-repeat;
-  color: black;
-  font: 5ch arial, monospace;
-  letter-spacing: .5ch;
-}
-
-input:focus {
-  outline: none;
-  color: dodgerblue;
-} */
 
 .content{
   position: absolute;
@@ -251,7 +298,7 @@ input:focus {
 }
 
 .active_city{
-  color: purple;
+  color: var(--darkpurple);
   font-size: 2rem;
 }
 
@@ -271,3 +318,52 @@ input:focus {
   justify-content: center;
 }
 
+.head_title{
+  font-family: Raleway;
+  color: var(--darkpurple);
+  font-size: 4rem;
+  -webkit-text-shadow: -.1rem 0 0 0 rgba(255,255,255,1);
+  -moz-text-shadow: -.1 0 0 0 rgba(255,255,255,1);
+  text-shadow: -.1 0 0 #FFFFFF;
+}
+
+.btn_shadow{
+  -webkit-box-shadow: 0 1.7rem 2.3rem -2.4rem rgba(110,110,110,1);
+  -moz-box-shadow: 0 1.7rem 2.3rem -2.4rem rgba(110,110,110,1);
+  box-shadow: 0 1.7rem 2.3rem -2.4rem rgba(110,110,110,1);
+}
+
+.page_title_small{
+  font-family: Raleway;
+  font-size: 2.5rem;
+  color: var(--darkpurple);
+}
+
+.test_ar_div {
+  margin-top: -5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.neumorphism_box{
+  border-radius: 2rem;
+  background: #FFFFFF;
+  -webkit-box-shadow:  1.2rem 1.2rem 2.4rem #c7c7c7, -1.2rem -1.2rem 2.4rem #ffffff;
+  -moz-box-shadow:  1.2rem 1.2rem 2.4rem #c7c7c7, -1.2rem -1.2rem 2.4rem #ffffff;
+  box-shadow:  1.2rem 1.2rem 2.4rem #c7c7c7, -1.2rem -1.2rem 2.4rem #ffffff;
+}
+
+.code{
+  border: none;
+  height: 6rem;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 30rem;
+  margin-top: 2rem;
+}
+
+.code_content{
+  margin-top: -47rem;
+}

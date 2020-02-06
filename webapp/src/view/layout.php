@@ -26,7 +26,7 @@
   <script>
       WebFontConfig = {
         google: {
-          families: ["Karla:400,400i,700,700i"]
+          families: ["Lato:300,300i,400,400i,700,700i,900,900i","Raleway:300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"]
         }
       };
 

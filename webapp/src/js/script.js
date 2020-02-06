@@ -14,9 +14,9 @@
       manageHomePage();
 
       const startTags = [
-        "Start exploring",
-        "Commencez à explorer",
-        "Start met verkennen"
+        "Start exploring >",
+        "Commencez à explorer >",
+        "Start met verkennen >"
       ];
 
       let iPrev = 0;
@@ -133,7 +133,7 @@
         allA[i].setAttribute(`href`, `#`);
         allA[i].classList.add(`locked`);
         allA[i].classList.remove(`unlocked`);
-        allA[i].textContent = `Voer code in`;
+        allA[i].textContent = `Voer code in >`;
       }
 
       const $lockedRoutes = document.querySelectorAll(`.locked`);
@@ -262,116 +262,131 @@
 
     if (language === "dutch") {
       page.innerHTML = `<a class="back_btn">Terug</a>
-    <h1>Voer je persoonlijke code<br/>hier in</h1>
-    <p class="sub_info">Deze kan je vinden op het<br/>door jou gekozen ticketje</p>
+      <div class="code_content">
+    <h1 class="page_title_small">Voer je persoonlijke code<br/>hier in</h1>
+    <p class="sub_info">Deze kan je vinden op het door<br/>jou gekozen ticketje</p>
     <form>
       <input type="hidden" name="action" value="entercode"/>
       <input type="hidden" name="l" value="nl"/>
       <div class="code_div">
-        <input type="text" name="code" class="code" maxlength="5" disabled/>
+        <div class="code_input">
+        <input type="text" name="code" class="code neumorphism_box" maxlength="5" disabled/>
+        <button class="help_btn_code">Hulp nodig?</button>
+        </div>
         <div class="character_btns">
-          <button class="char_btn code_btn" type="button">0</button>
-          <button class="char_btn code_btn" type="button">1</button>
-          <button class="char_btn code_btn" type="button">2</button>
-          <button class="char_btn code_btn" type="button">3</button>
-          <button class="char_btn code_btn" type="button">4</button>
-          <button class="char_btn code_btn" type="button">5</button>
-          <button class="char_btn code_btn" type="button">6</button>
-          <button class="char_btn code_btn" type="button">7</button>
-          <button class="char_btn code_btn" type="button">8</button>
-          <button class="char_btn code_btn" type="button">9</button>
-          <button class="char_btn code_btn" type="button">S</button>
-          <button class="char_btn code_btn" type="button">T</button>
-          <button class="char_btn code_btn" type="button">F</button>
-          <button class="char_btn code_btn" type="button">K</button>
-          <button class="char_btn code_btn" type="button">L</button>
-          <button class="char_btn code_btn" type="button">V</button>
-          <button class="extra_btn clear_btn code_btn" data-type="clear" type="button">C</button>
-          <button class="extra_btn delete_btn code_btn" data-type="remove" type="button"><</button>
+          <button class="char_btn code_btn btn_shadow" type="button">0</button>
+          <button class="char_btn code_btn btn_shadow" type="button">1</button>
+          <button class="char_btn code_btn btn_shadow" type="button">2</button>
+          <button class="char_btn code_btn btn_shadow" type="button">3</button>
+          <button class="char_btn code_btn btn_shadow" type="button">4</button>
+          <button class="char_btn code_btn btn_shadow" type="button">5</button>
+          <button class="char_btn code_btn btn_shadow" type="button">6</button>
+          <button class="char_btn code_btn btn_shadow" type="button">7</button>
+          <button class="char_btn code_btn btn_shadow" type="button">8</button>
+          <button class="char_btn code_btn btn_shadow" type="button">9</button>
+          <button class="char_btn code_btn btn_shadow" type="button">S</button>
+          <button class="char_btn code_btn btn_shadow" type="button">T</button>
+          <button class="char_btn code_btn btn_shadow" type="button">F</button>
+          <button class="char_btn code_btn btn_shadow" type="button">K</button>
+          <button class="char_btn code_btn btn_shadow" type="button">L</button>
+          <button class="char_btn code_btn btn_shadow" type="button">V</button>
+          <button class="extra_btn delete_btn code_btn btn_shadow" data-type="remove" type="button"><</button>
+          <button class="extra_btn clear_btn code_btn btn_shadow" data-type="clear" type="button">C</button>
         </div>
       </div>
-    </form>`;
+    </form></div>`;
 
       const $codeDiv = document.querySelector(`.code_div`);
 
       $codeDiv.appendChild($a);
-      $a.innerHTML = `Start!`;
+      $a.classList.add(`page_btn`, `btn_shadow`);
+      $a.innerHTML = `Ga verder >`;
     }
 
     if (language === "french") {
       page.innerHTML = `<a class="back_btn">Retour</a>
-    <h1>Entrez votre code personnel</h1>
+      <div class="code_content">
+    <h1 class="page_title_small">Entrez votre code personnel</h1>
     <p class="sub_info">Vous le trouverez<br/>au le ticket vous choisisez</p>
     <form>
       <input type="hidden" name="action" value="entercode"/>
       <input type="hidden" name="l" value="nl"/>
       <div class="code_div">
-        <input type="text" name="code" class="code" maxlength="5" disabled/>
+        <div class="code_input">
+        <input type="text" name="code" class="code neumorphism_box" maxlength="5" disabled/>
+        <button class="help_btn_code">Aider?</button>
+        </div>
         <div class="character_btns">
-          <button class="char_btn code_btn" type="button">0</button>
-          <button class="char_btn code_btn" type="button">1</button>
-          <button class="char_btn code_btn" type="button">2</button>
-          <button class="char_btn code_btn" type="button">3</button>
-          <button class="char_btn code_btn" type="button">4</button>
-          <button class="char_btn code_btn" type="button">5</button>
-          <button class="char_btn code_btn" type="button">6</button>
-          <button class="char_btn code_btn" type="button">7</button>
-          <button class="char_btn code_btn" type="button">8</button>
-          <button class="char_btn code_btn" type="button">9</button>
-          <button class="char_btn code_btn" type="button">S</button>
-          <button class="char_btn code_btn" type="button">T</button>
-          <button class="char_btn code_btn" type="button">F</button>
-          <button class="char_btn code_btn" type="button">K</button>
-          <button class="char_btn code_btn" type="button">L</button>
-          <button class="char_btn code_btn" type="button">V</button>
-          <button class="extra_btn clear_btn code_btn" data-type="clear" type="button">C</button>
-          <button class="extra_btn delete_btn code_btn" data-type="remove" type="button"><</button>
+          <button class="char_btn code_btn btn_shadow" type="button">0</button>
+          <button class="char_btn code_btn btn_shadow" type="button">1</button>
+          <button class="char_btn code_btn btn_shadow" type="button">2</button>
+          <button class="char_btn code_btn btn_shadow" type="button">3</button>
+          <button class="char_btn code_btn btn_shadow" type="button">4</button>
+          <button class="char_btn code_btn btn_shadow" type="button">5</button>
+          <button class="char_btn code_btn btn_shadow" type="button">6</button>
+          <button class="char_btn code_btn btn_shadow" type="button">7</button>
+          <button class="char_btn code_btn btn_shadow" type="button">8</button>
+          <button class="char_btn code_btn btn_shadow" type="button">9</button>
+          <button class="char_btn code_btn btn_shadow" type="button">S</button>
+          <button class="char_btn code_btn btn_shadow" type="button">T</button>
+          <button class="char_btn code_btn btn_shadow" type="button">F</button>
+          <button class="char_btn code_btn btn_shadow" type="button">K</button>
+          <button class="char_btn code_btn btn_shadow" type="button">L</button>
+          <button class="char_btn code_btn btn_shadow" type="button">V</button>
+          <button class="extra_btn delete_btn code_btn btn_shadow" data-type="remove" type="button"><</button>
+          <button class="extra_btn clear_btn code_btn btn_shadow" data-type="clear" type="button">C</button>
         </div>
       </div>
-    </form>`;
+    </form></div>`;
 
       const $codeDiv = document.querySelector(`.code_div`);
 
       $codeDiv.appendChild($a);
-      $a.innerHTML = `Commencer!`;
+      $a.classList.add(`page_btn btn_shadow`);
+      $a.innerHTML = `Commencer >`;
     }
 
     if (language === "english") {
       page.innerHTML = `<a class="back_btn">Back</a>
-    <h1>Enter you personal code here</h1>
+      <div class="code_content">
+    <h1 class="page_title_small">Enter you personal code here</h1>
     <p class="sub_info">You can find the code on the<br/>ticket you've chosen</p>
     <form>
       <input type="hidden" name="action" value="entercode"/>
       <input type="hidden" name="l" value="nl"/>
       <div class="code_div">
-        <input type="text" name="code" class="code" maxlength="5" disabled/>
+        <div class="code_input">
+        <input type="text" name="code" class="code neumorphism_box" maxlength="5" disabled/>
+        <button class="help_btn_code">Need help?</button>
+        </div>
         <div class="character_btns">
-          <button class="char_btn code_btn" type="button">0</button>
-          <button class="char_btn code_btn" type="button">1</button>
-          <button class="char_btn code_btn" type="button">2</button>
-          <button class="char_btn code_btn" type="button">3</button>
-          <button class="char_btn code_btn" type="button">4</button>
-          <button class="char_btn code_btn" type="button">5</button>
-          <button class="char_btn code_btn" type="button">6</button>
-          <button class="char_btn code_btn" type="button">7</button>
-          <button class="char_btn code_btn" type="button">8</button>
-          <button class="char_btn code_btn" type="button">9</button>
-          <button class="char_btn code_btn" type="button">S</button>
-          <button class="char_btn code_btn" type="button">T</button>
-          <button class="char_btn code_btn" type="button">F</button>
-          <button class="char_btn code_btn" type="button">K</button>
-          <button class="char_btn code_btn" type="button">L</button>
-          <button class="char_btn code_btn" type="button">V</button>
-          <button class="extra_btn clear_btn code_btn" data-type="clear" type="button">C</button>
-          <button class="extra_btn delete_btn code_btn" data-type="remove" type="button"><</button>
+          <button class="char_btn code_btn btn_shadow" type="button">0</button>
+          <button class="char_btn code_btn btn_shadow" type="button">1</button>
+          <button class="char_btn code_btn btn_shadow" type="button">2</button>
+          <button class="char_btn code_btn btn_shadow" type="button">3</button>
+          <button class="char_btn code_btn btn_shadow" type="button">4</button>
+          <button class="char_btn code_btn btn_shadow" type="button">5</button>
+          <button class="char_btn code_btn btn_shadow" type="button">6</button>
+          <button class="char_btn code_btn btn_shadow" type="button">7</button>
+          <button class="char_btn code_btn btn_shadow" type="button">8</button>
+          <button class="char_btn code_btn btn_shadow" type="button">9</button>
+          <button class="char_btn code_btn btn_shadow" type="button">S</button>
+          <button class="char_btn code_btn btn_shadow" type="button">T</button>
+          <button class="char_btn code_btn btn_shadow" type="button">F</button>
+          <button class="char_btn code_btn btn_shadow" type="button">K</button>
+          <button class="char_btn code_btn btn_shadow" type="button">L</button>
+          <button class="char_btn code_btn btn_shadow" type="button">V</button>
+          <button class="extra_btn delete_btn code_btn btn_shadow" data-type="remove" type="button"><</button>
+          <button class="extra_btn clear_btn code_btn btn_shadow" data-type="clear" type="button">C</button>
         </div>
       </div>
-    </form>`;
+    </form></div>`;
 
       const $codeDiv = document.querySelector(`.code_div`);
 
       $codeDiv.appendChild($a);
-      $a.innerHTML = `Start!`;
+      $a.classList.add(`page_btn btn_shadow`);
+      $a.innerHTML = `Start >`;
     }
 
     const $code = document.querySelector(`.code`);
@@ -432,12 +447,14 @@
 
         if (currentLanguage === `dutch`) {
           $page3.innerHTML = `<a class="back_btn">Terug</a>
-          <h1>Test de A.R. Experience</h1>
-          <p class="sub_info">Sta je bij de installatie?<br/>Scan het A.R. vlak en kijk wat er gebeurt</p>
-          <div class="arscene_div">
-            <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
+          <div class="test_ar_div">
+            <h1 class="page_title_small">Test de A.R. Experience</h1>
+            <p class="sub_info">Sta je bij de installatie?<br/>Scan het A.R. vlak en kijk wat er gebeurt</p>
+            <div class="arscene_div btn_shadow">
+              <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
+            </div>
           </div>
-          <a class="page_btn">Voer de code in</a>`;
+          <a class="page_btn btn_shadow">Voer code in ></a>`;
 
           openPage4();
           goBackToPage2();
@@ -445,12 +462,14 @@
 
         if (currentLanguage === `french`) {
           $page3.innerHTML = `<a class="back_btn">Retour</a>
-          <h1>Teste d'experience A.R.</h1>
-          <p class="sub_info">Êtes-vous à l'installation?<br/>Scannez le A.R. à plat et regardez ce qui se passe</p>
-          <div class="arscene_div">
-            <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
+          <div class="test_ar_div">
+            <h1 class="page_title_small">Teste d'experience A.R.</h1>
+            <p class="sub_info">Êtes-vous à l'installation?<br/>Scannez le A.R. à plat et regardez ce qui se passe</p>
+            <div class="arscene_div btn_shadow">
+              <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
+            </div>
           </div>
-          <a class="page_btn">Entrez le code</a>`;
+          <a class="page_btn btn_shadow">Entrez le code ></a>`;
 
           openPage4();
           goBackToPage2();
@@ -458,12 +477,14 @@
 
         if (currentLanguage === `english`) {
           $page3.innerHTML = `<a class="back_btn">Back</a>
-          <h1>Test the A.R. Experience</h1>
-          <p class="sub_info">Are you next to a installation?<br/>Scan the A.R. image an see what happens</p>
-          <div class="arscene_div">
-            <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
+          <div class="test_ar_div">
+            <h1 class="page_title_small">Test the A.R. Experience</h1>
+            <p class="sub_info">Are you next to a installation?<br/>Scan the A.R. image an see what happens</p>
+            <div class="arscene_div btn_shadow">
+              <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
+            </div>
           </div>
-          <a class="page_btn">Enter your code</a>`;
+          <a class="page_btn btn_shadow">Enter your code ></a>`;
           goBackToPage2();
           openPage4();
         }
