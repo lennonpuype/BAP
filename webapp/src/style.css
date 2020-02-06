@@ -258,3 +258,16 @@ input:focus {
 .city_link{
   cursor: pointer;
 }
+
+.choise_btn{
+  cursor: pointer;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.arPage{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+

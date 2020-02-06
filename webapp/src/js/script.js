@@ -123,7 +123,7 @@
       // console.log("");
 
       if (unlockedRouteId[i] !== undefined) {
-        allA[i].setAttribute(`href`, `index.php?page=route&id=${routes[i].id}`);
+        allA[i].setAttribute(`href`, `index.php?page=route&id=${routes[i].id}&city=${activeCityId}&cityRouteId=${i}`);
         allA[i].classList.add(`unlocked`);
         allA[i].classList.remove(`locked`);
         allA[i].textContent = `Start`;
@@ -545,11 +545,11 @@
     }, 100);
   };
 
-  const parseUrl = (data, cityData, map) => {
-    addMarkersToMap(map, data, cityData);
+  const parseUrl = (data, cityData, map, routeId) => {
+    addMarkersToMap(map, data, cityData, routeId);
   };
 
-  const addMarkersToMap = (map, data, cityData, result) => {
+  const addMarkersToMap = (map, data, cityData, routeId) => {
     const route = data.response.route;
 
     route.map(routeData => {
@@ -572,7 +572,7 @@
           const currentMarker = e.target;
           const lat = currentMarker.b.lat;
           const lng = currentMarker.b.lng;
-          const clickedWaypoint = findWaypoint(lat, lng, cityData.routes[0].waypoints);
+          const clickedWaypoint = findWaypoint(lat, lng, cityData.routes[routeId].waypoints);
 
           // const xPos = getClickPosition(e).x;
           // console.log(xPos);
@@ -668,7 +668,10 @@
   };
 
   const parseMaps = data => {
-    mapData = data.cities[0].maps;
+    const cityId = document.querySelector(`.cityId`).textContent;
+    const routeId = document.querySelector(`.routeId`).textContent;
+    const cityRouteId = document.querySelector(`.cityRouteId`).textContent;
+    mapData = data.cities[cityId].maps;
 
     const defaultLayers = platform.createDefaultLayers();
 
@@ -684,11 +687,13 @@
     var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
     window.addEventListener('resize', () => map.getViewPort().resize());
+    console.log(cityRouteId);
+    console.log(data.cities[cityId]);
 
-    fetch(data.cities[0].routes[0].route)
+    fetch(data.cities[cityId].routes[cityRouteId].route)
       .then(r => r.json())
-      .then(d => parseUrl(d, data.cities[0], map));
-  }
+      .then(d => parseUrl(d, data.cities[cityId], map, cityRouteId));
+  };
 
   const fetchUserLocation = () => {
     navigator.geolocation.getCurrentPosition(function (location) {
@@ -696,9 +701,9 @@
         lat: location.coords.latitude,
         lng: location.coords.longitude,
         acc: location.coords.accuracy
-      }
+      };
     });
-  }
+  };
 
   init();
 }
