@@ -32,6 +32,12 @@ class NextController extends Controller {
       //     exit();
       // }
 
+      if(!empty($_POST)){
+        if(!empty($_POST['action']) && $_POST['action'] == 'changeLanguage'){
+          $_SESSION['user']['l'] = $_POST['language'];
+        }
+      }
+
      $_SESSION['user']['unlockedroutes'] = array();
      foreach($_SESSION['user']['codes'] as $code){
 

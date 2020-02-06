@@ -65,11 +65,37 @@
     //   .then(json => {
     //     console.log(json);
     //   }).catch(err => console.log(err));
+    hamburgerManager();
+  };
+
+  const hamburgerManager = () => {
+    const $hamburgerBtn = document.querySelector(`.hamburger`);
+    $hamburgerBtn.addEventListener(`click`, e => {
+      const currentTarget = e.currentTarget;
+      if (currentTarget.dataset.state === `closed`) {
+        openHamburger();
+        currentTarget.dataset.state = `open`;
+      } else {
+        closeHamburger();
+        currentTarget.dataset.state = `closed`;
+      }
+    });
+  };
+
+  const openHamburger = () => {
+    const $hamburgerContent = document.querySelector(`.hamburger_content`);
+    $hamburgerContent.classList.remove(`hidden`);
+  };
+
+  const closeHamburger = () => {
+    const $hamburgerContent = document.querySelector(`.hamburger_content`);
+    $hamburgerContent.classList.add(`hidden`);
   };
 
   const manageRoutePage = () => {
     handleRouteJSON();
     tabbarManager();
+
   };
 
   const tabbarManager = () => {
@@ -105,6 +131,7 @@
 
     const $routes = document.querySelector(`.routes`);
     $routes.textContent = ``;
+    unlockedRouteId = [];
 
     routes.map(route => {
       createRouteCards(route);

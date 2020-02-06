@@ -40,7 +40,29 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
     <header class="header">
       <div class="icon"></div>
       <h1 class="page_title">Routes</h1>
-      <a href="#">Hamburger</a>
+      <button class="hamburger" data-state="closed">Hamburger</button>
+      <div class="hamburger_content hidden">
+        <ul class="hamburger_content_list">
+          <li class="hamburger_content_list_item">
+            <a href="index.php?page=routes" class="hamburger_content_list_item_link">Alle tours</a>
+          </li>
+          <li class="hamburger_content_list_item">
+            <a href="#" class="hamburger_content_list_item_link">Instructies & help</a>
+          </li>
+          <li class="hamburger_content_list_item">
+            <a href="#" class="hamburger_content_list_item_link">Over NEXT Festival</a>
+          </li>
+          <li class="hamburger_content_list_item">
+            <a href="#" class="hamburger_content_list_item_link">Over de Eurometropool</a
+          ></li>
+        </ul>
+        <form method="post">
+          <input type="hidden" name="action" value="changeLanguage"/>
+          <input type="submit" name="language" value="nl" />
+          <input type="submit" name="language" value="fr" />
+          <input type="submit" name="language" value="en" />
+        </form>
+      </div>
     </header>
     <main class="routePage">
       <nav class="cities_nav">
