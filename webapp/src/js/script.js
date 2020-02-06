@@ -7,6 +7,7 @@
   let currentLanguage;
   let activeCityId = 0;
   let unlockedRouteId = [];
+  let currentRouteId = 0;
 
   const init = () => {
     const $index = document.querySelector(`.index`);
@@ -47,6 +48,11 @@
     const $singleRoutePage = document.querySelector(`.singleRoutePage`);
     if ($singleRoutePage) {
       handleMaps();
+
+    }
+
+    const $arPage = document.querySelector(`.arPage`);
+    if ($arPage) {
       handleAR();
     }
 
@@ -116,6 +122,8 @@
     });
 
     console.log(unlockedRouteId);
+
+
 
     for (let i = 0; i < allA.length; i++) {
       // console.log(unlockedRouteIdNew[i]);
@@ -529,21 +537,47 @@
   /*AR*/
   const handleAR = () => {
     //Show AR Screen
-    const $arBtn = document.querySelector(`.arBtn`);
-    $arBtn.addEventListener(`click`, () => {
-      const $pageTitle = document.querySelector(`.page_title`);
-      const $content = document.querySelector(`.content`);
-      const $map = document.getElementById(`map`);
+    const cityRouteId = document.querySelector(`.cityRouteId`).textContent;
+    console.log(cityRouteId);
 
-      $pageTitle.classList.add(`hidden`);
-      $content.classList.add(`hidden`);
-      $map.classList.add(`hidden`);
+    const aframe = AFRAME;
+    let scanned = false;
 
-      const $arPage = document.querySelector(`.arPage`);
-      $arPage.innerHTML = `<div class="arscene_div">
-      <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
-      </div>`;
-    });
+    const $div = document.querySelector(`.div`);
+
+    setInterval(() => {
+      if ($div) {
+        const $body = document.querySelector(`.body`);
+        $body.classList.add(`marginfix`);
+      }
+    }, 0);
+
+
+    setInterval(() => {
+      const $iframe = document.querySelector(`.arscene_iframe`);
+      if ($iframe) {
+        console.log("dskljfslkjdfslkj");
+
+        const $iframeContent = $iframe.contentWindow.document.body;
+        const $marker = $iframeContent.querySelectorAll(`.marker`);
+        const allMarkers = Array.from($marker);
+
+
+
+        allMarkers.map(marker => {
+          document.querySelector(`.ar_tag`).textContent = marker.object3D.visible;
+          console.log(marker.object3D.visible);
+
+          if (marker.object3D.visible === true) {
+            document.querySelector(`.ar_tag`).textContent = "Scanned";
+            console.log("Scanned");
+          } else {
+            document.querySelector(`.ar_tag`).textContent = "Not scanned";
+            console.log("Not Scanned");
+          }
+        });
+      }
+    }, 100);
   };
 
   /*Routes*/
@@ -595,13 +629,8 @@
           const lng = currentMarker.b.lng;
           const clickedWaypoint = findWaypoint(lat, lng, cityData.routes[routeId].waypoints);
 
-          // const xPos = getClickPosition(e).x;
-          // console.log(xPos);
-
           map.addEventListener('tap', e => {
             if (e.target instanceof H.map.Marker) {
-              // Some action. Typically, you want to use the data that you may have referenced
-              // in the marker creation code, or get the coordinates. Here we log the data
               getClickPosition(e);
             } else {
               const $content = document.querySelector(`.content`);
@@ -693,6 +722,9 @@
     const routeId = document.querySelector(`.routeId`).textContent;
     const cityRouteId = document.querySelector(`.cityRouteId`).textContent;
     mapData = data.cities[cityId].maps;
+
+    const $arBtn = document.querySelector(`.arBtn`);
+    $arBtn.setAttribute(`href`, `index.php?page=ar&id=${cityRouteId}&city=${activeCityId}&cityRouteId=${cityRouteId}`);
 
     const defaultLayers = platform.createDefaultLayers();
 

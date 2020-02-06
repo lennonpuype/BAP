@@ -5,6 +5,7 @@
   <a href="index.php?page=route&id=<?php if(!empty($_GET['id'])){echo $_GET['id'];} ?>" class="active choise_btn">route</a>
   <a class="arBtn choise_btn">AR-camera</a>
 
+
 </section>
 <section class="detailPage"></section>
 <section class="arPage"></section>

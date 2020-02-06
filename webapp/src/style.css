@@ -367,3 +367,8 @@ a {
 .code_content{
   margin-top: -47rem;
 }
+
+.ar_section{
+  display: flex;
+  flex-direction: column;
+}
