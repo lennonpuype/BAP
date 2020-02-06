@@ -75,9 +75,11 @@
       if (currentTarget.dataset.state === `closed`) {
         openHamburger();
         currentTarget.dataset.state = `open`;
+        currentTarget.textContent = `Sluit Hamburger`;
       } else {
         closeHamburger();
         currentTarget.dataset.state = `closed`;
+        currentTarget.textContent = `Open Hamburger`;
       }
     });
   };
@@ -95,7 +97,6 @@
   const manageRoutePage = () => {
     handleRouteJSON();
     tabbarManager();
-
   };
 
   const tabbarManager = () => {

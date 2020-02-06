@@ -40,7 +40,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
     <header class="header">
       <div class="icon"></div>
       <h1 class="page_title">Routes</h1>
-      <button class="hamburger" data-state="closed">Hamburger</button>
+      <button class="hamburger" data-state="closed">Open Hamburger</button>
       <div class="hamburger_content hidden">
         <ul class="hamburger_content_list">
           <li class="hamburger_content_list_item">
