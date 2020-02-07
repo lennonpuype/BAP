@@ -10,9 +10,12 @@
   <link rel="icon" type="image/png" href="./assets/img/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
-  <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
   <script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.4/aframe/build/aframe-ar.js"></script>
   <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+  <!-- <scriot src="https://github.com/donmccurdy/aframe-extras/tree/master/src/loaders#animation"></script>
+  <script src="./js/aframe-extras.js"></script>
+  <script src="./js/aframe-text-geometry-component.min.js"></script> -->
 
   <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
   <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>

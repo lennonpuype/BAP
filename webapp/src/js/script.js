@@ -1,8 +1,12 @@
+
+
 {
   const $page1 = document.querySelector(`.page1`);
   const $page2 = document.querySelector(`.page2`);
   const $page3 = document.querySelector(`.page3`);
   const $page4 = document.querySelector(`.page4`);
+
+  const SwipeEventDispatcher = require('./SwipeEventDispatcher.js').SwipeEventDispatcher;
 
   let currentLanguage;
   let activeCityId = 0;
@@ -70,18 +74,20 @@
 
   const hamburgerManager = () => {
     const $hamburgerBtn = document.querySelector(`.hamburger`);
-    $hamburgerBtn.addEventListener(`click`, e => {
-      const currentTarget = e.currentTarget;
-      if (currentTarget.dataset.state === `closed`) {
-        openHamburger();
-        currentTarget.dataset.state = `open`;
-        currentTarget.textContent = `Sluit Hamburger`;
-      } else {
-        closeHamburger();
-        currentTarget.dataset.state = `closed`;
-        currentTarget.textContent = `Open Hamburger`;
-      }
-    });
+    if ($hamburgerBtn) {
+      $hamburgerBtn.addEventListener(`click`, e => {
+        const currentTarget = e.currentTarget;
+        if (currentTarget.dataset.state === `closed`) {
+          openHamburger();
+          currentTarget.dataset.state = `open`;
+          currentTarget.textContent = `Sluit Hamburger`;
+        } else {
+          closeHamburger();
+          currentTarget.dataset.state = `closed`;
+          currentTarget.textContent = `Open Hamburger`;
+        }
+      });
+    }
   };
 
   const openHamburger = () => {
@@ -584,28 +590,28 @@
     setInterval(() => {
       const $iframe = document.querySelector(`.arscene_iframe`);
       if ($iframe) {
-        console.log("dskljfslkjdfslkj");
-
         const $iframeContent = $iframe.contentWindow.document.body;
-        const $marker = $iframeContent.querySelectorAll(`.marker`);
-        const allMarkers = Array.from($marker);
+        if ($iframeContent) {
+          const $marker = $iframeContent.querySelectorAll(`.marker`);
+          const allMarkers = Array.from($marker);
 
-
-
-        allMarkers.map(marker => {
-          document.querySelector(`.ar_tag`).textContent = marker.object3D.visible;
-          console.log(marker.object3D.visible);
-
-          if (marker.object3D.visible === true) {
-            document.querySelector(`.ar_tag`).textContent = "Scanned";
-            console.log("Scanned");
-          } else {
-            document.querySelector(`.ar_tag`).textContent = "Not scanned";
-            console.log("Not Scanned");
-          }
-        });
+          allMarkers.map(marker => {
+            document.querySelector(`.ar_tag`).textContent = marker.object3D.visible;
+            if (marker.object3D.visible === true) {
+              document.querySelector(`.ar_tag`).textContent = "Scanned";
+              showARInfo(marker.object3D.el.classList[1]);
+            } else {
+              document.querySelector(`.ar_tag`).textContent = "Not scanned";
+              console.log("Not Scanned");
+            }
+          });
+        }
       }
     }, 100);
+  };
+
+  const showARInfo = (activeRoute) => {
+    console.log(activeRoute);
   };
 
   /*Routes*/
@@ -623,9 +629,81 @@
       .then(r => r.json())
       .then(parseMaps);
 
+    handleOnboarding();
+
     setInterval(() => {
       fetchUserLocation();
     }, 100);
+  };
+
+  const handleOnboarding = () => {
+    const $onboarding = document.querySelector(`.onboarding`);
+    const $onboardingSeen = document.querySelector(`.onboardingSeen`);
+    const $singleRoutePage = document.querySelector(`.singleRoutePage`);
+
+    if ($onboarding) {
+      let currentOnboarding = 1;
+      loadOnboardingView(currentOnboarding);
+
+      const dispatcher = new SwipeEventDispatcher($onboarding);
+      dispatcher.on('SWIPE_LEFT', () => {
+        if (currentOnboarding < 3) {
+          currentOnboarding += 1;
+          console.log(currentOnboarding);
+        } else if (currentOnboarding === 3) {
+          currentOnboarding = 3;
+          $singleRoutePage.classList.remove(`hidden`);
+          $onboarding.remove();
+
+          console.log(`MAX EXCEEDED`);
+        }
+
+        loadOnboardingView(currentOnboarding);
+      });
+
+      dispatcher.on('SWIPE_RIGHT', () => {
+        if (currentOnboarding > 0) {
+          currentOnboarding -= 1;
+          console.log(currentOnboarding);
+        } else if (currentOnboarding === 0) {
+          currentOnboarding = 1;
+          console.log(`MIN EXCEEDED`);
+        }
+
+        loadOnboardingView(currentOnboarding);
+      });
+    }
+
+    if (parseInt($onboardingSeen.textContent) === 1) {
+      $singleRoutePage.classList.remove(`hidden`);
+    }
+  };
+
+  const loadOnboardingView = currentOnboarding => {
+    const $onboarding1 = document.querySelector(`.onboarding1`);
+    const $onboarding2 = document.querySelector(`.onboarding2`);
+    const $onboarding3 = document.querySelector(`.onboarding3`);
+
+    if (currentOnboarding === 1) {
+      $onboarding2.classList.add(`hidden`);
+      $onboarding3.classList.add(`hidden`);
+
+      $onboarding1.classList.remove(`hidden`);
+    }
+
+    if (currentOnboarding === 2) {
+      $onboarding1.classList.add(`hidden`);
+      $onboarding3.classList.add(`hidden`);
+
+      $onboarding2.classList.remove(`hidden`);
+    }
+
+    if (currentOnboarding === 3) {
+      $onboarding1.classList.add(`hidden`);
+      $onboarding2.classList.add(`hidden`);
+
+      $onboarding3.classList.remove(`hidden`);
+    }
   };
 
   const parseUrl = (data, cityData, map, routeId) => {

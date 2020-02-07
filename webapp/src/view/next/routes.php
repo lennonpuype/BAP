@@ -35,6 +35,12 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
 }
 ?>
 <?php if(!empty($_SESSION['user'])){ ?>
+  <?php if(empty($_SESSION['user']['skiponboarding'])):?>
+  <?php $_SESSION['user']['skiponboarding'] = 0; ?>
+  <?php endif;?>
+  <?php if($_SESSION['user']['skiponboarding'] == 0 ){ ?>
+    <?php $_SESSION['user']['onboardingalreadyseen'] = 0 ?>
+  <?php } ?>
   <?php if($_SESSION['user']['l'] == 'nl'){ ?>
     <div class="popup_code hidden"></div>
     <header class="header">
