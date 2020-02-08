@@ -626,7 +626,33 @@
 
         const currentWaypoint = filteredWaypoint[0];
         if (currentWaypoint) {
-          $waypointInfoElement.innerHTML = `<h1>${currentWaypoint.name}</h1>`;
+          $waypointInfoElement.innerHTML = `<h1>${currentWaypoint.name}</h1>
+          <div>
+            <button class="play">Play</button>
+            <button class="pause">Pause</button>
+            <button class="restart">Restart</button>
+          </div>`;
+
+          const $playBtn = document.querySelector(`.play`);
+          const $pauseBtn = document.querySelector(`.pause`);
+          const $restartBtn = document.querySelector(`.restart`);
+          const audio = new Audio(`./assets/audio/${currentWaypoint.globalId}.mp3`);
+
+          $playBtn.addEventListener(`click`, () => {
+            console.log("Play");
+            audio.play();
+          });
+
+          $pauseBtn.addEventListener(`click`, () => {
+            console.log("Pause");
+            audio.pause();
+          });
+
+          $restartBtn.addEventListener(`click`, () => {
+            console.log("Restart");
+            audio.load();
+            audio.play();
+          });
         } else {
           $waypointInfoElement.textContent = ``;
         }
@@ -833,25 +859,10 @@
         const lng = currentMarker.b.lng;
         const clickedWaypoint = findWaypoint(lat, lng, cityData.routes[routeId].waypoints);
 
-        console.log(marker);
-
-        map.addEventListener('tap', e => {
-          if (e.target instanceof H.map.Marker) {// eslint-disable-line
-            getClickPosition(e);
-          } else {
-            const $content = document.querySelector(`.content`);
-            $content.classList.add(`hidden`);
-          }
-        });
-
-        map.addEventListener(`drag`, () => {
-          const $content = document.querySelector(`.content`);
-          $content.classList.add(`hidden`);
-        });
-
         const $h1 = document.createElement(`h1`);
         const $p = document.createElement(`p`);
         const $button = document.createElement(`button`);
+
 
         const $content = document.querySelector(`.content`);
         $content.textContent = ``;
@@ -859,10 +870,30 @@
         $content.appendChild($p);
         $content.appendChild($button);
 
+
         $h1.textContent = clickedWaypoint.name;
         $p.textContent = clickedWaypoint.description;
         $button.textContent = `Meer info`;
-        $button.addEventListener(`click`, e => {
+
+        // let activeAudio;
+
+        map.addEventListener('tap', e => {
+          if (e.target instanceof H.map.Marker) {// eslint-disable-line
+            getClickPosition(e);
+          } else {
+            const $content = document.querySelector(`.content`);
+            $content.classList.add(`hidden`);
+            //activeAudio.load();
+          }
+        });
+
+        map.addEventListener(`drag`, () => {
+          const $content = document.querySelector(`.content`);
+          $content.classList.add(`hidden`);
+          //activeAudio.load();
+        });
+
+        $button.addEventListener(`click`, () => {
           handleClickMoreInfoButton(clickedWaypoint);
         });
       });
@@ -872,6 +903,7 @@
   const handleClickMoreInfoButton = waypoint => {
     //Delete content for better performance
     const $existingPage = document.querySelector(`.singleRoutePage`);
+    const audio = new Audio(`./assets/audio/${waypoint.globalId}.mp3`);
     $existingPage.classList.add(`hidden`);
 
     //Create Page above existing content
@@ -883,15 +915,43 @@
     const $button = document.createElement(`button`);
     $article.classList.add(`detail_page`);
 
-
     $detailPage.appendChild($article);
     $article.appendChild($h1);
     $h1.textContent = waypoint.name;
     $article.appendChild($button);
     $button.textContent = `Terug`;
-    $button.addEventListener(`click`, e => {
+    $button.addEventListener(`click`, () => {
+      audio.pause();
+      console.log(audio);
+
       $existingPage.classList.remove(`hidden`);
       $detailPage.classList.add(`hidden`);
+    });
+
+    const $div = document.createElement(`div`);
+    $article.appendChild($div);
+
+    //Audio
+    $div.innerHTML = `<button class="play">Play</button>
+    <button class="pause">Pause</button>
+    <button class="restart">Restart</button>`;
+
+    const $playBtn = document.querySelector(`.play`);
+    const $pauseBtn = document.querySelector(`.pause`);
+    const $restartBtn = document.querySelector(`.restart`);
+
+
+    $playBtn.addEventListener(`click`, () => {
+      audio.play();
+    });
+
+    $pauseBtn.addEventListener(`click`, () => {
+      audio.pause();
+    });
+
+    $restartBtn.addEventListener(`click`, () => {
+      audio.load();
+      audio.play();
     });
   };
 
@@ -903,8 +963,8 @@
     const xPosition = e.currentPointer.viewportX - (parseInt(contentStyle.width) / 2);
     const yPosition = e.currentPointer.viewportY - (parseInt(contentStyle.height) / 2);
 
-    $content.style.top = `${yPosition}px`;
-    $content.style.left = `${xPosition}px`;
+    $content.style.top = `${yPosition} px`;
+    $content.style.left = `${xPosition} px`;
 
     $content.classList.remove(`hidden`);
   };
@@ -921,7 +981,7 @@
     mapData = data.cities[cityId].maps;
 
     const $arBtn = document.querySelector(`.arBtn`);
-    $arBtn.setAttribute(`href`, `index.php?page=ar&id=${cityRouteId}&city=${activeCityId}&cityRouteId=${cityRouteId}`);
+    $arBtn.setAttribute(`href`, `index.php ? page = ar & id=${cityRouteId}& city=${activeCityId}& cityRouteId=${cityRouteId} `);
 
     const defaultLayers = platform.createDefaultLayers();
     /* eslint-disable*/

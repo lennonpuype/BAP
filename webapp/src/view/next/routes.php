@@ -38,6 +38,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
 }
 ?>
 <?php if(!empty($_SESSION['user'])){ ?>
+  <?php unset($_SESSION['user']['activeRoute']); ?>
   <?php if(empty($_SESSION['user']['skiponboarding'])):?>
   <?php $_SESSION['user']['skiponboarding'] = 0; ?>
   <?php endif;?>
@@ -56,7 +57,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
             <a href="index.php?page=routes" class="hamburger_content_list_item_link">Alle tours</a>
           </li>
           <li class="hamburger_content_list_item">
-            <a href="#" class="hamburger_content_list_item_link">Instructies & help</a>
+            <a href="index.php?page=faq" class="hamburger_content_list_item_link">Instructies & help</a>
           </li>
           <li class="hamburger_content_list_item">
             <a href="#" class="hamburger_content_list_item_link">Over NEXT Festival</a>

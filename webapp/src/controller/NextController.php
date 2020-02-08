@@ -22,14 +22,6 @@ class NextController extends Controller {
     }
 
     if(!empty($_SESSION['user'])){
-      // var_dump($_SESSION['user']['codes']);
-      // if ($_SERVER['HTTP_ACCEPT'] == 'application/json') {
-      //   header('Content-Type: application/json');
-      //   var_dump(json_encode(array('user' => $_SESSION['user'], 'outcome' => 'success')));
-      //     echo json_encode(array('user' => $_SESSION['user'], 'outcome' => 'success')), "\n";
-      //     exit();
-      // }
-
       if(!empty($_POST)){
         if(!empty($_POST['action']) && $_POST['action'] == 'changeLanguage'){
           $_SESSION['user']['l'] = $_POST['language'];
@@ -44,70 +36,60 @@ class NextController extends Controller {
 
       if($firstCharacter == "K"){
         if($secondCharacter == "T"){
-          //var_dump("Kortrijk Talentroute");
           array_push($_SESSION['user']['unlockedroutes'], "0");
         }
       }
 
       if($firstCharacter == "K"){
         if($secondCharacter == "S"){
-          //var_dump("Kortrijk Sporenroute");
           array_push($_SESSION['user']['unlockedroutes'], "1");
         }
       }
 
       if($firstCharacter == "K"){
         if($secondCharacter == "F"){
-          //var_dump("Kortrijk Futuristischeroute");
           array_push($_SESSION['user']['unlockedroutes'], "2");
         }
       }
 
       if($firstCharacter == "L"){
         if($secondCharacter == "T"){
-          //var_dump("Lille Talentroute");
           array_push($_SESSION['user']['unlockedroutes'], "3");
         }
       }
 
       if($firstCharacter == "L"){
         if($secondCharacter == "S"){
-          //var_dump("Lille Sporenroute");
           array_push($_SESSION['user']['unlockedroutes'], "4");
         }
       }
 
       if($firstCharacter == "L"){
         if($secondCharacter == "F"){
-          //var_dump("Lille Futuristischeroute");
           array_push($_SESSION['user']['unlockedroutes'], "5");
         }
       }
 
       if($firstCharacter == "V"){
         if($secondCharacter == "T"){
-          //var_dump("Valenciennes Talentroute");
           array_push($_SESSION['user']['unlockedroutes'], "6");
         }
       }
 
       if($firstCharacter == "V"){
         if($secondCharacter == "S"){
-          //var_dump("Valenciennes Sporenroute");
           array_push($_SESSION['user']['unlockedroutes'], "7");
         }
       }
 
       if($firstCharacter == "V"){
         if($secondCharacter == "F"){
-          //var_dump("Valenciennes Futuristischeroute");
           array_push($_SESSION['user']['unlockedroutes'], "8");
         }
       }
 
       if($firstCharacter == "T"){
         if($secondCharacter == "T"){
-          //var_dump("Kortrijk Talentroute");
           array_push($_SESSION['user']['unlockedroutes'], "9");
         }
       }
@@ -115,7 +97,6 @@ class NextController extends Controller {
 
       if($firstCharacter == "T"){
         if($secondCharacter == "S"){
-          var_dump("Kortrijk Sporenroute");
           array_push($_SESSION['user']['unlockedroutes'], "10");
         }
       }
@@ -123,7 +104,6 @@ class NextController extends Controller {
 
       if($firstCharacter == "T"){
         if($secondCharacter == "F"){
-          var_dump("Kortrijk Futuristischeroute");
           array_push($_SESSION['user']['unlockedroutes'], "11");
         }
       }
@@ -146,33 +126,15 @@ class NextController extends Controller {
     $this->set('visitedPoints', $_SESSION['user']['activeRoutes']);
   }
 
-  public function ar(){
-    // function setInterval($f, $milliseconds)
-    // {
-    // $seconds=(int)$milliseconds/1000;
-    // while(true)
-    // {
-    //     $f();
-    //     sleep($seconds);
-    // }
-    // }
+  public function ar(){}
 
-    // setInterval(function(){
+  public function arscene(){}
 
-    // }, 1000);
-  }
+  public function desktop(){}
 
-  public function arscene(){
+  public function mobile(){}
 
-  }
-
-  public function desktop(){
-
-  }
-
-  public function mobile(){
-
-  }
+  public function faq(){}
 
   public function logout(){
     session_destroy();

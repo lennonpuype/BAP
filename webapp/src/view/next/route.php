@@ -1,3 +1,4 @@
+<?php $_SESSION['user']['activeRoute'] = $_GET['id'] . $_GET['city'] ?>
 <?php if($_SESSION['user']['skiponboarding'] == 0 && $_SESSION['user']['onboardingalreadyseen'] == 0): ?>
   <?php $_SESSION['user']['onboardingalreadyseen'] = 1 ?>
   <section class="onboarding<?php if($_SESSION['user']['skiponboarding'] === 1){ echo ' hidden'; }?>">
@@ -22,7 +23,7 @@
   <h1 class="page_title">Route <?php if(!empty($_GET['id'])){echo $_GET['id'];} ?></h1>
   <div class="content"></div>
   <div id="map"></div>
-  <a href="index.php?page=route&id=<?php if(!empty($_GET['id'])){echo $_GET['id'];} ?>" class="active choise_btn">route</a>
+  <a href="#" class="active choise_btn">route</a>
   <a class="arBtn choise_btn">AR-camera</a>
 </section>
 <section class="detailPage"></section>

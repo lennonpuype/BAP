@@ -36,6 +36,10 @@ $routes = array(
   'arscene' => array(
     'controller' => 'Next',
     'action' => 'arscene'
+  ),
+  'faq' => array(
+    'controller' => 'Next',
+    'action' => 'faq'
   )
 );
 
