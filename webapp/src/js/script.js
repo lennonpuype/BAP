@@ -11,7 +11,7 @@
   let currentLanguage;
   let activeCityId = 0;
   let unlockedRouteId = [];
-  let currentRouteId = 0;
+  let currentRouteId = 0;// eslint-disable-line
 
   const init = () => {
     const $index = document.querySelector(`.index`);
@@ -19,9 +19,9 @@
       manageHomePage();
 
       const startTags = [
-        "Start exploring >",
-        "Commencez à explorer >",
-        "Start met verkennen >"
+        "Start exploring >",// eslint-disable-line
+        "Commencez à explorer >",// eslint-disable-line
+        "Start met verkennen >"// eslint-disable-line
       ];
 
       let iPrev = 0;
@@ -33,14 +33,14 @@
         if (iNew === startTags.length - 1) {
           iPrev = 0;
         } else {
-          iPrev++;
+          iPrev++;// eslint-disable-line
         }
 
         $startBtn.textContent = startTags[iNew];
       }, 1500);
 
       const $body = document.querySelector(`.body`);
-      $body.removeAttribute("style");
+      $body.removeAttribute("style");// eslint-disable-line
     }
 
     const $routePage = document.querySelector(`.routePage`);
@@ -51,6 +51,7 @@
 
     const $singleRoutePage = document.querySelector(`.singleRoutePage`);
     if ($singleRoutePage) {
+      $singleRoutePage.classList.add(`hidden`);
       handleMaps();
 
     }
@@ -284,7 +285,7 @@
     allBtnArray.map(btn => {
       btn.addEventListener(`click`, e => {
         if (codeValue.length >= 5) {
-          codeValue = codeValue;
+          codeValue = codeValue;// eslint-disable-line
         } else {
           codeValue += e.currentTarget.textContent;
         }
@@ -302,7 +303,7 @@
     let codeValue = ``;
     const $a = document.createElement(`a`);
 
-    if (language === "dutch") {
+    if (language === "dutch") {// eslint-disable-line
       page.innerHTML = `<a class="back_btn">Terug</a>
       <div class="code_content">
     <h1 class="page_title_small">Voer je persoonlijke code<br/>hier in</h1>
@@ -345,7 +346,7 @@
       $a.innerHTML = `Ga verder >`;
     }
 
-    if (language === "french") {
+    if (language === "french") {// eslint-disable-line
       page.innerHTML = `<a class="back_btn">Retour</a>
       <div class="code_content">
     <h1 class="page_title_small">Entrez votre code personnel</h1>
@@ -388,7 +389,7 @@
       $a.innerHTML = `Commencer >`;
     }
 
-    if (language === "english") {
+    if (language === "english") { // eslint-disable-line
       page.innerHTML = `<a class="back_btn">Back</a>
       <div class="code_content">
     <h1 class="page_title_small">Enter you personal code here</h1>
@@ -456,7 +457,7 @@
     allBtnArray.map(btn => {
       btn.addEventListener(`click`, e => {
         if (codeValue.length >= 5) {
-          codeValue = codeValue;
+          codeValue = codeValue; // eslint-disable-line
         } else {
           codeValue += e.currentTarget.textContent;
         }
@@ -549,15 +550,15 @@
       $page4.classList.remove(`inactive`);
 
       if (currentLanguage === `dutch`) {
-        showCodeScreen($page4, "dutch");
+        showCodeScreen($page4, "dutch");// eslint-disable-line
       }
 
       if (currentLanguage === `french`) {
-        showCodeScreen($page4, "french");
+        showCodeScreen($page4, "french");// eslint-disable-line
       }
 
       if (currentLanguage === `english`) {
-        showCodeScreen($page4, "english");
+        showCodeScreen($page4, "english");// eslint-disable-line
       }
 
       const pageBtn = $page4.querySelector(`.back_btn`);
@@ -574,8 +575,8 @@
     const cityRouteId = document.querySelector(`.cityRouteId`).textContent;
     console.log(cityRouteId);
 
-    const aframe = AFRAME;
-    let scanned = false;
+    const aframe = AFRAME; // eslint-disable-line
+    let scanned = false; // eslint-disable-line
 
     const $div = document.querySelector(`.div`);
 
@@ -598,11 +599,11 @@
           allMarkers.map(marker => {
             document.querySelector(`.ar_tag`).textContent = marker.object3D.visible;
             if (marker.object3D.visible === true) {
-              document.querySelector(`.ar_tag`).textContent = "Scanned";
+              document.querySelector(`.ar_tag`).textContent = "Scanned";// eslint-disable-line
               showARInfo(marker.object3D.el.classList[1]);
             } else {
-              document.querySelector(`.ar_tag`).textContent = "Not scanned";
-              console.log("Not Scanned");
+              document.querySelector(`.ar_tag`).textContent = "Not scanned";// eslint-disable-line
+              console.log("Not Scanned");// eslint-disable-line
             }
           });
         }
@@ -610,22 +611,52 @@
     }, 100);
   };
 
-  const showARInfo = (activeRoute) => {
-    console.log(activeRoute);
+  const showARInfo = activeRoute => {
+
+    saveRouteToPhp(activeRoute);
   };
+
+  const saveRouteToPhp = activeRoute => {
+    let strippedString = activeRoute;
+    strippedString = strippedString.replace(/[',]+g/, '');
+    console.log(strippedString);
+
+    createActiveRouteCookie(parseInt(strippedString));
+  };
+
+
+  const createActiveRouteCookie = activeRoute => {
+    var json_str = JSON.stringify(activeRoute);// eslint-disable-line
+    createCookie('activeRoute', json_str, 3);
+  };
+
+  /* eslint-disable*/
+  var createCookie = function (name, value, days) {
+    var expires;
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toGMTString();
+    }
+    else {
+      expires = "";
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+  }
+  /* eslint-enable*/
 
   /*Routes*/
   let mapData = {};
   let userLocation = {};
-  let markers = [];
+  let markers = [];// eslint-disable-line
   let map;
 
   const platform = new H.service.Platform({
-    'apikey': 'Ymzvxu_5jYrtjqdyrlORjoasI2KdTSwzdLZuyNkPH3k'
+    'apikey': 'Ymzvxu_5jYrtjqdyrlORjoasI2KdTSwzdLZuyNkPH3k'// eslint-disable-line
   });
 
   const handleMaps = () => {
-    fetch("./assets/data/cities.json")
+    fetch("./assets/data/cities.json")// eslint-disable-line
       .then(r => r.json())
       .then(parseMaps);
 
@@ -640,7 +671,7 @@
     const $onboarding = document.querySelector(`.onboarding`);
     const $onboardingSeen = document.querySelector(`.onboardingSeen`);
     const $singleRoutePage = document.querySelector(`.singleRoutePage`);
-
+    $singleRoutePage.classList.add(`hidden`);
     if ($onboarding) {
       let currentOnboarding = 1;
       loadOnboardingView(currentOnboarding);
@@ -654,7 +685,7 @@
           currentOnboarding = 3;
           $singleRoutePage.classList.remove(`hidden`);
           $onboarding.remove();
-
+          location.reload();
           console.log(`MAX EXCEEDED`);
         }
 
@@ -672,11 +703,13 @@
 
         loadOnboardingView(currentOnboarding);
       });
+    } else {
+      if (parseInt($onboardingSeen.textContent) === 1) {
+        $singleRoutePage.classList.remove(`hidden`);
+      }
     }
 
-    if (parseInt($onboardingSeen.textContent) === 1) {
-      $singleRoutePage.classList.remove(`hidden`);
-    }
+
   };
 
   const loadOnboardingView = currentOnboarding => {
@@ -687,21 +720,16 @@
     if (currentOnboarding === 1) {
       $onboarding2.classList.add(`hidden`);
       $onboarding3.classList.add(`hidden`);
-
       $onboarding1.classList.remove(`hidden`);
     }
 
     if (currentOnboarding === 2) {
       $onboarding1.classList.add(`hidden`);
-      $onboarding3.classList.add(`hidden`);
-
       $onboarding2.classList.remove(`hidden`);
     }
 
     if (currentOnboarding === 3) {
-      $onboarding1.classList.add(`hidden`);
       $onboarding2.classList.add(`hidden`);
-
       $onboarding3.classList.remove(`hidden`);
     }
   };
@@ -724,8 +752,33 @@
       });
 
       waypoints.map(waypoint => {
-        const marker = new H.map.Marker({ lat: waypoint.originalPosition.latitude, lng: waypoint.originalPosition.longitude });
-        map.addObject(marker);
+        //const marker = new H.map.Marker({ lat: waypoint.originalPosition.latitude, lng: waypoint.originalPosition.longitude }); // eslint-disable-line
+        //map.addObject(marker);
+        var waypointChecked = './assets/img/waypointdone.png';
+
+
+        var iconChecked = new H.map.Icon(waypointChecked);
+        console.log(iconChecked);
+        const marker = new H.map.Marker({ lat: waypoint.originalPosition.latitude, lng: waypoint.originalPosition.longitude }, { icon: iconChecked });
+
+        var group = new H.map.Group();
+        map.addObject(group);
+        group.addObject(marker);
+
+
+        //Get Visited Global Points
+        const $visitedPoints = document.querySelectorAll(`.visitedPoint`);
+        const visitedPointArray = Array.from($visitedPoints);
+
+        let newVisitedArray = [];// eslint-disable-line
+        visitedPointArray.map(point => {
+          newVisitedArray.push(point.textContent);
+        });
+
+        const $visitedPointsEl = document.querySelector(`.visitedPoints`);
+        $visitedPointsEl.textContent = ``;
+
+        const visitedPoints = [...new Set(newVisitedArray)];// eslint-disable-line
 
         markers.push(marker);
 
@@ -736,7 +789,7 @@
           const clickedWaypoint = findWaypoint(lat, lng, cityData.routes[routeId].waypoints);
 
           map.addEventListener('tap', e => {
-            if (e.target instanceof H.map.Marker) {
+            if (e.target instanceof H.map.Marker) {// eslint-disable-line
               getClickPosition(e);
             } else {
               const $content = document.querySelector(`.content`);
@@ -744,7 +797,7 @@
             }
           });
 
-          map.addEventListener(`drag`, e => {
+          map.addEventListener(`drag`, () => {
             const $content = document.querySelector(`.content`);
             $content.classList.add(`hidden`);
           });
@@ -825,7 +878,7 @@
 
   const parseMaps = data => {
     const cityId = document.querySelector(`.cityId`).textContent;
-    const routeId = document.querySelector(`.routeId`).textContent;
+    const routeId = document.querySelector(`.routeId`).textContent;// eslint-disable-line
     const cityRouteId = document.querySelector(`.cityRouteId`).textContent;
     mapData = data.cities[cityId].maps;
 
@@ -833,7 +886,7 @@
     $arBtn.setAttribute(`href`, `index.php?page=ar&id=${cityRouteId}&city=${activeCityId}&cityRouteId=${cityRouteId}`);
 
     const defaultLayers = platform.createDefaultLayers();
-
+    /* eslint-disable*/
     map = new H.Map(document.getElementById('map'),
       defaultLayers.vector.normal.map, {
       center: { lat: mapData.lat, lng: mapData.lng },
@@ -842,9 +895,10 @@
       pixelRatio: window.devicePixelRatio || 1
     });
 
+
     const ui = H.ui.UI.createDefault(map, defaultLayers);
     var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
-
+    /* eslint-enable*/
     window.addEventListener('resize', () => map.getViewPort().resize());
     console.log(cityRouteId);
     console.log(data.cities[cityId]);

@@ -4,6 +4,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
     if(empty($_SESSION)){
       $_SESSION['user']['l'] = "nl";
       $_SESSION['user']['codes'] = array();
+      $_SESSION['user']['activeRoutes'] = array();
       array_push($_SESSION['user']['codes'], $_GET['code']);
 
       header('Location: index.php');
@@ -15,6 +16,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
     if(empty($_SESSION)){
       $_SESSION['user']['l'] = "fr";
       $_SESSION['user']['codes'] = array();
+      $_SESSION['user']['activeRoutes'] = array();
       array_push($_SESSION['user']['codes'], $_GET['code']);
 
       header('Location: index.php');
@@ -26,6 +28,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
     if(empty($_SESSION)){
       $_SESSION['user']['l'] = "en";
       $_SESSION['user']['codes'] = array();
+      $_SESSION['user']['activeRoutes'] = array();
       array_push($_SESSION['user']['codes'], $_GET['code']);
 
       header('Location: index.php');

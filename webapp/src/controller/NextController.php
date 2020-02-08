@@ -4,8 +4,6 @@ require_once __DIR__ . '/Controller.php';
 
 class NextController extends Controller {
 
-
-
   public function index(){
     $this->detectMobile("mobile");
   }
@@ -138,11 +136,30 @@ class NextController extends Controller {
   }
 
   public function route(){
+    if(!empty($_POST)){
+      if(!empty($_POST['action']) && $_POST['action'] == 'skipOnboarding'){
+        $_SESSION['user']['skiponboarding'] = 1;
+      }
+    }
 
+    array_push($_SESSION['user']['activeRoutes'], $_COOKIE['activeRoute']);
+    $this->set('visitedPoints', $_SESSION['user']['activeRoutes']);
   }
 
   public function ar(){
+    // function setInterval($f, $milliseconds)
+    // {
+    // $seconds=(int)$milliseconds/1000;
+    // while(true)
+    // {
+    //     $f();
+    //     sleep($seconds);
+    // }
+    // }
 
+    // setInterval(function(){
+
+    // }, 1000);
   }
 
   public function arscene(){

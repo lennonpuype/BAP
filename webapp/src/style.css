@@ -388,3 +388,14 @@ a {
   align-items: center;
   justify-content: center;
 }
+
+.skip_onboarding_form{
+  position: absolute;
+  top: 3%;
+  right: 3%;
+}
+
+.skip_onboarding_text{
+  font-size: 1.8rem;
+  cursor: pointer;
+}
