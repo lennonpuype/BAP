@@ -607,7 +607,8 @@
           });
         }
       }
-    }, 1000);
+      triggerFinishAllPoints();
+    }, 100);
   };
 
   const showARInfo = (activeRoute, $waypointInfoElement) => {
@@ -688,6 +689,42 @@
   }
   /* eslint-enable*/
 
+  /*MIX ROUTES & AR*/
+  const triggerFinishAllPoints = () => {
+    const cityRouteId = document.querySelector(`.cityRouteId`).textContent;
+
+    fetch(`./assets/data/cities.json`)
+      .then(r => r.json())
+      .then(data => {
+        const cities = data.cities;
+        const currentCity = cities[activeCityId];
+        const currentRoute = currentCity.routes[cityRouteId];
+
+        const waypoints = currentRoute.waypoints;
+
+        if (waypoints.some(waypoint => waypoint.visited === 'yes')) {
+          const $popupPrizeNotification = document.querySelector(`.popupPrizeNotification`);
+          $popupPrizeNotification.classList.remove(`hidden`);
+
+          $popupPrizeNotification.addEventListener(`click`, handlePrizePopup);
+        }
+      });
+  };
+
+  const handlePrizePopup = e => {
+    console.log(e.currentTarget);
+
+
+    const $popupForClaim = document.querySelector(`.popupForClaim`);
+    $popupForClaim.classList.remove(`hidden`);
+
+    const $closePrizePopup = document.querySelector(`.closePrizePopup`);
+    $closePrizePopup.addEventListener(`click`, () => {
+      $popupForClaim.classList.add(`hidden`);
+      e.currentTarget.classList.remove(`hidden`);
+    });
+  };
+
   /*Routes*/
   let mapData = {};
   let userLocation = {};
@@ -705,8 +742,10 @@
 
     handleOnboarding();
 
+
     setInterval(() => {
       fetchUserLocation();
+      triggerFinishAllPoints();
     }, 100);
   };
 
@@ -751,8 +790,6 @@
         $singleRoutePage.classList.remove(`hidden`);
       }
     }
-
-
   };
 
   const loadOnboardingView = currentOnboarding => {
@@ -922,7 +959,6 @@
     $button.textContent = `Terug`;
     $button.addEventListener(`click`, () => {
       audio.pause();
-      console.log(audio);
 
       $existingPage.classList.remove(`hidden`);
       $detailPage.classList.add(`hidden`);
@@ -981,7 +1017,7 @@
     mapData = data.cities[cityId].maps;
 
     const $arBtn = document.querySelector(`.arBtn`);
-    $arBtn.setAttribute(`href`, `index.php ? page = ar & id=${cityRouteId}& city=${activeCityId}& cityRouteId=${cityRouteId} `);
+    $arBtn.setAttribute(`href`, `index.php?page=ar&id=${cityRouteId}&city=${activeCityId}&cityRouteId=${cityRouteId}`);
 
     const defaultLayers = platform.createDefaultLayers();
     /* eslint-disable*/

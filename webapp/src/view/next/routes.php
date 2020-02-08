@@ -2,7 +2,22 @@
 if(!empty($_GET['l']) && empty($_SESSION['user'])){
   if($_GET['l'] == 'nl'){
     if(empty($_SESSION)){
+
+    $n=10;
+    function getName($n) {
+      $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      $randomString = 'NEXT';
+
+      for ($i = 0; $i < $n; $i++) {
+        $index = rand(0, strlen($characters) - 1);
+        $randomString .= $characters[$index];
+      }
+
+      return $randomString;
+    }
+
       $_SESSION['user']['l'] = "nl";
+      $_SESSION['user']['codeForCompletion'] = getName($n);
       $_SESSION['user']['codes'] = array();
       $_SESSION['user']['activeRoutes'] = array();
       array_push($_SESSION['user']['codes'], $_GET['code']);
@@ -38,6 +53,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
 }
 ?>
 <?php if(!empty($_SESSION['user'])){ ?>
+  <?php var_dump($_SESSION['user']['codeForCompletion']); ?>
   <?php unset($_SESSION['user']['activeRoute']); ?>
   <?php if(empty($_SESSION['user']['skiponboarding'])):?>
   <?php $_SESSION['user']['skiponboarding'] = 0; ?>
@@ -46,6 +62,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
     <?php $_SESSION['user']['onboardingalreadyseen'] = 0 ?>
   <?php } ?>
   <?php if($_SESSION['user']['l'] == 'nl'){ ?>
+
     <div class="popup_code hidden"></div>
     <header class="header">
       <div class="icon"></div>

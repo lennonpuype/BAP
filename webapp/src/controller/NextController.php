@@ -120,6 +120,18 @@ class NextController extends Controller {
       if(!empty($_POST['action']) && $_POST['action'] == 'skipOnboarding'){
         $_SESSION['user']['skiponboarding'] = 1;
       }
+
+      if(!empty($_POST['action']) && $_POST['action'] == 'sendCode'){
+
+        $to_email = $_POST['email'];
+        $subject = "Thank you! Here is your code for a NEXT show of your choice";
+        $message = '<h1>Thank You for using our platform, we have something special for you!</h1><br/><br/><p>You received a new code for a show in the futur!</p><br/><p>Your code is: <b>'.$_POST['code'].'</b></p>';
+        $headers = array('From: admin@arunext.eu', 'Cc: admin@arunext.eu', 'Content-type: text/html; charset: utf8\r\n');
+        mail($to_email,$subject,$message,implode("\r\n",$headers));
+
+        header('Location: index.php?page=routes');
+        exit;
+      }
     }
 
     array_push($_SESSION['user']['activeRoutes'], $_COOKIE['activeRoute']);
