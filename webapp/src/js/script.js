@@ -739,34 +739,24 @@
   };
 
   const addMarkersToMap = (map, data, cityData, routeId) => {
-    const route = data.response.route;
+    //const route = data.response.route;
+    const routes = cityData.routes;
 
-    route.map(routeData => {
-      const waypoints = routeData.waypoint;
+
+    routes.map(routeData => {
+      const waypoints = routeData.waypoints;
 
       //Route met wijzers mee
-      const maneuvers = routeData.leg[1].maneuver;
+      //const maneuvers = routeData.leg[1].maneuver;
 
-      maneuvers.map(maneuver => {
-        console.log(maneuver);
-      });
+      // maneuvers.map(maneuver => {
+      //   console.log(maneuver);
+      // });
+
+
 
       waypoints.map(waypoint => {
-        //const marker = new H.map.Marker({ lat: waypoint.originalPosition.latitude, lng: waypoint.originalPosition.longitude }); // eslint-disable-line
-        //map.addObject(marker);
-        var waypointChecked = './assets/img/waypointdone.png';
-
-
-        var iconChecked = new H.map.Icon(waypointChecked);
-        console.log(iconChecked);
-        const marker = new H.map.Marker({ lat: waypoint.originalPosition.latitude, lng: waypoint.originalPosition.longitude }, { icon: iconChecked });
-
-        var group = new H.map.Group();
-        map.addObject(group);
-        group.addObject(marker);
-
-
-        //Get Visited Global Points
+        //Get Visited Global Way Points
         const $visitedPoints = document.querySelectorAll(`.visitedPoint`);
         const visitedPointArray = Array.from($visitedPoints);
 
@@ -780,45 +770,52 @@
 
         const visitedPoints = [...new Set(newVisitedArray)];// eslint-disable-line
 
-        markers.push(marker);
+        let waypointVisitedArray = [];
 
-        marker.addEventListener(`tap`, e => {
-          const currentMarker = e.target;
-          const lat = currentMarker.b.lat;
-          const lng = currentMarker.b.lng;
-          const clickedWaypoint = findWaypoint(lat, lng, cityData.routes[routeId].waypoints);
-
-          map.addEventListener('tap', e => {
-            if (e.target instanceof H.map.Marker) {// eslint-disable-line
-              getClickPosition(e);
-            } else {
-              const $content = document.querySelector(`.content`);
-              $content.classList.add(`hidden`);
-            }
+        visitedPoints.map(point => {
+          const filterPoints = waypoints.filter(waypoint => {
+            return waypoint.globalId === parseInt(point);
           });
 
-          map.addEventListener(`drag`, () => {
-            const $content = document.querySelector(`.content`);
-            $content.classList.add(`hidden`);
-          });
-
-          const $h1 = document.createElement(`h1`);
-          const $p = document.createElement(`p`);
-          const $button = document.createElement(`button`);
-
-          const $content = document.querySelector(`.content`);
-          $content.textContent = ``;
-          $content.appendChild($h1);
-          $content.appendChild($p);
-          $content.appendChild($button);
-
-          $h1.textContent = clickedWaypoint.name;
-          $p.textContent = clickedWaypoint.description;
-          $button.textContent = `Meer info`;
-          $button.addEventListener(`click`, e => {
-            handleClickMoreInfoButton(clickedWaypoint);
-          });
+          waypointVisitedArray.push(filterPoints[0]);
         });
+
+        waypointVisitedArray.map(waypoint => {
+          waypoint.visited = "yes";
+        });
+
+
+
+        // if (filterPoints) {
+        //   waypoint.visited = "yes";
+        //   console.log("FKLDJFSLKJDFLSKJSDFL");
+        // }
+
+        // visitedPoints.map(point => {
+        //   console.log(waypoint.globalId);
+        //   console.log(point);
+        //   if (waypoint.globalId === parseInt(point)) {
+        //     waypoint.visited = "yes";
+        //     console.log("FKLDJFSLKJDFLSKJSDFL");
+        //   }
+        // });
+
+        //Make Waypoint visible
+        const waypointChecked = './assets/img/waypointdone.png';
+        const waypointUnChecked = './assets/img/waypointnotdone.png';
+
+        const iconChecked = new H.map.Icon(waypointChecked);
+        const iconUnChecked = new H.map.Icon(waypointUnChecked);
+
+        if (waypoint.visited === "no") {
+          const marker = new H.map.Marker({ lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, { icon: iconUnChecked });
+          makeMarker(marker);
+        }
+
+        if (waypoint.visited === "yes") {
+          const marker = new H.map.Marker({ lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, { icon: iconChecked });
+          makeMarker(marker);
+        }
       });
 
       if (userLocation !== ``) {
@@ -827,6 +824,52 @@
           map.addObject(userMarker);
         }, 1000)
       }
+    });
+  };
+
+  const makeMarker = marker => {
+    var group = new H.map.Group();
+    map.addObject(group);
+    group.addObject(marker);
+
+    markers.push(marker);
+
+    marker.addEventListener(`tap`, e => {
+      const currentMarker = e.target;
+      const lat = currentMarker.b.lat;
+      const lng = currentMarker.b.lng;
+      const clickedWaypoint = findWaypoint(lat, lng, cityData.routes[routeId].waypoints);
+
+      map.addEventListener('tap', e => {
+        if (e.target instanceof H.map.Marker) {// eslint-disable-line
+          getClickPosition(e);
+        } else {
+          const $content = document.querySelector(`.content`);
+          $content.classList.add(`hidden`);
+        }
+      });
+
+      map.addEventListener(`drag`, () => {
+        const $content = document.querySelector(`.content`);
+        $content.classList.add(`hidden`);
+      });
+
+      const $h1 = document.createElement(`h1`);
+      const $p = document.createElement(`p`);
+      const $button = document.createElement(`button`);
+
+      const $content = document.querySelector(`.content`);
+      $content.textContent = ``;
+      $content.appendChild($h1);
+      $content.appendChild($p);
+      $content.appendChild($button);
+
+      $h1.textContent = clickedWaypoint.name;
+      $p.textContent = clickedWaypoint.description;
+      $button.textContent = `Meer info`;
+      $button.addEventListener(`click`, e => {
+        handleClickMoreInfoButton(clickedWaypoint);
+      });
     });
   };
 
