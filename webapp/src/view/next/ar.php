@@ -1,3 +1,4 @@
+<section class="waypointInfo"></section>
 <section class="arPage ar_section">
   <h1>AR <?php if(!empty($_GET['id'])){echo $_GET['id'];} ?></h1>
   <h1 class="ar_tag"></h1>

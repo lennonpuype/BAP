@@ -588,8 +588,11 @@
     }, 0);
 
 
+    const $waypointInfo = document.querySelector(`.waypointInfo`);
+
     setInterval(() => {
       const $iframe = document.querySelector(`.arscene_iframe`);
+
       if ($iframe) {
         const $iframeContent = $iframe.contentWindow.document.body;
         if ($iframeContent) {
@@ -599,19 +602,35 @@
           allMarkers.map(marker => {
             document.querySelector(`.ar_tag`).textContent = marker.object3D.visible;
             if (marker.object3D.visible === true) {
-              document.querySelector(`.ar_tag`).textContent = "Scanned";// eslint-disable-line
-              showARInfo(marker.object3D.el.classList[1]);
-            } else {
-              document.querySelector(`.ar_tag`).textContent = "Not scanned";// eslint-disable-line
-              console.log("Not Scanned");// eslint-disable-line
+              showARInfo(marker.object3D.el.classList[1], $waypointInfo);
             }
           });
         }
       }
-    }, 100);
+    }, 1000);
   };
 
-  const showARInfo = activeRoute => {
+  const showARInfo = (activeRoute, $waypointInfoElement) => {
+    const cityRouteId = document.querySelector(`.cityRouteId`).textContent;
+
+    fetch('./assets/data/cities.json')
+      .then(r => r.json())
+      .then(data => {
+        const cities = data.cities;
+        const currentCity = cities[activeCityId];
+        const currentRoute = currentCity.routes[cityRouteId];
+
+        const filteredWaypoint = currentRoute.waypoints.filter(waypoint => {
+          return waypoint.globalId === parseInt(activeRoute);
+        });
+
+        const currentWaypoint = filteredWaypoint[0];
+        if (currentWaypoint) {
+          $waypointInfoElement.innerHTML = `<h1>${currentWaypoint.name}</h1>`;
+        } else {
+          $waypointInfoElement.textContent = ``;
+        }
+      });
 
     saveRouteToPhp(activeRoute);
   };
@@ -619,8 +638,6 @@
   const saveRouteToPhp = activeRoute => {
     let strippedString = activeRoute;
     strippedString = strippedString.replace(/[',]+g/, '');
-    console.log(strippedString);
-
     createActiveRouteCookie(parseInt(strippedString));
   };
 
