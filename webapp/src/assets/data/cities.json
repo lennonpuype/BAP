@@ -10,15 +10,17 @@
       "routes": [
         {
           "id": 0,
-          "namenl": "Talenten route",
+          "namenl": "Talent Route",
           "namefr": "Trajet des talents",
-          "nameen": "Talent route",
+          "nameen": "Talent Route",
           "desc": "Trek op pad door de stad en ontdek de talenten van nu en vroeger diede stad verwonderen",
           "img": "./assets/img/yellow.png",
           "stepsImg": "./assets/img/yellowsteps.png",
           "wpImg": "./assets/img/yar.png",
           "timeImg": "./assets/img/yecr.png",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
+          "color1": "#FFBA00",
+          "color2": "#FFD35C",
           "waypoints": [
             {
               "id": 0,
@@ -68,6 +70,8 @@
           "wpImg": "./assets/img/grar.png",
           "timeImg": "./assets/img/grc.png",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.827667,3.265455&waypoint1=geo!50.830236,3.26461&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
+          "color1": "#7BC88F",
+          "color2": "#9AD7AA",
           "waypoints": [
             {
               "id": 0,
@@ -108,15 +112,17 @@
         },
         {
           "id": 2,
-          "namenl": "Futuristische route",
+          "namenl": "Futuristische Route",
           "namefr": "Trajet des futures",
-          "nameen": "Future route",
+          "nameen": "Future Route",
           "desc": "Leer de scheppers van de toekomst kennen: van keizers tot helden en visies van morgen!",
           "img": "./assets/img/red.png",
           "stepsImg": "./assets/img/redsteps.png",
           "wpImg": "./assets/img/redar.png",
           "timeImg": "./assets/img/redcr.png",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
+          "color1": "#FF0031",
+          "color2": "#FF5172",
           "waypoints": [
             {
               "id": 0,
@@ -167,16 +173,17 @@
       "routes": [
         {
           "id": 3,
-          "namenl": "Talenten Route",
+          "namenl": "Talent Route",
           "namefr": "Trajet des talents",
           "nameen": "Talent Route",
-          "desc": "Ontdek de wondere sporen nagelaten door koningen, legendes en natuurlijk ook de treinen in de stad.",
-          "img": "./assets/img/green.png",
-          "stepsImg": "./assets/img/greensteps.png",
-          "wpImg": "./assets/img/grar.png",
-          "timeImg": "./assets/img/grc.png",
+          "desc": "Trek op pad door de stad en ontdek de talenten van nu en vroeger diede stad verwonderen",
+          "img": "./assets/img/yellow.png",
+          "stepsImg": "./assets/img/yellowsteps.png",
+          "wpImg": "./assets/img/yar.png",
+          "timeImg": "./assets/img/yecr.png",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
-
+          "color1": "#FFBA00",
+          "color2": "#FFD35C",
           "waypoints": [
             {
               "id": 0,

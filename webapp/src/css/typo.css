@@ -10,7 +10,7 @@ h1 {
   font-family: Raleway, sans-serif;
   font-weight: bold;
   color: var(--darkpurple);
-  font-size: 4rem;
+  font-size: 2.3rem;
 }
 
 .head_title {
@@ -100,14 +100,13 @@ h1 {
   font-weight: bold;
   font-size: 2.3rem;
   line-height: 2.7rem;
-  color: var(--green);
   text-align: left;
 }
 
 .route_desc {
   font-family: Lato, sans-serif;
   font-size: 1.8rem;
-  line-height: 2.2rem;
+  line-height: 1.6;
   color: var(--black);
 }
 
@@ -116,4 +115,11 @@ h1 {
   font-size: 1.4rem;
   line-height: 2.2rem;
   color: var(--black);
+}
+
+.route_button {
+  font-family: Raleway, sans-serif;
+  font-weight: bold;
+  font-size: 1.9rem;
+  color: white;
 }

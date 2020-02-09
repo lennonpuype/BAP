@@ -182,25 +182,26 @@
     $waypoints.classList.add(`route_parameter`);
 
     $a.classList.add(`route_button`);
+    $h1.innerHTML = `<h1 style="color:${route.color1};">${route.name}</h1>`;
 
     $p.textContent = route.desc;
 
     $divImg.innerHTML = `<img src="${route.img}" alt="Route image" height="250" width="250">`;
 
-    $steps.innerHTML = `<img src="${route.stepsImg}" class="img_parameter" alt="Image for how many km" width="3O" height="30"/> <p class="route_parameter">${route.distance}</p>`;
-    $time.innerHTML = `<img src="${route.timeImg}" class="img_parameter" alt="Image for how many minutes" width="3O" height="30" /> <p class="route_parameter">${route.time}</p>`;
-    $waypoints.innerHTML = `<img src="${route.wpImg}" class="img_parameter" alt="Image for how many waypoints" width="3O" height="30"/> <p class="route_parameter">${route.waypoints.length}</p>`;
+    $steps.innerHTML = `<img src="${route.stepsImg}" class="img_parameter" alt="Image for how many km" width="3O" height="30"/> <p class="route_parameter_text">${route.distance}</p>`;
+    $time.innerHTML = `<img src="${route.timeImg}" class="img_parameter" alt="Image for how many minutes" width="3O" height="30" /> <p class="route_parameter_text">${route.time}</p>`;
+    $waypoints.innerHTML = `<img src="${route.wpImg}" class="img_parameter" alt="Image for how many waypoints" width="3O" height="30"/> <p class="route_parameter_text">${route.waypoints.length}</p>`;
 
     if (globalLanguage === `nl`) {
-      $h1.textContent = route.namenl;
+      $h1.innerHTML = `<h1 style="color:${route.color1}; grid-area:route_name; margin-bottom: 0.8rem;">${route.namenl}</h1>`;
     }
 
     if (globalLanguage === `fr`) {
-      $h1.textContent = route.namefr;
+      $h1.innerHTML = `<h1 style="color:${route.color1}; grid-area:route_name; margin-bottom: 0.8rem;">${route.namefr}</h1>`;
     }
 
     if (globalLanguage === `en`) {
-      $h1.textContent = route.nameen;
+      $h1.innerHTML = `<h1 style="color:${route.color1}; grid-area:route_name; margin-bottom: 0.8rem;">${route.nameen}</h1>`;
     }
 
     console.log(globalLanguage);
