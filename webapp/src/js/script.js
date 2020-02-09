@@ -848,71 +848,80 @@
   };
 
   const parseUrl = (data, cityData, map, routeId) => {
+    removeAllMapMarkers(map);
     addMarkersToMap(map, data, cityData, routeId);
+  };
+
+  const removeAllMapMarkers = map => {
+    map.removeObjects(map.getObjects());
   };
 
   const addMarkersToMap = (map, data, cityData, routeId) => {
     //const route = data.response.route;
-    const routes = cityData.routes;
+    const route = cityData.routes[routeId];
 
 
-    routes.map(routeData => {
-      const waypoints = routeData.waypoints;
+    const waypoints = route.waypoints;
 
-      waypoints.map(waypoint => {
-        //Get Visited Global Way Points
-        const $visitedPoints = document.querySelectorAll(`.visitedPoint`);
-        const visitedPointArray = Array.from($visitedPoints);
+    waypoints.map(waypoint => {
 
-        let newVisitedArray = [];// eslint-disable-line
-        visitedPointArray.map(point => {
-          newVisitedArray.push(point.textContent);
+      //Get Visited Global Way Points
+      const $visitedPoints = document.querySelectorAll(`.visitedPoint`);
+      const visitedPointArray = Array.from($visitedPoints);
+
+      let newVisitedArray = [];// eslint-disable-line
+      visitedPointArray.map(point => {
+        newVisitedArray.push(point.textContent);
+      });
+
+      const $visitedPointsEl = document.querySelector(`.visitedPoints`);
+      $visitedPointsEl.textContent = ``;
+
+      const visitedPoints = [...new Set(newVisitedArray)];// eslint-disable-line
+
+      let waypointVisitedArray = [];// eslint-disable-line
+
+      visitedPoints.map(point => {
+        const filterPoints = waypoints.find(waypoint => {
+          return waypoint.globalId === parseInt(point);
         });
 
-        const $visitedPointsEl = document.querySelector(`.visitedPoints`);
-        $visitedPointsEl.textContent = ``;
-
-        const visitedPoints = [...new Set(newVisitedArray)];// eslint-disable-line
-
-        let waypointVisitedArray = [];// eslint-disable-line
-
-        visitedPoints.map(point => {
-          const filterPoints = waypoints.filter(waypoint => {
-            return waypoint.globalId === parseInt(point);
-          });
-
+        if (filterPoints === undefined) {
+          return;
+        } else {
           waypointVisitedArray.push(filterPoints[0]);
-        });
-
-        waypointVisitedArray.map(waypoint => {
-          waypoint.visited = "yes";
-        });
-
-        //Make Waypoint visible
-        const waypointChecked = './assets/img/waypointdone.png';
-        const waypointUnChecked = './assets/img/waypointnotdone.png';
-
-        const iconChecked = new H.map.Icon(waypointChecked);
-        const iconUnChecked = new H.map.Icon(waypointUnChecked);
-
-        if (waypoint.visited === "no") {
-          const marker = new H.map.Marker({ lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, { icon: iconUnChecked });
-          makeMarker(marker, cityData, routeId);
-        }
-
-        if (waypoint.visited === "yes") {
-          const marker = new H.map.Marker({ lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, { icon: iconChecked });
-          makeMarker(marker, cityData, routeId);
         }
       });
 
-      if (userLocation !== ``) {
-        setInterval(() => {
-          const userMarker = new H.map.Marker({ lat: userLocation.lat, lng: userLocation.lng });
-          map.addObject(userMarker);
-        }, 1000)
+      waypointVisitedArray.map(waypoint => {
+        waypoint.visited = "yes";
+      });
+
+      //Make Waypoint visible
+      const waypointChecked = './assets/img/waypointdone.png';
+      const waypointUnChecked = './assets/img/waypointnotdone.png';
+
+      const iconChecked = new H.map.Icon(waypointChecked);
+      const iconUnChecked = new H.map.Icon(waypointUnChecked);
+
+      if (waypoint.visited === "no") {
+        const marker = new H.map.Marker({ lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, { icon: iconUnChecked });
+        makeMarker(marker, cityData, routeId);
+      }
+
+      if (waypoint.visited === "yes") {
+        const marker = new H.map.Marker({ lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, { icon: iconChecked });
+        makeMarker(marker, cityData, routeId);
       }
     });
+
+    if (userLocation !== ``) {
+      setInterval(() => {
+        const userMarker = new H.map.Marker({ lat: userLocation.lat, lng: userLocation.lng });
+        map.addObject(userMarker);
+      }, 1000)
+    }
+
   };
 
   const makeMarker = (marker, cityData, routeId) => {
