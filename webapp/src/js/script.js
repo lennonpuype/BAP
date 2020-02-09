@@ -196,6 +196,7 @@
     $a.classList.remove(`unlocked`);
     $a.textContent = `Voer code in >`;
     $article.classList.add(`locked`);
+    $article.classList.remove(`unlocked`);
 
     const filterRoute = unlockedRouteIdArray.filter(unlockedRoute => {
       return unlockedRoute.id === route.id;
@@ -244,11 +245,12 @@
         aArray[i].classList.remove(`locked`);
         aArray[i].textContent = `Start`;
         articleArray[i].classList.add(`unlocked`);
+        articleArray[i].classList.remove(`locked`);
       }
 
       console.log(routes[i].id, lastRouteArray[i]);
     }
-  }
+  };
 
   const showPopupCodeScreen = (language, $popup) => {
     let codeValue = ``;

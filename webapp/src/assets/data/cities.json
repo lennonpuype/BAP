@@ -63,7 +63,8 @@
               "geolocation": {
                 "lat": 50.827667,
                 "lng": 3.265455
-              }
+              },
+              "visited": "yes"
             },
             {
               "id": 1,
@@ -73,7 +74,8 @@
               "geolocation": {
                 "lat": 50.830236,
                 "lng": 3.256190
-              }
+              },
+              "visited": "yes"
             },
             {
               "id": 2,
@@ -83,7 +85,8 @@
               "geolocation": {
                 "lat": 50.828895,
                 "lng": 3.263501
-              }
+              },
+              "visited": "yes"
             }
           ],
           "time": "30min",
