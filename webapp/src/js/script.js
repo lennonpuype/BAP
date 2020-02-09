@@ -634,7 +634,8 @@
           });
         }
       }
-      triggerFinishAllPoints();
+      let visitedWaypoints = [];
+      triggerFinishAllPoints(visitedWaypoints);
     }, 100);
   };
 
@@ -717,7 +718,7 @@
   /* eslint-enable*/
 
   /*MIX ROUTES & AR*/
-  const triggerFinishAllPoints = () => {
+  const triggerFinishAllPoints = visitedWaypoints => {
     const cityRouteId = document.querySelector(`.cityRouteId`).textContent;
 
     fetch(`./assets/data/cities.json`)
@@ -729,7 +730,10 @@
 
         const waypoints = currentRoute.waypoints;
 
-        if (waypoints.some(waypoint => waypoint.visited === 'yes')) {
+        const exists = waypoints.filter(waypoint => waypoint.visited === `yes`);
+        visitedWaypoints.push(exists);
+
+        if (exists.length >= waypoints.length) {
           const $popupPrizeNotification = document.querySelector(`.popupPrizeNotification`);
           $popupPrizeNotification.classList.remove(`hidden`);
 
@@ -771,7 +775,8 @@
 
     setInterval(() => {
       fetchUserLocation();
-      triggerFinishAllPoints();
+      let visitedWaypoints = [];
+      triggerFinishAllPoints(visitedWaypoints);
     }, 100);
   };
 
