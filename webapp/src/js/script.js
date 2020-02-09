@@ -61,15 +61,6 @@
       handleAR();
     }
 
-    // fetch(`index.php?page=routes`, {
-    //   headers: new Headers({ Accept: 'application/json' }),
-    //   method: 'POST',
-    //   body: 'sdlfmldsfkmldsfkmldfsk'
-    // })
-    //   .then(r => r.json())
-    //   .then(json => {
-    //     console.log(json);
-    //   }).catch(err => console.log(err));
     hamburgerManager();
   };
 
@@ -133,68 +124,26 @@
       .then(parseCities);
   };
 
+  let filteredRoutes = [];
+
   const parseCities = data => {
     const city = data.cities[activeCityId];
     const routes = city.routes;
 
     const $routes = document.querySelector(`.routes`);
     $routes.textContent = ``;
-    unlockedRouteId = [];
 
     routes.map(route => {
-      createRouteCards(route);
+      createRouteCards(route, routes);
     });
 
-    const $a = document.querySelectorAll(`.route_button`);
-    const allA = Array.from($a);
 
-    const $routeIds = document.querySelectorAll(`.routeId`);
-    const routeIdArray = Array.from($routeIds);
-
-    routeIdArray.map(routeId => {
-      unlockedRouteId.push(routeId.textContent);
-      unlockedRouteId.sort();
-    });
-
-    console.log(unlockedRouteId);
-
-
-
-    for (let i = 0; i < allA.length; i++) {
-      // console.log(unlockedRouteIdNew[i]);
-      // console.log(allA[i].dataset.id);
-      // console.log("");
-
-      if (unlockedRouteId[i] !== undefined) {
-        allA[i].setAttribute(`href`, `index.php?page=route&id=${routes[i].id}&city=${activeCityId}&cityRouteId=${i}`);
-        allA[i].classList.add(`unlocked`);
-        allA[i].classList.remove(`locked`);
-        allA[i].textContent = `Start`;
-      }
-
-      if (unlockedRouteId[i] === undefined) {
-        allA[i].setAttribute(`href`, `#`);
-        allA[i].classList.add(`locked`);
-        allA[i].classList.remove(`unlocked`);
-        allA[i].textContent = `Voer code in >`;
-      }
-
-      const $lockedRoutes = document.querySelectorAll(`.locked`);
-      const lockedRoutesArray = Array.from($lockedRoutes);
-      const $routePage = document.querySelector(`.routePage`);
-      lockedRoutesArray.map(lockedRoute => {
-        lockedRoute.addEventListener(`click`, e => {
-          const $popup = document.querySelector(`.popup_code`);
-          $popup.classList.remove(`hidden`);
-          $routePage.classList.add(`hidden`);
-          showPopupCodeScreen(currentLanguage, $popup);
-        });
-      });
-    }
+    handleStartButtonLogics(routes);
   };
 
-  const createRouteCards = route => {
+  const createRouteCards = (route, routes) => {
     const $routes = document.querySelector(`.routes`);
+
     const $article = document.createElement(`article`);
     $routes.appendChild($article);
     $article.classList.add(`route`);
@@ -214,14 +163,89 @@
     $li.classList.add(`route_parameter`);
     $a.classList.add(`route_button`);
 
-    $a.dataset.id = route.id;
-
     $h1.textContent = route.name;
 
     $ul.innerHTML = `<li class="route_parameter">${route.distance}</li>
     <li class="route_parameter">${route.time}</li>
     <li class="route_parameter">${route.waypoints.length} points</li>`;
+
+    $a.dataset.id = route.id;
+
+    const $routeIds = document.querySelectorAll(`.routeId`);
+    const routeIdArr = Array.from($routeIds);
+
+    let newRouteIdArray = [];// eslint-disable-line
+    routeIdArr.map(routeId => {
+      newRouteIdArray.push(routeId.textContent);
+    });
+
+    const unlockedRouteIds = [...new Set(newRouteIdArray)];// eslint-disable-line
+
+    let unlockedRouteIdArray = [];// eslint-disable-line
+
+    unlockedRouteIds.map(routeId => {
+      const unlockedRouteId = routes.filter(route => {
+        return route.id === parseInt(routeId);
+      });
+
+      unlockedRouteIdArray.push(unlockedRouteId[0]);
+    });
+
+    $a.setAttribute(`href`, `#`);
+    $a.classList.add(`locked`);
+    $a.classList.remove(`unlocked`);
+    $a.textContent = `Voer code in >`;
+
+    const filterRoute = unlockedRouteIdArray.filter(unlockedRoute => {
+      return unlockedRoute.id === route.id;
+    });
+
+    filteredRoutes.push(filterRoute[0]);
+
+    const $lockedRoutes = document.querySelectorAll(`.locked`);
+    const lockedRoutesArray = Array.from($lockedRoutes);
+    const $routePage = document.querySelector(`.routePage`);
+    lockedRoutesArray.map(lockedRoute => {
+      lockedRoute.addEventListener(`click`, e => {
+        const $popup = document.querySelector(`.popup_code`);
+        $popup.classList.remove(`hidden`);
+        $routePage.classList.add(`hidden`);
+        showPopupCodeScreen(currentLanguage, $popup);
+      });
+    });
   };
+
+  const handleStartButtonLogics = routes => {
+    const $allArticle = document.querySelectorAll(`.route`);
+    const $allA = document.querySelectorAll(`.route_button`);
+    const articleArray = Array.from($allArticle);
+    const aArray = Array.from($allA);
+
+    let lastRouteArray = [];
+    let lastAArray = [];
+
+    filteredRoutes.map(route => {
+      if (route === undefined) {
+        route = {};
+        route.id = 999;
+      }
+
+      lastRouteArray.push(route.id);
+    });
+
+    for (let i = 0; i < articleArray.length; i++) {
+      lastAArray.push(aArray[i]);
+
+      if (routes[i].id === lastRouteArray[i]) {
+        aArray[i].setAttribute(`href`, `index.php?page=route&id=${routes[i].id}&city=${activeCityId}&cityRouteId=${routes[i].id}`);
+        aArray[i].classList.add(`unlocked`);
+        aArray[i].classList.remove(`locked`);
+        aArray[i].textContent = `Start`;
+      }
+
+      console.log(routes[i].id, lastRouteArray[i]);
+    }
+  }
 
   const showPopupCodeScreen = (language, $popup) => {
     let codeValue = ``;
@@ -713,7 +737,6 @@
 
   const handlePrizePopup = e => {
     console.log(e.currentTarget);
-
 
     const $popupForClaim = document.querySelector(`.popupForClaim`);
     $popupForClaim.classList.remove(`hidden`);

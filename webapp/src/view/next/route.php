@@ -29,6 +29,7 @@
         <h1>Vul je mailadres in en ontvang je kortingsbon voor NEXT Festival</h1>
         <form method="post">
           <input type="hidden" name="action" value="sendCode"/>
+          <input type="hidden" name="code" value=<?php echo $_SESSION['user']['codeForCompletion']; ?> />
           <input type="text" name="email" value="<?php if(!empty($_POST['email'])){echo $_POST['email']; }?>"/>
           <input type="submit" value="Ontvang de bon in je mailbox" />
         </form>
