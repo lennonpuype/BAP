@@ -1,4 +1,5 @@
 <?php if(empty($_SESSION['user'])): ?>
+  <?php $_COOKIE['activeRoute'] = 999 ?>
 
 <section class="page1 center_content index">
   <h1 class="head_title">a.r.u.next?</h1>

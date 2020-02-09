@@ -10,7 +10,9 @@
       "routes": [
         {
           "id": 0,
-          "name": "Talent Route",
+          "namenl": "Talenten route",
+          "namefr": "Trajet des talents",
+          "nameen": "Talent route",
           "desc": "Trek op pad door de stad en ontdek de talenten van nu en vroeger diede stad verwonderen",
           "img": "./assets/img/yellow.png",
           "stepsImg": "./assets/img/yellowsteps.png",
@@ -49,7 +51,7 @@
                 "lat": 50.828895,
                 "lng": 3.263501
               },
-              "visited": "yes"
+              "visited": "no"
             }
           ],
           "time": "30min",
@@ -57,7 +59,9 @@
         },
         {
           "id": 1,
-          "name": "Sporen Route",
+          "namenl": "Sporen Route",
+          "namefr": "Trajet des trace",
+          "nameen": "Track route",
           "desc": "Ontdek de wondere sporen nagelaten door koningen, legendes en natuurlijk ook de treinen in de stad.",
           "img": "./assets/img/green.png",
           "stepsImg": "./assets/img/greensteps.png",
@@ -73,7 +77,8 @@
               "geolocation": {
                 "lat": 50.827667,
                 "lng": 3.265455
-              }
+              },
+              "visited": "yes"
             },
             {
               "id": 1,
@@ -83,7 +88,8 @@
               "geolocation": {
                 "lat": 50.830236,
                 "lng": 3.25619
-              }
+              },
+              "visited": "yes"
             },
             {
               "id": 2,
@@ -93,7 +99,8 @@
               "geolocation": {
                 "lat": 50.828895,
                 "lng": 3.263501
-              }
+              },
+              "visited": "yes"
             }
           ],
           "time": "30min",
@@ -101,7 +108,9 @@
         },
         {
           "id": 2,
-          "name": "Futuristische Route",
+          "namenl": "Futuristische route",
+          "namefr": "Trajet des futures",
+          "nameen": "Future route",
           "desc": "Leer de scheppers van de toekomst kennen: van keizers tot helden en visies van morgen!",
           "img": "./assets/img/red.png",
           "stepsImg": "./assets/img/redsteps.png",
@@ -115,9 +124,10 @@
               "name": "Kalle en manten",
               "description": "This is Blabla",
               "geolocation": {
-                "lat": 50.830797,
-                "lng": 3.26461
-              }
+                "lat": 50.830236,
+                "lng": 3.25619
+              },
+              "visited": "no"
             },
             {
               "id": 1,
@@ -127,7 +137,8 @@
               "geolocation": {
                 "lat": 50.829829,
                 "lng": 3.266776
-              }
+              },
+              "visited": "no"
             },
             {
               "id": 2,
@@ -137,7 +148,8 @@
               "geolocation": {
                 "lat": 50.828895,
                 "lng": 3.263501
-              }
+              },
+              "visited": "no"
             }
           ],
           "time": "30min",
@@ -155,7 +167,9 @@
       "routes": [
         {
           "id": 3,
-          "name": "Sporen Route",
+          "namenl": "Talenten Route",
+          "namefr": "Trajet des talents",
+          "nameen": "Talent Route",
           "desc": "Ontdek de wondere sporen nagelaten door koningen, legendes en natuurlijk ook de treinen in de stad.",
           "img": "./assets/img/green.png",
           "stepsImg": "./assets/img/greensteps.png",
@@ -172,7 +186,8 @@
               "geolocation": {
                 "lat": 50.830797,
                 "lng": 3.26461
-              }
+              },
+              "visited": "no"
             },
             {
               "id": 1,
@@ -182,7 +197,8 @@
               "geolocation": {
                 "lat": 50.829829,
                 "lng": 3.266776
-              }
+              },
+              "visited": "no"
             },
             {
               "id": 2,
@@ -192,7 +208,8 @@
               "geolocation": {
                 "lat": 50.828895,
                 "lng": 3.263501
-              }
+              },
+              "visited": "no"
             }
           ],
           "time": "30min",

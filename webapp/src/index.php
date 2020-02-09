@@ -40,6 +40,10 @@ $routes = array(
   'faq' => array(
     'controller' => 'Next',
     'action' => 'faq'
+  ),
+  'thankyou' => array(
+    'controller' => 'Next',
+    'action' => 'thankyou'
   )
 );
 

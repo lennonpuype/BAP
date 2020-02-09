@@ -53,7 +53,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
 }
 ?>
 <?php if(!empty($_SESSION['user'])){ ?>
-  <?php var_dump($_SESSION['user']['codeForCompletion']); ?>
+<?php unset($_SESSION['user']['email']); ?>
   <?php unset($_SESSION['user']['activeRoute']); ?>
   <?php if(empty($_SESSION['user']['skiponboarding'])):?>
   <?php $_SESSION['user']['skiponboarding'] = 0; ?>
@@ -62,10 +62,9 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
     <?php $_SESSION['user']['onboardingalreadyseen'] = 0 ?>
   <?php } ?>
   <?php if($_SESSION['user']['l'] == 'nl'){ ?>
-
     <div class="popup_code hidden"></div>
     <header class="header">
-      <img src="././assets/img/stickerlogo.png" alt="Logo van a.r.u.next" width="29" height="47">
+    <img src="././assets/img/stickerlogo.png" alt="Logo van a.r.u.next" width="29" height="47">
       <h1 class="logo_title">a.r.u.next</h1>
       <button class="hamburger" data-state="closed">Open Hamburger</button>
       <div class="hamburger_content hidden">
@@ -85,7 +84,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
         </ul>
         <form method="post">
           <input type="hidden" name="action" value="changeLanguage"/>
-          <input type="submit" name="language" value="nl" />
+          <input type="submit" name="language" value="nl" class="active" />
           <input type="submit" name="language" value="fr" />
           <input type="submit" name="language" value="en" />
         </form>
@@ -112,61 +111,104 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
   <?php } ?>
 
   <?php if($_SESSION['user']['l'] == 'fr'){ ?>
-    <section>
-      <h1>Trajets</h1>
-      <ul>
-        <li>Coutrai</li>
-        <li>Lille</li>
-        <li>Tournai</li>
-        <li>Valenciennes</li>
-      </ul>
-      <article>
-        <h1>1. Route</h1>
-        <ul>
-          <li>3km</li>
-          <li>40min</li>
+    <div class="popup_code hidden"></div>
+    <header class="header">
+      <div class="icon"></div>
+      <h1 class="page_title">Trajets</h1>
+      <button class="hamburger" data-state="closed">Ouverte Hamburger</button>
+      <div class="hamburger_content hidden">
+        <ul class="hamburger_content_list">
+          <li class="hamburger_content_list_item">
+            <a href="index.php?page=routes" class="hamburger_content_list_item_link">Toutes les Trajets</a>
+          </li>
+          <li class="hamburger_content_list_item">
+            <a href="index.php?page=faq" class="hamburger_content_list_item_link">Instructions & aide</a>
+          </li>
+          <li class="hamburger_content_list_item">
+            <a href="#" class="hamburger_content_list_item_link">L'information du NEXT Festival</a>
+          </li>
+          <li class="hamburger_content_list_item">
+            <a href="#" class="hamburger_content_list_item_link">L'information du métropole de l'euro</a
+          ></li>
         </ul>
-        <a href="index.php?page=route&id=1">Start</a>
-      </article>
-
-      <article>
-        <h1>2. Route</h1>
-        <ul>
-          <li>3km</li>
-          <li>40min</li>
+        <form method="post">
+          <input type="hidden" name="action" value="changeLanguage"/>
+          <input type="submit" name="language" value="nl" />
+          <input type="submit" name="language" value="fr" class="active" />
+          <input type="submit" name="language" value="en" />
+        </form>
+      </div>
+    </header>
+    <main class="routePage">
+      <nav class="cities_nav">
+        <ul class="cities">
+          <li class="city_link active_city" data-id="0">Courtrai</li>
+          <li class="city_link" data-id="1">Lille</li>
+          <li class="city_link" data-id="2">Tournai</li>
+          <li class="city_link" data-id="3">Valenciennes</li>
         </ul>
-        <a href="index.php?page=route&id=2">Start</a>
-      </article>
-    </section>
-  <?php } ?>
-
-  <?php if($_SESSION['user']['l'] == 'en'){ ?>
-    <section class="routePage">
-      <h1>Routes</h1>
-      <ul>
-        <li>Kortrijk</li>
-        <li>Lille</li>
-        <li>Tournai</li>
-        <li>Valenciennes</li>
-      </ul>
+      </nav>
       <article class="hidden">
         <?php
-var_dump($routes);
           foreach($routes as $route){
-            var_dump($route);
+            echo '<span class="routeId">'.$route.'</span>';
           }
         ?>
       </article>
+      <section class="routes"></section>
+    </main>
+  <?php } ?>
 
-      <article>
-        <h1>2. Route</h1>
-        <ul>
-          <li>3km</li>
-          <li>40min</li>
+
+
+  <?php if($_SESSION['user']['l'] == 'en'){ ?>
+
+    <div class="popup_code hidden"></div>
+    <header class="header">
+      <div class="icon"></div>
+      <h1 class="page_title">Tours</h1>
+      <button class="hamburger" data-state="closed">Open Hamburger</button>
+      <div class="hamburger_content hidden">
+        <ul class="hamburger_content_list">
+          <li class="hamburger_content_list_item">
+            <a href="index.php?page=routes" class="hamburger_content_list_item_link">All tours</a>
+          </li>
+          <li class="hamburger_content_list_item">
+            <a href="index.php?page=faq" class="hamburger_content_list_item_link">Instructions & help</a>
+          </li>
+          <li class="hamburger_content_list_item">
+            <a href="#" class="hamburger_content_list_item_link">about NEXT Festival</a>
+          </li>
+          <li class="hamburger_content_list_item">
+            <a href="#" class="hamburger_content_list_item_link">about the Eurometropolis</a
+          ></li>
         </ul>
-        <a href="index.php?page=route&id=2">Start</a>
+        <form method="post">
+          <input type="hidden" name="action" value="changeLanguage"/>
+          <input type="submit" name="language" value="nl" />
+          <input type="submit" name="language" value="fr" />
+          <input type="submit" name="language" value="en" class="active"/>
+        </form>
+      </div>
+    </header>
+    <main class="routePage">
+      <nav class="cities_nav">
+        <ul class="cities">
+          <li class="city_link active_city" data-id="0">Kortrijk</li>
+          <li class="city_link" data-id="1">Lille</li>
+          <li class="city_link" data-id="2">Tournai</li>
+          <li class="city_link" data-id="3">Valenciennes</li>
+        </ul>
+      </nav>
+      <article class="hidden">
+        <?php
+          foreach($routes as $route){
+            echo '<span class="routeId">'.$route.'</span>';
+          }
+        ?>
       </article>
-    </section>
+      <section class="routes"></section>
+    </main>
   <?php } ?>
 <?php }else{
   header('Location: index.php');

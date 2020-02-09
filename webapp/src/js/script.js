@@ -8,11 +8,15 @@
     .SwipeEventDispatcher;
 
   let currentLanguage;
+  let globalLanguage;
   let activeCityId = 0;
-  let unlockedRouteId = [];
+  let unlockedRouteId = []; // eslint-disable-line
   let currentRouteId = 0; // eslint-disable-line
 
   const init = () => {
+    const $language = document.querySelector(`.language`);
+    globalLanguage = $language.textContent;
+
     const $index = document.querySelector(`.index`);
     if ($index) {
       manageHomePage();
@@ -59,15 +63,6 @@
       handleAR();
     }
 
-    // fetch(`index.php?page=routes`, {
-    //   headers: new Headers({ Accept: 'application/json' }),
-    //   method: 'POST',
-    //   body: 'sdlfmldsfkmldsfkmldfsk'
-    // })
-    //   .then(r => r.json())
-    //   .then(json => {
-    //     console.log(json);
-    //   }).catch(err => console.log(err));
     hamburgerManager();
   };
 
@@ -131,69 +126,25 @@
       .then(parseCities);
   };
 
+  let filteredRoutes = []; // eslint-disable-line
+
   const parseCities = data => {
     const city = data.cities[activeCityId];
     const routes = city.routes;
 
     const $routes = document.querySelector(`.routes`);
     $routes.textContent = ``;
-    unlockedRouteId = [];
 
     routes.map(route => {
-      createRouteCards(route);
+      createRouteCards(route, routes);
     });
 
-    const $a = document.querySelectorAll(`.route_button`);
-    const allA = Array.from($a);
-
-    const $routeIds = document.querySelectorAll(`.routeId`);
-    const routeIdArray = Array.from($routeIds);
-
-    routeIdArray.map(routeId => {
-      unlockedRouteId.push(routeId.textContent);
-      unlockedRouteId.sort();
-    });
-
-    console.log(unlockedRouteId);
-
-    for (let i = 0; i < allA.length; i++) {
-      // console.log(unlockedRouteIdNew[i]);
-      // console.log(allA[i].dataset.id);
-      // console.log("");
-
-      if (unlockedRouteId[i] !== undefined) {
-        allA[i].setAttribute(
-          `href`,
-          `index.php?page=route&id=${routes[i].id}&city=${activeCityId}&cityRouteId=${i}`
-        );
-        allA[i].classList.add(`unlocked`);
-        allA[i].classList.remove(`locked`);
-        allA[i].textContent = `Start`;
-      }
-
-      if (unlockedRouteId[i] === undefined) {
-        allA[i].setAttribute(`href`, `#`);
-        allA[i].classList.add(`locked`);
-        allA[i].classList.remove(`unlocked`);
-        allA[i].textContent = `Voer code in >`;
-      }
-
-      const $lockedRoutes = document.querySelectorAll(`.locked`);
-      const lockedRoutesArray = Array.from($lockedRoutes);
-      const $routePage = document.querySelector(`.routePage`);
-      lockedRoutesArray.map(lockedRoute => {
-        lockedRoute.addEventListener(`click`, e => {
-          const $popup = document.querySelector(`.popup_code`);
-          $popup.classList.remove(`hidden`);
-          $routePage.classList.add(`hidden`);
-          showPopupCodeScreen(currentLanguage, $popup);
-        });
-      });
-    }
+    handleStartButtonLogics(routes);
   };
 
-  const createRouteCards = route => {
+  const createRouteCards = (route, routes) => {
     const $routes = document.querySelector(`.routes`);
+
     const $article = document.createElement(`article`);
     $routes.appendChild($article);
     $article.classList.add(`route`);
@@ -232,10 +183,6 @@
 
     $a.classList.add(`route_button`);
 
-    $a.dataset.id = route.id;
-
-    $h1.textContent = route.name;
-
     $p.textContent = route.desc;
 
     $divImg.innerHTML = `<img src="${route.img}" alt="Route image" height="250" width="250">`;
@@ -243,6 +190,128 @@
     $steps.innerHTML = `<img src="${route.stepsImg}" class="img_parameter" alt="Image for how many km" width="3O" height="30"/> <p class="route_parameter">${route.distance}</p>`;
     $time.innerHTML = `<img src="${route.timeImg}" class="img_parameter" alt="Image for how many minutes" width="3O" height="30" /> <p class="route_parameter">${route.time}</p>`;
     $waypoints.innerHTML = `<img src="${route.wpImg}" class="img_parameter" alt="Image for how many waypoints" width="3O" height="30"/> <p class="route_parameter">${route.waypoints.length}</p>`;
+
+    if (globalLanguage === `nl`) {
+      $h1.textContent = route.namenl;
+    }
+
+    if (globalLanguage === `fr`) {
+      $h1.textContent = route.namefr;
+    }
+
+    if (globalLanguage === `en`) {
+      $h1.textContent = route.nameen;
+    }
+
+    console.log(globalLanguage);
+
+    $a.dataset.id = route.id;
+
+    const $routeIds = document.querySelectorAll(`.routeId`);
+    const routeIdArr = Array.from($routeIds);
+
+    let newRouteIdArray = []; // eslint-disable-line
+    routeIdArr.map(routeId => {
+      newRouteIdArray.push(routeId.textContent);
+    });
+
+    const unlockedRouteIds = [...new Set(newRouteIdArray)]; // eslint-disable-line
+
+    let unlockedRouteIdArray = []; // eslint-disable-line
+
+    unlockedRouteIds.map(routeId => {
+      const unlockedRouteId = routes.filter(route => {
+        return route.id === parseInt(routeId);
+      });
+
+      unlockedRouteIdArray.push(unlockedRouteId[0]);
+    });
+
+    $a.setAttribute(`href`, `#`);
+    $a.classList.add(`locked`);
+    $a.classList.remove(`unlocked`);
+
+    if (globalLanguage === `nl`) {
+      $a.textContent = `Voer code in >`;
+    }
+
+    if (globalLanguage === `fr`) {
+      $a.textContent = `Entrez un code >`;
+    }
+
+    if (globalLanguage === `en`) {
+      $a.textContent = `Enter a code >`;
+    }
+
+    $article.classList.add(`locked`);
+    $article.classList.remove(`unlocked`);
+
+    const filterRoute = unlockedRouteIdArray.filter(unlockedRoute => {
+      return unlockedRoute.id === route.id;
+    });
+
+    filteredRoutes.push(filterRoute[0]);
+
+    const $lockedRoutes = document.querySelectorAll(`.locked`);
+    const lockedRoutesArray = Array.from($lockedRoutes);
+    const $routePage = document.querySelector(`.routePage`);
+    lockedRoutesArray.map(lockedRoute => {
+      lockedRoute.addEventListener(`click`, () => {
+        const $popup = document.querySelector(`.popup_code`);
+        $popup.classList.remove(`hidden`);
+        $routePage.classList.add(`hidden`);
+        showPopupCodeScreen(currentLanguage, $popup);
+      });
+    });
+  };
+
+  const handleStartButtonLogics = routes => {
+    const $allArticle = document.querySelectorAll(`.route`);
+    const $allA = document.querySelectorAll(`.route_button`);
+    const articleArray = Array.from($allArticle);
+    const aArray = Array.from($allA);
+
+    let lastRouteArray = []; // eslint-disable-line
+    let lastAArray = []; // eslint-disable-line
+
+    filteredRoutes.map(route => {
+      if (route === undefined) {
+        route = {};
+        route.id = 999;
+      }
+
+      lastRouteArray.push(route.id);
+    });
+
+    for (let i = 0; i < articleArray.length; i++) {
+      // eslint-disable-line
+      lastAArray.push(aArray[i]);
+
+      if (routes[i].id === lastRouteArray[i]) {
+        aArray[i].setAttribute(
+          `href`,
+          `index.php?page=route&id=${routes[i].id}&city=${activeCityId}&cityRouteId=${routes[i].id}`
+        );
+        aArray[i].classList.add(`unlocked`);
+        aArray[i].classList.remove(`locked`);
+        if (globalLanguage === `nl`) {
+          aArray[i].textContent = `Starten`;
+        }
+
+        if (globalLanguage === `fr`) {
+          aArray[i].textContent = `Commencer`;
+        }
+
+        if (globalLanguage === `en`) {
+          aArray[i].textContent = `Start`;
+        }
+
+        articleArray[i].classList.add(`unlocked`);
+        articleArray[i].classList.remove(`locked`);
+      }
+
+      console.log(routes[i].id, lastRouteArray[i]);
+    }
   };
 
   const showPopupCodeScreen = (language, $popup) => {
@@ -334,7 +403,7 @@
       <div class="code_content">
     <h1 class="page_title_small">Voer je persoonlijke code<br/>hier in</h1>
     <p class="sub_info">Deze kan je vinden op het door<br/>jou gekozen ticketje</p>
-    <form>
+    <form class="code_form">
       <input type="hidden" name="action" value="entercode"/>
       <input type="hidden" name="l" value="nl"/>
       <div class="code_div">
@@ -366,10 +435,45 @@
     </form></div>`;
 
       const $codeDiv = document.querySelector(`.code_div`);
+      const $codeInput = document.querySelector(`.code`);
 
-      $codeDiv.appendChild($a);
-      $a.classList.add(`page_btn`, `btn_shadow`);
-      $a.innerHTML = `Ga verder >`;
+      setInterval(() => {
+        const value = $codeInput.value;
+        const firstCharacter = value[0];
+        const secondCharacter = value[1];
+
+        $codeDiv.appendChild($a);
+        $a.classList.add(`page_btn`, `btn_shadow`);
+
+        //Check if value has 5 characters en the first character or second character is true -> Returns the code is valid to continue
+        if (value.length === 5) {
+          if (
+            (firstCharacter === "K" ||
+              firstCharacter === "T" ||
+              firstCharacter === "L" ||
+              firstCharacter === "V") &&
+            (secondCharacter === "S" ||
+              secondCharacter === "T" ||
+              secondCharacter === "F")
+          ) {
+            console.log(`Code is valid`);
+            $a.innerHTML = `Ga verder >`;
+            $a.classList.remove(`ongeldig`);
+            $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}`);
+          } else {
+            console.log(`Enter a valid code`);
+            $a.innerHTML = `Ongeldige code`;
+            $a.classList.add(`ongeldig`);
+            $a.disabled = true;
+            $a.removeAttribute(`href`);
+          }
+        } else {
+          $a.innerHTML = `Ongeldige code`;
+          $a.classList.add(`ongeldig`);
+          $a.disabled = true;
+          $a.removeAttribute(`href`);
+        }
+      }, 100);
     }
 
     if (language === "french") {
@@ -379,15 +483,15 @@
       <a class="back_txt">Terug</a>
       </div>
       <div class="code_content">
-    <h1 class="page_title_small">Entrez votre code personnel</h1>
-    <p class="sub_info">Vous le trouverez<br/>au le ticket vous choisisez</p>
-    <form>
+    <h1 class="page_title_small">Entrez votre code<br/>personnel ici</h1>
+    <p class="sub_info">Vous pouvez le trouver sur le ticket que<br/>vous avez choisi</p>
+    <form class="code_form">
       <input type="hidden" name="action" value="entercode"/>
-      <input type="hidden" name="l" value="nl"/>
+      <input type="hidden" name="l" value="fr"/>
       <div class="code_div">
         <div class="code_input">
         <input type="text" name="code" class="code neumorphism_box" maxlength="5" disabled/>
-        <button class="help_btn_code">Aider?</button>
+        <button class="help_btn_code">Besoin d'aide?</button>
         </div>
         <div class="character_btns">
           <button class="char_btn code_btn btn_shadow" type="button">0</button>
@@ -413,10 +517,45 @@
     </form></div>`;
 
       const $codeDiv = document.querySelector(`.code_div`);
+      const $codeInput = document.querySelector(`.code`);
 
-      $codeDiv.appendChild($a);
-      $a.classList.add(`page_btn btn_shadow`);
-      $a.innerHTML = `Commencer >`;
+      setInterval(() => {
+        const value = $codeInput.value;
+        const firstCharacter = value[0];
+        const secondCharacter = value[1];
+
+        $codeDiv.appendChild($a);
+        $a.classList.add(`page_btn`, `btn_shadow`);
+
+        //Check if value has 5 characters en the first character or second character is true -> Returns the code is valid to continue
+        if (value.length === 5) {
+          if (
+            (firstCharacter === "K" ||
+              firstCharacter === "T" ||
+              firstCharacter === "L" ||
+              firstCharacter === "V") &&
+            (secondCharacter === "S" ||
+              secondCharacter === "T" ||
+              secondCharacter === "F")
+          ) {
+            console.log(`Code is valid`);
+            $a.innerHTML = `Continuez >`;
+            $a.classList.remove(`ongeldig`);
+            $a.setAttribute(`href`, `index.php?page=routes&l=fr&code=${value}`);
+          } else {
+            console.log(`Enter a valid code`);
+            $a.innerHTML = `Code invalide`;
+            $a.classList.add(`ongeldig`);
+            $a.disabled = true;
+            $a.removeAttribute(`href`);
+          }
+        } else {
+          $a.innerHTML = `Code invalide`;
+          $a.classList.add(`ongeldig`);
+          $a.disabled = true;
+          $a.removeAttribute(`href`);
+        }
+      }, 100);
     }
 
     if (language === "english") {
@@ -426,11 +565,11 @@
       <a class="back_txt">Terug</a>
       </div>
       <div class="code_content">
-    <h1 class="page_title_small">Enter you personal code here</h1>
-    <p class="sub_info">You can find the code on the<br/>ticket you've chosen</p>
-    <form>
+    <h1 class="page_title_small">Enter your personal<br/>code here</h1>
+    <p class="sub_info">You can find the code on the back<br/>of the card you've chosen</p>
+    <form class="code_form">
       <input type="hidden" name="action" value="entercode"/>
-      <input type="hidden" name="l" value="nl"/>
+      <input type="hidden" name="l" value="en"/>
       <div class="code_div">
         <div class="code_input">
         <input type="text" name="code" class="code neumorphism_box" maxlength="5" disabled/>
@@ -460,10 +599,45 @@
     </form></div>`;
 
       const $codeDiv = document.querySelector(`.code_div`);
+      const $codeInput = document.querySelector(`.code`);
 
-      $codeDiv.appendChild($a);
-      $a.classList.add(`page_btn btn_shadow`);
-      $a.innerHTML = `Start >`;
+      setInterval(() => {
+        const value = $codeInput.value;
+        const firstCharacter = value[0];
+        const secondCharacter = value[1];
+
+        $codeDiv.appendChild($a);
+        $a.classList.add(`page_btn`, `btn_shadow`);
+
+        //Check if value has 5 characters en the first character or second character is true -> Returns the code is valid to continue
+        if (value.length === 5) {
+          if (
+            (firstCharacter === "K" ||
+              firstCharacter === "T" ||
+              firstCharacter === "L" ||
+              firstCharacter === "V") &&
+            (secondCharacter === "S" ||
+              secondCharacter === "T" ||
+              secondCharacter === "F")
+          ) {
+            console.log(`Code is valid`);
+            $a.innerHTML = `Continue >`;
+            $a.classList.remove(`ongeldig`);
+            $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${value}`);
+          } else {
+            console.log(`Enter a valid code`);
+            $a.innerHTML = `Invalid code`;
+            $a.classList.add(`ongeldig`);
+            $a.disabled = true;
+            $a.removeAttribute(`href`);
+          }
+        } else {
+          $a.innerHTML = `Invalid code`;
+          $a.classList.add(`ongeldig`);
+          $a.disabled = true;
+          $a.removeAttribute(`href`);
+        }
+      }, 100);
     }
 
     const $code = document.querySelector(`.code`);
@@ -653,7 +827,8 @@
           });
         }
       }
-      triggerFinishAllPoints();
+      let visitedWaypoints = []; // eslint-disable-line
+      triggerFinishAllPoints(visitedWaypoints);
     }, 100);
   };
 
@@ -688,17 +863,17 @@
           );
 
           $playBtn.addEventListener(`click`, () => {
-            console.log("Play");
+            console.log(`Play`);
             audio.play();
           });
 
           $pauseBtn.addEventListener(`click`, () => {
-            console.log("Pause");
+            console.log(`Pause`);
             audio.pause();
           });
 
           $restartBtn.addEventListener(`click`, () => {
-            console.log("Restart");
+            console.log(`Restart`);
             audio.load();
             audio.play();
           });
@@ -736,7 +911,7 @@
   /* eslint-enable*/
 
   /*MIX ROUTES & AR*/
-  const triggerFinishAllPoints = () => {
+  const triggerFinishAllPoints = visitedWaypoints => {
     const cityRouteId = document.querySelector(`.cityRouteId`).textContent;
 
     fetch(`./assets/data/cities.json`)
@@ -748,7 +923,10 @@
 
         const waypoints = currentRoute.waypoints;
 
-        if (waypoints.some(waypoint => waypoint.visited === "yes")) {
+        const exists = waypoints.filter(waypoint => waypoint.visited === `yes`);
+        visitedWaypoints.push(exists);
+
+        if (exists.length >= waypoints.length) {
           const $popupPrizeNotification = document.querySelector(
             `.popupPrizeNotification`
           );
@@ -779,6 +957,7 @@
   let map;
 
   const platform = new H.service.Platform({
+    // eslint-disable-line
     apikey: "Ymzvxu_5jYrtjqdyrlORjoasI2KdTSwzdLZuyNkPH3k" // eslint-disable-line
   });
 
@@ -791,7 +970,8 @@
 
     setInterval(() => {
       fetchUserLocation();
-      triggerFinishAllPoints();
+      let visitedWaypoints = []; // eslint-disable-line
+      triggerFinishAllPoints(visitedWaypoints);
     }, 100);
   };
 
@@ -852,6 +1032,7 @@
     if (currentOnboarding === 2) {
       $onboarding1.classList.add(`hidden`);
       $onboarding2.classList.remove(`hidden`);
+      $onboarding3.classList.add(`hidden`);
     }
 
     if (currentOnboarding === 3) {
@@ -861,79 +1042,86 @@
   };
 
   const parseUrl = (data, cityData, map, routeId) => {
+    removeAllMapMarkers(map);
     addMarkersToMap(map, data, cityData, routeId);
+  };
+
+  const removeAllMapMarkers = map => {
+    map.removeObjects(map.getObjects());
   };
 
   const addMarkersToMap = (map, data, cityData, routeId) => {
     //const route = data.response.route;
-    const routes = cityData.routes;
+    const route = cityData.routes[routeId];
 
-    routes.map(routeData => {
-      const waypoints = routeData.waypoints;
+    const waypoints = route.waypoints;
 
-      waypoints.map(waypoint => {
-        //Get Visited Global Way Points
-        const $visitedPoints = document.querySelectorAll(`.visitedPoint`);
-        const visitedPointArray = Array.from($visitedPoints);
+    waypoints.map(waypoint => {
+      //Get Visited Global Way Points
+      const $visitedPoints = document.querySelectorAll(`.visitedPoint`);
+      const visitedPointArray = Array.from($visitedPoints);
 
-        let newVisitedArray = []; // eslint-disable-line
-        visitedPointArray.map(point => {
-          newVisitedArray.push(point.textContent);
+      let newVisitedArray = []; // eslint-disable-line
+      visitedPointArray.map(point => {
+        newVisitedArray.push(point.textContent);
+      });
+
+      const $visitedPointsEl = document.querySelector(`.visitedPoints`);
+      $visitedPointsEl.textContent = ``;
+
+      const visitedPoints = [...new Set(newVisitedArray)]; // eslint-disable-line
+
+      let waypointVisitedArray = []; // eslint-disable-line
+
+      visitedPoints.map(point => {
+        const filterPoints = waypoints.find(waypoint => {
+          return waypoint.globalId === parseInt(point);
         });
 
-        const $visitedPointsEl = document.querySelector(`.visitedPoints`);
-        $visitedPointsEl.textContent = ``;
-
-        const visitedPoints = [...new Set(newVisitedArray)]; // eslint-disable-line
-
-        let waypointVisitedArray = []; // eslint-disable-line
-
-        visitedPoints.map(point => {
-          const filterPoints = waypoints.filter(waypoint => {
-            return waypoint.globalId === parseInt(point);
-          });
-
+        if (filterPoints === undefined) {
+          return;
+        } else {
           waypointVisitedArray.push(filterPoints[0]);
-        });
-
-        waypointVisitedArray.map(waypoint => {
-          waypoint.visited = "yes";
-        });
-
-        //Make Waypoint visible
-        const waypointChecked = "./assets/img/waypointdone.png";
-        const waypointUnChecked = "./assets/img/waypointnotdone.png";
-
-        const iconChecked = new H.map.Icon(waypointChecked);
-        const iconUnChecked = new H.map.Icon(waypointUnChecked);
-
-        if (waypoint.visited === "no") {
-          const marker = new H.map.Marker(
-            { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng },
-            { icon: iconUnChecked }
-          );
-          makeMarker(marker, cityData, routeId);
-        }
-
-        if (waypoint.visited === "yes") {
-          const marker = new H.map.Marker(
-            { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng },
-            { icon: iconChecked }
-          );
-          makeMarker(marker, cityData, routeId);
         }
       });
 
-      if (userLocation !== ``) {
-        setInterval(() => {
-          const userMarker = new H.map.Marker({
-            lat: userLocation.lat,
-            lng: userLocation.lng
-          });
-          map.addObject(userMarker);
-        }, 1000);
+      waypointVisitedArray.map(waypoint => {
+        waypoint.visited = `yes`;
+      });
+
+      //Make Waypoint visible
+      const waypointChecked = "./assets/img/waypointdone.png";
+      const waypointUnChecked = "./assets/img/waypointnotdone.png";
+
+      const iconChecked = new H.map.Icon(waypointChecked); // eslint-disable-line
+      const iconUnChecked = new H.map.Icon(waypointUnChecked); // eslint-disable-line
+
+      if (waypoint.visited === `no`) {
+        const marker = new H.map.Marker(
+          { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng },
+          { icon: iconUnChecked }
+        ); // eslint-disable-line
+        makeMarker(marker, cityData, routeId);
+      }
+
+      if (waypoint.visited === `yes`) {
+        const marker = new H.map.Marker(
+          { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng },
+          { icon: iconChecked }
+        ); // eslint-disable-line
+        makeMarker(marker, cityData, routeId);
       }
     });
+
+    if (userLocation !== ``) {
+      setInterval(() => {
+        const userMarker = new H.map.Marker({
+          lat: userLocation.lat,
+          lng: userLocation.lng
+        }); // eslint-disable-line
+        map.addObject(userMarker);
+      }, 1000);
+    }
   };
 
   const makeMarker = (marker, cityData, routeId) => {

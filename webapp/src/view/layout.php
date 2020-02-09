@@ -56,6 +56,9 @@
         }
       ?>
       <?php echo $content; ?>
+      <?php if(!empty($_SESSION['user']['l'])){
+        echo '<span class="hidden language">'.$_SESSION['user']['l'].'</span>';
+      }?>
       <?php echo $js; ?>
   </body>
 </html>
