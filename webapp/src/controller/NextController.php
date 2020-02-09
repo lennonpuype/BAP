@@ -1,8 +1,15 @@
 <?php
 
 require_once __DIR__ . '/Controller.php';
+require_once __DIR__ . '/../dao/NextDAO.php';
 
 class NextController extends Controller {
+
+  private $nextDAO;
+
+  function __construct() {
+    $this->nextDAO = new NextDAO();
+  }
 
   public function index(){
     $this->detectMobile("mobile");
@@ -123,12 +130,21 @@ class NextController extends Controller {
 
       if(!empty($_POST['action']) && $_POST['action'] == 'sendCode'){
         if(!empty($_POST['email'])){
+
+          //Handling mail
           unset($_SESSION['error']);
+          $_SESSION['user']['email'] = $_POST['email'];
           $to_email = $_POST['email'];
           $subject = "Thank you! Here is your code for a NEXT show of your choice";
-          $message = '<h1>Thank You for using our platform, we have something special for you!</h1><br/><br/><p>You received a new code for a show in the futur!</p><br/><p>Your code is: <b>'.$_POST['code'].'</b></p>';
+          $message = '<h1>Thank You for using our platform, we have something special for you!</h1><br/><br/><p>You received a new code for a show in the future!</p><br/><p>Your code is: <b>'.$_POST['code'].'</b></p>';
           $headers = array('From: admin@arunext.eu', 'Cc: admin@arunext.eu', 'Content-type: text/html; charset: utf8\r\n');
           mail($to_email,$subject,$message,implode("\r\n",$headers));
+
+          //Send To Database
+          $this->nextDAO->insert(array(
+            'email' => $_POST['email'],
+            'code' => $_POST['code'],
+          ));
 
           header('Location: index.php?page=thankyou');
           exit;

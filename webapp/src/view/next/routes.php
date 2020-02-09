@@ -53,6 +53,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
 }
 ?>
 <?php if(!empty($_SESSION['user'])){ ?>
+<?php unset($_SESSION['user']['email']); ?>
   <?php unset($_SESSION['user']['activeRoute']); ?>
   <?php if(empty($_SESSION['user']['skiponboarding'])):?>
   <?php $_SESSION['user']['skiponboarding'] = 0; ?>

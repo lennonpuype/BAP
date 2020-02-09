@@ -5,6 +5,11 @@ class DAO {
 	private static $dbUser = "arunmtgx_user";
   private static $dbPass = "user123";
 
+  // private static $dbHost = "localhost";
+	// private static $dbName = "bap";
+	// private static $dbUser = "bap";
+  // private static $dbPass = "bap";
+
   private static $sharedPDO;
 
   protected $pdo;
