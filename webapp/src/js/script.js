@@ -9,11 +9,15 @@
   const SwipeEventDispatcher = require('./SwipeEventDispatcher.js').SwipeEventDispatcher;
 
   let currentLanguage;
+  let globalLanguage;
   let activeCityId = 0;
   let unlockedRouteId = [];// eslint-disable-line
   let currentRouteId = 0;// eslint-disable-line
 
   const init = () => {
+    const $language = document.querySelector(`.language`);
+    globalLanguage = $language.textContent;
+
     const $index = document.querySelector(`.index`);
     if ($index) {
       manageHomePage();
@@ -41,6 +45,8 @@
 
       const $body = document.querySelector(`.body`);
       $body.removeAttribute("style");// eslint-disable-line
+
+
     }
 
     const $routePage = document.querySelector(`.routePage`);
@@ -163,7 +169,21 @@
     $li.classList.add(`route_parameter`);
     $a.classList.add(`route_button`);
 
-    $h1.textContent = route.name;
+    if (globalLanguage === `nl`) {
+      $h1.textContent = route.namenl;
+    }
+
+    if (globalLanguage === `fr`) {
+      $h1.textContent = route.namefr;
+    }
+
+    if (globalLanguage === `en`) {
+      $h1.textContent = route.nameen;
+    }
+
+    console.log(globalLanguage);
+
+
 
     $ul.innerHTML = `<li class="route_parameter">${route.distance}</li>
     <li class="route_parameter">${route.time}</li>
@@ -194,7 +214,19 @@
     $a.setAttribute(`href`, `#`);
     $a.classList.add(`locked`);
     $a.classList.remove(`unlocked`);
-    $a.textContent = `Voer code in >`;
+
+    if (globalLanguage === `nl`) {
+      $a.textContent = `Voer code in >`;
+    }
+
+    if (globalLanguage === `fr`) {
+      $a.textContent = `Entrez un code >`;
+    }
+
+    if (globalLanguage === `en`) {
+      $a.textContent = `Enter a code >`;
+    }
+
     $article.classList.add(`locked`);
     $article.classList.remove(`unlocked`);
 
@@ -243,7 +275,18 @@
         aArray[i].setAttribute(`href`, `index.php?page=route&id=${routes[i].id}&city=${activeCityId}&cityRouteId=${routes[i].id}`);
         aArray[i].classList.add(`unlocked`);
         aArray[i].classList.remove(`locked`);
-        aArray[i].textContent = `Start`;
+        if (globalLanguage === `nl`) {
+          aArray[i].textContent = `Starten`;
+        }
+
+        if (globalLanguage === `fr`) {
+          aArray[i].textContent = `Commencer`;
+        }
+
+        if (globalLanguage === `en`) {
+          aArray[i].textContent = `Start`;
+        }
+
         articleArray[i].classList.add(`unlocked`);
         articleArray[i].classList.remove(`locked`);
       }
@@ -405,15 +448,15 @@
     if (language === "french") {// eslint-disable-line
       page.innerHTML = `<a class="back_btn">Retour</a>
       <div class="code_content">
-    <h1 class="page_title_small">Entrez votre code personnel</h1>
-    <p class="sub_info">Vous le trouverez<br/>au le ticket vous choisisez</p>
-    <form>
+    <h1 class="page_title_small">Entrez votre code<br/>personnel ici</h1>
+    <p class="sub_info">Vous pouvez le trouver sur le ticket que<br/>vous avez choisi</p>
+    <form class="code_form">
       <input type="hidden" name="action" value="entercode"/>
-      <input type="hidden" name="l" value="nl"/>
+      <input type="hidden" name="l" value="fr"/>
       <div class="code_div">
         <div class="code_input">
         <input type="text" name="code" class="code neumorphism_box" maxlength="5" disabled/>
-        <button class="help_btn_code">Aider?</button>
+        <button class="help_btn_code">Besoin d'aide?</button>
         </div>
         <div class="character_btns">
           <button class="char_btn code_btn btn_shadow" type="button">0</button>
@@ -439,20 +482,47 @@
     </form></div>`;
 
       const $codeDiv = document.querySelector(`.code_div`);
+      const $codeInput = document.querySelector(`.code`);
 
-      $codeDiv.appendChild($a);
-      $a.classList.add(`page_btn btn_shadow`);
-      $a.innerHTML = `Commencer >`;
+      setInterval(() => {
+        const value = $codeInput.value;
+        const firstCharacter = value[0];
+        const secondCharacter = value[1];
+
+        $codeDiv.appendChild($a);
+        $a.classList.add(`page_btn`, `btn_shadow`);
+
+        //Check if value has 5 characters en the first character or second character is true -> Returns the code is valid to continue
+        if (value.length === 5) {
+          if ((firstCharacter === 'K' || firstCharacter === 'T' || firstCharacter === 'L' || firstCharacter === 'V') && (secondCharacter === 'S' || secondCharacter === 'T' || secondCharacter === 'F')) {
+            console.log(`Code is valid`);
+            $a.innerHTML = `Continuez >`;
+            $a.classList.remove(`ongeldig`);
+            $a.setAttribute(`href`, `index.php?page=routes&l=fr&code=${value}`);
+          } else {
+            console.log(`Enter a valid code`);
+            $a.innerHTML = `Code invalide`;
+            $a.classList.add(`ongeldig`);
+            $a.disabled = true;
+            $a.removeAttribute(`href`);
+          }
+        } else {
+          $a.innerHTML = `Code invalide`;
+          $a.classList.add(`ongeldig`);
+          $a.disabled = true;
+          $a.removeAttribute(`href`);
+        }
+      }, 100);
     }
 
     if (language === "english") { // eslint-disable-line
       page.innerHTML = `<a class="back_btn">Back</a>
       <div class="code_content">
-    <h1 class="page_title_small">Enter you personal code here</h1>
-    <p class="sub_info">You can find the code on the<br/>ticket you've chosen</p>
-    <form>
+    <h1 class="page_title_small">Enter your personal<br/>code here</h1>
+    <p class="sub_info">You can find the code on the back<br/>of the card you've chosen</p>
+    <form class="code_form">
       <input type="hidden" name="action" value="entercode"/>
-      <input type="hidden" name="l" value="nl"/>
+      <input type="hidden" name="l" value="en"/>
       <div class="code_div">
         <div class="code_input">
         <input type="text" name="code" class="code neumorphism_box" maxlength="5" disabled/>
@@ -482,10 +552,37 @@
     </form></div>`;
 
       const $codeDiv = document.querySelector(`.code_div`);
+      const $codeInput = document.querySelector(`.code`);
 
-      $codeDiv.appendChild($a);
-      $a.classList.add(`page_btn btn_shadow`);
-      $a.innerHTML = `Start >`;
+      setInterval(() => {
+        const value = $codeInput.value;
+        const firstCharacter = value[0];
+        const secondCharacter = value[1];
+
+        $codeDiv.appendChild($a);
+        $a.classList.add(`page_btn`, `btn_shadow`);
+
+        //Check if value has 5 characters en the first character or second character is true -> Returns the code is valid to continue
+        if (value.length === 5) {
+          if ((firstCharacter === 'K' || firstCharacter === 'T' || firstCharacter === 'L' || firstCharacter === 'V') && (secondCharacter === 'S' || secondCharacter === 'T' || secondCharacter === 'F')) {
+            console.log(`Code is valid`);
+            $a.innerHTML = `Continue >`;
+            $a.classList.remove(`ongeldig`);
+            $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${value}`);
+          } else {
+            console.log(`Enter a valid code`);
+            $a.innerHTML = `Invalid code`;
+            $a.classList.add(`ongeldig`);
+            $a.disabled = true;
+            $a.removeAttribute(`href`);
+          }
+        } else {
+          $a.innerHTML = `Invalid code`;
+          $a.classList.add(`ongeldig`);
+          $a.disabled = true;
+          $a.removeAttribute(`href`);
+        }
+      }, 100);
     }
 
     const $code = document.querySelector(`.code`);
@@ -866,6 +963,7 @@
     if (currentOnboarding === 2) {
       $onboarding1.classList.add(`hidden`);
       $onboarding2.classList.remove(`hidden`);
+      $onboarding3.classList.add(`hidden`);
     }
 
     if (currentOnboarding === 3) {

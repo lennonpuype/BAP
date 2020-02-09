@@ -73,11 +73,16 @@
   };
 
   const init = () => {
-    if ($form) {
-      $form.noValidate = true;
-      $form.addEventListener(`submit`, handleSubmitForm);
-      $form.classList.add(`invalid`);
-      addValidationListeners(Array.from($form.elements));
+    const $singleRoutePage = document.querySelector(`.singleRoutePage`);
+    const $arPage = document.querySelector(`.arPage`);
+
+    if ($singleRoutePage || $arPage) {
+      if ($form) {
+        $form.noValidate = true;
+        $form.addEventListener(`submit`, handleSubmitForm);
+        $form.classList.add(`invalid`);
+        addValidationListeners(Array.from($form.elements));
+      }
     }
   };
 
