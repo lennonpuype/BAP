@@ -337,7 +337,7 @@
       <div class="code_content">
     <h1 class="page_title_small">Voer je persoonlijke code<br/>hier in</h1>
     <p class="sub_info">Deze kan je vinden op het door<br/>jou gekozen ticketje</p>
-    <form>
+    <form class="code_form">
       <input type="hidden" name="action" value="entercode"/>
       <input type="hidden" name="l" value="nl"/>
       <div class="code_div">
@@ -369,10 +369,38 @@
     </form></div>`;
 
       const $codeDiv = document.querySelector(`.code_div`);
+      const $codeInput = document.querySelector(`.code`);
 
-      $codeDiv.appendChild($a);
-      $a.classList.add(`page_btn`, `btn_shadow`);
-      $a.innerHTML = `Ga verder >`;
+      setInterval(() => {
+        const value = $codeInput.value;
+        const firstCharacter = value[0];
+        const secondCharacter = value[1];
+        const $form = document.querySelector(`.code_form`);
+
+        $codeDiv.appendChild($a);
+        $a.classList.add(`page_btn`, `btn_shadow`);
+
+        //Check if value has 5 characters en the first character or second character is true -> Returns the code is valid to continue
+        if (value.length === 5) {
+          if ((firstCharacter === 'K' || firstCharacter === 'T' || firstCharacter === 'L' || firstCharacter === 'V') && (secondCharacter === 'S' || secondCharacter === 'T' || secondCharacter === 'F')) {
+            console.log(`Code is valid`);
+            $a.innerHTML = `Ga verder >`;
+            $a.classList.remove(`ongeldig`);
+            $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}`);
+          } else {
+            console.log(`Enter a valid code`);
+            $a.innerHTML = `Ongeldige code`;
+            $a.classList.add(`ongeldig`);
+            $a.disabled = true;
+            $a.setAttribute(`href`, `#`);
+          }
+        } else {
+          $a.innerHTML = `Ongeldige code`;
+          $a.classList.add(`ongeldig`);
+          $a.disabled = true;
+          $a.setAttribute(`href`, `#`);
+        }
+      }, 100);
     }
 
     if (language === "french") {// eslint-disable-line
