@@ -1,12 +1,12 @@
 :root {
   --black: #090909;
-  --grey:#F9F9F9;
-  --darkpurple: #733FCD;
-  --lightpurple: #9557E4;
-  --red: #FF0031;
-  --lightred: #FF5172;
-  --green: #7BC88F;
-  --lightgreen: #9AD7AA;
-  --yellow: #FFBA00;
-  --lightyellow: #FFD35C;
+  --grey: #f9f9f9;
+  --darkpurple: #733fcd;
+  --lightpurple: #9557e4;
+  --red: #ff0031;
+  --lightred: #ff5172;
+  --green: #7bc88f;
+  --lightgreen: #9ad7aa;
+  --yellow: #ffba00;
+  --lightyellow: #ffd35c;
 }

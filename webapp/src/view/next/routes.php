@@ -65,8 +65,8 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
 
     <div class="popup_code hidden"></div>
     <header class="header">
-      <div class="icon"></div>
-      <h1 class="page_title">Routes</h1>
+      <img src="././assets/img/stickerlogo.png" alt="Logo van a.r.u.next" width="29" height="47">
+      <h1 class="logo_title">a.r.u.next</h1>
       <button class="hamburger" data-state="closed">Open Hamburger</button>
       <div class="hamburger_content hidden">
         <ul class="hamburger_content_list">
@@ -94,10 +94,10 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
     <main class="routePage">
       <nav class="cities_nav">
         <ul class="cities">
-          <li class="city_link active_city" data-id="0">Kortrijk</li>
-          <li class="city_link" data-id="1">Rijsel</li>
-          <li class="city_link" data-id="2">Doornik</li>
-          <li class="city_link" data-id="3">Valenciennes</li>
+          <li class="city_link active_city city_shadow" data-id="0">Kortrijk</li>
+          <li class="city_link city_shadow" data-id="1">Rijsel</li>
+          <li class="city_link city_shadow" data-id="2">Doornik</li>
+          <li class="city_link city_shadow" data-id="3">Valenciennes</li>
         </ul>
       </nav>
       <article class="hidden">

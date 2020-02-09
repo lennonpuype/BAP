@@ -10,7 +10,12 @@
       "routes": [
         {
           "id": 0,
-          "name": "Talentenroute",
+          "name": "Talent Route",
+          "desc": "Trek op pad door de stad en ontdek de talenten van nu en vroeger diede stad verwonderen",
+          "img": "./assets/img/yellow.png",
+          "stepsImg": "./assets/img/yellowsteps.png",
+          "wpImg": "./assets/img/yar.png",
+          "timeImg": "./assets/img/yecr.png",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
           "waypoints": [
             {
@@ -52,7 +57,12 @@
         },
         {
           "id": 1,
-          "name": "Sporenroute",
+          "name": "Sporen Route",
+          "desc": "Ontdek de wondere sporen nagelaten door koningen, legendes en natuurlijk ook de treinen in de stad.",
+          "img": "./assets/img/green.png",
+          "stepsImg": "./assets/img/greensteps.png",
+          "wpImg": "./assets/img/grar.png",
+          "timeImg": "./assets/img/grc.png",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.827667,3.265455&waypoint1=geo!50.830236,3.26461&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
           "waypoints": [
             {
@@ -72,7 +82,7 @@
               "description": "This is Nanother",
               "geolocation": {
                 "lat": 50.830236,
-                "lng": 3.256190
+                "lng": 3.25619
               }
             },
             {
@@ -91,7 +101,12 @@
         },
         {
           "id": 2,
-          "name": "Futuristische route",
+          "name": "Futuristische Route",
+          "desc": "Leer de scheppers van de toekomst kennen: van keizers tot helden en visies van morgen!",
+          "img": "./assets/img/red.png",
+          "stepsImg": "./assets/img/redsteps.png",
+          "wpImg": "./assets/img/redar.png",
+          "timeImg": "./assets/img/redcr.png",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
           "waypoints": [
             {
@@ -140,8 +155,14 @@
       "routes": [
         {
           "id": 3,
-          "name": "Sporenroute",
+          "name": "Sporen Route",
+          "desc": "Ontdek de wondere sporen nagelaten door koningen, legendes en natuurlijk ook de treinen in de stad.",
+          "img": "./assets/img/green.png",
+          "stepsImg": "./assets/img/greensteps.png",
+          "wpImg": "./assets/img/grar.png",
+          "timeImg": "./assets/img/grc.png",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
+
           "waypoints": [
             {
               "id": 0,

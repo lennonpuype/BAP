@@ -1,17 +1,16 @@
-
-
 {
   const $page1 = document.querySelector(`.page1`);
   const $page2 = document.querySelector(`.page2`);
   const $page3 = document.querySelector(`.page3`);
   const $page4 = document.querySelector(`.page4`);
 
-  const SwipeEventDispatcher = require('./SwipeEventDispatcher.js').SwipeEventDispatcher;
+  const SwipeEventDispatcher = require("./SwipeEventDispatcher.js")
+    .SwipeEventDispatcher;
 
   let currentLanguage;
   let activeCityId = 0;
   let unlockedRouteId = [];
-  let currentRouteId = 0;// eslint-disable-line
+  let currentRouteId = 0; // eslint-disable-line
 
   const init = () => {
     const $index = document.querySelector(`.index`);
@@ -19,9 +18,9 @@
       manageHomePage();
 
       const startTags = [
-        "Start exploring >",// eslint-disable-line
-        "Commencez à explorer >",// eslint-disable-line
-        "Start met verkennen >"// eslint-disable-line
+        "Start exploring >", // eslint-disable-line
+        "Commencez à explorer >", // eslint-disable-line
+        "Start met verkennen >" // eslint-disable-line
       ];
 
       let iPrev = 0;
@@ -33,14 +32,14 @@
         if (iNew === startTags.length - 1) {
           iPrev = 0;
         } else {
-          iPrev++;// eslint-disable-line
+          iPrev++; // eslint-disable-line
         }
 
         $startBtn.textContent = startTags[iNew];
       }, 1500);
 
       const $body = document.querySelector(`.body`);
-      $body.removeAttribute("style");// eslint-disable-line
+      $body.removeAttribute("style"); // eslint-disable-line
     }
 
     const $routePage = document.querySelector(`.routePage`);
@@ -53,7 +52,6 @@
     if ($singleRoutePage) {
       $singleRoutePage.classList.add(`hidden`);
       handleMaps();
-
     }
 
     const $arPage = document.querySelector(`.arPage`);
@@ -158,15 +156,16 @@
 
     console.log(unlockedRouteId);
 
-
-
     for (let i = 0; i < allA.length; i++) {
       // console.log(unlockedRouteIdNew[i]);
       // console.log(allA[i].dataset.id);
       // console.log("");
 
       if (unlockedRouteId[i] !== undefined) {
-        allA[i].setAttribute(`href`, `index.php?page=route&id=${routes[i].id}&city=${activeCityId}&cityRouteId=${i}`);
+        allA[i].setAttribute(
+          `href`,
+          `index.php?page=route&id=${routes[i].id}&city=${activeCityId}&cityRouteId=${i}`
+        );
         allA[i].classList.add(`unlocked`);
         allA[i].classList.remove(`locked`);
         allA[i].textContent = `Start`;
@@ -199,28 +198,51 @@
     $routes.appendChild($article);
     $article.classList.add(`route`);
 
+    const $divArt = document.createElement(`div`);
+    $article.appendChild($divArt);
+    $divArt.classList.add(`route_divArt`);
+
+    const $divImg = document.createElement(`div`);
     const $h1 = document.createElement(`h1`);
-    const $ul = document.createElement(`ul`);
-    const $li = document.createElement(`li`);
+    const $p = document.createElement(`p`);
+
+    const $divParams = document.createElement(`div`);
+    const $steps = document.createElement(`div`);
+    const $time = document.createElement(`div`);
+    const $waypoints = document.createElement(`div`);
     const $a = document.createElement(`a`);
 
-    $article.appendChild($h1);
-    $article.appendChild($ul);
-    $article.appendChild($a);
-    $ul.appendChild($li);
+    $divArt.appendChild($divImg);
+    $divArt.appendChild($h1);
+    $divArt.appendChild($p);
+    $divArt.appendChild($a);
 
+    $divArt.appendChild($divParams);
+    $divParams.appendChild($steps);
+    $divParams.appendChild($time);
+    $divParams.appendChild($waypoints);
+
+    $divImg.classList.add(`route_img`);
     $h1.classList.add(`route_name`);
-    $ul.classList.add(`route_parameters`);
-    $li.classList.add(`route_parameter`);
+    $p.classList.add(`route_desc`);
+    $divParams.classList.add(`route_parameters`);
+    $steps.classList.add(`route_parameter`);
+    $time.classList.add(`route_parameter`);
+    $waypoints.classList.add(`route_parameter`);
+
     $a.classList.add(`route_button`);
 
     $a.dataset.id = route.id;
 
     $h1.textContent = route.name;
 
-    $ul.innerHTML = `<li class="route_parameter">${route.distance}</li>
-    <li class="route_parameter">${route.time}</li>
-    <li class="route_parameter">${route.waypoints.length} points</li>`;
+    $p.textContent = route.desc;
+
+    $divImg.innerHTML = `<img src="${route.img}" alt="Route image" height="250" width="250">`;
+
+    $steps.innerHTML = `<img src="${route.stepsImg}" class="img_parameter" alt="Image for how many km" width="3O" height="30"/> <p class="route_parameter">${route.distance}</p>`;
+    $time.innerHTML = `<img src="${route.timeImg}" class="img_parameter" alt="Image for how many minutes" width="3O" height="30" /> <p class="route_parameter">${route.time}</p>`;
+    $waypoints.innerHTML = `<img src="${route.wpImg}" class="img_parameter" alt="Image for how many waypoints" width="3O" height="30"/> <p class="route_parameter">${route.waypoints.length}</p>`;
   };
 
   const showPopupCodeScreen = (language, $popup) => {
@@ -285,7 +307,7 @@
     allBtnArray.map(btn => {
       btn.addEventListener(`click`, e => {
         if (codeValue.length >= 5) {
-          codeValue = codeValue;// eslint-disable-line
+          codeValue = codeValue; // eslint-disable-line
         } else {
           codeValue += e.currentTarget.textContent;
         }
@@ -303,8 +325,12 @@
     let codeValue = ``;
     const $a = document.createElement(`a`);
 
-    if (language === "dutch") {// eslint-disable-line
-      page.innerHTML = `<a class="back_btn">Terug</a>
+    if (language === "dutch") {
+      // eslint-disable-line
+      page.innerHTML = `<div class="back_btn">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>
+      <a class="back_txt">Terug</a>
+      </div>
       <div class="code_content">
     <h1 class="page_title_small">Voer je persoonlijke code<br/>hier in</h1>
     <p class="sub_info">Deze kan je vinden op het door<br/>jou gekozen ticketje</p>
@@ -346,8 +372,12 @@
       $a.innerHTML = `Ga verder >`;
     }
 
-    if (language === "french") {// eslint-disable-line
-      page.innerHTML = `<a class="back_btn">Retour</a>
+    if (language === "french") {
+      // eslint-disable-line
+      page.innerHTML = `<div class="back_btn">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>
+      <a class="back_txt">Terug</a>
+      </div>
       <div class="code_content">
     <h1 class="page_title_small">Entrez votre code personnel</h1>
     <p class="sub_info">Vous le trouverez<br/>au le ticket vous choisisez</p>
@@ -389,8 +419,12 @@
       $a.innerHTML = `Commencer >`;
     }
 
-    if (language === "english") { // eslint-disable-line
-      page.innerHTML = `<a class="back_btn">Back</a>
+    if (language === "english") {
+      // eslint-disable-line
+      page.innerHTML = `<div class="back_btn">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>
+      <a class="back_txt">Terug</a>
+      </div>
       <div class="code_content">
     <h1 class="page_title_small">Enter you personal code here</h1>
     <p class="sub_info">You can find the code on the<br/>ticket you've chosen</p>
@@ -489,10 +523,14 @@
         $page3.classList.remove(`inactive`);
 
         if (currentLanguage === `dutch`) {
-          $page3.innerHTML = `<a class="back_btn">Terug</a>
+          $page3.innerHTML = `<div class="back_btn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>
+          <a class="back_txt">Terug</a>
+          </div>
           <div class="test_ar_div">
             <h1 class="page_title_small">Test de A.R. Experience</h1>
-            <p class="sub_info">Sta je bij de installatie?<br/>Scan het A.R. vlak en kijk wat er gebeurt</p>
+            <p class="sub_info">Sta je bij de installatie? </p>
+            <p class="sub_info">Scan het A.R. vlak en kijk wat er gebeurt</p>
             <div class="arscene_div btn_shadow">
               <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
             </div>
@@ -504,10 +542,14 @@
         }
 
         if (currentLanguage === `french`) {
-          $page3.innerHTML = `<a class="back_btn">Retour</a>
+          $page3.innerHTML = `<div class="back_btn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>
+          <a class="back_txt">Retour</a>
+          </div>
           <div class="test_ar_div">
             <h1 class="page_title_small">Teste d'experience A.R.</h1>
-            <p class="sub_info">Êtes-vous à l'installation?<br/>Scannez le A.R. à plat et regardez ce qui se passe</p>
+            <p class="sub_info">Êtes-vous à l'installation?</p>
+            <p class="sub_info">Scannez le A.R. à plat et regardez ce qui se passe</p>
             <div class="arscene_div btn_shadow">
               <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
             </div>
@@ -519,10 +561,14 @@
         }
 
         if (currentLanguage === `english`) {
-          $page3.innerHTML = `<a class="back_btn">Back</a>
+          $page3.innerHTML = `<div class="back_btn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>
+          <a class="back_txt">Back</a>
+          </div>
           <div class="test_ar_div">
             <h1 class="page_title_small">Test the A.R. Experience</h1>
-            <p class="sub_info">Are you next to a installation?<br/>Scan the A.R. image an see what happens</p>
+            <p class="sub_info">Are you next to a installation?</p>
+            <p class="sub_info">Scan the A.R. image an see what happens</p>
             <div class="arscene_div btn_shadow">
               <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
             </div>
@@ -550,15 +596,15 @@
       $page4.classList.remove(`inactive`);
 
       if (currentLanguage === `dutch`) {
-        showCodeScreen($page4, "dutch");// eslint-disable-line
+        showCodeScreen($page4, "dutch"); // eslint-disable-line
       }
 
       if (currentLanguage === `french`) {
-        showCodeScreen($page4, "french");// eslint-disable-line
+        showCodeScreen($page4, "french"); // eslint-disable-line
       }
 
       if (currentLanguage === `english`) {
-        showCodeScreen($page4, "english");// eslint-disable-line
+        showCodeScreen($page4, "english"); // eslint-disable-line
       }
 
       const pageBtn = $page4.querySelector(`.back_btn`);
@@ -587,7 +633,6 @@
       }
     }, 0);
 
-
     const $waypointInfo = document.querySelector(`.waypointInfo`);
 
     setInterval(() => {
@@ -600,7 +645,8 @@
           const allMarkers = Array.from($marker);
 
           allMarkers.map(marker => {
-            document.querySelector(`.ar_tag`).textContent = marker.object3D.visible;
+            document.querySelector(`.ar_tag`).textContent =
+              marker.object3D.visible;
             if (marker.object3D.visible === true) {
               showARInfo(marker.object3D.el.classList[1], $waypointInfo);
             }
@@ -614,7 +660,7 @@
   const showARInfo = (activeRoute, $waypointInfoElement) => {
     const cityRouteId = document.querySelector(`.cityRouteId`).textContent;
 
-    fetch('./assets/data/cities.json')
+    fetch("./assets/data/cities.json")
       .then(r => r.json())
       .then(data => {
         const cities = data.cities;
@@ -637,7 +683,9 @@
           const $playBtn = document.querySelector(`.play`);
           const $pauseBtn = document.querySelector(`.pause`);
           const $restartBtn = document.querySelector(`.restart`);
-          const audio = new Audio(`./assets/audio/${currentWaypoint.globalId}.mp3`);
+          const audio = new Audio(
+            `./assets/audio/${currentWaypoint.globalId}.mp3`
+          );
 
           $playBtn.addEventListener(`click`, () => {
             console.log("Play");
@@ -664,29 +712,27 @@
 
   const saveRouteToPhp = activeRoute => {
     let strippedString = activeRoute;
-    strippedString = strippedString.replace(/[',]+g/, '');
+    strippedString = strippedString.replace(/[',]+g/, "");
     createActiveRouteCookie(parseInt(strippedString));
   };
 
-
   const createActiveRouteCookie = activeRoute => {
-    var json_str = JSON.stringify(activeRoute);// eslint-disable-line
-    createCookie('activeRoute', json_str, 3);
+    var json_str = JSON.stringify(activeRoute); // eslint-disable-line
+    createCookie("activeRoute", json_str, 3);
   };
 
   /* eslint-disable*/
-  var createCookie = function (name, value, days) {
+  var createCookie = function(name, value, days) {
     var expires;
     if (days) {
       var date = new Date();
-      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
       expires = "; expires=" + date.toGMTString();
-    }
-    else {
+    } else {
       expires = "";
     }
     document.cookie = name + "=" + value + expires + "; path=/";
-  }
+  };
   /* eslint-enable*/
 
   /*MIX ROUTES & AR*/
@@ -702,8 +748,10 @@
 
         const waypoints = currentRoute.waypoints;
 
-        if (waypoints.some(waypoint => waypoint.visited === 'yes')) {
-          const $popupPrizeNotification = document.querySelector(`.popupPrizeNotification`);
+        if (waypoints.some(waypoint => waypoint.visited === "yes")) {
+          const $popupPrizeNotification = document.querySelector(
+            `.popupPrizeNotification`
+          );
           $popupPrizeNotification.classList.remove(`hidden`);
 
           $popupPrizeNotification.addEventListener(`click`, handlePrizePopup);
@@ -713,7 +761,6 @@
 
   const handlePrizePopup = e => {
     console.log(e.currentTarget);
-
 
     const $popupForClaim = document.querySelector(`.popupForClaim`);
     $popupForClaim.classList.remove(`hidden`);
@@ -728,20 +775,19 @@
   /*Routes*/
   let mapData = {};
   let userLocation = {};
-  let markers = [];// eslint-disable-line
+  let markers = []; // eslint-disable-line
   let map;
 
   const platform = new H.service.Platform({
-    'apikey': 'Ymzvxu_5jYrtjqdyrlORjoasI2KdTSwzdLZuyNkPH3k'// eslint-disable-line
+    apikey: "Ymzvxu_5jYrtjqdyrlORjoasI2KdTSwzdLZuyNkPH3k" // eslint-disable-line
   });
 
   const handleMaps = () => {
-    fetch("./assets/data/cities.json")// eslint-disable-line
+    fetch("./assets/data/cities.json") // eslint-disable-line
       .then(r => r.json())
       .then(parseMaps);
 
     handleOnboarding();
-
 
     setInterval(() => {
       fetchUserLocation();
@@ -759,7 +805,7 @@
       loadOnboardingView(currentOnboarding);
 
       const dispatcher = new SwipeEventDispatcher($onboarding);
-      dispatcher.on('SWIPE_LEFT', () => {
+      dispatcher.on("SWIPE_LEFT", () => {
         if (currentOnboarding < 3) {
           currentOnboarding += 1;
           console.log(currentOnboarding);
@@ -774,7 +820,7 @@
         loadOnboardingView(currentOnboarding);
       });
 
-      dispatcher.on('SWIPE_RIGHT', () => {
+      dispatcher.on("SWIPE_RIGHT", () => {
         if (currentOnboarding > 0) {
           currentOnboarding -= 1;
           console.log(currentOnboarding);
@@ -822,7 +868,6 @@
     //const route = data.response.route;
     const routes = cityData.routes;
 
-
     routes.map(routeData => {
       const waypoints = routeData.waypoints;
 
@@ -831,7 +876,7 @@
         const $visitedPoints = document.querySelectorAll(`.visitedPoint`);
         const visitedPointArray = Array.from($visitedPoints);
 
-        let newVisitedArray = [];// eslint-disable-line
+        let newVisitedArray = []; // eslint-disable-line
         visitedPointArray.map(point => {
           newVisitedArray.push(point.textContent);
         });
@@ -839,9 +884,9 @@
         const $visitedPointsEl = document.querySelector(`.visitedPoints`);
         $visitedPointsEl.textContent = ``;
 
-        const visitedPoints = [...new Set(newVisitedArray)];// eslint-disable-line
+        const visitedPoints = [...new Set(newVisitedArray)]; // eslint-disable-line
 
-        let waypointVisitedArray = [];// eslint-disable-line
+        let waypointVisitedArray = []; // eslint-disable-line
 
         visitedPoints.map(point => {
           const filterPoints = waypoints.filter(waypoint => {
@@ -856,34 +901,43 @@
         });
 
         //Make Waypoint visible
-        const waypointChecked = './assets/img/waypointdone.png';
-        const waypointUnChecked = './assets/img/waypointnotdone.png';
+        const waypointChecked = "./assets/img/waypointdone.png";
+        const waypointUnChecked = "./assets/img/waypointnotdone.png";
 
         const iconChecked = new H.map.Icon(waypointChecked);
         const iconUnChecked = new H.map.Icon(waypointUnChecked);
 
         if (waypoint.visited === "no") {
-          const marker = new H.map.Marker({ lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, { icon: iconUnChecked });
+          const marker = new H.map.Marker(
+            { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng },
+            { icon: iconUnChecked }
+          );
           makeMarker(marker, cityData, routeId);
         }
 
         if (waypoint.visited === "yes") {
-          const marker = new H.map.Marker({ lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, { icon: iconChecked });
+          const marker = new H.map.Marker(
+            { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng },
+            { icon: iconChecked }
+          );
           makeMarker(marker, cityData, routeId);
         }
       });
 
       if (userLocation !== ``) {
         setInterval(() => {
-          const userMarker = new H.map.Marker({ lat: userLocation.lat, lng: userLocation.lng });
+          const userMarker = new H.map.Marker({
+            lat: userLocation.lat,
+            lng: userLocation.lng
+          });
           map.addObject(userMarker);
-        }, 1000)
+        }, 1000);
       }
     });
   };
 
   const makeMarker = (marker, cityData, routeId) => {
-    var group = new H.map.Group();//eslint-disable-line
+    var group = new H.map.Group(); //eslint-disable-line
     map.addObject(group);
     group.addObject(marker);
 
@@ -894,12 +948,15 @@
         const currentMarker = e.target;
         const lat = currentMarker.b.lat;
         const lng = currentMarker.b.lng;
-        const clickedWaypoint = findWaypoint(lat, lng, cityData.routes[routeId].waypoints);
+        const clickedWaypoint = findWaypoint(
+          lat,
+          lng,
+          cityData.routes[routeId].waypoints
+        );
 
         const $h1 = document.createElement(`h1`);
         const $p = document.createElement(`p`);
         const $button = document.createElement(`button`);
-
 
         const $content = document.querySelector(`.content`);
         $content.textContent = ``;
@@ -907,15 +964,15 @@
         $content.appendChild($p);
         $content.appendChild($button);
 
-
         $h1.textContent = clickedWaypoint.name;
         $p.textContent = clickedWaypoint.description;
         $button.textContent = `Meer info`;
 
         // let activeAudio;
 
-        map.addEventListener('tap', e => {
-          if (e.target instanceof H.map.Marker) {// eslint-disable-line
+        map.addEventListener("tap", e => {
+          if (e.target instanceof H.map.Marker) {
+            // eslint-disable-line
             getClickPosition(e);
           } else {
             const $content = document.querySelector(`.content`);
@@ -976,7 +1033,6 @@
     const $pauseBtn = document.querySelector(`.pause`);
     const $restartBtn = document.querySelector(`.restart`);
 
-
     $playBtn.addEventListener(`click`, () => {
       audio.play();
     });
@@ -996,8 +1052,10 @@
 
     const contentStyle = getComputedStyle($content);
 
-    const xPosition = e.currentPointer.viewportX - (parseInt(contentStyle.width) / 2);
-    const yPosition = e.currentPointer.viewportY - (parseInt(contentStyle.height) / 2);
+    const xPosition =
+      e.currentPointer.viewportX - parseInt(contentStyle.width) / 2;
+    const yPosition =
+      e.currentPointer.viewportY - parseInt(contentStyle.height) / 2;
 
     $content.style.top = `${yPosition} px`;
     $content.style.left = `${xPosition} px`;
@@ -1006,34 +1064,43 @@
   };
 
   const findWaypoint = (lat, lng, waypoints) => {
-    const triggeredWaypoint = waypoints.filter(waypoint => String(waypoint.geolocation.lat).substring(0, 8) === String(lat).substring(0, 8));
+    const triggeredWaypoint = waypoints.filter(
+      waypoint =>
+        String(waypoint.geolocation.lat).substring(0, 8) ===
+        String(lat).substring(0, 8)
+    );
     return triggeredWaypoint[0];
   };
 
   const parseMaps = data => {
     const cityId = document.querySelector(`.cityId`).textContent;
-    const routeId = document.querySelector(`.routeId`).textContent;// eslint-disable-line
+    const routeId = document.querySelector(`.routeId`).textContent; // eslint-disable-line
     const cityRouteId = document.querySelector(`.cityRouteId`).textContent;
     mapData = data.cities[cityId].maps;
 
     const $arBtn = document.querySelector(`.arBtn`);
-    $arBtn.setAttribute(`href`, `index.php?page=ar&id=${cityRouteId}&city=${activeCityId}&cityRouteId=${cityRouteId}`);
+    $arBtn.setAttribute(
+      `href`,
+      `index.php?page=ar&id=${cityRouteId}&city=${activeCityId}&cityRouteId=${cityRouteId}`
+    );
 
     const defaultLayers = platform.createDefaultLayers();
     /* eslint-disable*/
-    map = new H.Map(document.getElementById('map'),
-      defaultLayers.vector.normal.map, {
-      center: { lat: mapData.lat, lng: mapData.lng },
-      style: "default",
-      zoom: mapData.zm,
-      pixelRatio: window.devicePixelRatio || 1
-    });
-
+    map = new H.Map(
+      document.getElementById("map"),
+      defaultLayers.vector.normal.map,
+      {
+        center: { lat: mapData.lat, lng: mapData.lng },
+        style: "default",
+        zoom: mapData.zm,
+        pixelRatio: window.devicePixelRatio || 1
+      }
+    );
 
     const ui = H.ui.UI.createDefault(map, defaultLayers);
     var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
     /* eslint-enable*/
-    window.addEventListener('resize', () => map.getViewPort().resize());
+    window.addEventListener("resize", () => map.getViewPort().resize());
     console.log(cityRouteId);
     console.log(data.cities[cityId]);
 
@@ -1043,7 +1110,7 @@
   };
 
   const fetchUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(function (location) {
+    navigator.geolocation.getCurrentPosition(function(location) {
       userLocation = {
         lat: location.coords.latitude,
         lng: location.coords.longitude,

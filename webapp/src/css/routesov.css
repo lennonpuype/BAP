@@ -1,0 +1,101 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 0 1.6rem;
+}
+
+.logo_title {
+  margin-left: 1rem;
+}
+
+.cities {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cities_nav {
+  padding: 1.2rem;
+}
+
+.city_link {
+  background-color: white;
+  padding: 1.5rem 0.9rem;
+  border-radius: 1rem;
+}
+
+.active_city {
+  background: var(--darkpurple);
+  background: linear-gradient(
+    90deg,
+    var(--darkpurple) 0%,
+    var(--lightpurple) 100%
+  );
+  padding: 1.5rem 0.9rem;
+  border-radius: 1rem;
+}
+
+.city_shadow {
+  -webkit-box-shadow: 0 1.7rem 2.3rem -2.4rem rgba(110, 110, 110, 1);
+  -moz-box-shadow: 0 1.7rem 2.3rem -2.4rem rgba(110, 110, 110, 1);
+  box-shadow: 0 1.7rem 2.3rem -2.4rem rgba(110, 110, 110, 1);
+}
+
+.route {
+  background: #f8f8f8;
+  box-shadow: 6px 6px 6px rgba(9, 9, 9, 0.18), -6px -6px 6px white;
+  border-radius: 10px;
+  margin: 3rem 1.6rem;
+}
+
+.route_divArt {
+  padding: 0 1.6rem;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(5, auto);
+  grid-template-areas:
+    "route_img"
+    "route_parameters"
+    "route_name"
+    "route_desc"
+    "route_startbtn";
+  padding-bottom: 2rem;
+}
+
+.route_img {
+  display: flex;
+  justify-content: center;
+  grid-area: route_img;
+}
+
+.route_parameters {
+  grid-area: route_parameters;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.route_parameter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0.8rem;
+}
+
+.img_parameter {
+  width: 3rem;
+  height: 3rem;
+}
+
+.route_name {
+  grid-area: route_name;
+  margin-bottom: 0.8rem;
+}
+
+.route_desc {
+  grid-area: route_desc;
+}
+
+.route_startbtn {
+  grid-area: route_startbtn;
+}

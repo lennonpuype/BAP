@@ -1,0 +1,19 @@
+.sub_info {
+  margin: 1rem 02rem 0;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.arscene_div {
+  width: 90%;
+  height: 50rem;
+  margin: 2rem 0;
+  border: 0.2rem solid var(--darkpurple);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.arscene_iframe {
+  width: 100%;
+  height: 100%;
+}

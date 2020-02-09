@@ -6,10 +6,12 @@
 </section>
 
 <section class="page2 inactive center_content index">
+  <h1 class="head_title">a.r.u.next</h1>
   <ul class="languages">
-    <li class="language btn_shadow"><a class="page_btn" data-language="dutch">Nederlands</a></li>
-    <li class="language btn_shadow"><a class="page_btn" data-language="french">Français</a></li>
-    <li class="language btn_shadow"><a class="page_btn" data-language="english">English</a></li>
+    <a class="page_btn" data-language="dutch"><li class="language btn_shadow">Nederlands</li></a>
+    <a class="page_btn" data-language="french"><li class="language btn_shadow">Français</li></a>
+    <a class="page_btn" data-language="english"><li class="language btn_shadow">English</li></a>
+
   </ul>
 </section>
 

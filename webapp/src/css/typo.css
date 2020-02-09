@@ -1,0 +1,119 @@
+p,
+a,
+span {
+  font-family: Lato, sans-serif;
+  font-size: 1.8rem;
+  color: var(--black);
+}
+
+h1 {
+  font-family: Raleway, sans-serif;
+  font-weight: bold;
+  color: var(--darkpurple);
+  font-size: 4rem;
+}
+
+.head_title {
+  font-family: Raleway, sans-serif;
+  color: var(--darkpurple);
+  font-size: 4rem;
+  -webkit-text-shadow: -0.1rem 0 0 0 rgba(255, 255, 255, 1);
+  -moz-text-shadow: -0.1 0 0 0 rgba(255, 255, 255, 1);
+  text-shadow: -0.1 0 0 white;
+}
+
+.page_title_small {
+  font-family: Raleway, sans-serif;
+  font-size: 2.5rem;
+  color: var(--darkpurple);
+}
+
+.sub_info {
+  font-size: 1.8rem;
+}
+
+.page_btn {
+  font-family: Lato, sans-serif;
+  font-size: 2rem;
+}
+
+.page_btn:hover {
+  font-family: Raleway, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.back_txt {
+  font-size: 1.6rem;
+}
+
+/* CODE SCREEN */
+
+.help_btn_code {
+  font-size: 1.6rem;
+  font-family: Raleway, sans-serif;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.code {
+  font-size: 2.5rem;
+  text-align: center;
+  letter-spacing: 0.7rem;
+}
+
+.code_btn {
+  font-family: Lato, sans-serif;
+  color: var(--lightpurple);
+  font-size: 3rem;
+}
+
+.extra_btn {
+  font-weight: bold;
+}
+
+/* ROUTES OV */
+
+.logo_title {
+  font-family: Raleway, sans-serif;
+  font-weight: bold;
+  font-size: 1.7rem;
+  color: var(--black);
+}
+
+.city_link {
+  font-family: Raleway, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.active_city {
+  color: white;
+  font-size: 1.8rem;
+  font-family: Lato, sans-serif;
+  font-weight: bold;
+}
+
+.route_name {
+  font-family: Raleway, sans-serif;
+  font-weight: bold;
+  font-size: 2.3rem;
+  line-height: 2.7rem;
+  color: var(--green);
+  text-align: left;
+}
+
+.route_desc {
+  font-family: Lato, sans-serif;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+  color: var(--black);
+}
+
+.route_parameters {
+  font-family: Lato, sans-serif;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  color: var(--black);
+}

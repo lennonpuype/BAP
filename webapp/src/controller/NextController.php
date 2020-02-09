@@ -158,6 +158,7 @@ class NextController extends Controller {
     include 'mobiledetection.php';
     $detect = new Mobile_Detect();
 
+
     // Check for any mobile device.
     if ($detect->isMobile()){
       // mobile content
@@ -166,6 +167,7 @@ class NextController extends Controller {
     }else{
       // other content for desktops
       header('Location: index.php?page=desktop');
+
       exit();
     }
   }
