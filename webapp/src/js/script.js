@@ -195,6 +195,7 @@
     $a.classList.add(`locked`);
     $a.classList.remove(`unlocked`);
     $a.textContent = `Voer code in >`;
+    $article.classList.add(`locked`);
 
     const filterRoute = unlockedRouteIdArray.filter(unlockedRoute => {
       return unlockedRoute.id === route.id;
@@ -237,10 +238,12 @@
       lastAArray.push(aArray[i]);
 
       if (routes[i].id === lastRouteArray[i]) {
+
         aArray[i].setAttribute(`href`, `index.php?page=route&id=${routes[i].id}&city=${activeCityId}&cityRouteId=${routes[i].id}`);
         aArray[i].classList.add(`unlocked`);
         aArray[i].classList.remove(`locked`);
         aArray[i].textContent = `Start`;
+        articleArray[i].classList.add(`unlocked`);
       }
 
       console.log(routes[i].id, lastRouteArray[i]);
