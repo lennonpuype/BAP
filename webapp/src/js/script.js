@@ -10,7 +10,7 @@
 
   let currentLanguage;
   let activeCityId = 0;
-  let unlockedRouteId = [];
+  let unlockedRouteId = [];// eslint-disable-line
   let currentRouteId = 0;// eslint-disable-line
 
   const init = () => {
@@ -124,7 +124,7 @@
       .then(parseCities);
   };
 
-  let filteredRoutes = [];
+  let filteredRoutes = [];// eslint-disable-line
 
   const parseCities = data => {
     const city = data.cities[activeCityId];
@@ -208,7 +208,7 @@
     const lockedRoutesArray = Array.from($lockedRoutes);
     const $routePage = document.querySelector(`.routePage`);
     lockedRoutesArray.map(lockedRoute => {
-      lockedRoute.addEventListener(`click`, e => {
+      lockedRoute.addEventListener(`click`, () => {
         const $popup = document.querySelector(`.popup_code`);
         $popup.classList.remove(`hidden`);
         $routePage.classList.add(`hidden`);
@@ -223,8 +223,8 @@
     const articleArray = Array.from($allArticle);
     const aArray = Array.from($allA);
 
-    let lastRouteArray = [];
-    let lastAArray = [];
+    let lastRouteArray = [];// eslint-disable-line
+    let lastAArray = [];// eslint-disable-line
 
     filteredRoutes.map(route => {
       if (route === undefined) {
@@ -235,7 +235,7 @@
       lastRouteArray.push(route.id);
     });
 
-    for (let i = 0; i < articleArray.length; i++) {
+    for (let i = 0; i < articleArray.length; i++) {// eslint-disable-line
       lastAArray.push(aArray[i]);
 
       if (routes[i].id === lastRouteArray[i]) {
@@ -375,7 +375,6 @@
         const value = $codeInput.value;
         const firstCharacter = value[0];
         const secondCharacter = value[1];
-        const $form = document.querySelector(`.code_form`);
 
         $codeDiv.appendChild($a);
         $a.classList.add(`page_btn`, `btn_shadow`);
@@ -392,13 +391,13 @@
             $a.innerHTML = `Ongeldige code`;
             $a.classList.add(`ongeldig`);
             $a.disabled = true;
-            $a.setAttribute(`href`, `#`);
+            $a.removeAttribute(`href`);
           }
         } else {
           $a.innerHTML = `Ongeldige code`;
           $a.classList.add(`ongeldig`);
           $a.disabled = true;
-          $a.setAttribute(`href`, `#`);
+          $a.removeAttribute(`href`);
         }
       }, 100);
     }
@@ -664,7 +663,7 @@
           });
         }
       }
-      let visitedWaypoints = [];
+      let visitedWaypoints = [];// eslint-disable-line
       triggerFinishAllPoints(visitedWaypoints);
     }, 100);
   };
@@ -698,17 +697,17 @@
           const audio = new Audio(`./assets/audio/${currentWaypoint.globalId}.mp3`);
 
           $playBtn.addEventListener(`click`, () => {
-            console.log("Play");
+            console.log(`Play`);
             audio.play();
           });
 
           $pauseBtn.addEventListener(`click`, () => {
-            console.log("Pause");
+            console.log(`Pause`);
             audio.pause();
           });
 
           $restartBtn.addEventListener(`click`, () => {
-            console.log("Restart");
+            console.log(`Restart`);
             audio.load();
             audio.play();
           });
@@ -791,7 +790,7 @@
   let markers = [];// eslint-disable-line
   let map;
 
-  const platform = new H.service.Platform({
+  const platform = new H.service.Platform({// eslint-disable-line
     'apikey': 'Ymzvxu_5jYrtjqdyrlORjoasI2KdTSwzdLZuyNkPH3k'// eslint-disable-line
   });
 
@@ -805,7 +804,7 @@
 
     setInterval(() => {
       fetchUserLocation();
-      let visitedWaypoints = [];
+      let visitedWaypoints = [];// eslint-disable-line
       triggerFinishAllPoints(visitedWaypoints);
     }, 100);
   };
@@ -922,32 +921,32 @@
       });
 
       waypointVisitedArray.map(waypoint => {
-        waypoint.visited = "yes";
+        waypoint.visited = `yes`;
       });
 
       //Make Waypoint visible
       const waypointChecked = './assets/img/waypointdone.png';
       const waypointUnChecked = './assets/img/waypointnotdone.png';
 
-      const iconChecked = new H.map.Icon(waypointChecked);
-      const iconUnChecked = new H.map.Icon(waypointUnChecked);
+      const iconChecked = new H.map.Icon(waypointChecked);// eslint-disable-line
+      const iconUnChecked = new H.map.Icon(waypointUnChecked);// eslint-disable-line
 
-      if (waypoint.visited === "no") {
-        const marker = new H.map.Marker({ lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, { icon: iconUnChecked });
+      if (waypoint.visited === `no`) {
+        const marker = new H.map.Marker({ lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, { icon: iconUnChecked });// eslint-disable-line
         makeMarker(marker, cityData, routeId);
       }
 
-      if (waypoint.visited === "yes") {
-        const marker = new H.map.Marker({ lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, { icon: iconChecked });
+      if (waypoint.visited === `yes`) {
+        const marker = new H.map.Marker({ lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, { icon: iconChecked });// eslint-disable-line
         makeMarker(marker, cityData, routeId);
       }
     });
 
     if (userLocation !== ``) {
       setInterval(() => {
-        const userMarker = new H.map.Marker({ lat: userLocation.lat, lng: userLocation.lng });
+        const userMarker = new H.map.Marker({ lat: userLocation.lat, lng: userLocation.lng });// eslint-disable-line
         map.addObject(userMarker);
-      }, 1000)
+      }, 1000);
     }
 
   };
