@@ -17,13 +17,6 @@
     const $language = document.querySelector(`.language`);
     globalLanguage = $language.textContent;
 
-    const $body = document.querySelector(`.body`);
-    console.log($body);
-    const $script = document.createElement(`script`);
-    $body.appendChild($script);
-    $script.setAttribute(`src`, `klsfdjlkfdsjdfslkjdfslkjdsflkjdfslkjsdf`);
-
-
     const $index = document.querySelector(`.index`);
     if ($index) {
       manageHomePage();
@@ -188,6 +181,15 @@
     $steps.classList.add(`route_parameter`);
     $time.classList.add(`route_parameter`);
     $waypoints.classList.add(`route_parameter`);
+
+    const $head = document.querySelector(`.head`);
+    const $script = document.createElement(`script`);
+    const $style = document.createElement(`link`);
+    $head.appendChild($script);
+    $head.appendChild($style);
+    $script.setAttribute(`src`, `https://npmcdn.com/flickity@2.2.1/dist/flickity.pkgd.js`);
+    $style.setAttribute(`href`, `https://npmcdn.com/flickity@2.2.1/dist/flickity.css`);
+    $style.setAttribute(`rel`, `stylesheet`);
 
     $a.classList.add(`route_button`);
     $h1.innerHTML = `<h1 style="color:${route.color1};">${route.name}</h1>`;

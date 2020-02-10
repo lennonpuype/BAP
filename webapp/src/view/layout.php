@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="nl">
 
-<head>
+<head class="head">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="theme-color" content="#090909">
-  <link href="https://npmcdn.com/flickity@2.2.1/dist/flickity.css" rel="stylesheet">
-  <script src="https://npmcdn.com/flickity@2.2.1/dist/flickity.pkgd.js"></script>
-
 
   <link rel="icon" type="image/png" href="./assets/img/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Lato|Raleway:500,700&display=swap" rel="stylesheet">
