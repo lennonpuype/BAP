@@ -135,8 +135,23 @@ class NextController extends Controller {
           unset($_SESSION['error']);
           $_SESSION['user']['email'] = $_POST['email'];
           $to_email = $_POST['email'];
-          $subject = "Thank you! Here is your code for a NEXT show of your choice";
-          $message = '<h1>Thank You for using our platform, we have something special for you!</h1><br/><br/><p>You received a new code for a show in the future!</p><br/><p>Your code is: <b>'.$_POST['code'].'</b></p>';
+
+          //Check for language to send the mail in
+          if($_SESSION['user']['l'] == 'nl'){
+            $subject = "Bedankt! Hier is uw kortingscodecode voor een NEXT voorstelling naar jou keuze";
+            $message = '<h1>Bedankt om gebruik te maken van ons platform, We hebben iets speciaal voor jou!</h1><br/><br/><p>Je ontving een kortingscode voor een show in de toekomst!</p><br/><p>Je code is: <b>'.$_POST['code'].'</b></p>';
+          }
+
+          if($_SESSION['user']['l'] == 'fr'){
+            $subject = "Je vous remercie! Voici votre code pour un spectacle NEXT de votre choix";
+            $message = "<h1>Merci d'utiliser notre plateforme, nous avons quelque chose de spécial pour vous! </h1> <br/> <br/> <p> Vous avez reçu un nouveau code pour un spectacle à l'avenir!</p><br/><p>Votre code est: <b>".$_POST['code']."</b></p>";
+          }
+
+          if($_SESSION['user']['l'] == 'en'){
+            $subject = "Thank you! Here is your discountcode for a NEXT show of your choice";
+            $message = '<h1>Thank You for using our platform, we have something special for you!</h1><br/><br/><p>You received a new code for a show in the future!</p><br/><p>Your code is: <b>'.$_POST['code'].'</b></p>';
+          }
+
           $headers = array('From: admin@arunext.eu', 'Cc: admin@arunext.eu', 'Content-type: text/html; charset: utf8\r\n');
           mail($to_email,$subject,$message,implode("\r\n",$headers));
 

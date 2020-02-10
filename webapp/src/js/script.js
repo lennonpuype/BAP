@@ -4,7 +4,7 @@
   const $page3 = document.querySelector(`.page3`);
   const $page4 = document.querySelector(`.page4`);
 
-  const SwipeEventDispatcher = require("./SwipeEventDispatcher.js")
+  const SwipeEventDispatcher = require("./SwipeEventDispatcher.js")// eslint-disable-line
     .SwipeEventDispatcher;
 
   let currentLanguage;
@@ -22,9 +22,9 @@
       manageHomePage();
 
       const startTags = [
-        "Start exploring >", // eslint-disable-line
-        "Commencez à explorer >", // eslint-disable-line
-        "Start met verkennen >" // eslint-disable-line
+        `Start exploring >`,
+        `Commencez à explorer >`,
+        `Start met verkennen >`
       ];
 
       let iPrev = 0;
@@ -183,7 +183,18 @@
 
     $a.classList.add(`route_button`);
 
-    $p.textContent = route.desc;
+    if (globalLanguage === `nl`) {
+      $p.textContent = route.descnl;
+    }
+
+    if (globalLanguage === `fr`) {
+      $p.textContent = route.descfr;
+    }
+
+    if (globalLanguage === `en`) {
+      $p.textContent = route.descen;
+    }
+
 
     $divImg.innerHTML = `<img src="${route.img}" alt="Route image" height="250" width="250">`;
 
@@ -283,8 +294,7 @@
       lastRouteArray.push(route.id);
     });
 
-    for (let i = 0; i < articleArray.length; i++) {
-      // eslint-disable-line
+    for (let i = 0; i < articleArray.length; i++) {//eslint-disable-line
       lastAArray.push(aArray[i]);
 
       if (routes[i].id === lastRouteArray[i]) {
@@ -394,7 +404,7 @@
     let codeValue = ``;
     const $a = document.createElement(`a`);
 
-    if (language === "dutch") {
+    if (language === `dutch`) {
       // eslint-disable-line
       page.innerHTML = `<div class="back_btn">
       <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>
@@ -448,13 +458,13 @@
         //Check if value has 5 characters en the first character or second character is true -> Returns the code is valid to continue
         if (value.length === 5) {
           if (
-            (firstCharacter === "K" ||
-              firstCharacter === "T" ||
-              firstCharacter === "L" ||
-              firstCharacter === "V") &&
-            (secondCharacter === "S" ||
-              secondCharacter === "T" ||
-              secondCharacter === "F")
+            (firstCharacter === `K` ||
+              firstCharacter === `T` ||
+              firstCharacter === `L` ||
+              firstCharacter === `V`) &&
+            (secondCharacter === `S` ||
+              secondCharacter === `T` ||
+              secondCharacter === `F`)
           ) {
             console.log(`Code is valid`);
             $a.innerHTML = `Ga verder >`;
@@ -476,7 +486,7 @@
       }, 100);
     }
 
-    if (language === "french") {
+    if (language === `french`) {
       // eslint-disable-line
       page.innerHTML = `<div class="back_btn">
       <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>
@@ -530,13 +540,13 @@
         //Check if value has 5 characters en the first character or second character is true -> Returns the code is valid to continue
         if (value.length === 5) {
           if (
-            (firstCharacter === "K" ||
-              firstCharacter === "T" ||
-              firstCharacter === "L" ||
-              firstCharacter === "V") &&
-            (secondCharacter === "S" ||
-              secondCharacter === "T" ||
-              secondCharacter === "F")
+            (firstCharacter === `K` ||
+              firstCharacter === `T` ||
+              firstCharacter === `L` ||
+              firstCharacter === `V`) &&
+            (secondCharacter === `S` ||
+              secondCharacter === `T` ||
+              secondCharacter === `F`)
           ) {
             console.log(`Code is valid`);
             $a.innerHTML = `Continuez >`;
@@ -558,7 +568,7 @@
       }, 100);
     }
 
-    if (language === "english") {
+    if (language === `english`) {
       // eslint-disable-line
       page.innerHTML = `<div class="back_btn">
       <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>
@@ -612,13 +622,13 @@
         //Check if value has 5 characters en the first character or second character is true -> Returns the code is valid to continue
         if (value.length === 5) {
           if (
-            (firstCharacter === "K" ||
-              firstCharacter === "T" ||
-              firstCharacter === "L" ||
-              firstCharacter === "V") &&
-            (secondCharacter === "S" ||
-              secondCharacter === "T" ||
-              secondCharacter === "F")
+            (firstCharacter === `K` ||
+              firstCharacter === `T` ||
+              firstCharacter === `L` ||
+              firstCharacter === `V`) &&
+            (secondCharacter === `S` ||
+              secondCharacter === `T` ||
+              secondCharacter === `F`)
           ) {
             console.log(`Code is valid`);
             $a.innerHTML = `Continue >`;
@@ -835,7 +845,7 @@
   const showARInfo = (activeRoute, $waypointInfoElement) => {
     const cityRouteId = document.querySelector(`.cityRouteId`).textContent;
 
-    fetch("./assets/data/cities.json")
+    fetch(`./assets/data/cities.json`)
       .then(r => r.json())
       .then(data => {
         const cities = data.cities;
@@ -887,17 +897,17 @@
 
   const saveRouteToPhp = activeRoute => {
     let strippedString = activeRoute;
-    strippedString = strippedString.replace(/[',]+g/, "");
+    strippedString = strippedString.replace(/[',]+g/, ``);
     createActiveRouteCookie(parseInt(strippedString));
   };
 
   const createActiveRouteCookie = activeRoute => {
     var json_str = JSON.stringify(activeRoute); // eslint-disable-line
-    createCookie("activeRoute", json_str, 3);
+    createCookie(`activeRoute`, json_str, 3);
   };
 
   /* eslint-disable*/
-  var createCookie = function(name, value, days) {
+  var createCookie = function (name, value, days) {
     var expires;
     if (days) {
       var date = new Date();
@@ -956,13 +966,12 @@
   let markers = []; // eslint-disable-line
   let map;
 
-  const platform = new H.service.Platform({
-    // eslint-disable-line
-    apikey: "Ymzvxu_5jYrtjqdyrlORjoasI2KdTSwzdLZuyNkPH3k" // eslint-disable-line
+  const platform = new H.service.Platform({// eslint-disable-line
+    apikey: `Ymzvxu_5jYrtjqdyrlORjoasI2KdTSwzdLZuyNkPH3k` // eslint-disable-line
   });
 
   const handleMaps = () => {
-    fetch("./assets/data/cities.json") // eslint-disable-line
+    fetch(`./assets/data/cities.json`) // eslint-disable-line
       .then(r => r.json())
       .then(parseMaps);
 
@@ -985,7 +994,7 @@
       loadOnboardingView(currentOnboarding);
 
       const dispatcher = new SwipeEventDispatcher($onboarding);
-      dispatcher.on("SWIPE_LEFT", () => {
+      dispatcher.on(`SWIPE_LEFT`, () => {
         if (currentOnboarding < 3) {
           currentOnboarding += 1;
           console.log(currentOnboarding);
@@ -1000,7 +1009,7 @@
         loadOnboardingView(currentOnboarding);
       });
 
-      dispatcher.on("SWIPE_RIGHT", () => {
+      dispatcher.on(`SWIPE_RIGHT`, () => {
         if (currentOnboarding > 0) {
           currentOnboarding -= 1;
           console.log(currentOnboarding);
@@ -1090,32 +1099,32 @@
       });
 
       //Make Waypoint visible
-      const waypointChecked = "./assets/img/waypointdone.png";
-      const waypointUnChecked = "./assets/img/waypointnotdone.png";
+      const waypointChecked = `./assets/img/waypointdone.png`;
+      const waypointUnChecked = `./assets/img/waypointnotdone.png`;
 
       const iconChecked = new H.map.Icon(waypointChecked); // eslint-disable-line
       const iconUnChecked = new H.map.Icon(waypointUnChecked); // eslint-disable-line
 
       if (waypoint.visited === `no`) {
-        const marker = new H.map.Marker(
-          { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng },
-          { icon: iconUnChecked }
-        ); // eslint-disable-line
+        const marker = new H.map.Marker(// eslint-disable-line
+          { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng },// eslint-disable-line
+          { icon: iconUnChecked }// eslint-disable-line
+        );
         makeMarker(marker, cityData, routeId);
       }
 
       if (waypoint.visited === `yes`) {
-        const marker = new H.map.Marker(
-          { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng },
-          { icon: iconChecked }
-        ); // eslint-disable-line
+        const marker = new H.map.Marker(// eslint-disable-line
+          { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng },// eslint-disable-line
+          { icon: iconChecked }// eslint-disable-line
+        );
         makeMarker(marker, cityData, routeId);
       }
     });
 
     if (userLocation !== ``) {
       setInterval(() => {
-        const userMarker = new H.map.Marker({
+        const userMarker = new H.map.Marker({// eslint-disable-line
           lat: userLocation.lat,
           lng: userLocation.lng
         }); // eslint-disable-line
@@ -1158,8 +1167,8 @@
 
         // let activeAudio;
 
-        map.addEventListener("tap", e => {
-          if (e.target instanceof H.map.Marker) {
+        map.addEventListener(`tap`, e => {
+          if (e.target instanceof H.map.Marker) {// eslint-disable-line
             // eslint-disable-line
             getClickPosition(e);
           } else {
@@ -1288,7 +1297,7 @@
     const ui = H.ui.UI.createDefault(map, defaultLayers);
     var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
     /* eslint-enable*/
-    window.addEventListener("resize", () => map.getViewPort().resize());
+    window.addEventListener(`resize`, () => map.getViewPort().resize());
     console.log(cityRouteId);
     console.log(data.cities[cityId]);
 
@@ -1298,7 +1307,7 @@
   };
 
   const fetchUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(function(location) {
+    navigator.geolocation.getCurrentPosition(function (location) {
       userLocation = {
         lat: location.coords.latitude,
         lng: location.coords.longitude,
