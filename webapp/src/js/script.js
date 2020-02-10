@@ -423,22 +423,22 @@
         <button class="help_btn_code">Hulp nodig?</button>
         </div>
         <div class="character_btns">
-          <button class="char_btn code_btn btn_shadow" type="button">0</button>
-          <button class="char_btn code_btn btn_shadow" type="button">1</button>
-          <button class="char_btn code_btn btn_shadow" type="button">2</button>
-          <button class="char_btn code_btn btn_shadow" type="button">3</button>
-          <button class="char_btn code_btn btn_shadow" type="button">4</button>
-          <button class="char_btn code_btn btn_shadow" type="button">5</button>
-          <button class="char_btn code_btn btn_shadow" type="button">6</button>
-          <button class="char_btn code_btn btn_shadow" type="button">7</button>
-          <button class="char_btn code_btn btn_shadow" type="button">8</button>
-          <button class="char_btn code_btn btn_shadow" type="button">9</button>
-          <button class="char_btn code_btn btn_shadow" type="button">S</button>
-          <button class="char_btn code_btn btn_shadow" type="button">T</button>
-          <button class="char_btn code_btn btn_shadow" type="button">F</button>
-          <button class="char_btn code_btn btn_shadow" type="button">K</button>
-          <button class="char_btn code_btn btn_shadow" type="button">L</button>
-          <button class="char_btn code_btn btn_shadow" type="button">V</button>
+          <button class="char_btn code_btn btn_shadow" data-type="number" type="button">0</button>
+          <button class="char_btn code_btn btn_shadow" data-type="number" type="button">1</button>
+          <button class="char_btn code_btn btn_shadow" data-type="number" type="button">2</button>
+          <button class="char_btn code_btn btn_shadow" data-type="number" type="button">3</button>
+          <button class="char_btn code_btn btn_shadow" data-type="number" type="button">4</button>
+          <button class="char_btn code_btn btn_shadow" data-type="number" type="button">5</button>
+          <button class="char_btn code_btn btn_shadow" data-type="number" type="button">6</button>
+          <button class="char_btn code_btn btn_shadow" data-type="number" type="button">7</button>
+          <button class="char_btn code_btn btn_shadow" data-type="number" type="button">8</button>
+          <button class="char_btn code_btn btn_shadow" data-type="number" type="button">9</button>
+          <button class="char_btn code_btn btn_shadow" data-type="route" type="button">S</button>
+          <button class="char_btn code_btn btn_shadow" data-type="city" type="button">T</button>
+          <button class="char_btn code_btn btn_shadow" data-type="route" type="button">F</button>
+          <button class="char_btn code_btn btn_shadow" data-type="city" type="button">K</button>
+          <button class="char_btn code_btn btn_shadow" data-type="city" type="button">L</button>
+          <button class="char_btn code_btn btn_shadow" data-type="city" type="button">V</button>
           <button class="extra_btn delete_btn code_btn btn_shadow" data-type="remove" type="button"><</button>
           <button class="extra_btn clear_btn code_btn btn_shadow" data-type="clear" type="button">C</button>
         </div>
@@ -469,21 +469,53 @@
           ) {
             console.log(`Code is valid`);
             $a.innerHTML = `Ga verder >`;
-            $a.classList.remove(`ongeldig`);
+            $a.classList.remove(`hidden`);
+            $codeInput.classList.remove(`shake`);
             $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}`);
           } else {
             console.log(`Enter a valid code`);
-            $a.innerHTML = `Ongeldige code`;
-            $a.classList.add(`ongeldig`);
+            $a.innerHTML = ``;
+            $a.classList.add(`hidden`);
+            $codeInput.classList.remove(`shake`);
+            $codeInput.classList.add(`shake`);
             $a.disabled = true;
             $a.removeAttribute(`href`);
           }
         } else {
-          $a.innerHTML = `Ongeldige code`;
-          $a.classList.add(`ongeldig`);
+          $a.innerHTML = ``;
+          $a.classList.add(`hidden`);
+          $codeInput.classList.add(`shake`);
           $a.disabled = true;
           $a.removeAttribute(`href`);
         }
+
+        const $allBtns = document.querySelectorAll(`.char_btn`);
+        const btnArray = Array.from($allBtns);
+
+        btnArray.map(btn => {
+          if ($codeInput.value.length === 0) {
+
+            if (btn.dataset.type === `route` || btn.dataset.type === `number`) {
+              console.log(btn);
+              btn.setAttribute(`disabled`, true);
+            }
+          }
+
+          if ($codeInput.value.length === 1) {
+            console.log("1");
+            if (btn.dataset.type === `route`) {
+              btn.removeAttribute(`disabled`);
+            }
+
+            if (btn.dataset.type === `number`) {
+              btn.setAttribute(`disabled`, true);
+            }
+          }
+
+          if ($codeInput.value.length > 1) {
+            btn.removeAttribute(`disabled`);
+          }
+        });
       }, 100);
     }
 
