@@ -5,17 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="theme-color" content="#000">
+  <meta name="theme-color" content="#090909">
+  <link href="https://npmcdn.com/flickity@2.2.1/dist/flickity.css" rel="stylesheet">
+  <script src="https://npmcdn.com/flickity@2.2.1/dist/flickity.pkgd.js"></script>
+
 
   <link rel="icon" type="image/png" href="./assets/img/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Lato|Raleway:500,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/path/to/flickity.css" media="screen">
   <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
   <script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.4/aframe/build/aframe-ar.js"></script>
   <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    <link rel="stylesheet" href="/path/to/flickity.css" media="screen">
+    <!-- <link rel="stylesheet" href="/path/to/flickity.css" media="screen"> -->
 
-  <!-- <scriot src="https://github.com/donmccurdy/aframe-extras/tree/master/src/loaders#animation"></script>
+  <!-- <script src="https://github.com/donmccurdy/aframe-extras/tree/master/src/loaders#animation"></script>
   <script src="./js/aframe-extras.js"></script>
   <script src="./js/aframe-text-geometry-component.min.js"></script> -->
 
@@ -25,7 +27,7 @@
   <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
   <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
   <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
-  <script src="/path/to/flickity.pkgd.min.js"></script>
+
 
 
   <title>BAP</title>

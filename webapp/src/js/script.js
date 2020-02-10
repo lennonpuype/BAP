@@ -148,6 +148,7 @@
     const $article = document.createElement(`article`);
     $routes.appendChild($article);
     $article.classList.add(`route`);
+    $article.classList.add(`carousel-cell`);
 
     const $divArt = document.createElement(`div`);
     $article.appendChild($divArt);

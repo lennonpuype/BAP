@@ -106,7 +106,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
           }
         ?>
       </article>
-      <section class="routes"></section>
+      <section class="routes carousel" data-flickity='{ "cellAlign": "left", "contain": true, "wrapAround": true }'></section>
     </main>
   <?php } ?>
 
