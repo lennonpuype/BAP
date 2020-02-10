@@ -49,12 +49,6 @@
   width: 80%;
 }
 
-.routes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 .route_divArt {
   padding: 0 1.6rem;
   display: grid;
@@ -100,7 +94,6 @@
 
 .route_name {
   grid-area: route_name;
-  margin-bottom: 0.8rem;
 }
 
 .route_desc {
