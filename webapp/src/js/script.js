@@ -17,6 +17,13 @@
     const $language = document.querySelector(`.language`);
     globalLanguage = $language.textContent;
 
+    const $body = document.querySelector(`.body`);
+    console.log($body);
+    const $script = document.createElement(`script`);
+    $body.appendChild($script);
+    $script.setAttribute(`src`, `klsfdjlkfdsjdfslkjdfslkjdsflkjdfslkjsdf`);
+
+
     const $index = document.querySelector(`.index`);
     if ($index) {
       manageHomePage();
