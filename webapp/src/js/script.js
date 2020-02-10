@@ -4,7 +4,7 @@
   const $page3 = document.querySelector(`.page3`);
   const $page4 = document.querySelector(`.page4`);
 
-  const SwipeEventDispatcher = require("./SwipeEventDispatcher.js")// eslint-disable-line
+  const SwipeEventDispatcher = require("./SwipeEventDispatcher.js") // eslint-disable-line
     .SwipeEventDispatcher;
 
   let currentLanguage;
@@ -196,7 +196,6 @@
       $p.textContent = route.descen;
     }
 
-
     $divImg.innerHTML = `<img src="${route.img}" alt="Route image" height="250" width="250">`;
 
     $steps.innerHTML = `<img src="${route.stepsImg}" class="img_parameter" alt="Image for how many km" width="3O" height="30"/> <p class="route_parameter_text">${route.distance}</p>`;
@@ -245,14 +244,17 @@
 
     if (globalLanguage === `nl`) {
       $a.textContent = `Voer code in >`;
+      $a.setAttribute(`style`, `background-color:${route.color1}`);
     }
 
     if (globalLanguage === `fr`) {
       $a.textContent = `Entrez un code >`;
+      $a.setAttribute(`style`, `background-color:${route.color1}`);
     }
 
     if (globalLanguage === `en`) {
       $a.textContent = `Enter a code >`;
+      $a.setAttribute(`style`, `background-color:${route.color1}`);
     }
 
     $article.classList.add(`locked`);
@@ -295,7 +297,8 @@
       lastRouteArray.push(route.id);
     });
 
-    for (let i = 0; i < articleArray.length; i++) {//eslint-disable-line
+    for (let i = 0; i < articleArray.length; i++) {
+      //eslint-disable-line
       lastAArray.push(aArray[i]);
 
       if (routes[i].id === lastRouteArray[i]) {
@@ -303,6 +306,7 @@
           `href`,
           `index.php?page=route&id=${routes[i].id}&city=${activeCityId}&cityRouteId=${routes[i].id}`
         );
+        aArray[i].setAttribute(`style`, `background-color:${routes[i].color1}`);
         aArray[i].classList.add(`unlocked`);
         aArray[i].classList.remove(`locked`);
         if (globalLanguage === `nl`) {
@@ -752,7 +756,7 @@
               <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
             </div>
           </div>
-          <a class="page_btn btn_shadow">Voer code in ></a>`;
+          <a class="page_btn btn_shadow">Voer code in></a>`;
 
           openPage4();
           goBackToPage2();
@@ -940,7 +944,7 @@
   };
 
   /* eslint-disable*/
-  var createCookie = function (name, value, days) {
+  var createCookie = function(name, value, days) {
     var expires;
     if (days) {
       var date = new Date();
@@ -999,7 +1003,8 @@
   let markers = []; // eslint-disable-line
   let map;
 
-  const platform = new H.service.Platform({// eslint-disable-line
+  const platform = new H.service.Platform({
+    // eslint-disable-line
     apikey: `Ymzvxu_5jYrtjqdyrlORjoasI2KdTSwzdLZuyNkPH3k` // eslint-disable-line
   });
 
@@ -1139,17 +1144,17 @@
       const iconUnChecked = new H.map.Icon(waypointUnChecked); // eslint-disable-line
 
       if (waypoint.visited === `no`) {
-        const marker = new H.map.Marker(// eslint-disable-line
-          { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng },// eslint-disable-line
-          { icon: iconUnChecked }// eslint-disable-line
+        const marker = new H.map.Marker( // eslint-disable-line
+          { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, // eslint-disable-line
+          { icon: iconUnChecked } // eslint-disable-line
         );
         makeMarker(marker, cityData, routeId);
       }
 
       if (waypoint.visited === `yes`) {
-        const marker = new H.map.Marker(// eslint-disable-line
-          { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng },// eslint-disable-line
-          { icon: iconChecked }// eslint-disable-line
+        const marker = new H.map.Marker( // eslint-disable-line
+          { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, // eslint-disable-line
+          { icon: iconChecked } // eslint-disable-line
         );
         makeMarker(marker, cityData, routeId);
       }
@@ -1157,7 +1162,8 @@
 
     if (userLocation !== ``) {
       setInterval(() => {
-        const userMarker = new H.map.Marker({// eslint-disable-line
+        const userMarker = new H.map.Marker({
+          // eslint-disable-line
           lat: userLocation.lat,
           lng: userLocation.lng
         }); // eslint-disable-line
@@ -1201,7 +1207,8 @@
         // let activeAudio;
 
         map.addEventListener(`tap`, e => {
-          if (e.target instanceof H.map.Marker) {// eslint-disable-line
+          if (e.target instanceof H.map.Marker) {
+            // eslint-disable-line
             // eslint-disable-line
             getClickPosition(e);
           } else {
@@ -1340,7 +1347,7 @@
   };
 
   const fetchUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(function (location) {
+    navigator.geolocation.getCurrentPosition(function(location) {
       userLocation = {
         lat: location.coords.latitude,
         lng: location.coords.longitude,

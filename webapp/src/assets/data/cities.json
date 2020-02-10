@@ -125,7 +125,7 @@
           "img": "./assets/img/red.png",
           "stepsImg": "./assets/img/redsteps.png",
           "wpImg": "./assets/img/redar.png",
-          "timeImg": "./assets/img/redcr.png",
+          "timeImg": "./assets/img/redc.png",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
           "color1": "#FF0031",
           "color2": "#FF5172",
@@ -164,8 +164,8 @@
               "visited": "no"
             }
           ],
-          "time": "30min",
-          "distance": "2km"
+          "time": "130min",
+          "distance": "12km"
         }
       ]
     },

@@ -112,7 +112,6 @@
 }
 
 .route_button {
-  background-color: var(--yellow);
   border-radius: 1rem;
   padding: 1.7rem;
   text-decoration: none;
