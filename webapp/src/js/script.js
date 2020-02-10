@@ -500,13 +500,11 @@
           if ($codeInput.value.length === 0) {
 
             if (btn.dataset.type === `route` || btn.dataset.type === `number`) {
-              console.log(btn);
               btn.setAttribute(`disabled`, true);
             }
           }
 
           if ($codeInput.value.length === 1) {
-            console.log("1");
             if (btn.dataset.type === `route`) {
               btn.removeAttribute(`disabled`);
             }
@@ -944,7 +942,7 @@
   };
 
   /* eslint-disable*/
-  var createCookie = function(name, value, days) {
+  var createCookie = function (name, value, days) {
     var expires;
     if (days) {
       var date = new Date();
@@ -1347,7 +1345,7 @@
   };
 
   const fetchUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(function(location) {
+    navigator.geolocation.getCurrentPosition(function (location) {
       userLocation = {
         lat: location.coords.latitude,
         lng: location.coords.longitude,
