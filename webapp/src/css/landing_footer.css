@@ -1,0 +1,28 @@
+.footer {
+  display: grid;
+  grid-template-columns: 4rem 15rem 2rem minmax(auto, 80rem) 4rem;
+  grid-template-rows: 4rem auto 2rem 2rem 1rem;
+  grid-template-areas: '. . . . .'
+  '. footer_details . footer_sponsors .'
+  '. . . . .'
+  '. footer_tags . devine_logo .'
+  '. . . . .';
+  background-color: var(--darkpurple);
+  color: white;
+}
+
+.footer_details {
+  grid-area: footer_details;
+}
+
+.footer_sponsors {
+  grid-area: footer_sponsors;
+}
+
+.footer_tags {
+  grid-area: footer_tags;
+}
+
+.devine_logo {
+  grid-area: devine_logo;
+}

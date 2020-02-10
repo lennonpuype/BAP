@@ -1,0 +1,14 @@
+.intro {
+  display: grid;
+  grid-template-columns: minmax(40vw, 50rem) 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 'intro_image intro_text';
+}
+
+.intro_image {
+  grid-area: intro_image;
+}
+
+.intro_text {
+  grid-area: intro_text;
+}

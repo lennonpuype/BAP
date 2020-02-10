@@ -1,0 +1,10 @@
+.routes_section {
+  display: grid;
+  grid-template-columns: 3rem minmax(30, 33%) 1rem minmax(30, 33%) 1rem minmax(30, 33%) 3rem;
+  grid-template-rows: auto;
+  grid-template-areas: '. route . route . route .';
+}
+
+.route_preview {
+  grid-area: route;
+}

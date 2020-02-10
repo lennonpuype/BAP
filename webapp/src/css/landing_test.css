@@ -1,0 +1,14 @@
+.test {
+  display: grid;
+  grid-template-columns: 1fr minmax(40vw, 50rem);
+  grid-template-rows: auto;
+  grid-template-areas: 'test_text test_image';
+}
+
+.test_image {
+  grid-area: test_image;
+}
+
+.test_text {
+  grid-area: test_text;
+}

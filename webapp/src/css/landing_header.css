@@ -1,0 +1,27 @@
+.header {
+  height: 80%;
+  max-height: 50rem;
+
+  display: grid;
+  grid-template-columns: 20rem .9fr 2rem;
+  grid-template-rows: 2rem 1rem .7fr auto .3fr 1rem 2rem;
+  grid-template-areas: '. . .'
+  '. . header_languages'
+  '. . .'
+  '. header_title .'
+  '. . .'
+  '. . header_socials'
+  '. . .';
+}
+
+.header_languages {
+  grid-area: header_languages;
+}
+
+.header_title {
+  grid-area: header_title;
+}
+
+.header_socials {
+  grid-area: header_socials;
+}

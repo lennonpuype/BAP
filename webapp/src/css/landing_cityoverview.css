@@ -1,0 +1,10 @@
+.city_list {
+  display: grid;
+  grid-template-columns: repeat(4, 25vw);
+  grid-template-rows: 15rem;
+  grid-template-areas: 'list_item list_item list_item list_item';
+}
+
+.city_list_item {
+  grid-area: list_item;
+}
