@@ -106,8 +106,8 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
           }
         ?>
       </article>
-      <section class="routes carousel" data-flickity='{ "cellAlign": "left", "contain": true, "wrapAround": true }'></section>
-    </main>
+      <section class="routes carousel" data-flickity='{ "contain": true, "wrapAround": true, "prevNextButtons": false, "pageDots": false, "lazyload": 100 }'></section>
+     </main>
   <?php } ?>
 
   <?php if($_SESSION['user']['l'] == 'fr'){ ?>
