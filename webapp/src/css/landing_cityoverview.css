@@ -1,7 +1,7 @@
 .city_list {
   display: grid;
-  grid-template-columns: repeat(4, auto);
-  grid-template-rows: 15rem;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: 40rem;
   grid-template-areas: 'kortrijk tournai lille valenciennes';
 }
 
@@ -15,6 +15,8 @@
   font-size: 1.8rem;
   font-weight: bold;
   font-family: Raleway;
+  text-align: center;
+
 }
 
 .kortrijk {

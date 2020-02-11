@@ -132,16 +132,15 @@
     const city = data.cities[activeCityId];
     const routes = city.routes;
 
-    const $routes = document.querySelector(`.routes`);
-    $routes.textContent = ``;
-
-    const $existingScript = document.getElementById(`script`);
-    const $existingStyle = document.getElementById(`style`);
-
-    if ($existingScript && $existingStyle) {
-      $existingScript.remove();
-      $existingStyle.remove();
+    if (document.querySelector(`.routes`)) {
+      document.querySelector(`.routes`).remove();
     }
+
+    const $routesContainer = document.querySelector(`.routes_container`);
+    const $section = document.createElement(`section`);
+    $routesContainer.appendChild($section);
+    $section.classList.add(`routes`, `carousel`);
+    $section.setAttribute(`data-flickity`, `{ "contain": true, "wrapAround": true, "prevNextButtons": false, "pageDots": false, "lazyload": 100 }`);
 
     routes.map(route => {
       createRouteCards(route, routes);
@@ -967,7 +966,7 @@
   };
 
   /* eslint-disable*/
-  var createCookie = function(name, value, days) {
+  var createCookie = function (name, value, days) {
     var expires;
     if (days) {
       var date = new Date();
@@ -1370,7 +1369,7 @@
   };
 
   const fetchUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(function(location) {
+    navigator.geolocation.getCurrentPosition(function (location) {
       userLocation = {
         lat: location.coords.latitude,
         lng: location.coords.longitude,

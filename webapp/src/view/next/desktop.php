@@ -28,7 +28,7 @@
       <h1 class="intro_text_title intro_text_title_big">a.r.u.next ? de installatie</h1>
       <p class="intro_text_paragraph intro_text_paragraph1">De a.r.u.next routes laten je op interactieve wijze kennis maken met de <b class="intro_text_highlight">talenten, sporen en toekomst</b> van de steden.</p>
       <h2 class="intro_text_title intro_text_title_small">Waar kan je hem vinden?</h2>
-      <p class="intro_text_paragraph intro_text_paragraph2">De a.r.u.next installaties kan je vinden op centrale punten in de steden van de Eurometropool: Kortrijk, Lille, Tournai en Valenciennes. Weten waar? Check ze <span class="intro_text_url intro_text_highlight">hier</span>.</p>
+      <p class="intro_text_paragraph intro_text_paragraph2">De a.r.u.next installaties kan je vinden op centrale punten in de steden van de Eurometropool: Kortrijk, Lille, Tournai en Valenciennes. Weten waar? Check ze <span class="intro_text_url intro_text_highlight"><a href="#places">hier</a></span>.</p>
     </article>
   </section>
   <section class="routes_section">
@@ -50,9 +50,9 @@
   </section>
   <section class="test">
     <article class="test_text">
-      <h1>Al een keertje testen?</h1>
+      <h1 class="test_text_title">Al een keertje testen?</h1>
       <p class="test_text_paragraph">Wil je het nu al een keertje proberen? Haal je smartphone camera alvast boven:</p>
-      <ul>
+      <ul class="test_text_list">
         <li class="test_text_list_item"><span class="test_text_bullet yellow_bg">1</span> surf naar www.arunext.eu op je smartphone</li>
         <li class="test_text_list_item"><span class="test_text_bullet green_bg">2</span> doorloop de stappen</li>
         <li class="test_text_list_item"><span class="test_text_bullet red_bg">3</span> en scan het vlak hiernaast</li>
@@ -61,7 +61,7 @@
     <figure class="test_image"><img src="./assets/img/landingpagina/test.png"width="500" alt="Marker (foto) om de AR eens te testen"/></figure>
   </section>
   <section>
-    <ul class="city_list">
+    <ul class="city_list" id="places">
       <li class="city_list_item kortrijk">Kortrijk - Stationsplein</li>
       <li class="city_list_item tournai">Doornik - Station</li>
       <li class="city_list_item lille">Rijsel - Euralille</li>

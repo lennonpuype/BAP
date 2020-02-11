@@ -30,6 +30,7 @@
 .header_languages_list_item {
   font-family: Lato;
   font-size: 1.8rem;
+  cursor: pointer;
 }
 
 .header_languages_list_item_active {
@@ -55,6 +56,7 @@
 .header_socials_image {
   width: 2.5rem;
   height: 2.5rem;
+  cursor: pointer;
 }
 
 .header_title {

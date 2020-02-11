@@ -51,6 +51,7 @@
 
 .intro_text_url {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .intro_text {
