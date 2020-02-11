@@ -1,0 +1,25 @@
+.routes_section {
+  display: grid;
+  grid-template-columns: 3rem minmax(30, 33%) 1rem minmax(30, 33%) 1rem minmax(30, 33%) 3rem;
+  grid-template-rows: auto;
+  grid-template-areas: '. talent_route . sporen_route . toekomst_route .';
+
+  background-color: var(--darkergrey);
+}
+
+.route_preview {
+  display: flex;
+  flex-direction: column;
+}
+
+.talent_route {
+  grid-area: talent_route;
+}
+
+.sporen_route {
+  grid-area: sporen_route;
+}
+
+.toekomst_route {
+  grid-area: toekomst_route;
+}

@@ -1,0 +1,46 @@
+.intro {
+  display: grid;
+  grid-template-columns: minmax(40vw, 50rem) 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 'intro_image intro_text';
+}
+
+.intro_image {
+  grid-area: intro_image;
+}
+
+.intro_image_box {
+  width: 100%;
+  height: 100%;
+}
+
+.intro_text_title {
+  font-family: Raleway;
+  font-weight: bold;
+  color: black;
+}
+
+.intro_text_title_big {
+  font-size: 3.5rem;
+}
+
+.intro_text_title_small {
+  font-size: 2.5rem;
+}
+
+.intro_text_paragraph {
+  font-size: 1.8rem;
+}
+
+.intro_text_highlight {
+  color: var(--darkpurple);
+  font-weight: bold;
+}
+
+.intro_text_url {
+  text-decoration: underline;
+}
+
+.intro_text {
+  grid-area: intro_text;
+}

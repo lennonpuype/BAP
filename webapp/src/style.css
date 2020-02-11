@@ -6,6 +6,12 @@
 @import "./css/artest.css";
 @import "./css/code.css";
 @import "./css/routesov.css";
+@import "./css/landing_header.css";
+@import "./css/landing_intro.css";
+@import "./css/landing_routes.css";
+@import "./css/landing_test.css";
+@import "./css/landing_cityoverview.css";
+@import "./css/landing_footer.css";
 
 html {
   font-size: 62.5%;
