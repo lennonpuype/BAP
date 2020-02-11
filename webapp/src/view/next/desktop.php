@@ -2,48 +2,48 @@
   <h1 class="hidden">Header</h1>
   <nav class="header_languages">
   <h2 class="hidden">Kies taal</h2>
-    <ul>
-      <li>NL</li>
-      <li>EN</li>
-      <li>FR</li>
+    <ul class="header_languages_list">
+      <li class="header_languages_list_item header_languages_list_item_active">NL</li>
+      <li class="header_languages_list_item">EN</li>
+      <li class="header_languages_list_item">FR</li>
     </ul>
   </nav>
   <article class="header_title">
-    <h1>a.r.u.next?</h1>
-    <h2>the coolest city tours worldwide</h2>
+    <h1 class="header_title_big">a.r.u.next?</h1>
+    <h2 class="header_title_small">the coolest city tours worldwide</h2>
   </article>
   <address class="header_socials">
   <h2 class="hidden">Social Media kanalen</h2>
     <ul>
-      <li>facebook</li>
-      <li>instagram</li>
-      <li>youtube</li>
+      <li><img src="./assets/img/landingpagina/socials/facebook.png" width="150" alt="#" class="header_socials_image"/></li>
+      <li><img src="./assets/img/landingpagina/socials/instagram.png" width="150" alt="#" class="header_socials_image"/></li>
+      <li><img src="./assets/img/landingpagina/socials/youtube.png" width="150" alt="#" class="header_socials_image"/></li>
     </ul>
   </address>
 </header>
 <main>
   <section class="intro">
-    <figure class="intro_image"><img src="#" alt="De installatie in het openbaar"/></figure>
+    <figure class="intro_image"><img src="./assets/img/landingpagina/installation.png" width="300" alt="De installatie in het openbaar" class="intro_image_box"/></figure>
     <article class="intro_text">
-      <h1>a.r.u.next ? de installatie</h1>
-      <p>De a.r.u.next routes laten je op interactieve wijze kennis maken met de <b>talenten, sporen en toekomst</b> van de steden.</p>
-      <h2>Waar kan je hem vinden?</h2>
-      <p>De a.r.u.next installaties kan je vinden op centrale punten in de steden van de Eurometropool: Kortrijk, Lille, Tournai en Valenciennes. Weten waar? Check ze <span>hier</span>.</p>
+      <h1 class="intro_text_title intro_text_title_big">a.r.u.next ? de installatie</h1>
+      <p class="intro_text_paragraph">De a.r.u.next routes laten je op interactieve wijze kennis maken met de <b class="intro_text_highlight">talenten, sporen en toekomst</b> van de steden.</p>
+      <h2 class="intro_text_title intro_text_title_small">Waar kan je hem vinden?</h2>
+      <p class="intro_text_paragraph">De a.r.u.next installaties kan je vinden op centrale punten in de steden van de Eurometropool: Kortrijk, Lille, Tournai en Valenciennes. Weten waar? Check ze <span class="intro_text_url intro_text_highlight">hier</span>.</p>
     </article>
   </section>
   <section class="routes_section">
-    <article class="route_preview">
-      <figure><img src="#" alt="Preview van wat je in de talentroute kan verwachten"/></figure>
+    <article class="route_preview talent_route">
+      <figure><img src="./assets/img/landingpagina/routes/talent.png" width="200" alt="Preview van wat je in de talentroute kan verwachten"/></figure>
       <h1>Talent Route</h1>
       <p>Trek op pad door de stad en ontdek de talenten van nu en vroeger diede stad verwonderen</p>
     </article>
-    <article class="route">
-      <figure><img src="#" alt="Preview van wat je in de sporenroute kan verwachten"/></figure>
+    <article class="route_preview sporen_route">
+      <figure><img src="./assets/img/landingpagina/routes/sporen.png" width="200" alt="Preview van wat je in de sporenroute kan verwachten"/></figure>
       <h1>Sporen Route</h1>
       <p>Ontdek de wondere sporen nagelaten door koningen, legendes en natuurlijk ook de treinen in de stad.</p>
     </article>
-    <article class="route">
-      <figure><img src="#" alt="Preview van wat je in de toekomstroute kan verwachten"/></figure>
+    <article class="route_preview toekomst_route">
+      <figure><img src="./assets/img/landingpagina/routes/toekomst.png" width="200" alt="Preview van wat je in de toekomstroute kan verwachten"/></figure>
       <h1>Toekomst Route</h1>
       <p>Leer de scheppers van de toekomst kennen: van keizers tot helden en visies van morgen!</p>
     </article>
@@ -62,10 +62,10 @@
   </section>
   <section>
     <ul class="city_list">
-      <li class="city_list_item">Kortrijk - Stationsplein</li>
-      <li class="city_list_item">Doornik - Station</li>
-      <li class="city_list_item">Rijsel - Euralille</li>
-      <li class="city_list_item">Valenciennes - Stadshal</li>
+      <li class="city_list_item kortrijk">Kortrijk - Stationsplein</li>
+      <li class="city_list_item tournai">Doornik - Station</li>
+      <li class="city_list_item lille">Rijsel - Euralille</li>
+      <li class="city_list_item valenciennes">Valenciennes - Stadshal</li>
     </ul>
   </section>
 </main>

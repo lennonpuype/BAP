@@ -9,6 +9,38 @@
   grid-area: intro_image;
 }
 
+.intro_image_box {
+  width: 100%;
+  height: 100%;
+}
+
+.intro_text_title {
+  font-family: Raleway;
+  font-weight: bold;
+  color: black;
+}
+
+.intro_text_title_big {
+  font-size: 3.5rem;
+}
+
+.intro_text_title_small {
+  font-size: 2.5rem;
+}
+
+.intro_text_paragraph {
+  font-size: 1.8rem;
+}
+
+.intro_text_highlight {
+  color: var(--darkpurple);
+  font-weight: bold;
+}
+
+.intro_text_url {
+  text-decoration: underline;
+}
+
 .intro_text {
   grid-area: intro_text;
 }
