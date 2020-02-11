@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   padding: 0 1.6rem;
+  margin-top: 2
 }
 
 .logo_title {
@@ -45,8 +46,13 @@
   background: #f8f8f8;
   box-shadow: 6px 6px 6px rgba(9, 9, 9, 0.18), -6px -6px 6px white;
   border-radius: 10px;
-  margin: 3rem 1.6rem;
+  margin: 3rem 1rem;
   width: 80%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .route_divArt {
@@ -58,8 +64,7 @@
     "route_img"
     "route_parameters"
     "route_name"
-    "route_desc"
-    "route_startbtn";
+    "route_desc";
   padding-bottom: 2rem;
 }
 
@@ -100,17 +105,18 @@
   grid-area: route_desc;
 }
 
-.route_startbtn {
-  grid-area: route_startbtn;
-}
+
 
 .route_button {
   border-radius: 1rem;
   padding: 1.7rem;
   text-decoration: none;
-  margin-top: 3rem;
+  margin-bottom: -3rem;
 
   display: flex;
   justify-content: center;
   align-items: center;
+  width: inherit;
+
+
 }

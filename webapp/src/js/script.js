@@ -167,7 +167,7 @@
     $divArt.appendChild($divImg);
     $divArt.appendChild($h1);
     $divArt.appendChild($p);
-    $divArt.appendChild($a);
+    $article.appendChild($a);
 
     $divArt.appendChild($divParams);
     $divParams.appendChild($steps);
