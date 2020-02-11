@@ -1,6 +1,6 @@
-.header {
-  height: 80%;
-  max-height: 50rem;
+.landing_header {
+  height: 100%;
+  max-height: 100%;
 
   display: grid;
   grid-template-columns: 20rem auto 20rem 2rem;
@@ -24,7 +24,7 @@
 
 .header_languages_list {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .header_languages_list_item {
@@ -48,13 +48,13 @@
 
 .header_socials_list {
   display: flex;
-  justify-content: space-between;
-  width: max-content;
+  justify-content: space-around;
+  width: 14rem;
 }
 
 .header_socials_image {
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .header_title {

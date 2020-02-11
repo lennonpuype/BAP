@@ -12,6 +12,7 @@
 @import "./css/landing_test.css";
 @import "./css/landing_cityoverview.css";
 @import "./css/landing_footer.css";
+@import "./css/color.css";
 
 html {
   font-size: 62.5%;

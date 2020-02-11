@@ -18,18 +18,30 @@
   font-family: Raleway;
   font-weight: bold;
   color: black;
+  align-self: center;
 }
 
 .intro_text_title_big {
   font-size: 3.5rem;
+  grid-area: intro_text_title1;
 }
 
 .intro_text_title_small {
   font-size: 2.5rem;
+  grid-area: intro_text_title2;
 }
 
 .intro_text_paragraph {
   font-size: 1.8rem;
+  line-height: 1.6;
+}
+
+.intro_text_paragraph1 {
+  grid-area: intro_text_paragraph1;
+}
+
+.intro_text_paragraph2 {
+  grid-area: intro_text_paragraph2;
 }
 
 .intro_text_highlight {
@@ -43,4 +55,16 @@
 
 .intro_text {
   grid-area: intro_text;
+
+  display: grid;
+  grid-template-columns: 5rem 50rem 5rem;
+  grid-template-rows: 5rem repeat(2, auto) 1rem repeat(2, auto) 5rem;
+  grid-template-areas:
+      '. . .'
+      '. intro_text_title1 .'
+      '. intro_text_paragraph1 .'
+      '. . .'
+      '. intro_text_title2 .'
+      '. intro_text_paragraph2 .'
+      '. . .';
 }
