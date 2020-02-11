@@ -132,20 +132,24 @@
     const city = data.cities[activeCityId];
     const routes = city.routes;
 
+    //1. Routes section verwijderen wanneer reeds eens aangemaakt
     if (document.querySelector(`.routes`)) {
       document.querySelector(`.routes`).remove();
     }
 
+    //2. Routes section met Flickity aanmaken
     const $routesContainer = document.querySelector(`.routes_container`);
     const $section = document.createElement(`section`);
     $routesContainer.appendChild($section);
     $section.classList.add(`routes`, `carousel`);
     $section.setAttribute(`data-flickity`, `{ "contain": true, "wrapAround": true, "prevNextButtons": false, "pageDots": false, "lazyload": 100 }`);
 
+    //3. Toevoegen van de Articles aan de Routes section
     routes.map(route => {
       createRouteCards(route, routes);
     });
 
+    //4. Script & Link toevoegen aan head voor asyncroon te werken op de Articles die hierboven worden toegevoegd
     const $head = document.querySelector(`.head`);
     const $script = document.createElement(`script`);
     const $style = document.createElement(`link`);
@@ -449,7 +453,7 @@
       <div class="code_div">
         <div class="code_input">
         <input type="text" name="code" class="code neumorphism_box" maxlength="5" disabled/>
-        <button class="help_btn_code">Hulp nodig?</button>
+        <a class="help_btn_code">Hulp nodig?</a>
         </div>
         <div class="character_btns">
           <button class="char_btn code_btn btn_shadow" data-type="number" type="button">0</button>
@@ -499,21 +503,17 @@
             console.log(`Code is valid`);
             $a.innerHTML = `Ga verder >`;
             $a.classList.remove(`hidden`);
-            $codeInput.classList.remove(`shake`);
             $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}`);
           } else {
             console.log(`Enter a valid code`);
             $a.innerHTML = ``;
             $a.classList.add(`hidden`);
-            $codeInput.classList.remove(`shake`);
-            $codeInput.classList.add(`shake`);
             $a.disabled = true;
             $a.removeAttribute(`href`);
           }
         } else {
           $a.innerHTML = ``;
           $a.classList.add(`hidden`);
-          $codeInput.classList.add(`shake`);
           $a.disabled = true;
           $a.removeAttribute(`href`);
         }
@@ -539,7 +539,13 @@
           }
 
           if ($codeInput.value.length > 1) {
-            btn.removeAttribute(`disabled`);
+            if (btn.dataset.type === `route` || btn.dataset.type === `city`) {
+              console.log("kdsljdfkljdflsj");
+              btn.setAttribute(`disabled`, true);
+            } else {
+              btn.removeAttribute(`disabled`);
+            }
+
           }
         });
       }, 100);
@@ -560,7 +566,7 @@
       <div class="code_div">
         <div class="code_input">
         <input type="text" name="code" class="code neumorphism_box" maxlength="5" disabled/>
-        <button class="help_btn_code">Besoin d'aide?</button>
+        <a class="help_btn_code" disabled>Besoin d'aide?</a>
         </div>
         <div class="character_btns">
           <button class="char_btn code_btn btn_shadow" type="button">0</button>
@@ -642,7 +648,7 @@
       <div class="code_div">
         <div class="code_input">
         <input type="text" name="code" class="code neumorphism_box" maxlength="5" disabled/>
-        <button class="help_btn_code">Need help?</button>
+        <a class="help_btn_code" disabled>Need help?</a>
         </div>
         <div class="character_btns">
           <button class="char_btn code_btn btn_shadow" type="button">0</button>
@@ -742,6 +748,45 @@
         $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${codeValue}`);
         $code.value = codeValue;
       });
+    });
+
+    const $help = document.querySelector(`.help_btn_code`);
+    $help.addEventListener(`click`, () => {
+      handleHelpPopup();
+    });
+  };
+
+  const handleHelpPopup = () => {
+    const $body = document.querySelector(`.body`);
+    const $invisibleDiv = document.createElement(`div`);
+    const $div = document.createElement(`div`);
+    const $h2 = document.createElement(`h2`);
+    const $a = document.createElement(`a`);
+
+    $body.appendChild($invisibleDiv);
+    $body.appendChild($div);
+    $div.appendChild($a);
+    $div.appendChild($h2);
+
+    $invisibleDiv.classList.add(`invisible_overlay`);
+    $div.classList.add(`help_popup`);
+
+    const $page4 = document.querySelector(`.page4`);
+    $page4.classList.add(`blur`);
+
+    $h2.textContent = `Je vindt een code aan de installatie, deze laat je toe om de wandeling te beginnen!`;
+    $a.textContent = `close`;
+
+    $invisibleDiv.addEventListener(`click`, () => {
+      $invisibleDiv.remove();
+      $div.remove();
+      $page4.classList.remove(`blur`);
+    });
+
+    $a.addEventListener(`click`, () => {
+      $invisibleDiv.remove();
+      $div.remove();
+      $page4.classList.remove(`blur`);
     });
   };
 

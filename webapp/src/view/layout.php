@@ -14,7 +14,7 @@
   <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
   <!-- <link href="https://npmcdn.com/flickity@2.2.1/dist/flickity.css" id="flickity_style" rel="stylesheet">
-  <script href="https://npmcdn.com/flickity@2.2.1/dist/flickity.pkgd.js" id="flickity_script"></script> -->
+  <script href="https://npmcdn.com/flickity@2.2.1/dist/flickity.pkgd.js" id="flickity_script" async></script> -->
 
 
 

@@ -19,6 +19,7 @@ html {
   box-sizing: border-box;
   /* background-color: var(--blue); */
   scroll-behavior: smooth;
+  overflow: hidden;
 }
 /* stylelint-disable */
 
@@ -74,7 +75,7 @@ a {
   position: absolute;
   text-align: center;
   color: white;
-  
+
 }
 
 .variable_button {
