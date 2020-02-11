@@ -135,9 +135,34 @@
     const $routes = document.querySelector(`.routes`);
     $routes.textContent = ``;
 
+    const $existingScript = document.getElementById(`script`);
+    const $existingStyle = document.getElementById(`style`);
+
+    if ($existingScript && $existingStyle) {
+      $existingScript.remove();
+      $existingStyle.remove();
+    }
+
     routes.map(route => {
       createRouteCards(route, routes);
     });
+
+    const $head = document.querySelector(`.head`);
+    const $script = document.createElement(`script`);
+    const $style = document.createElement(`link`);
+    $head.appendChild($script);
+    $head.appendChild($style);
+    $script.setAttribute(
+      `src`,
+      `https://npmcdn.com/flickity@2.2.1/dist/flickity.pkgd.js`
+    );
+    $style.setAttribute(
+      `href`,
+      `https://npmcdn.com/flickity@2.2.1/dist/flickity.css`
+    );
+    $style.setAttribute(`rel`, `stylesheet`);
+    $script.setAttribute(`id`, `script`);
+    $style.setAttribute(`id`, `style`);
 
     handleStartButtonLogics(routes);
   };
@@ -181,15 +206,6 @@
     $steps.classList.add(`route_parameter`);
     $time.classList.add(`route_parameter`);
     $waypoints.classList.add(`route_parameter`);
-
-    const $head = document.querySelector(`.head`);
-    const $script = document.createElement(`script`);
-    const $style = document.createElement(`link`);
-    $head.appendChild($script);
-    $head.appendChild($style);
-    $script.setAttribute(`src`, `https://npmcdn.com/flickity@2.2.1/dist/flickity.pkgd.js`);
-    $style.setAttribute(`href`, `https://npmcdn.com/flickity@2.2.1/dist/flickity.css`);
-    $style.setAttribute(`rel`, `stylesheet`);
 
     $a.classList.add(`route_button`);
     $h1.innerHTML = `<h1 style="color:${route.color1};">${route.name}</h1>`;
@@ -508,7 +524,6 @@
 
         btnArray.map(btn => {
           if ($codeInput.value.length === 0) {
-
             if (btn.dataset.type === `route` || btn.dataset.type === `number`) {
               btn.setAttribute(`disabled`, true);
             }
@@ -952,7 +967,7 @@
   };
 
   /* eslint-disable*/
-  var createCookie = function (name, value, days) {
+  var createCookie = function(name, value, days) {
     var expires;
     if (days) {
       var date = new Date();
@@ -1355,7 +1370,7 @@
   };
 
   const fetchUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(function (location) {
+    navigator.geolocation.getCurrentPosition(function(location) {
       userLocation = {
         lat: location.coords.latitude,
         lng: location.coords.longitude,

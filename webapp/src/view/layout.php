@@ -9,12 +9,12 @@
 
   <link rel="icon" type="image/png" href="./assets/img/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Lato|Raleway:500,700&display=swap" rel="stylesheet">
-  <!-- <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
   <script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.4/aframe/build/aframe-ar.js"></script>
-  <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script> -->
+  <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
-
-
+  <!-- <link href="https://npmcdn.com/flickity@2.2.1/dist/flickity.css" id="flickity_style" rel="stylesheet">
+  <script href="https://npmcdn.com/flickity@2.2.1/dist/flickity.pkgd.js" id="flickity_script"></script> -->
 
 
 
