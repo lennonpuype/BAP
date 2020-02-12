@@ -36,6 +36,10 @@ body {
   height: 100%;
 }
 
+body {
+  background-color: var(--grey);
+}
+
 .page_btn {
   cursor: pointer;
 }

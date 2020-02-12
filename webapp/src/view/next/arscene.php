@@ -23,6 +23,10 @@
   <a-entity gltf-model="#gltf2" scale=".02 .02 .02" animation-mixer></a-entity>
 </a-marker>
 
+<a-marker type='pattern' url='./assets/ar/data/pattern-stickersl.patt' name="sticker" class="marker 3">
+  <a-entity gltf-model="#gltf2" scale=".02 .02 .02" animation-mixer></a-entity>
+</a-marker>
+
 <a-entity camera>
 </a-entity>
 </a-scene>

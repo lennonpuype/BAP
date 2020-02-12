@@ -1,25 +1,25 @@
 <?php
   if(empty($_GET['l'])){
-    $_SESSION['landingUser']['l'] = 'nl';
+    $_SESSION['user']['l'] = 'nl';
   }else{
     if($_GET['l'] === 'nl'){
-      $_SESSION['landingUser']['l'] = 'nl';
+      $_SESSION['user']['l'] = 'nl';
     }
 
     if($_GET['l'] === 'fr'){
-      $_SESSION['landingUser']['l'] = 'fr';
+      $_SESSION['user']['l'] = 'fr';
     }
 
     if($_GET['l'] === 'en'){
-      $_SESSION['landingUser']['l'] = 'en';
+      $_SESSION['user']['l'] = 'en';
     }
 
     if($_GET['l'] !== 'nl' && $_GET['l'] !== 'fr' && $_GET['l'] !== 'en' ){
-      $_SESSION['landingUser']['l'] = 'nl';
+      $_SESSION['user']['l'] = 'nl';
     }
   }
 ?>
-<?php if($_SESSION['landingUser']['l'] == 'nl'){?>
+<?php if($_SESSION['user']['l'] == 'nl'){?>
 <header class="landing_header landingPage">
   <h1 class="hidden">Header</h1>
   <nav class="header_languages" data-aos="fade-down">
@@ -126,7 +126,7 @@
 
 
 
-<?php if($_SESSION['landingUser']['l'] == 'en'){?>
+<?php if($_SESSION['user']['l'] == 'en'){?>
 <header class="landing_header landingPage">
   <h1 class="hidden">Header</h1>
   <nav class="header_languages" data-aos="fade-down">
@@ -231,7 +231,7 @@
 <?php }?>
 
 
-<?php if($_SESSION['landingUser']['l'] == 'fr'){?>
+<?php if($_SESSION['user']['l'] == 'fr'){?>
 <header class="landing_header landingPage">
   <h1 class="hidden">Header</h1>
   <nav class="header_languages" data-aos="fade-down">
