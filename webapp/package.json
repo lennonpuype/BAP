@@ -37,5 +37,8 @@
     "last 2 versions",
     "> 1%",
     "not dead"
-  ]
+  ],
+  "dependencies": {
+    "aos": "^2.3.4"
+  }
 }
