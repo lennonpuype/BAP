@@ -3,7 +3,7 @@
 }
 
 .faq_option {
-  margin: 0.9rem 0;
+  margin: 0.9rem 0 0 0;
   padding-left: 1.2rem;
   width: 100%;
   background-color: white;
@@ -45,4 +45,22 @@
   position: absolute;
   bottom: 0;
   right: 0;
+}
+/*
+.active, .accordion:hover {
+  background-color: #ccc;
+} */
+
+.panel {
+  margin-top: 0;
+  padding: 2rem;
+  display: none;
+  background-color: var(--darkpurple);
+  overflow: hidden;
+  box-shadow: 0 1.7rem 2.3rem -2.4rem rgba(110, 110, 110, 1);
+  z-index: -1000;
+}
+
+.panel p {
+  color: white;
 }
