@@ -97,15 +97,14 @@
   };
 
   const hamburger = () => {
-    const $hamburger = document.querySelector(".hamburger-menu");
-    const $navbar = document.querySelector(".navbar");
+    const hamburger = document.querySelector(".hamburger-menu");
+    const navbar = document.querySelector(".navbar");
+    const contentRoute = document.querySelector(".main_blur");
 
-    if ($hamburger) {
-      $hamburger.addEventListener("click", () => {
-        $navbar.classList.toggle("change");
-        // Do something else, like open/close menu
-
-        //clickevent op navitem als geklikt -> toggle change op navbar
+    if (hamburger) {
+      hamburger.addEventListener("click", () => {
+        navbar.classList.toggle("change");
+        contentRoute.classList.toggle("blur");
       });
     }
   };
