@@ -243,5 +243,7 @@ a {
 } */
 
 .blur {
+  /* animation: bluranimation .2s ease-in-out; */
   filter: blur(1rem);
 }
+
