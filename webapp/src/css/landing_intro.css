@@ -1,6 +1,6 @@
 .intro {
   display: grid;
-  grid-template-columns: minmax(40vw, 50rem) 1fr;
+  grid-template-columns: repeat(2, auto);
   grid-template-rows: auto;
   grid-template-areas: 'intro_image intro_text';
 }
@@ -12,6 +12,7 @@
 .intro_image_box {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .intro_text_title {
@@ -58,7 +59,7 @@
   grid-area: intro_text;
 
   display: grid;
-  grid-template-columns: 5rem 50rem 5rem;
+  grid-template-columns: 5rem minmax(10rem, 50rem) 5rem;
   grid-template-rows: 5rem repeat(2, auto) 1rem repeat(2, auto) 5rem;
   grid-template-areas:
       '. . .'
@@ -68,4 +69,44 @@
       '. intro_text_title2 .'
       '. intro_text_paragraph2 .'
       '. . .';
+}
+
+@media only screen and (max-width: 600px) {
+  .intro {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto 25rem;
+    grid-template-areas: 'intro_text' 'intro_image';
+  }
+
+  .intro_image_box {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media only screen and (max-width: 870px) {
+  .routes_section {
+    grid-template-columns: 3rem minmax(30rem, 33%) 1rem minmax(30rem, 33%) 3rem !important;
+    grid-template-rows: repeat(2, auto) !important;
+    grid-template-areas: '. talent_route . sporen_route  .'
+    'toekomst_route toekomst_route toekomst_route toekomst_route toekomst_route' !important;
+    grid-row-gap: 3rem;
+  }
+
+  .route_preview {
+    justify-self: center;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .routes_section {
+    grid-template-columns: 3rem minmax(30rem, 33%) 3rem !important;
+    grid-template-rows: repeat(3, auto) !important;
+    grid-template-areas: '. talent_route .'
+    '. sporen_route  .'
+    '. toekomst_route .' !important;
+    justify-content: center;
+  }
 }

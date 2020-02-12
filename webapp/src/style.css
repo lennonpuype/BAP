@@ -19,7 +19,7 @@ html {
   box-sizing: border-box;
   /* background-color: var(--blue); */
   scroll-behavior: smooth;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 /* stylelint-disable */
 

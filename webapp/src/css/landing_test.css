@@ -9,6 +9,7 @@
 .test_image {
   grid-area: test_image;
   justify-self: center;
+  width: 100%;
 }
 
 .test_text {
@@ -73,4 +74,40 @@
 
 .red_bg:after{
   background-color: var(--red);
+}
+
+.test_image_responsive {
+  display: none;
+}
+
+@media only screen and (max-width: 760px){
+  .test_image_self {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 680px){
+  .test_image {
+    display: none;
+  }
+
+  .test_image_responsive {
+    display: block;
+    max-width: 30rem;
+    justify-self: center;
+  }
+
+  .test {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: 'test_text' 'test_image';
+    padding: 5rem;
+  }
+
+  .city_list {
+    grid-template-columns: repeat(2, 50%) !important;
+    grid-template-rows: repeat(2, 20rem) !important;
+    grid-template-areas: 'kortrijk tournai' 'lille valenciennes' !important;
+  }
 }

@@ -1,4 +1,4 @@
-<header class="landing_header">
+<header class="landing_header landingPage">
   <h1 class="hidden">Header</h1>
   <nav class="header_languages">
   <h2 class="hidden">Kies taal</h2>
@@ -58,7 +58,8 @@
         <li class="test_text_list_item"><span class="test_text_bullet red_bg">3</span> en scan het vlak hiernaast</li>
       </ul>
     </article>
-    <figure class="test_image"><img src="./assets/img/landingpagina/test.png"width="500" alt="Marker (foto) om de AR eens te testen"/></figure>
+    <figure class="test_image"><img src="./assets/img/landingpagina/test.png" width="500" class="test_image_self" alt="Marker (foto) om de AR eens te testen"/></figure>
+    <figure class="test_image_responsive"><img src="./assets/img/landingpagina/test_responsive.png" width="500" class="test_image_self" alt="Marker (foto) om de AR eens te testen"/></figure>
   </section>
   <section>
     <ul class="city_list" id="places">

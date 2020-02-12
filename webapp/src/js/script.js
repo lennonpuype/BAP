@@ -17,6 +17,12 @@
     const $language = document.querySelector(`.language`);
     globalLanguage = $language.textContent;
 
+    // const $landingPage = document.querySelector(`.landingPage`);
+    // if ($landingPage) {
+    //   const $head = document.querySelector(`.head`);
+    //   $head.parentElement.style.overflow = `visible`;
+    // }
+
     const $index = document.querySelector(`.index`);
     if ($index) {
       manageHomePage();
