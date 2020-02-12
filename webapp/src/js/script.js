@@ -83,6 +83,22 @@
 
     if ($routePage) {
       manageRoutePage();
+
+      // setInterval(() => {
+      //   const $articles = document.querySelectorAll(`.route`);
+      //   const arrayArticles = Array.from($articles);
+
+      //   arrayArticles.map(article => {
+      //     if (!article.classList.contains(`is-selected`)) {
+
+
+      //       article.classList.add(`blur`);
+      //     } else {
+      //       console.log(article);
+      //       article.classList.remove(`blur`);
+      //     }
+      //   });
+      // }, 100);
     }
 
     const $singleRoutePage = document.querySelector(`.singleRoutePage`);
@@ -285,8 +301,6 @@
     if (globalLanguage === `en`) {
       $h1.innerHTML = `<h1 style="color:${route.color1}; grid-area:route_name; margin-bottom: 0.8rem;">${route.nameen}</h1>`;
     }
-
-    console.log(globalLanguage);
 
     $a.dataset.id = route.id;
 
