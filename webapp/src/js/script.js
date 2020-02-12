@@ -943,10 +943,10 @@
           const allMarkers = Array.from($marker);
 
           allMarkers.map(marker => {
-            document.querySelector(`.ar_tag`).textContent =
-              marker.object3D.visible;
+            document.querySelector(`.ar_tag`).textContent = marker.object3D.visible;
             if (marker.object3D.visible === true) {
               showARInfo(marker.object3D.el.classList[1], $waypointInfo);
+              console.log("active");
             }
           });
         }
