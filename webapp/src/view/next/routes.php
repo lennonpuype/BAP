@@ -62,9 +62,6 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
     <?php $_SESSION['user']['onboardingalreadyseen'] = 0 ?>
   <?php } ?>
 
-  <div class="loader">
-    <img src="assets/img/loader.gif" alt="Loading..."/>
-  </div>
   <?php if($_SESSION['user']['l'] == 'nl' && !empty($_SESSION['user']['unlockedroutes'])){ ?>
     <div class="popup_code hidden"></div>
     <header class="header">
@@ -183,10 +180,10 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       </div>
 
       <ul class="nav-list">
-      <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes"></a>All tours</li>
-      <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq"></a>Instructions & help</li>
-      <li class="nav-item nav-item-3"><a class="nav-link" href="#"></a>About NEXT Festival</li>
-      <li class="nav-item nav-item-4"><a class="nav-link" href="#"></a>About Eurometropolis</li>
+      <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes">All tours</a></li>
+      <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq">Instructions & help</a></li>
+      <li class="nav-item nav-item-3"><a class="nav-link" href="#">About NEXT Festival</a></li>
+      <li class="nav-item nav-item-4"><a class="nav-link" href="#">About Eurometropolis</a></li>
       </ul>
       <form method="post">
           <input type="hidden" name="action" value="changeLanguage"/>

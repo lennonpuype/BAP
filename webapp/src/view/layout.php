@@ -65,6 +65,9 @@
           echo '<div class="alert alert-success-long">' . $_SESSION['info_long'] . '</div>';
         }
       ?>
+       <div class="loader">
+        <img src="assets/img/loader.gif" alt="Loading..." class="load_image"/>
+      </div>
       <?php echo $content; ?>
       <?php if(!empty($_SESSION['user']['l'])){
         echo '<span class="hidden language">'.$_SESSION['user']['l'].'</span>';

@@ -27,6 +27,20 @@
       }
     });
 
+    // const $allNavItems = document.querySelectorAll(`.nav-link`);
+    // const navItemArray = Array.from($allNavItems);
+    // navItemArray.map(item => {
+    //   console.log(item);
+    //   item.addEventListener(`click`, e => {
+    //     console.log("jlkdsjklfdsjlkdfsjldskfjdsfklj");
+    //     const url = e.getAttribute(`href`);
+    //     console.log(url);
+
+    //     if (url) {
+    //       window.location.replace(url);
+    //     }
+    //   });
+    // });
     // const $landingPage = document.querySelector(`.landingPage`);
     // if ($landingPage) {
     //   const $head = document.querySelector(`.head`);
@@ -83,12 +97,12 @@
   };
 
   const hamburger = () => {
-    const hamburger = document.querySelector(".hamburger-menu");
-    const navbar = document.querySelector(".navbar");
+    const $hamburger = document.querySelector(".hamburger-menu");
+    const $navbar = document.querySelector(".navbar");
 
-    if (hamburger) {
-      hamburger.addEventListener("click", () => {
-        navbar.classList.toggle("change");
+    if ($hamburger) {
+      $hamburger.addEventListener("click", () => {
+        $navbar.classList.toggle("change");
         // Do something else, like open/close menu
 
         //clickevent op navitem als geklikt -> toggle change op navbar
