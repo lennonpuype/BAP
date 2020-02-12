@@ -6,29 +6,26 @@
 <header class="header">
       <div class="icon"></div>
       <h1 class="page_title">Routes</h1>
-      <button class="hamburger" data-state="closed">Open Hamburger</button>
-      <div class="hamburger_content hidden">
-        <ul class="hamburger_content_list">
-          <li class="hamburger_content_list_item">
-            <a href="index.php?page=routes" class="hamburger_content_list_item_link">Alle tours</a>
-          </li>
-          <li class="hamburger_content_list_item">
-            <a href="index.php?page=faq" class="hamburger_content_list_item_link">Instructies & help</a>
-          </li>
-          <li class="hamburger_content_list_item">
-            <a href="#" class="hamburger_content_list_item_link">Over NEXT Festival</a>
-          </li>
-          <li class="hamburger_content_list_item">
-            <a href="#" class="hamburger_content_list_item_link">Over de Eurometropool</a
-          ></li>
-        </ul>
-        <form method="post">
-          <input type="hidden" name="action" value="changeLanguage"/>
-          <input type="submit" name="language" value="nl" />
-          <input type="submit" name="language" value="fr" />
-          <input type="submit" name="language" value="en" />
-        </form>
+      <nav class="navbar">
+      <div class="hamburger-menu">
+      <div class="line line-1"></div>
+      <div class="line line-2"></div>
+      <div class="line line-3"></div>
       </div>
+
+      <ul class="nav-list">
+      <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes"></a>Alle tours</li>
+      <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq"></a>Instructies & help</li>
+      <li class="nav-item nav-item-3"><a class="nav-link" href="#"></a>Over NEXT Festival</li>
+      <li class="nav-item nav-item-4"><a class="nav-link" href="#"></a>Over de Eurometropool</li>
+      </ul>
+      <form method="post">
+          <input type="hidden" name="action" value="changeLanguage"/>
+          <input type="submit" name="language" class="nav-language" value="nl" />
+          <input type="submit" name="language" class="nav-language" value="fr" />
+          <input type="submit" name="language" class="nav-language" value="en" class="active"/>
+      </form>
+    </nav>
     </header>
 
     <main>

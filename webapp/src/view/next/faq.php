@@ -1,29 +1,26 @@
 <?php if($_SESSION['user']['l'] == 'nl'){ ?>
 <header>
   <h1 class="site_title">a.r.u.next</h1>
-  <button class="hamburger" data-state="closed">Open Hamburger</button>
-  <div class="hamburger_content hidden">
-    <ul class="hamburger_content_list">
-      <li class="hamburger_content_list_item">
-        <a href="index.php?page=routes" class="hamburger_content_list_item_link">Alle tours</a>
-      </li>
-      <li class="hamburger_content_list_item">
-        <a href="#" class="hamburger_content_list_item_link">Instructies & help</a>
-      </li>
-      <li class="hamburger_content_list_item">
-        <a href="#" class="hamburger_content_list_item_link">Over NEXT Festival</a>
-      </li>
-      <li class="hamburger_content_list_item">
-        <a href="#" class="hamburger_content_list_item_link">Over de Eurometropool</a>
-      </li>
-    </ul>
-    <form method="post">
-      <input type="hidden" name="action" value="changeLanguage"/>
-      <input type="submit" name="language" value="nl" class="active"/>
-      <input type="submit" name="language" value="fr" />
-      <input type="submit" name="language" value="en" />
-    </form>
-  </div>
+  <nav class="navbar">
+      <div class="hamburger-menu">
+      <div class="line line-1"></div>
+      <div class="line line-2"></div>
+      <div class="line line-3"></div>
+      </div>
+
+      <ul class="nav-list">
+      <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes"></a>Alle tours</li>
+      <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq"></a>Instructies & help</li>
+      <li class="nav-item nav-item-3"><a class="nav-link" href="#"></a>Over NEXT Festival</li>
+      <li class="nav-item nav-item-4"><a class="nav-link" href="#"></a>Over de Eurometropool</li>
+      </ul>
+      <form method="post">
+          <input type="hidden" name="action" value="changeLanguage"/>
+          <input type="submit" name="language" class="nav-language" value="nl" />
+          <input type="submit" name="language" class="nav-language" value="fr" />
+          <input type="submit" name="language" class="nav-language" value="en" class="active"/>
+      </form>
+    </nav>
 </header>
 <main class="faqPage">
   <section class="faq">
@@ -41,29 +38,26 @@
 <?php if($_SESSION['user']['l'] == 'fr'){ ?>
 <header>
   <h1 class="site_title">a.r.u.next</h1>
-  <button class="hamburger" data-state="closed">Ouverte Hamburger</button>
-  <div class="hamburger_content hidden">
-    <ul class="hamburger_content_list">
-      <li class="hamburger_content_list_item">
-        <a href="index.php?page=routes" class="hamburger_content_list_item_link">Toutes les Trajets</a>
-      </li>
-      <li class="hamburger_content_list_item">
-        <a href="#" class="hamburger_content_list_item_link">Instructions & aide</a>
-      </li>
-      <li class="hamburger_content_list_item">
-        <a href="#" class="hamburger_content_list_item_link">L'information du NEXT Festival</a>
-      </li>
-      <li class="hamburger_content_list_item">
-        <a href="#" class="hamburger_content_list_item_link">L'information du métropole de l'euro</a>
-      </li>
-    </ul>
-    <form method="post">
-      <input type="hidden" name="action" value="changeLanguage"/>
-      <input type="submit" name="language" value="nl" />
-      <input type="submit" name="language" value="fr" class="active"/>
-      <input type="submit" name="language" value="en" />
-    </form>
-  </div>
+  <nav class="navbar">
+      <div class="hamburger-menu">
+      <div class="line line-1"></div>
+      <div class="line line-2"></div>
+      <div class="line line-3"></div>
+      </div>
+
+      <ul class="nav-list">
+      <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes"></a>Toutes les trajets</li>
+      <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq"></a>Instructions & aide</li>
+      <li class="nav-item nav-item-3"><a class="nav-link" href="#"></a>En savoir plus sur NEXT Festival</li>
+      <li class="nav-item nav-item-4"><a class="nav-link" href="#"></a>En savoir plus sur Eurometrpole</li>
+      </ul>
+      <form method="post">
+          <input type="hidden" name="action" value="changeLanguage"/>
+          <input type="submit" name="language" class="nav-language" value="nl" />
+          <input type="submit" name="language" class="nav-language" value="fr" />
+          <input type="submit" name="language" class="nav-language" value="en" class="active"/>
+        </form>
+    </nav>
 </header>
 <main class="faqPage">
   <section class="faq">
@@ -81,29 +75,26 @@
 <?php if($_SESSION['user']['l'] == 'en'){ ?>
 <header>
   <h1 class="site_title">a.r.u.next</h1>
-  <button class="hamburger" data-state="closed">Open Hamburger</button>
-  <div class="hamburger_content hidden">
-    <ul class="hamburger_content_list">
-      <li class="hamburger_content_list_item">
-        <a href="index.php?page=routes" class="hamburger_content_list_item_link">All tours</a>
-      </li>
-      <li class="hamburger_content_list_item">
-        <a href="#" class="hamburger_content_list_item_link">Instructions & help</a>
-      </li>
-      <li class="hamburger_content_list_item">
-        <a href="#" class="hamburger_content_list_item_link">About NEXT Festival</a>
-      </li>
-      <li class="hamburger_content_list_item">
-        <a href="#" class="hamburger_content_list_item_link">About the Eurometropolis</a>
-      </li>
-    </ul>
-    <form method="post">
-      <input type="hidden" name="action" value="changeLanguage"/>
-      <input type="submit" name="language" value="nl" />
-      <input type="submit" name="language" value="fr" />
-      <input type="submit" name="language" value="en" class="active"/>
-    </form>
-  </div>
+  <nav class="navbar">
+      <div class="hamburger-menu">
+      <div class="line line-1"></div>
+      <div class="line line-2"></div>
+      <div class="line line-3"></div>
+      </div>
+
+      <ul class="nav-list">
+      <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes"></a>All tours</li>
+      <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq"></a>Instructions & help</li>
+      <li class="nav-item nav-item-3"><a class="nav-link" href="#"></a>About NEXT Festival</li>
+      <li class="nav-item nav-item-4"><a class="nav-link" href="#"></a>About Eurometropolis</li>
+      </ul>
+      <form method="post">
+          <input type="hidden" name="action" value="changeLanguage"/>
+          <input type="submit" name="language" class="nav-language" value="nl" />
+          <input type="submit" name="language" class="nav-language" value="fr" />
+          <input type="submit" name="language" class="nav-language" value="en" class="active"/>
+        </form>
+    </nav>
 </header>
 <main class="faqPage">
   <section class="faq">

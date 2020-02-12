@@ -1,3 +1,4 @@
+
 <?php $_SESSION['user']['activeRoute'] = $_GET['id'] . $_GET['city'] ?>
 <?php if($_SESSION['user']['skiponboarding'] == 0 && $_SESSION['user']['onboardingalreadyseen'] == 0): ?>
   <?php $_SESSION['user']['onboardingalreadyseen'] = 1 ?>
