@@ -12,6 +12,7 @@
   let activeCityId = 0;
   let unlockedRouteId = []; // eslint-disable-line
   let currentRouteId = 0; // eslint-disable-line
+  let clickedButton = false;
 
   const init = () => {
     hamburger();
@@ -41,6 +42,7 @@
     //     }
     //   });
     // });
+
     // const $landingPage = document.querySelector(`.landingPage`);
     // if ($landingPage) {
     //   const $head = document.querySelector(`.head`);
@@ -290,17 +292,17 @@
     $a.classList.remove(`unlocked`);
 
     if (globalLanguage === `nl`) {
-      $a.textContent = `Voer code in >`;
+      $a.textContent = `Voer code in +`;
       $a.setAttribute(`style`, `background-color:${route.color1}`);
     }
 
     if (globalLanguage === `fr`) {
-      $a.textContent = `Entrez un code >`;
+      $a.textContent = `Entrez un code +`;
       $a.setAttribute(`style`, `background-color:${route.color1}`);
     }
 
     if (globalLanguage === `en`) {
-      $a.textContent = `Enter a code >`;
+      $a.textContent = `Enter a code +`;
       $a.setAttribute(`style`, `background-color:${route.color1}`);
     }
 
@@ -518,12 +520,10 @@
               secondCharacter === `T` ||
               secondCharacter === `F`)
           ) {
-            console.log(`Code is valid`);
             $a.innerHTML = `Ga verder >`;
             $a.classList.remove(`hidden`);
             $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}`);
           } else {
-            console.log(`Enter a valid code`);
             $a.innerHTML = ``;
             $a.classList.add(`hidden`);
             $a.disabled = true;
@@ -543,31 +543,38 @@
           if (value.length === 0) {
             if (btn.dataset.type === `route` || btn.dataset.type === `number`) {
               btn.setAttribute(`disabled`, true);
+              btn.classList.add(`inactive_button`);
             } else {
               btn.removeAttribute(`disabled`);
+              btn.classList.remove(`inactive_button`);
             }
           }
 
           if (value.length === 1) {
             if (btn.dataset.type === `route`) {
               btn.removeAttribute(`disabled`);
+              btn.classList.remove(`inactive_button`);
             } else {
               btn.setAttribute(`disabled`, true);
+              btn.classList.add(`inactive_button`);
             }
 
             if (btn.dataset.type === `number`) {
               btn.setAttribute(`disabled`, true);
+              btn.classList.add(`inactive_button`);
             } else {
               btn.removeAttribute(`disabled`);
+              btn.classList.remove(`inactive_button`);
             }
           }
 
           if (value.length > 1) {
             if (btn.dataset.type === `route` || btn.dataset.type === `city`) {
-              console.log("kdsljdfkljdflsj");
               btn.setAttribute(`disabled`, true);
+              btn.classList.add(`inactive_button`);
             } else {
               btn.removeAttribute(`disabled`);
+              btn.classList.remove(`inactive_button`);
             }
           }
         });
@@ -846,7 +853,7 @@
               <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
             </div>
           </div>
-          <a class="page_btn btn_shadow">Voer code in></a>`;
+          <a class="page_btn btn_shadow">Voer code in ></a>`;
 
           openPage4();
           goBackToPage2();

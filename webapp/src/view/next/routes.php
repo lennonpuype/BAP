@@ -156,7 +156,8 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
           }
         ?>
       </article>
-      <section class="routes"></section>
+      <div class="routes_container">
+      </div>
     </main>
   <?php }else{
     // unset($_SESSION['user']);
@@ -209,7 +210,8 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
           }
         ?>
       </article>
-      <section class="routes"></section>
+      <div class="routes_container">
+      </div>
     </main>
   <?php }else{
     // unset($_SESSION['user']);
