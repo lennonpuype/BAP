@@ -14,11 +14,11 @@
   let currentRouteId = 0; // eslint-disable-line
 
   const init = () => {
+    hamburger();
     const $language = document.querySelector(`.language`);
     if ($language) {
       globalLanguage = $language.textContent;
     }
-
 
     // const $landingPage = document.querySelector(`.landingPage`);
     // if ($landingPage) {
@@ -72,35 +72,21 @@
       handleAR();
     }
 
-    hamburgerManager();
+    // hamburgerManager();
   };
 
-  const hamburgerManager = () => {
-    const $hamburgerBtn = document.querySelector(`.hamburger`);
-    if ($hamburgerBtn) {
-      $hamburgerBtn.addEventListener(`click`, e => {
-        const currentTarget = e.currentTarget;
-        if (currentTarget.dataset.state === `closed`) {
-          openHamburger();
-          currentTarget.dataset.state = `open`;
-          currentTarget.textContent = `Sluit Hamburger`;
-        } else {
-          closeHamburger();
-          currentTarget.dataset.state = `closed`;
-          currentTarget.textContent = `Open Hamburger`;
-        }
+  const hamburger = () => {
+    const hamburger = document.querySelector(".hamburger-menu");
+    const navbar = document.querySelector(".navbar");
+
+    if (hamburger) {
+      hamburger.addEventListener("click", () => {
+        navbar.classList.toggle("change");
+        // Do something else, like open/close menu
+
+        //clickevent op navitem als geklikt -> toggle change op navbar
       });
     }
-  };
-
-  const openHamburger = () => {
-    const $hamburgerContent = document.querySelector(`.hamburger_content`);
-    $hamburgerContent.classList.remove(`hidden`);
-  };
-
-  const closeHamburger = () => {
-    const $hamburgerContent = document.querySelector(`.hamburger_content`);
-    $hamburgerContent.classList.add(`hidden`);
   };
 
   const manageRoutePage = () => {
@@ -151,7 +137,10 @@
     const $section = document.createElement(`section`);
     $routesContainer.appendChild($section);
     $section.classList.add(`routes`, `carousel`);
-    $section.setAttribute(`data-flickity`, `{ "contain": true, "wrapAround": true, "prevNextButtons": false, "pageDots": false, "lazyload": 100 }`);
+    $section.setAttribute(
+      `data-flickity`,
+      `{ "contain": true, "wrapAround": true, "prevNextButtons": false, "pageDots": false, "lazyload": 100 }`
+    );
 
     //3. Toevoegen van de Articles aan de Routes section
     routes.map(route => {
@@ -554,7 +543,6 @@
             } else {
               btn.removeAttribute(`disabled`);
             }
-
           }
         });
       }, 100);
@@ -914,7 +902,6 @@
 
   /*AR*/
   const handleAR = () => {
-
     //Show AR Screen
     const cityRouteId = document.querySelector(`.cityRouteId`).textContent;
     console.log(cityRouteId);
@@ -943,7 +930,8 @@
           const allMarkers = Array.from($marker);
 
           allMarkers.map(marker => {
-            document.querySelector(`.ar_tag`).textContent = marker.object3D.visible;
+            document.querySelector(`.ar_tag`).textContent =
+              marker.object3D.visible;
             if (marker.object3D.visible === true) {
               showARInfo(marker.object3D.el.classList[1], $waypointInfo);
               console.log("active");
@@ -1021,7 +1009,7 @@
   };
 
   /* eslint-disable*/
-  var createCookie = function (name, value, days) {
+  var createCookie = function(name, value, days) {
     var expires;
     if (days) {
       var date = new Date();
@@ -1424,7 +1412,7 @@
   };
 
   const fetchUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(function (location) {
+    navigator.geolocation.getCurrentPosition(function(location) {
       userLocation = {
         lat: location.coords.latitude,
         lng: location.coords.longitude,
@@ -1435,6 +1423,3 @@
 
   init();
 }
-
-
-

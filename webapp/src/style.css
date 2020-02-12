@@ -13,6 +13,7 @@
 @import "./css/landing_cityoverview.css";
 @import "./css/landing_footer.css";
 @import "./css/color.css";
+@import "./css/hamburger.css";
 
 html {
   font-size: 62.5%;
@@ -74,7 +75,6 @@ a {
   position: absolute;
   text-align: center;
   color: white;
-
 }
 
 .variable_button {
