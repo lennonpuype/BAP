@@ -84,21 +84,21 @@
     if ($routePage) {
       manageRoutePage();
 
-      // setInterval(() => {
-      //   const $articles = document.querySelectorAll(`.route`);
-      //   const arrayArticles = Array.from($articles);
+      setInterval(() => {
+        const $articles = document.querySelectorAll(`.route`);
+        const arrayArticles = Array.from($articles);
 
-      //   arrayArticles.map(article => {
-      //     if (!article.classList.contains(`is-selected`)) {
+        arrayArticles.map(article => {
+          if (!article.classList.contains(`is-selected`)) {
 
 
-      //       article.classList.add(`blur`);
-      //     } else {
-      //       console.log(article);
-      //       article.classList.remove(`blur`);
-      //     }
-      //   });
-      // }, 100);
+            article.classList.add(`blur`);
+          } else {
+            console.log(article);
+            article.classList.remove(`blur`);
+          }
+        });
+      }, 100);
     }
 
     const $singleRoutePage = document.querySelector(`.singleRoutePage`);
