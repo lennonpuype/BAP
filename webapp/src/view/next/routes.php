@@ -62,9 +62,6 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
     <?php $_SESSION['user']['onboardingalreadyseen'] = 0 ?>
   <?php } ?>
 
-  <div class="loader">
-    <img src="assets/img/loader.gif" alt="Loading..."/>
-  </div>
   <?php if($_SESSION['user']['l'] == 'nl' && !empty($_SESSION['user']['unlockedroutes'])){ ?>
     <header class="header">
     <img src="././assets/img/stickerlogo.png" alt="Logo van a.r.u.next" width="29" height="47">
@@ -161,7 +158,8 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
           }
         ?>
       </article>
-      <section class="routes"></section>
+      <div class="routes_container">
+      </div>
     </main>
   <?php }else{
     // unset($_SESSION['user']);
@@ -214,7 +212,8 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
           }
         ?>
       </article>
-      <section class="routes"></section>
+      <div class="routes_container">
+      </div>
     </main>
   <?php }else{
     // unset($_SESSION['user']);

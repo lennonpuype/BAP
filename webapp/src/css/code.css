@@ -87,3 +87,11 @@
   height: 100%;
   top: 0;
 }
+
+.inactive_button {
+  color: var(--grey);
+}
+
+.locked > .route_divArt {
+  opacity: .4;
+}

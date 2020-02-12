@@ -12,6 +12,7 @@
   let activeCityId = 0;
   let unlockedRouteId = []; // eslint-disable-line
   let currentRouteId = 0; // eslint-disable-line
+  let clickedButton = false;
 
   const init = () => {
     hamburger();
@@ -27,6 +28,21 @@
         $loader.classList.add(`hidden`);
       }
     });
+
+    // const $allNavItems = document.querySelectorAll(`.nav-link`);
+    // const navItemArray = Array.from($allNavItems);
+    // navItemArray.map(item => {
+    //   console.log(item);
+    //   item.addEventListener(`click`, e => {
+    //     console.log("jlkdsjklfdsjlkdfsjldskfjdsfklj");
+    //     const url = e.getAttribute(`href`);
+    //     console.log(url);
+
+    //     if (url) {
+    //       window.location.replace(url);
+    //     }
+    //   });
+    // });
 
     // const $landingPage = document.querySelector(`.landingPage`);
     // if ($landingPage) {
@@ -79,6 +95,8 @@
     if ($arPage) {
       handleAR();
     }
+
+    // hamburgerManager();
   };
 
   const arrows = () => {
@@ -297,17 +315,17 @@
     $a.classList.remove(`unlocked`);
 
     if (globalLanguage === `nl`) {
-      $a.textContent = `Voer code in >`;
+      $a.textContent = `Voer code in +`;
       $a.setAttribute(`style`, `background-color:${route.color1}`);
     }
 
     if (globalLanguage === `fr`) {
-      $a.textContent = `Entrez un code >`;
+      $a.textContent = `Entrez un code +`;
       $a.setAttribute(`style`, `background-color:${route.color1}`);
     }
 
     if (globalLanguage === `en`) {
-      $a.textContent = `Enter a code >`;
+      $a.textContent = `Enter a code +`;
       $a.setAttribute(`style`, `background-color:${route.color1}`);
     }
 
@@ -527,12 +545,10 @@
               secondCharacter === `T` ||
               secondCharacter === `F`)
           ) {
-            console.log(`Code is valid`);
             $a.innerHTML = `Ga verder >`;
             $a.classList.remove(`hidden`);
             $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}`);
           } else {
-            console.log(`Enter a valid code`);
             $a.innerHTML = ``;
             $a.classList.add(`hidden`);
             $a.disabled = true;
@@ -552,31 +568,38 @@
           if (value.length === 0) {
             if (btn.dataset.type === `route` || btn.dataset.type === `number`) {
               btn.setAttribute(`disabled`, true);
+              btn.classList.add(`inactive_button`);
             } else {
               btn.removeAttribute(`disabled`);
+              btn.classList.remove(`inactive_button`);
             }
           }
 
           if (value.length === 1) {
             if (btn.dataset.type === `route`) {
               btn.removeAttribute(`disabled`);
+              btn.classList.remove(`inactive_button`);
             } else {
               btn.setAttribute(`disabled`, true);
+              btn.classList.add(`inactive_button`);
             }
 
             if (btn.dataset.type === `number`) {
               btn.setAttribute(`disabled`, true);
+              btn.classList.add(`inactive_button`);
             } else {
               btn.removeAttribute(`disabled`);
+              btn.classList.remove(`inactive_button`);
             }
           }
 
           if (value.length > 1) {
             if (btn.dataset.type === `route` || btn.dataset.type === `city`) {
-              console.log("kdsljdfkljdflsj");
               btn.setAttribute(`disabled`, true);
+              btn.classList.add(`inactive_button`);
             } else {
               btn.removeAttribute(`disabled`);
+              btn.classList.remove(`inactive_button`);
             }
           }
         });
@@ -855,7 +878,7 @@
               <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
             </div>
           </div>
-          <a class="page_btn btn_shadow">Voer code in></a>`;
+          <a class="page_btn btn_shadow">Voer code in ></a>`;
 
           openPage4();
           goBackToPage2();
@@ -1044,7 +1067,7 @@
   };
 
   /* eslint-disable*/
-  var createCookie = function(name, value, days) {
+  var createCookie = function (name, value, days) {
     var expires;
     if (days) {
       var date = new Date();
@@ -1447,7 +1470,7 @@
   };
 
   const fetchUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(function(location) {
+    navigator.geolocation.getCurrentPosition(function (location) {
       userLocation = {
         lat: location.coords.latitude,
         lng: location.coords.longitude,

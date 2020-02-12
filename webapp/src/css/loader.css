@@ -1,0 +1,14 @@
+.loader {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--grey);
+  z-index: 11;
+}
+
+.load_image {
+  transform: scale(.5);
+}
