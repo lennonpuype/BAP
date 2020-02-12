@@ -84,21 +84,36 @@
     if ($routePage) {
       manageRoutePage();
 
+
+
       setInterval(() => {
         const $articles = document.querySelectorAll(`.route`);
         const arrayArticles = Array.from($articles);
 
         arrayArticles.map(article => {
+          // Laats ingevulde route selecteren
+          // const $lastRouteId = document.querySelector(`.routeslist`).lastElementChild;
+          // if ($lastRouteId) {
+          //   const routeId = $lastRouteId.textContent;
+          //   if (article.dataset.id === routeId) {
+          //     console.log(article);
+          //     article.classList.add(`is-selected`);
+          //     article.removeAttribute(`aria-hidden`);
+          //   } else {
+          //     article.classList.remove(`is-selected`);
+          //     article.setAttribute(`aria-hidden`, true);
+          //   }
+          // }
+
           if (!article.classList.contains(`is-selected`)) {
-
-
             article.classList.add(`blur`);
           } else {
-            console.log(article);
             article.classList.remove(`blur`);
           }
         });
       }, 100);
+
+
     }
 
     const $singleRoutePage = document.querySelector(`.singleRoutePage`);
@@ -345,6 +360,7 @@
 
     $article.classList.add(`locked`);
     $article.classList.remove(`unlocked`);
+    $article.dataset.id = route.globalId;
 
     const filterRoute = unlockedRouteIdArray.filter(unlockedRoute => {
       return unlockedRoute.id === route.id;

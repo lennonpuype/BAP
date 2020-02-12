@@ -10,6 +10,7 @@
       "routes": [
         {
           "id": 0,
+          "globalId": 0,
           "namenl": "Talent Route",
           "namefr": "Trajet des talents",
           "nameen": "Talent route",
@@ -63,6 +64,7 @@
         },
         {
           "id": 1,
+          "globalId": 1,
           "namenl": "Sporen Route",
           "namefr": "Trajet des trace",
           "nameen": "Track route",
@@ -116,6 +118,7 @@
         },
         {
           "id": 2,
+          "globalId": 2,
           "namenl": "Toekomst Route",
           "namefr": "Trajet des futures",
           "nameen": "Future route",

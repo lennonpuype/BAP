@@ -99,7 +99,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
           <li class="city_link city_shadow" data-id="3">Valenciennes</li>
         </ul>
       </nav>
-      <article class="hidden">
+      <article class="hidden routeslist">
         <?php
           foreach($routes as $route){
             echo '<span class="routeId">'.$route.'</span>';
