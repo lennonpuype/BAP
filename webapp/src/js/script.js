@@ -1067,7 +1067,7 @@
   };
 
   /* eslint-disable*/
-  var createCookie = function (name, value, days) {
+  var createCookie = function(name, value, days) {
     var expires;
     if (days) {
       var date = new Date();
@@ -1470,7 +1470,7 @@
   };
 
   const fetchUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(function (location) {
+    navigator.geolocation.getCurrentPosition(function(location) {
       userLocation = {
         lat: location.coords.latitude,
         lng: location.coords.longitude,
