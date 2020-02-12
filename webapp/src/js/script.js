@@ -78,20 +78,17 @@
     if ($arPage) {
       handleAR();
     }
-
-    // hamburgerManager();
   };
 
   const hamburger = () => {
     const hamburger = document.querySelector(".hamburger-menu");
     const navbar = document.querySelector(".navbar");
+    const contentRoute = document.querySelector(".main_blur");
 
     if (hamburger) {
       hamburger.addEventListener("click", () => {
         navbar.classList.toggle("change");
-        // Do something else, like open/close menu
-
-        //clickevent op navitem als geklikt -> toggle change op navbar
+        contentRoute.classList.toggle("blur");
       });
     }
   };
@@ -1022,7 +1019,7 @@
   };
 
   /* eslint-disable*/
-  var createCookie = function (name, value, days) {
+  var createCookie = function(name, value, days) {
     var expires;
     if (days) {
       var date = new Date();
@@ -1425,7 +1422,7 @@
   };
 
   const fetchUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(function (location) {
+    navigator.geolocation.getCurrentPosition(function(location) {
       userLocation = {
         lat: location.coords.latitude,
         lng: location.coords.longitude,

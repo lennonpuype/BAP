@@ -78,10 +78,10 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       </div>
 
       <ul class="nav-list">
-      <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes"></a>Alle tours</li>
-      <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq"></a>Instructies & help</li>
-      <li class="nav-item nav-item-3"><a class="nav-link" href="#"></a>Over NEXT Festival</li>
-      <li class="nav-item nav-item-4"><a class="nav-link" href="#"></a>Over de Eurometropool</li>
+      <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes">Alle tours</a></li>
+      <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq">Instructies & help</a></li>
+      <li class="nav-item nav-item-3"><a class="nav-link" href="#">Over NEXT Festival</a></li>
+      <li class="nav-item nav-item-4"><a class="nav-link" href="#">Over de Eurometropool</a></li>
       </ul>
       <form method="post">
           <input type="hidden" name="action" value="changeLanguage"/>
@@ -91,7 +91,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       </form>
     </nav>
     </header>
-    <main class="routePage">
+    <main class="routePage main_blur">
       <nav class="cities_nav">
         <ul class="cities">
           <li class="city_link active_city city_shadow" data-id="0">Kortrijk</li>
@@ -129,10 +129,10 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       </div>
 
       <ul class="nav-list">
-      <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes"></a>Toutes les trajets</li>
-      <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq"></a>Instructions & aide</li>
-      <li class="nav-item nav-item-3"><a class="nav-link" href="#"></a>En savoir plus sur NEXT Festival</li>
-      <li class="nav-item nav-item-4"><a class="nav-link" href="#"></a>En savoir plus sur Eurometrpole</li>
+      <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes">Toutes les trajets</a></li>
+      <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq">Instructions & aide</a></li>
+      <li class="nav-item nav-item-3"><a class="nav-link" href="#">En savoir plus sur NEXT Festival</a></li>
+      <li class="nav-item nav-item-4"><a class="nav-link" href="#">En savoir plus sur Eurometropole</a></li>
       </ul>
       <form method="post">
           <input type="hidden" name="action" value="changeLanguage"/>
@@ -183,10 +183,10 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       </div>
 
       <ul class="nav-list">
-      <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes"></a>All tours</li>
-      <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq"></a>Instructions & help</li>
-      <li class="nav-item nav-item-3"><a class="nav-link" href="#"></a>About NEXT Festival</li>
-      <li class="nav-item nav-item-4"><a class="nav-link" href="#"></a>About Eurometropolis</li>
+      <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes">All tours</a></li>
+      <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq">Instructions & help</a></li>
+      <li class="nav-item nav-item-3"><a class="nav-link" href="#">About NEXT Festival</a></li>
+      <li class="nav-item nav-item-4"><a class="nav-link" href="#">About Eurometropolis</a></li>
       </ul>
       <form method="post">
           <input type="hidden" name="action" value="changeLanguage"/>
