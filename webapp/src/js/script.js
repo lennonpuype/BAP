@@ -531,30 +531,35 @@
         const btnArray = Array.from($allBtns);
 
         btnArray.map(btn => {
-          if ($codeInput.value.length === 0) {
+          if (value.length === 0) {
             if (btn.dataset.type === `route` || btn.dataset.type === `number`) {
               btn.setAttribute(`disabled`, true);
+            } else {
+              btn.removeAttribute(`disabled`);
             }
           }
 
-          if ($codeInput.value.length === 1) {
+          if (value.length === 1) {
             if (btn.dataset.type === `route`) {
               btn.removeAttribute(`disabled`);
+            } else {
+              btn.setAttribute(`disabled`, true);
             }
 
             if (btn.dataset.type === `number`) {
               btn.setAttribute(`disabled`, true);
+            } else {
+              btn.removeAttribute(`disabled`);
             }
           }
 
-          if ($codeInput.value.length > 1) {
+          if (value.length > 1) {
             if (btn.dataset.type === `route` || btn.dataset.type === `city`) {
               console.log("kdsljdfkljdflsj");
               btn.setAttribute(`disabled`, true);
             } else {
               btn.removeAttribute(`disabled`);
             }
-
           }
         });
       }, 100);
