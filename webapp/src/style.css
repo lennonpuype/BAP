@@ -147,6 +147,22 @@ a {
   max-width: 20rem;
 }
 
+.svg_arrow {
+  padding-bottom: 0.3rem;
+  transform: rotate(180deg);
+}
+
+/* .svg_arrow:hover,
+.svg_arrow:focus {
+  transform: rotate(180deg);
+  fill: white;
+} */
+
+.rotate_svg {
+  transform: rotate(270deg);
+  fill: white;
+}
+
 #map {
   height: 50rem;
   min-width: 0;

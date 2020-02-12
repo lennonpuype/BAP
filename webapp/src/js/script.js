@@ -15,6 +15,7 @@
 
   const init = () => {
     hamburger();
+    arrows();
     const $language = document.querySelector(`.language`);
     if ($language) {
       globalLanguage = $language.textContent;
@@ -80,15 +81,37 @@
     }
   };
 
-  const hamburger = () => {
-    const hamburger = document.querySelector(".hamburger-menu");
-    const navbar = document.querySelector(".navbar");
-    const contentRoute = document.querySelector(".main_blur");
+  const arrows = () => {
+    const $faqs = document.querySelectorAll(`.faq_option`);
+    const $faqsArray = Array.from($faqs);
 
-    if (hamburger) {
-      hamburger.addEventListener("click", () => {
-        navbar.classList.toggle("change");
-        contentRoute.classList.toggle("blur");
+    const $arrows = document.querySelectorAll(`.svg_arrow`);
+    const $arrowArray = Array.from($arrows);
+
+    if ($faqs) {
+      $faqsArray.map($item => {
+        $item.addEventListener("click", () => {
+          $arrowArray.map(arrow => {
+            arrow.classList.remove("rotate_svg");
+          });
+
+          $item.firstElementChild.classList.add("rotate_svg");
+        });
+      });
+    }
+  };
+
+  const hamburger = () => {
+    const $hamburger = document.querySelector(".hamburger-menu");
+    const $navbar = document.querySelector(".navbar");
+    const $contentRoute = document.querySelector(".main_blur");
+    const $contentBlur = document.querySelector(".blur_hidden");
+
+    if ($hamburger) {
+      $hamburger.addEventListener("click", () => {
+        $navbar.classList.toggle("change");
+        $contentRoute.classList.toggle("blur");
+        $contentBlur.classList.toggle("blur");
       });
     }
   };
@@ -367,8 +390,13 @@
     $popup.innerHTML = `<form>
     <input type="hidden" name="action" value="entercode"/>
     <input type="hidden" name="l" value="nl"/>
-    <div class="code_div">
-      <input type="text" name="code" class="code" maxlength="5" disabled/>
+    <h1 class="page_title_small">Voer je persoonlijke code<br/>hier in</h1>
+    <p class="sub_info">Deze kan je vinden op het door<br/>jou gekozen ticketje</p>
+    <div class="code_div ">
+    <div class="code_input">
+    <input type="text" name="code" class="code neumorphism_box" maxlength="5" disabled/>
+    <a class="help_btn_code">Hulp nodig?</a>
+    </div>
       <div class="character_btns">
         <button class="char_btn code_btn" type="button">0</button>
         <button class="char_btn code_btn" type="button">1</button>
@@ -393,9 +421,6 @@
   </form>`;
 
     const $codeDiv = document.querySelector(`.code_div`);
-
-    $codeDiv.appendChild($a);
-    $a.innerHTML = `Unlock nieuwe route!`;
 
     const $code = document.querySelector(`.code`);
 

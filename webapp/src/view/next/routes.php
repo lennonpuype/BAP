@@ -66,7 +66,6 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
     <img src="assets/img/loader.gif" alt="Loading..."/>
   </div>
   <?php if($_SESSION['user']['l'] == 'nl' && !empty($_SESSION['user']['unlockedroutes'])){ ?>
-    <div class="popup_code hidden"></div>
     <header class="header">
     <img src="././assets/img/stickerlogo.png" alt="Logo van a.r.u.next" width="29" height="47">
       <h1 class="logo_title">a.r.u.next</h1>
@@ -91,6 +90,9 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       </form>
     </nav>
     </header>
+    <div class="popup_code blur_hidden hidden">
+    </div>
+
     <main class="routePage main_blur">
       <nav class="cities_nav">
         <ul class="cities">

@@ -28,10 +28,10 @@
     <h1 class="page_title_small page_faq">Instructies & help</h1>
     <ul class="faq_options">
       <li class="faq_option">Hoe werkt de Augmented Reality? <svg xmlns="http://www.w3.org/2000/svg" class="svg_arrow" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg></li>
-      <li class="faq_option">Hoe kan ik een beloning claimen?</li>
-      <li class="faq_option">Waar vind ik de A.R. plekken?</li>
-      <li class="faq_option">Waar vind ik de installaties?</li>
-      <li class="faq_option">Wat voor toestel is vereist?</li>
+      <li class="faq_option">Hoe kan ik een beloning claimen? <svg xmlns="http://www.w3.org/2000/svg" class="svg_arrow" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg></li>
+      <li class="faq_option">Waar vind ik de A.R. plekken? <svg xmlns="http://www.w3.org/2000/svg" class="svg_arrow" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg></li>
+      <li class="faq_option">Waar vind ik de installaties? <svg xmlns="http://www.w3.org/2000/svg" class="svg_arrow" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg></li>
+      <li class="faq_option">Wat voor toestel is vereist? <svg xmlns="http://www.w3.org/2000/svg" class="svg_arrow" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg></li>
     </ul>
   </section>
 
