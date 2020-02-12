@@ -15,7 +15,10 @@
 
   const init = () => {
     const $language = document.querySelector(`.language`);
-    globalLanguage = $language.textContent;
+    if ($language) {
+      globalLanguage = $language.textContent;
+    }
+
 
     // const $landingPage = document.querySelector(`.landingPage`);
     // if ($landingPage) {
@@ -911,6 +914,7 @@
 
   /*AR*/
   const handleAR = () => {
+
     //Show AR Screen
     const cityRouteId = document.querySelector(`.cityRouteId`).textContent;
     console.log(cityRouteId);
@@ -1431,3 +1435,6 @@
 
   init();
 }
+
+
+

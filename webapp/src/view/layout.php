@@ -16,14 +16,11 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  <!-- <link href="https://npmcdn.com/flickity@2.2.1/dist/flickity.css" id="flickity_style" rel="stylesheet">
-  <script href="https://npmcdn.com/flickity@2.2.1/dist/flickity.pkgd.js" id="flickity_script" async></script> -->
 
 
 
-    <!-- <link rel="stylesheet" href="/path/to/flickity.css" media="screen"> -->
-
-  <!-- <script src="https://github.com/donmccurdy/aframe-extras/tree/master/src/loaders#animation"></script>
+<!--
+  <script src="https://github.com/donmccurdy/aframe-extras/tree/master/src/loaders#animation"></script>
   <script src="./js/aframe-extras.js"></script>
   <script src="./js/aframe-text-geometry-component.min.js"></script> -->
 
