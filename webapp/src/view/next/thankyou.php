@@ -14,10 +14,10 @@
       </div>
 
       <ul class="nav-list">
-      <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes"></a>Alle tours</li>
-      <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq"></a>Instructies & help</li>
-      <li class="nav-item nav-item-3"><a class="nav-link" href="#"></a>Over NEXT Festival</li>
-      <li class="nav-item nav-item-4"><a class="nav-link" href="#"></a>Over de Eurometropool</li>
+      <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes">Alle tours</a></li>
+      <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq">Instructies & help</a></li>
+      <li class="nav-item nav-item-3"><a class="nav-link" href="#">Over NEXT Festival</a></li>
+      <li class="nav-item nav-item-4"><a class="nav-link" href="#">Over de Eurometropool</a></li>
       </ul>
       <form method="post">
           <input type="hidden" name="action" value="changeLanguage"/>
@@ -28,7 +28,7 @@
     </nav>
     </header>
 
-    <main>
+    <main class="main_blur">
       <h1>De code is verzonden naar <?php echo $_SESSION['user']['email']; ?></h1>
       <?php if($_SESSION['user']['l'] == "nl"){
         echo '<h2>Niets ontvangen? Bekijk zeker eens je spam</h2>';

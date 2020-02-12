@@ -14,7 +14,11 @@
 @import "./css/landing_footer.css";
 @import "./css/color.css";
 @import "./css/hamburger.css";
+<<<<<<< HEAD
 @import "./css/loader.css";
+=======
+@import "./css/faqPage.css";
+>>>>>>> d189fe181321d89df9bfcfc4c4000fa5a3b39ea1
 
 html {
   font-size: 62.5%;
