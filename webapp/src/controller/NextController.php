@@ -172,6 +172,7 @@ class NextController extends Controller {
     }
 
     array_push($_SESSION['user']['activeRoutes'], $_COOKIE['activeRoute']);
+    var_dump($_COOKIE);
     $this->set('visitedPoints', $_SESSION['user']['activeRoutes']);
   }
 
