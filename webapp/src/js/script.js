@@ -19,6 +19,12 @@
       globalLanguage = $language.textContent;
     }
 
+    window.addEventListener(`load`, () => {
+      const $loader = document.querySelector(`.loader`);
+      if ($loader) {
+        $loader.classList.add(`hidden`);
+      }
+    });
 
     // const $landingPage = document.querySelector(`.landingPage`);
     // if ($landingPage) {

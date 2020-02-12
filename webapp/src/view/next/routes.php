@@ -61,6 +61,10 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
   <?php if($_SESSION['user']['skiponboarding'] == 0 ){ ?>
     <?php $_SESSION['user']['onboardingalreadyseen'] = 0 ?>
   <?php } ?>
+
+  <div class="loader">
+    <img src="assets/img/loader.gif" alt="Loading..."/>
+  </div>
   <?php if($_SESSION['user']['l'] == 'nl' && !empty($_SESSION['user']['unlockedroutes'])){ ?>
     <div class="popup_code hidden"></div>
     <header class="header">
@@ -115,7 +119,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
     exit();
   } ?>
 
-  <?php if($_SESSION['user']['l'] == 'fr'){ ?>
+  <?php if($_SESSION['user']['l'] == 'fr' && !empty($_SESSION['user']['unlockedroutes'])){ ?>
     <div class="popup_code hidden"></div>
     <header class="header">
       <div class="icon"></div>
@@ -162,11 +166,15 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       </article>
       <section class="routes"></section>
     </main>
-  <?php } ?>
+  <?php }else{
+    unset($_SESSION['user']);
+    header('Location: index.php');
+    exit();
+  } ?>
 
 
 
-  <?php if($_SESSION['user']['l'] == 'en'){ ?>
+  <?php if($_SESSION['user']['l'] == 'en' && !empty($_SESSION['user']['unlockedroutes'])){ ?>
 
     <div class="popup_code hidden"></div>
     <header class="header">
@@ -214,7 +222,11 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       </article>
       <section class="routes"></section>
     </main>
-  <?php } ?>
+  <?php }else{
+    unset($_SESSION['user']);
+    header('Location: index.php');
+    exit();
+  } ?>
 <?php }else{
   header('Location: index.php');
   exit();
