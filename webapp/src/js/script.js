@@ -33,7 +33,7 @@
     const acc = document.getElementsByClassName("accordion");
 
     for (let i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function () {
+      acc[i].addEventListener("click", function() {
         //this.classList.toggle("active");
         const panel = this.nextElementSibling;
         if (panel.style.display === "block") {
@@ -401,9 +401,11 @@
     const lockedRoutesArray = Array.from($lockedRoutes);
     const $routePage = document.querySelector(`.routePage`);
     lockedRoutesArray.map(lockedRoute => {
-
       lockedRoute.addEventListener(`click`, () => {
-        if (lockedRoute.classList.contains(`route_button`) && lockedRoute.classList.contains(`locked`)) {
+        if (
+          lockedRoute.classList.contains(`route_button`) &&
+          lockedRoute.classList.contains(`locked`)
+        ) {
           const $popup = document.querySelector(`.popup_code`);
           $popup.classList.remove(`hidden`);
           $routePage.classList.add(`hidden`);
@@ -411,7 +413,6 @@
         }
         //showPopupCodeScreen(currentLanguage, $popup);
       });
-
     });
   };
 
@@ -657,7 +658,10 @@
           ) {
             $a.innerHTML = `Ga verder >`;
             $a.classList.remove(`hidden`);
-            $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${value}&action=enternewcode`);
+            $a.setAttribute(
+              `href`,
+              `index.php?page=routes&l=en&code=${value}&action=enternewcode`
+            );
           } else {
             $a.innerHTML = ``;
             $a.classList.add(`hidden`);
@@ -781,7 +785,10 @@
             console.log(`Code is valid`);
             $a.innerHTML = `Continuez >`;
             $a.classList.remove(`ongeldig`);
-            $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${value}&action=enternewcode`);
+            $a.setAttribute(
+              `href`,
+              `index.php?page=routes&l=en&code=${value}&action=enternewcode`
+            );
           } else {
             console.log(`Enter a valid code`);
             $a.innerHTML = `Code invalide`;
@@ -863,7 +870,10 @@
             console.log(`Code is valid`);
             $a.innerHTML = `Continue >`;
             $a.classList.remove(`ongeldig`);
-            $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${value}&action=enternewcode`);
+            $a.setAttribute(
+              `href`,
+              `index.php?page=routes&l=en&code=${value}&action=enternewcode`
+            );
           } else {
             console.log(`Enter a valid code`);
             $a.innerHTML = `Invalid code`;
@@ -886,7 +896,6 @@
         window.location = `index.php?page=routes`;
       });
     }
-
 
     const $codeContent = document.querySelector(`.code_content`);
     const $header = document.querySelector(`.header`);
@@ -1200,7 +1209,7 @@
   };
 
   /* eslint-disable*/
-  var createCookie = function (name, value, days) {
+  var createCookie = function(name, value, days) {
     var expires;
     if (days) {
       var date = new Date();
@@ -1486,6 +1495,17 @@
         });
       });
     }
+
+    // eslint-disable-next-line camelcase
+    const $buttons_ar = document.querySelectorAll(`.route_choice_btn`);
+
+    const buttonsArArray = Array.from($buttons_ar);
+
+    buttonsArArray.map(item => {
+      // item.style.backgroundColor = `linear-gradient(90deg, ${route.color1} 0%, ${route.color2} 100%);`;
+      // item.style.background = `linear-gradient(90deg, ${route.color1} 0%, ${route.color2} 100%); !important`;
+      item.classList.add(`btn_gradient_${route.id}`);
+    });
   };
 
   const handleClickMoreInfoButton = (waypoint, route) => {
@@ -1533,7 +1553,6 @@
     const $article = document.createElement(`article`);
     const $h1 = document.createElement(`h1`);
     const $button = document.createElement(`button`);
-    $article.classList.add(`detail_page`);
 
     $detailPage.appendChild($article);
     $article.appendChild($h1);
@@ -1548,7 +1567,7 @@
 
       window.location = `index.php?page=route&id=${getUrlVars()["id"]}&city=${
         getUrlVars()["city"]
-        }&cityRouteId=${getUrlVars()["cityRouteId"]}`;
+      }&cityRouteId=${getUrlVars()["cityRouteId"]}`;
       // $existingPage.classList.remove(`hidden`);
       // $detailPage.classList.add(`hidden`);
     });
@@ -1596,7 +1615,7 @@
     var vars = {};
     var parts = window.location.href.replace(
       /[?&]+([^=&]+)=([^&]*)/gi,
-      function (m, key, value) {
+      function(m, key, value) {
         vars[key] = value;
       }
     );
@@ -1663,10 +1682,15 @@
     fetch(data.cities[cityId].routes[cityRouteId].route)
       .then(r => r.json())
       .then(d => parseUrl(d, data.cities[cityId], map, cityRouteId));
+
+    const $map_info = document.querySelector(`.H_imprint`);
+    if ($map_info) {
+      $map_info.remove();
+    }
   };
 
   const fetchUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(function (location) {
+    navigator.geolocation.getCurrentPosition(function(location) {
       userLocation = {
         lat: location.coords.latitude,
         lng: location.coords.longitude,

@@ -1,5 +1,5 @@
 <section class="waypointInfo"></section>
-<section class="arPage ar_section">
+<section class="ar_section">
 <article class="popupClaimPrize">
     <button class="popupPrizeNotification hidden">Ontvang je kortingscode</button>
       <div class="popupForClaim hidden">
@@ -21,8 +21,12 @@
   <div class="arscene_div">
     <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
   </div>
-  <a href="index.php?page=route&id=<?php echo $_GET['id']; ?>&city=<?php echo $_GET['city']; ?>&cityRouteId=<?php echo $_GET['cityRouteId']; ?>">route</a>
-  <a href="#" class="active">A.R. camera</a>
+  <div class="buttons_route main_blur">
+  <a href="index.php?page=route&id=<?php echo $_GET['id']; ?>&city=<?php echo $_GET['city']; ?>&cityRouteId=<?php echo $_GET['cityRouteId']; ?>" class="active route_choice_btn">route</a>
+  <a href="#" class="active arBtn route_choice_btn">A.R. camera</a>
+  <div class="buttons_route">
+</div>
+  </div>
 </section>
 <aside class="hidden cityId"><?php echo $_GET['city'] ?></aside>
 <aside class="hidden routeId"><?php echo $_GET['id'] ?></aside>

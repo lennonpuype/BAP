@@ -17,6 +17,7 @@
 @import "./css/loader.css";
 @import "./css/faqPage.css";
 @import "./css/detail.css";
+@import "./css/ar.css";
 
 html {
   font-size: 62.5%;
@@ -122,13 +123,6 @@ a {
   background-color: grey;
 }
 
-.page_title {
-  position: absolute;
-  top: 2.5rem;
-  left: 0;
-  right: 0;
-}
-
 /* input{
   border: .2rem solid black;
   border-radius: 0.4rem;
@@ -191,23 +185,11 @@ a {
   margin-left: auto;
 }
 
-#map {
-  height: 50rem;
-  min-width: 0;
-  max-width: 100%;
-}
-
-.choise_btn {
-  cursor: pointer;
-  font-size: 2rem;
-  text-decoration: none;
-}
-
-.arPage {
+/* .arPage {
   height: 100%;
   display: flex;
   justify-content: center;
-}
+} */
 
 .btn_shadow {
   -webkit-box-shadow: 0 1.7rem 2.3rem -2.4rem rgba(110, 110, 110, 1);
