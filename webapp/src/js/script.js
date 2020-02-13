@@ -13,6 +13,7 @@
   let unlockedRouteId = []; // eslint-disable-line
   let currentRouteId = 0; // eslint-disable-line
   let clickedButton = false;
+  let currentColor;
 
   const init = () => {
     hamburger();
@@ -28,6 +29,20 @@
         $loader.classList.add(`hidden`);
       }
     });
+
+    const acc = document.getElementsByClassName("accordion");
+
+    for (let i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
+        //this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
 
     // const $allNavItems = document.querySelectorAll(`.nav-link`);
     // const navItemArray = Array.from($allNavItems);
@@ -89,14 +104,32 @@
         const arrayArticles = Array.from($articles);
 
         arrayArticles.map(article => {
+<<<<<<< HEAD
+=======
+          // Laats ingevulde route selecteren
+          // const $lastRouteId = document.querySelector(`.routeslist`).lastElementChild;
+          // if ($lastRouteId) {
+          //   const routeId = $lastRouteId.textContent;
+          //   if (article.dataset.id === routeId) {
+          //     console.log(article);
+          //     article.classList.add(`is-selected`);
+          //     article.removeAttribute(`aria-hidden`);
+          //   } else {
+          //     article.classList.remove(`is-selected`);
+          //     article.setAttribute(`aria-hidden`, true);
+          //   }
+          // }
+
+>>>>>>> 75f1f74a4568a3064df13a0d7fa2c7f8d53a7135
           if (!article.classList.contains(`is-selected`)) {
             article.classList.add(`blur`);
           } else {
-            console.log(article);
             article.classList.remove(`blur`);
           }
         });
       }, 100);
+
+
     }
 
     const $singleRoutePage = document.querySelector(`.singleRoutePage`);
@@ -225,6 +258,24 @@
     $style.setAttribute(`id`, `style`);
 
     handleStartButtonLogics(routes);
+
+    // const $articles = document.querySelectorAll(`.route`);
+    // const arrayArticles = Array.from($articles);
+
+    // arrayArticles.map(article => {
+    //   const $lastRouteId = document.querySelector(`.routeslist`).lastElementChild;
+    //   if ($lastRouteId) {
+    //     const routeId = $lastRouteId.textContent;
+    //     if (article.dataset.id === routeId) {
+    //       console.log(article);
+    //       article.classList.add(`is-selected`);
+    //       article.removeAttribute(`aria-hidden`);
+    //     } else {
+    //       article.classList.remove(`is-selected`);
+    //       article.setAttribute(`aria-hidden`, true);
+    //     }
+    //   }
+    // });
   };
 
   const createRouteCards = (route, routes) => {
@@ -343,6 +394,7 @@
 
     $article.classList.add(`locked`);
     $article.classList.remove(`unlocked`);
+    $article.dataset.id = route.globalId;
 
     const filterRoute = unlockedRouteIdArray.filter(unlockedRoute => {
       return unlockedRoute.id === route.id;
@@ -361,6 +413,48 @@
         showPopupCodeScreen(currentLanguage, $popup);
       });
     });
+  };
+
+  const routeDetailCarousel = waypoint => {
+    //1. Routes section met Flickity aanmaken
+
+    const $imagesContainer = document.querySelector(`.images_container`);
+
+    const $section = document.createElement(`section`);
+    $imagesContainer.appendChild($section);
+    $section.classList.add(`images`, `carousel`);
+    $section.setAttribute(
+      `data-flickity`,
+      `{ "contain": true, "wrapAround": true, "prevNextButtons": false, "pageDots": false, "lazyload": 100 }`
+    );
+
+
+
+    for (let i = 0; i < 3; i++) {
+      const $image = document.createElement(`img`);
+      $section.appendChild($image);
+      $image.classList.add(`image`);
+      $image.classList.add(`carousel-cell`);
+      $image.setAttribute(`src`, `assets/img/details/${waypoint.name.toLowerCase()}_${i}.jpg`);
+    }
+
+    //2. Script & Link toevoegen aan head voor asyncroon te werken op de Articles die hierboven worden toegevoegd
+    const $head = document.querySelector(`.head`);
+    const $script = document.createElement(`script`);
+    const $style = document.createElement(`link`);
+    $head.appendChild($script);
+    $head.appendChild($style);
+    $script.setAttribute(
+      `src`,
+      `https://npmcdn.com/flickity@2.2.1/dist/flickity.pkgd.js`
+    );
+    $style.setAttribute(
+      `href`,
+      `https://npmcdn.com/flickity@2.2.1/dist/flickity.css`
+    );
+    $style.setAttribute(`rel`, `stylesheet`);
+    $script.setAttribute(`id`, `script`);
+    $style.setAttribute(`id`, `style`);
   };
 
   const handleStartButtonLogics = routes => {
@@ -1085,7 +1179,7 @@
   };
 
   /* eslint-disable*/
-  var createCookie = function(name, value, days) {
+  var createCookie = function (name, value, days) {
     var expires;
     if (days) {
       var date = new Date();
@@ -1315,6 +1409,7 @@
 
   const makeMarker = (marker, cityData, routeId) => {
     var group = new H.map.Group(); //eslint-disable-line
+    const route = cityData.routes[routeId];
     map.addObject(group);
     group.addObject(marker);
 
@@ -1366,20 +1461,52 @@
         });
 
         $button.addEventListener(`click`, () => {
-          handleClickMoreInfoButton(clickedWaypoint);
+          handleClickMoreInfoButton(clickedWaypoint, route);
         });
       });
     }
   };
 
-  const handleClickMoreInfoButton = waypoint => {
+  const handleClickMoreInfoButton = (waypoint, route) => {
     //Delete content for better performance
     const $existingPage = document.querySelector(`.singleRoutePage`);
     const audio = new Audio(`./assets/audio/${waypoint.globalId}.mp3`);
     $existingPage.classList.add(`hidden`);
 
     //Create Page above existing content
-    const $detailPage = document.querySelector(`.detailPage`);
+    const $detailPage = document.querySelector(`.detail_container`);
+    const $header = document.createElement(`div`);
+    $detailPage.parentElement.parentElement.appendChild($header);
+    $header.innerHTML = `<header class="header">
+    <img src="././assets/img/stickerlogo.png" alt="Logo van a.r.u.next" width="29" height="47">
+      <h1 class="logo_title">a.r.u.next</h1>
+    <nav class="navbar">
+      <div class="hamburger-menu">
+      <div class="line line-1"></div>
+      <div class="line line-2"></div>
+      <div class="line line-3"></div>
+      </div>
+
+      <ul class="nav-list">
+      <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes">Alle tours</a></li>
+      <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq">Instructies & help</a></li>
+      <li class="nav-item nav-item-3"><a class="nav-link" href="#">Over NEXT Festival</a></li>
+      <li class="nav-item nav-item-4"><a class="nav-link" href="#">Over de Eurometropool</a></li>
+      </ul>
+      <form method="post">
+          <input type="hidden" name="action" value="changeLanguage"/>
+          <input type="submit" name="language" class="nav-language" value="nl" />
+          <input type="submit" name="language" class="nav-language" value="fr" />
+          <input type="submit" name="language" class="nav-language" value="en" class="active"/>
+      </form>
+    </nav>
+    </header>`;
+    $header.style.position = `absolute`;
+    $header.style.top = `0`;
+
+    hamburger();
+    routeDetailCarousel(waypoint);
+
     $detailPage.classList.remove(`hidden`);
     $detailPage.textContent = ``;
     const $article = document.createElement(`article`);
@@ -1389,21 +1516,38 @@
 
     $detailPage.appendChild($article);
     $article.appendChild($h1);
-    $h1.textContent = waypoint.name;
+    // $h1.textContent = waypoint.name;
     $article.appendChild($button);
-    $button.textContent = `Terug`;
+    $button.classList.add(`back_button`);
+    $button.textContent = `< terug`;
+    $button.style.backgroundColor = `${route.color1}`;
+
     $button.addEventListener(`click`, () => {
       audio.pause();
 
-      $existingPage.classList.remove(`hidden`);
-      $detailPage.classList.add(`hidden`);
+      window.location = `index.php?page=route&id=${getUrlVars()["id"]}&city=${getUrlVars()["city"]}&cityRouteId=${getUrlVars()["cityRouteId"]}`;
+      // $existingPage.classList.remove(`hidden`);
+      // $detailPage.classList.add(`hidden`);
     });
 
-    const $div = document.createElement(`div`);
-    $article.appendChild($div);
+    // const $div = document.createElement(`div`);
+    // $article.appendChild($div);
+
+    const $detailArticle = document.createElement(`article`);
+    $detailArticle.classList.add(`article_detail`);
+    $detailPage.appendChild($detailArticle);
+    $detailArticle.innerHTML = `<div class="article_detail_top">
+      <h1 style="color: ${route.color1}">${waypoint.name}</h1>
+      <div class="audio_div"></div>
+    </div>
+    <hr>
+    <div class="article_detail_bottom">
+      <p class="detail_description">${waypoint.description}</p>
+    </div>`;
 
     //Audio
-    $div.innerHTML = `<button class="play">Play</button>
+    const $audioDiv = document.querySelector(`.audio_div`);
+    $audioDiv.innerHTML = `<button class="play">Play</button>
     <button class="pause">Pause</button>
     <button class="restart">Restart</button>`;
 
@@ -1424,6 +1568,14 @@
       audio.play();
     });
   };
+
+  function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+      vars[key] = value;
+    });
+    return vars;
+  }
 
   const getClickPosition = e => {
     const $content = document.querySelector(`.content`);
@@ -1488,7 +1640,7 @@
   };
 
   const fetchUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(function(location) {
+    navigator.geolocation.getCurrentPosition(function (location) {
       userLocation = {
         lat: location.coords.latitude,
         lng: location.coords.longitude,
