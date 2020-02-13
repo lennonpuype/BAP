@@ -35,6 +35,12 @@
     for (let i = 0; i < acc.length; i++) {
       acc[i].addEventListener("click", function () {
         //this.classList.toggle("active");
+        const panels = document.querySelectorAll(`.panel`);
+        const allPanels = Array.from(panels);
+        allPanels.map(panel => {
+          panel.style.display = "none";
+        });
+
         const panel = this.nextElementSibling;
         if (panel.style.display === "block") {
           panel.style.display = "none";

@@ -188,7 +188,9 @@
 </main>
 <?php } ?>
 <?php if(!empty($_SESSION['user'])){
-  if(!empty($_SESSION['user']['activeRoute'])){
-    echo '<a href="index.php?page=route&id='.$_SESSION['user']['activeRoute'][0].'&city='.$_SESSION['user']['activeRoute'][1].'&routeId='.$_SESSION['user']['activeRoute'][0].'">Terug naar route</a>';
-  }
+  // if(!empty($_SESSION['user']['activeRoute'])){
+  //   echo '<div class="route_div_faq"><a href="index.php?page=route&id='.$_SESSION['user']['activeRoute'][0].'&city='.$_SESSION['user']['activeRoute'][1].'&routeId='.$_SESSION['user']['activeRoute'][0].'" class="back_to_route box-shadow">Terug naar route</a></div>';
+  // }
+  header('Location: index.php');
+  exit();
  } ?>

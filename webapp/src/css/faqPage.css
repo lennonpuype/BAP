@@ -65,3 +65,19 @@
   margin-left: 4rem;
   list-style-type: circle;
 }
+
+.back_to_route {
+  padding: 2rem;
+  position: absolute;
+  box-shadow: 0 1.7rem 2.3rem -2.4rem rgba(110, 110, 110, 1);
+  background-color: var(--darkpurple);
+  color: white;
+  font-weight: bold;
+  border-radius: 1rem;
+}
+
+.route_div_faq {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
