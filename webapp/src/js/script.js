@@ -33,7 +33,7 @@
     const acc = document.getElementsByClassName("accordion");
 
     for (let i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function () {
+      acc[i].addEventListener("click", function() {
         //this.classList.toggle("active");
         const panels = document.querySelectorAll(`.panel`);
         const allPanels = Array.from(panels);
@@ -606,9 +606,15 @@
             $a.innerHTML = `Ga verder >`;
             $a.classList.remove(`hidden`);
             if ($routePage) {
-              $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}&action=enternewcode`);
+              $a.setAttribute(
+                `href`,
+                `index.php?page=routes&l=nl&code=${value}&action=enternewcode`
+              );
             } else {
-              $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}`);
+              $a.setAttribute(
+                `href`,
+                `index.php?page=routes&l=nl&code=${value}`
+              );
             }
           } else {
             $a.innerHTML = ``;
@@ -731,9 +737,15 @@
             $a.innerHTML = `Continuez >`;
             $a.classList.remove(`ongeldig`);
             if ($routePage) {
-              $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}&action=enternewcode`);
+              $a.setAttribute(
+                `href`,
+                `index.php?page=routes&l=nl&code=${value}&action=enternewcode`
+              );
             } else {
-              $a.setAttribute(`href`, `index.php?page=routes&l=fr&code=${value}`);
+              $a.setAttribute(
+                `href`,
+                `index.php?page=routes&l=fr&code=${value}`
+              );
             }
           } else {
             console.log(`Enter a valid code`);
@@ -814,9 +826,15 @@
             $a.innerHTML = `Continue >`;
             $a.classList.remove(`ongeldig`);
             if ($routePage) {
-              $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}&action=enternewcode`);
+              $a.setAttribute(
+                `href`,
+                `index.php?page=routes&l=nl&code=${value}&action=enternewcode`
+              );
             } else {
-              $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${value}`);
+              $a.setAttribute(
+                `href`,
+                `index.php?page=routes&l=en&code=${value}`
+              );
             }
           } else {
             console.log(`Enter a valid code`);
@@ -851,7 +869,6 @@
       if ($codeContent) {
         $codeContent.classList.remove(`code_div_popup`);
       }
-
     }
 
     const $code = document.querySelector(`.code`);
@@ -1043,7 +1060,6 @@
           $page3.classList.remove(`inactive`);
         });
       }
-
     });
   };
 
@@ -1089,8 +1105,6 @@
       let visitedWaypoints = []; // eslint-disable-line
       triggerFinishAllPoints(visitedWaypoints);
     }, 100);
-
-
   };
 
   const showARInfo = (activeRoute, $waypointInfoElement) => {
@@ -1158,7 +1172,7 @@
   };
 
   /* eslint-disable*/
-  var createCookie = function (name, value, days) {
+  var createCookie = function(name, value, days) {
     var expires;
     if (days) {
       var date = new Date();
@@ -1187,12 +1201,15 @@
         const lineString = new H.geo.LineString();
 
         waypoints.map(waypoint => {
-          lineString.pushPoint({ lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng });
+          lineString.pushPoint({
+            lat: waypoint.geolocation.lat,
+            lng: waypoint.geolocation.lng
+          });
         });
 
-        map.addObject(new H.map.Polyline(
-          lineString, { style: { lineWidth: 8 } }
-        ));
+        map.addObject(
+          new H.map.Polyline(lineString, { style: { lineWidth: 8 } })
+        );
 
         const exists = waypoints.filter(waypoint => waypoint.visited === `yes`);
         visitedWaypoints.push(exists);
@@ -1295,8 +1312,6 @@
         $singleRoutePage.classList.remove(`hidden`);
       }
     }
-
-
   };
 
   const loadOnboardingView = currentOnboarding => {
@@ -1534,7 +1549,7 @@
 
       window.location = `index.php?page=route&id=${getUrlVars()["id"]}&city=${
         getUrlVars()["city"]
-        }&cityRouteId=${getUrlVars()["cityRouteId"]}`;
+      }&cityRouteId=${getUrlVars()["cityRouteId"]}`;
       // $existingPage.classList.remove(`hidden`);
       // $detailPage.classList.add(`hidden`);
     });
@@ -1551,7 +1566,7 @@
     </div>
     <hr>
     <div class="article_detail_bottom">
-      <p class="detail_description">${waypoint.description}</p>
+      <p class="detail_description">${waypoint.long_desc}</p>
     </div>`;
 
     //Audio
@@ -1582,7 +1597,7 @@
     var vars = {};
     var parts = window.location.href.replace(
       /[?&]+([^=&]+)=([^&]*)/gi,
-      function (m, key, value) {
+      function(m, key, value) {
         vars[key] = value;
       }
     );
@@ -1657,7 +1672,7 @@
   };
 
   const fetchUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(function (location) {
+    navigator.geolocation.getCurrentPosition(function(location) {
       userLocation = {
         lat: location.coords.latitude,
         lng: location.coords.longitude,
