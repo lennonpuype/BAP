@@ -135,12 +135,6 @@ a {
   background-color: grey;
 }
 
-/* input{
-  border: .2rem solid black;
-  border-radius: 0.4rem;
-  padding: 1rem 2rem;
-} */
-
 .hidden {
   display: none !important;
 }
