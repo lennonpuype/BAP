@@ -4,6 +4,7 @@
 <section class="page1 center_content index">
   <h1 class="head_title">a.r.u.next?</h1>
   <a class="page_btn startBtn btn_shadow variable_button">Start met verkennen ></a>
+  <div class="page_bg"></div>
 </section>
 
 <section class="page2 inactive center_content index">
