@@ -134,6 +134,7 @@
     </header>
   <!-- <h1 class="page_title">Route <?php if(!empty($_GET['id'])){echo $_GET['id'];} ?></h1> -->
   <!-- <div class="content"></div> -->
+  <div class="content"></div>
   <div id="map" class="main_blur"></div>
   <div class="buttons_route blur_hidden">
   <a href="#" class="active route_choice_btn">route</a>
