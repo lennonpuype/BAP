@@ -90,8 +90,6 @@
 
         arrayArticles.map(article => {
           if (!article.classList.contains(`is-selected`)) {
-
-
             article.classList.add(`blur`);
           } else {
             console.log(article);
@@ -419,15 +417,17 @@
     let codeValue = ``;
     const $a = document.createElement(`a`);
 
-    $popup.innerHTML = `<form>
-    <input type="hidden" name="action" value="entercode"/>
-    <input type="hidden" name="l" value="nl"/>
+    $popup.innerHTML = `
+    <div class="codeTest">
     <h1 class="page_title_small">Voer je persoonlijke code<br/>hier in</h1>
     <p class="sub_info">Deze kan je vinden op het door<br/>jou gekozen ticketje</p>
-    <div class="code_div ">
+    <form>
+    <input type="hidden" name="action" value="entercode"/>
+    <input type="hidden" name="l" value="nl"/>
+    <div class="code_div">
     <div class="code_input">
     <input type="text" name="code" class="code neumorphism_box" maxlength="5" disabled/>
-    <a class="help_btn_code">Hulp nodig?</a>
+    <a class="help_btn_code">Hulp nodig TEST?</a>
     </div>
       <div class="character_btns">
         <button class="char_btn code_btn" type="button">0</button>
@@ -450,10 +450,9 @@
         <button class="extra_btn delete_btn code_btn" data-type="remove" type="button"><</button>
       </div>
     </div>
-  </form>`;
+  </form></div>`;
 
     const $codeDiv = document.querySelector(`.code_div`);
-
     const $code = document.querySelector(`.code`);
 
     const $allBtns = document.querySelectorAll(`.char_btn`);
@@ -828,33 +827,38 @@
   const handleHelpPopup = () => {
     const $body = document.querySelector(`.body`);
     const $invisibleDiv = document.createElement(`div`);
-    const $div = document.createElement(`div`);
-    const $h2 = document.createElement(`h2`);
-    const $a = document.createElement(`a`);
+    const $popupStyle = document.createElement(`div`);
+    const $popupDiv = document.createElement(`div`);
+    const $popup_text = document.createElement(`p`);
+    const $popup_close = document.createElement(`a`);
 
     $body.appendChild($invisibleDiv);
-    $body.appendChild($div);
-    $div.appendChild($a);
-    $div.appendChild($h2);
+    $body.appendChild($popupStyle);
+    $popupStyle.appendChild($popupDiv);
+    $popupDiv.appendChild($popup_close);
+    $popupDiv.appendChild($popup_text);
 
     $invisibleDiv.classList.add(`invisible_overlay`);
-    $div.classList.add(`help_popup`);
+    $popupStyle.classList.add(`popup_style`);
+    $popupDiv.classList.add(`help_popup`);
+    $popup_text.classList.add(`popup_text`);
+    $popup_close.classList.add(`popup_close`);
 
     const $page4 = document.querySelector(`.page4`);
     $page4.classList.add(`blur`);
 
-    $h2.textContent = `Je vindt een code aan de installatie, deze laat je toe om de wandeling te beginnen!`;
-    $a.textContent = `close`;
+    $popup_text.textContent = `Je vindt een code aan de installatie, deze laat je toe om een bepaalde wandeling te starten!`;
+    $popup_close.textContent = `sluit`;
 
     $invisibleDiv.addEventListener(`click`, () => {
       $invisibleDiv.remove();
-      $div.remove();
+      $popupDiv.remove();
       $page4.classList.remove(`blur`);
     });
 
-    $a.addEventListener(`click`, () => {
+    $popup_close.addEventListener(`click`, () => {
       $invisibleDiv.remove();
-      $div.remove();
+      $popupDiv.remove();
       $page4.classList.remove(`blur`);
     });
   };
