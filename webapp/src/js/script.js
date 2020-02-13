@@ -431,7 +431,7 @@
     $section.classList.add(`images`, `carousel`);
     $section.setAttribute(
       `data-flickity`,
-      `{ "contain": true, "wrapAround": true, "prevNextButtons": false, "pageDots": false, "lazyload": 100 }`
+      `{ "contain": true, "wrapAround": true, "prevNextButtons": false, "pageDots": true, "lazyload": 100 }`
     );
 
     for (let i = 0; i < 3; i++) {
@@ -1169,6 +1169,16 @@
 
         const waypoints = currentRoute.waypoints;
 
+        const lineString = new H.geo.LineString();
+
+        waypoints.map(waypoint => {
+          lineString.pushPoint({ lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng });
+        });
+
+        map.addObject(new H.map.Polyline(
+          lineString, { style: { lineWidth: 8 } }
+        ));
+
         const exists = waypoints.filter(waypoint => waypoint.visited === `yes`);
         visitedWaypoints.push(exists);
 
@@ -1446,8 +1456,6 @@
     const buttonsArArray = Array.from($buttons_ar);
 
     buttonsArArray.map(item => {
-      // item.style.backgroundColor = `linear-gradient(90deg, ${route.color1} 0%, ${route.color2} 100%);`;
-      // item.style.background = `linear-gradient(90deg, ${route.color1} 0%, ${route.color2} 100%); !important`;
       item.classList.add(`btn_gradient_${route.id}`);
     });
   };

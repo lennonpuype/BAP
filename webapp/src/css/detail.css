@@ -31,6 +31,19 @@
 
 .images {
   top: 9rem;
+  height: 50rem;
+}
+
+.flickity-page-dots .dot {
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  background: transparent;
+  border: 2px solid white;
+}
+/* fill-in selected dot */
+.flickity-page-dots .dot.is-selected {
+  background: white;
 }
 
 .detail_description {

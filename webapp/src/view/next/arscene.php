@@ -4,7 +4,10 @@
   </a-asset-item>
   <a-asset-item id="gltf2" src="./assets/ar/gltf/test-VLAS.glb">
   </a-asset-item>
-
+  <a-asset-item id="gltf3" src="./assets/ar/gltf/vlas-15.glb">
+  </a-asset-item>
+  <a-asset-item id="gltf4" src="./assets/ar/gltf/koffie-24.glb">
+  </a-asset-item>
 </a-assets>
 
 <!-- <a-marker type='pattern' url='./assets/ar/data/pattern-colors.patt' name="colors" class="marker 0">
@@ -32,7 +35,7 @@
 </a-marker>
 
 <a-marker type='pattern' url='./assets/ar/data/pattern-3.patt' name="3" class="marker 3">
-  <a-entity gltf-model="#gltf1" scale=".02 .02 .02" animation-mixer></a-entity>
+  <a-entity gltf-model="#gltf3" scale=".02 .02 .02" animation-mixer></a-entity>
 </a-marker>
 
 <a-marker type='pattern' url='./assets/ar/data/pattern-4.patt' name="4" class="marker 4">
@@ -44,7 +47,7 @@
 </a-marker>
 
 <a-marker type='pattern' url='./assets/ar/data/pattern-6.patt' name="6" class="marker 6">
-  <a-entity gltf-model="#gltf2" scale=".02 .02 .02" animation-mixer></a-entity>
+  <a-entity gltf-model="#gltf4" scale=".02 .02 .02" animation-mixer></a-entity>
 </a-marker>
 
 <a-marker type='pattern' url='./assets/ar/data/pattern-next.patt' name="next" class="marker next">

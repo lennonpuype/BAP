@@ -42,13 +42,13 @@ class NextController extends Controller {
 
       if($firstCharacter == "K"){
         if($secondCharacter == "T"){
-          array_push($_SESSION['user']['unlockedroutes'], "0");
+          array_push($_SESSION['user']['unlockedroutes'], "1");
         }
       }
 
       if($firstCharacter == "K"){
         if($secondCharacter == "S"){
-          array_push($_SESSION['user']['unlockedroutes'], "1");
+          array_push($_SESSION['user']['unlockedroutes'], "0");
         }
       }
 
