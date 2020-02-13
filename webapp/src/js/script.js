@@ -33,7 +33,7 @@
     const acc = document.getElementsByClassName("accordion");
 
     for (let i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function () {
+      acc[i].addEventListener("click", function() {
         //this.classList.toggle("active");
         const panel = this.nextElementSibling;
         if (panel.style.display === "block") {
@@ -104,8 +104,6 @@
         const arrayArticles = Array.from($articles);
 
         arrayArticles.map(article => {
-<<<<<<< HEAD
-=======
           // Laats ingevulde route selecteren
           // const $lastRouteId = document.querySelector(`.routeslist`).lastElementChild;
           // if ($lastRouteId) {
@@ -120,7 +118,6 @@
           //   }
           // }
 
->>>>>>> 75f1f74a4568a3064df13a0d7fa2c7f8d53a7135
           if (!article.classList.contains(`is-selected`)) {
             article.classList.add(`blur`);
           } else {
@@ -128,8 +125,6 @@
           }
         });
       }, 100);
-
-
     }
 
     const $singleRoutePage = document.querySelector(`.singleRoutePage`);
@@ -428,14 +423,15 @@
       `{ "contain": true, "wrapAround": true, "prevNextButtons": false, "pageDots": false, "lazyload": 100 }`
     );
 
-
-
     for (let i = 0; i < 3; i++) {
       const $image = document.createElement(`img`);
       $section.appendChild($image);
       $image.classList.add(`image`);
       $image.classList.add(`carousel-cell`);
-      $image.setAttribute(`src`, `assets/img/details/${waypoint.name.toLowerCase()}_${i}.jpg`);
+      $image.setAttribute(
+        `src`,
+        `assets/img/details/${waypoint.name.toLowerCase()}_${i}.jpg`
+      );
     }
 
     //2. Script & Link toevoegen aan head voor asyncroon te werken op de Articles die hierboven worden toegevoegd
@@ -1179,7 +1175,7 @@
   };
 
   /* eslint-disable*/
-  var createCookie = function (name, value, days) {
+  var createCookie = function(name, value, days) {
     var expires;
     if (days) {
       var date = new Date();
@@ -1525,7 +1521,9 @@
     $button.addEventListener(`click`, () => {
       audio.pause();
 
-      window.location = `index.php?page=route&id=${getUrlVars()["id"]}&city=${getUrlVars()["city"]}&cityRouteId=${getUrlVars()["cityRouteId"]}`;
+      window.location = `index.php?page=route&id=${getUrlVars()["id"]}&city=${
+        getUrlVars()["city"]
+      }&cityRouteId=${getUrlVars()["cityRouteId"]}`;
       // $existingPage.classList.remove(`hidden`);
       // $detailPage.classList.add(`hidden`);
     });
@@ -1571,9 +1569,12 @@
 
   function getUrlVars() {
     var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
-      vars[key] = value;
-    });
+    var parts = window.location.href.replace(
+      /[?&]+([^=&]+)=([^&]*)/gi,
+      function(m, key, value) {
+        vars[key] = value;
+      }
+    );
     return vars;
   }
 
@@ -1640,7 +1641,7 @@
   };
 
   const fetchUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(function (location) {
+    navigator.geolocation.getCurrentPosition(function(location) {
       userLocation = {
         lat: location.coords.latitude,
         lng: location.coords.longitude,
