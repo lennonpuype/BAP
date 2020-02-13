@@ -144,6 +144,21 @@
       handleAR();
     }
 
+    const $arDefPage = document.querySelector(`.arscene_div_def`);
+    if ($arDefPage) {
+      console.log("leksdjflkdfsjklfdsjkfdslj");
+
+      // eslint-disable-next-line camelcase
+      const $buttons_ar = document.querySelectorAll(`.route_choice_btn`);
+      console.log($buttons_ar);
+
+      const buttonsArArray = Array.from($buttons_ar);
+      const cityRouteId = document.querySelector(`.cityRouteId`).textContent;
+      buttonsArArray.map(item => {
+        item.classList.add(`btn_gradient_${cityRouteId}`);
+      });
+    }
+
     // hamburgerManager();
   };
 
@@ -1076,6 +1091,8 @@
       let visitedWaypoints = []; // eslint-disable-line
       triggerFinishAllPoints(visitedWaypoints);
     }, 100);
+
+
   };
 
   const showARInfo = (activeRoute, $waypointInfoElement) => {

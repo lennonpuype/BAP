@@ -211,6 +211,10 @@ a {
   align-items: center;
 }
 
+.ar_section_def {
+  align-items: start !important;
+}
+
 .hamburger {
   position: absolute;
   top: 1rem;
