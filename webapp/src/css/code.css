@@ -18,6 +18,10 @@
   height: 8rem;
 }
 
+.code_div_popup {
+  margin-top: 10rem !important;
+}
+
 .code {
   border: none;
   height: 6rem;

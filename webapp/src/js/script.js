@@ -33,7 +33,7 @@
     const acc = document.getElementsByClassName("accordion");
 
     for (let i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function() {
+      acc[i].addEventListener("click", function () {
         //this.classList.toggle("active");
         const panel = this.nextElementSibling;
         if (panel.style.display === "block") {
@@ -401,12 +401,17 @@
     const lockedRoutesArray = Array.from($lockedRoutes);
     const $routePage = document.querySelector(`.routePage`);
     lockedRoutesArray.map(lockedRoute => {
+
       lockedRoute.addEventListener(`click`, () => {
-        const $popup = document.querySelector(`.popup_code`);
-        $popup.classList.remove(`hidden`);
-        $routePage.classList.add(`hidden`);
-        showPopupCodeScreen(currentLanguage, $popup);
+        if (lockedRoute.classList.contains(`route_button`) && lockedRoute.classList.contains(`locked`)) {
+          const $popup = document.querySelector(`.popup_code`);
+          $popup.classList.remove(`hidden`);
+          $routePage.classList.add(`hidden`);
+          showCodeScreen($popup, globalLanguage);
+        }
+        //showPopupCodeScreen(currentLanguage, $popup);
       });
+
     });
   };
 
@@ -506,6 +511,7 @@
   const showPopupCodeScreen = (language, $popup) => {
     let codeValue = ``;
     const $a = document.createElement(`a`);
+    const $routePage = document.querySelector(`.routePage`);
 
     $popup.innerHTML = `
     <div class="codeTest">
@@ -585,8 +591,9 @@
   const showCodeScreen = (page, language) => {
     let codeValue = ``;
     const $a = document.createElement(`a`);
+    const $routePage = document.querySelector(`.routePage`);
 
-    if (language === `dutch`) {
+    if (language === `nl`) {
       // eslint-disable-line
       page.innerHTML = `<div class="back_btn">
       <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>
@@ -650,7 +657,7 @@
           ) {
             $a.innerHTML = `Ga verder >`;
             $a.classList.remove(`hidden`);
-            $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}`);
+            $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${value}&action=enternewcode`);
           } else {
             $a.innerHTML = ``;
             $a.classList.add(`hidden`);
@@ -709,7 +716,7 @@
       }, 100);
     }
 
-    if (language === `french`) {
+    if (language === `fr`) {
       // eslint-disable-line
       page.innerHTML = `<div class="back_btn">
       <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>
@@ -774,7 +781,7 @@
             console.log(`Code is valid`);
             $a.innerHTML = `Continuez >`;
             $a.classList.remove(`ongeldig`);
-            $a.setAttribute(`href`, `index.php?page=routes&l=fr&code=${value}`);
+            $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${value}&action=enternewcode`);
           } else {
             console.log(`Enter a valid code`);
             $a.innerHTML = `Code invalide`;
@@ -791,7 +798,7 @@
       }, 100);
     }
 
-    if (language === `english`) {
+    if (language === `en`) {
       // eslint-disable-line
       page.innerHTML = `<div class="back_btn">
       <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>
@@ -856,7 +863,7 @@
             console.log(`Code is valid`);
             $a.innerHTML = `Continue >`;
             $a.classList.remove(`ongeldig`);
-            $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${value}`);
+            $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${value}&action=enternewcode`);
           } else {
             console.log(`Enter a valid code`);
             $a.innerHTML = `Invalid code`;
@@ -871,6 +878,24 @@
           $a.removeAttribute(`href`);
         }
       }, 100);
+    }
+
+    if ($routePage) {
+      const pageBtn = document.querySelector(`.back_btn`);
+      pageBtn.addEventListener(`click`, () => {
+        window.location = `index.php?page=routes`;
+      });
+    }
+
+
+    const $codeContent = document.querySelector(`.code_content`);
+    const $header = document.querySelector(`.header`);
+
+    if ($routePage) {
+      $codeContent.classList.add(`code_div_popup`);
+      $header.classList.add(`hidden`);
+    } else {
+      $codeContent.classList.remove(`code_div_popup`);
     }
 
     const $code = document.querySelector(`.code`);
@@ -1175,7 +1200,7 @@
   };
 
   /* eslint-disable*/
-  var createCookie = function(name, value, days) {
+  var createCookie = function (name, value, days) {
     var expires;
     if (days) {
       var date = new Date();
@@ -1523,7 +1548,7 @@
 
       window.location = `index.php?page=route&id=${getUrlVars()["id"]}&city=${
         getUrlVars()["city"]
-      }&cityRouteId=${getUrlVars()["cityRouteId"]}`;
+        }&cityRouteId=${getUrlVars()["cityRouteId"]}`;
       // $existingPage.classList.remove(`hidden`);
       // $detailPage.classList.add(`hidden`);
     });
@@ -1571,7 +1596,7 @@
     var vars = {};
     var parts = window.location.href.replace(
       /[?&]+([^=&]+)=([^&]*)/gi,
-      function(m, key, value) {
+      function (m, key, value) {
         vars[key] = value;
       }
     );
@@ -1641,7 +1666,7 @@
   };
 
   const fetchUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(function(location) {
+    navigator.geolocation.getCurrentPosition(function (location) {
       userLocation = {
         lat: location.coords.latitude,
         lng: location.coords.longitude,
