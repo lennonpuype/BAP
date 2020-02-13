@@ -1,0 +1,38 @@
+.article_detail {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000000;
+  background: var(--grey);
+}
+
+.article_detail_top {
+  padding: 3rem 2rem 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.article_detail_bottom {
+  padding: 1rem 2rem 3rem;
+}
+
+.back_button {
+  position: absolute;
+  border-radius: 0 2rem 2rem 0;
+  color: white;
+  top: 13rem;
+  padding: 2rem 4rem;
+  font-size: 2rem;
+  font-family: Raleway;
+  font-weight: bold;
+  border: none;
+  z-index: 100000;
+}
+
+.images {
+  top: 9rem;
+}
+
+.detail_description {
+  word-wrap: break-word;
+}

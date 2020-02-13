@@ -91,6 +91,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
     </div>
 
     <main class="routePage main_blur">
+
       <nav class="cities_nav">
         <ul class="cities">
           <li class="city_link active_city city_shadow" data-id="0">Kortrijk</li>
@@ -106,9 +107,11 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
           }
         ?>
       </article>
+
       <div class="routes_container">
       </div>
-      </main>
+    </main>
+
   <?php }else{
     // unset($_SESSION['user']);
     // header('Location: index.php');

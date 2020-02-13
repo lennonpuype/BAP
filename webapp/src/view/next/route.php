@@ -114,7 +114,14 @@
   <a href="#" class="active choise_btn">route</a>
   <a class="arBtn choise_btn">AR-camera</a>
 </section>
-<section class="detailPage"></section>
+<section class="detailPage main_blur">
+  <div class="detail_container">
+
+  </div>
+<div class="images_container">
+
+</div>
+</section>
 <section class="arPage"></section>
 <aside class="hidden cityId"><?php echo $_GET['city'] ?></aside>
 <aside class="hidden routeId"><?php echo $_GET['id'] ?></aside>

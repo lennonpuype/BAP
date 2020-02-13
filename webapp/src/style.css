@@ -16,6 +16,7 @@
 @import "./css/hamburger.css";
 @import "./css/loader.css";
 @import "./css/faqPage.css";
+@import "./css/detail.css";
 
 html {
   font-size: 62.5%;
