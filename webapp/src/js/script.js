@@ -144,6 +144,19 @@
       handleAR();
     }
 
+    const $arDefPage = document.querySelector(`.arscene_div_def`);
+    if ($arDefPage) {
+      // eslint-disable-next-line camelcase
+      const $buttons_ar = document.querySelectorAll(`.route_choice_btn`);
+      console.log($buttons_ar);
+
+      const buttonsArArray = Array.from($buttons_ar);
+      const cityRouteId = document.querySelector(`.cityRouteId`).textContent;
+      buttonsArArray.map(item => {
+        item.classList.add(`btn_gradient_${cityRouteId}`);
+      });
+    }
+
     // hamburgerManager();
   };
 
@@ -431,7 +444,7 @@
     $section.classList.add(`images`, `carousel`);
     $section.setAttribute(
       `data-flickity`,
-      `{ "contain": true, "wrapAround": true, "prevNextButtons": false, "pageDots": false, "lazyload": 100 }`
+      `{ "contain": true, "wrapAround": true, "prevNextButtons": false, "pageDots": true, "lazyload": 100 }`
     );
 
     for (let i = 0; i < 3; i++) {
@@ -533,10 +546,7 @@
 
     if (language === `nl`) {
       // eslint-disable-line
-      page.innerHTML = `<div class="back_btn">
-      <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>
-      <a class="back_txt">Terug</a>
-      </div>
+      page.innerHTML = `
       <div class="code_content">
     <h1 class="page_title_small">Voer je persoonlijke code<br/>hier in</h1>
     <p class="sub_info">Deze kan je vinden op het door<br/>jou gekozen ticketje</p>
@@ -595,7 +605,11 @@
           ) {
             $a.innerHTML = `Ga verder >`;
             $a.classList.remove(`hidden`);
-            $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}`);
+            if ($routePage) {
+              $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}&action=enternewcode`);
+            } else {
+              $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}`);
+            }
           } else {
             $a.innerHTML = ``;
             $a.classList.add(`hidden`);
@@ -656,10 +670,7 @@
 
     if (language === `fr`) {
       // eslint-disable-line
-      page.innerHTML = `<div class="back_btn">
-      <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>
-      <a class="back_txt">Terug</a>
-      </div>
+      page.innerHTML = `
       <div class="code_content">
     <h1 class="page_title_small">Entrez votre code<br/>personnel ici</h1>
     <p class="sub_info">Vous pouvez le trouver sur le ticket que<br/>vous avez choisi</p>
@@ -719,7 +730,11 @@
             console.log(`Code is valid`);
             $a.innerHTML = `Continuez >`;
             $a.classList.remove(`ongeldig`);
-            $a.setAttribute(`href`, `index.php?page=routes&l=fr&code=${value}`);
+            if ($routePage) {
+              $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}&action=enternewcode`);
+            } else {
+              $a.setAttribute(`href`, `index.php?page=routes&l=fr&code=${value}`);
+            }
           } else {
             console.log(`Enter a valid code`);
             $a.innerHTML = `Code invalide`;
@@ -738,10 +753,7 @@
 
     if (language === `en`) {
       // eslint-disable-line
-      page.innerHTML = `<div class="back_btn">
-      <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>
-      <a class="back_txt">Terug</a>
-      </div>
+      page.innerHTML = `
       <div class="code_content">
     <h1 class="page_title_small">Enter your personal<br/>code here</h1>
     <p class="sub_info">You can find the code on the back<br/>of the card you've chosen</p>
@@ -801,7 +813,11 @@
             console.log(`Code is valid`);
             $a.innerHTML = `Continue >`;
             $a.classList.remove(`ongeldig`);
-            $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${value}`);
+            if ($routePage) {
+              $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}&action=enternewcode`);
+            } else {
+              $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${value}`);
+            }
           } else {
             console.log(`Enter a valid code`);
             $a.innerHTML = `Invalid code`;
@@ -886,11 +902,13 @@
     const $popupDiv = document.createElement(`div`);
     const $popup_text = document.createElement(`p`);
     const $popup_close = document.createElement(`a`);
+    const $gif = document.createElement(`img`);
 
     $body.appendChild($invisibleDiv);
     $body.appendChild($popupStyle);
     $popupStyle.appendChild($popupDiv);
     $popupDiv.appendChild($popup_close);
+    $popupDiv.appendChild($gif);
     $popupDiv.appendChild($popup_text);
 
     $invisibleDiv.classList.add(`invisible_overlay`);
@@ -898,6 +916,10 @@
     $popupDiv.classList.add(`help_popup`);
     $popup_text.classList.add(`popup_text`);
     $popup_close.classList.add(`popup_close`);
+    $gif.classList.add(`popup_image`);
+
+    $gif.setAttribute(`src`, `./assets/img/help.gif`);
+    $gif.setAttribute(`alt`, `Help Illustration`);
 
     const $page4 = document.querySelector(`.page4`);
     $page4.classList.add(`blur`);
@@ -939,15 +961,12 @@
         $page3.classList.remove(`inactive`);
 
         if (currentLanguage === `dutch`) {
-          $page3.innerHTML = `<div class="back_btn">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>
-          <a class="back_txt">Terug</a>
-          </div>
+          $page3.innerHTML = `
           <div class="test_ar_div">
             <h1 class="page_title_small">Test de A.R. Experience</h1>
             <p class="sub_info">Sta je bij de installatie? </p>
             <p class="sub_info">Scan het A.R. vlak en kijk wat er gebeurt</p>
-            <div class="arscene_div btn_shadow">
+            <div class=" arscene_intro btn_shadow">
               <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
             </div>
           </div>
@@ -958,15 +977,12 @@
         }
 
         if (currentLanguage === `french`) {
-          $page3.innerHTML = `<div class="back_btn">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>
-          <a class="back_txt">Retour</a>
-          </div>
+          $page3.innerHTML = `
           <div class="test_ar_div">
             <h1 class="page_title_small">Teste d'experience A.R.</h1>
             <p class="sub_info">Êtes-vous à l'installation?</p>
             <p class="sub_info">Scannez le A.R. à plat et regardez ce qui se passe</p>
-            <div class="arscene_div btn_shadow">
+            <div class="arscene_div arscene_intro btn_shadow">
               <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
             </div>
           </div>
@@ -977,15 +993,12 @@
         }
 
         if (currentLanguage === `english`) {
-          $page3.innerHTML = `<div class="back_btn">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/><path d="M0 0h24v24H0V0z" fill="none"/></svg>
-          <a class="back_txt">Back</a>
-          </div>
+          $page3.innerHTML = `
           <div class="test_ar_div">
             <h1 class="page_title_small">Test the A.R. Experience</h1>
             <p class="sub_info">Are you next to a installation?</p>
             <p class="sub_info">Scan the A.R. image an see what happens</p>
-            <div class="arscene_div btn_shadow">
+            <div class="arscene_div arscene_intro btn_shadow">
               <iframe src="index.php?page=arscene" class="arscene_iframe"></iframe>
             </div>
           </div>
@@ -1076,6 +1089,8 @@
       let visitedWaypoints = []; // eslint-disable-line
       triggerFinishAllPoints(visitedWaypoints);
     }, 100);
+
+
   };
 
   const showARInfo = (activeRoute, $waypointInfoElement) => {
@@ -1169,6 +1184,16 @@
 
         const waypoints = currentRoute.waypoints;
 
+        const lineString = new H.geo.LineString();
+
+        waypoints.map(waypoint => {
+          lineString.pushPoint({ lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng });
+        });
+
+        map.addObject(new H.map.Polyline(
+          lineString, { style: { lineWidth: 8 } }
+        ));
+
         const exists = waypoints.filter(waypoint => waypoint.visited === `yes`);
         visitedWaypoints.push(exists);
 
@@ -1222,7 +1247,7 @@
     handleOnboarding();
 
     setInterval(() => {
-      fetchUserLocation();
+      //fetchUserLocation();
       let visitedWaypoints = []; // eslint-disable-line
       triggerFinishAllPoints(visitedWaypoints);
     }, 100);
@@ -1446,8 +1471,6 @@
     const buttonsArArray = Array.from($buttons_ar);
 
     buttonsArArray.map(item => {
-      // item.style.backgroundColor = `linear-gradient(90deg, ${route.color1} 0%, ${route.color2} 100%);`;
-      // item.style.background = `linear-gradient(90deg, ${route.color1} 0%, ${route.color2} 100%); !important`;
       item.classList.add(`btn_gradient_${route.id}`);
     });
   };

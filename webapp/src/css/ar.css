@@ -42,3 +42,24 @@
 .btn_gradient_2 {
   background: linear-gradient(90deg, #ff0031 0%, #ff5172 100%);
 }
+
+.arscene_div_def {
+  width: 100%;
+  height: 50rem;
+  margin: 2rem 0;
+  border-radius: 0;
+  border: none;
+  overflow: hidden;
+}
+
+.arscene_buttons_div {
+  margin: 0 auto;
+}
+
+.arscene_intro {
+  height: 40rem !important;
+}
+
+.test_ar_div {
+  margin-top: 1rem;
+}

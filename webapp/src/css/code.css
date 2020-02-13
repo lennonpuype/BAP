@@ -59,11 +59,11 @@
   flex-wrap: wrap;
   width: 28rem;
   position: absolute;
-  bottom: 5rem;
+  bottom: 2rem;
 }
 
 .code_content {
-  margin-top: -47rem;
+  margin-top: -40rem;
 }
 
 .invisible_overlay {
