@@ -49,3 +49,23 @@
 .detail_description {
   word-wrap: break-word;
 }
+
+.marker {
+  position: absolute;
+  width: 3rem;
+  height: 4rem;
+
+  background-size: 100% 100%;
+}
+
+.marker_waypointdone {
+  background-image: url(./../assets/img/waypointdone.png);
+}
+
+.marker_waypointnotdone {
+  background-image: url(./../assets/img/waypointnotdone.png);
+}
+
+.content {
+  text-align: left;
+}

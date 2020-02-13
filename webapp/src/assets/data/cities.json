@@ -34,6 +34,10 @@
                 "lat": 50.827578,
                 "lng": 3.266038
               },
+              "marker": {
+                "top": "39rem",
+                "left": "31rem"
+              },
               "visited": "no"
             },
             {
@@ -44,6 +48,10 @@
               "geolocation": {
                 "lat": 50.830599,
                 "lng": 3.264785
+              },
+              "marker": {
+                "top": "14rem",
+                "left": "22rem"
               },
               "visited": "no"
             },
@@ -56,6 +64,10 @@
                 "lat": 50.828895,
                 "lng": 3.263501
               },
+              "marker": {
+                "top": "12rem",
+                "left": "1rem"
+              },
               "visited": "no"
             },
             {
@@ -66,6 +78,10 @@
               "geolocation": {
                 "lat": 50.830722,
                 "lng": 3.256457
+              },
+              "marker": {
+                "top": "53rem",
+                "left": "26rem"
               },
               "visited": "no"
             },
@@ -78,6 +94,10 @@
                 "lat": 50.825494,
                 "lng": 3.255177
               },
+              "marker": {
+                "top": "2rem",
+                "left": "41rem"
+              },
               "visited": "no"
             },
             {
@@ -89,6 +109,10 @@
                 "lat": 50.825546,
                 "lng": 3.259971
               },
+              "marker": {
+                "top": "41rem",
+                "left": "11rem"
+              },
               "visited": "no"
             },
             {
@@ -99,6 +123,10 @@
               "geolocation": {
                 "lat": 50.825353,
                 "lng": 3.263917
+              },
+              "marker": {
+                "top": "28rem",
+                "left": "22rem"
               },
               "visited": "no"
             }

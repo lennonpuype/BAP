@@ -1190,9 +1190,9 @@
           lineString.pushPoint({ lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng });
         });
 
-        map.addObject(new H.map.Polyline(
-          lineString, { style: { lineWidth: 8 } }
-        ));
+        // map.addObject(new H.map.Polyline(
+        //   lineString, { style: { lineWidth: 8 } }
+        // ));
 
         const exists = waypoints.filter(waypoint => waypoint.visited === `yes`);
         visitedWaypoints.push(exists);
@@ -1226,11 +1226,13 @@
   let userLocation = {};
   let markers = []; // eslint-disable-line
   let map;
+  const platform = ``;
 
-  const platform = new H.service.Platform({
-    // eslint-disable-line
-    apikey: `Ymzvxu_5jYrtjqdyrlORjoasI2KdTSwzdLZuyNkPH3k` // eslint-disable-line
-  });
+  // const platform = new H.service.Platform({
+  //   // eslint-disable-line
+  //   apikey: `Ymzvxu_5jYrtjqdyrlORjoasI2KdTSwzdLZuyNkPH3k` // eslint-disable-line
+  // });
+
 
   const handleMaps = () => {
     fetch(`./assets/data/cities.json`) // eslint-disable-line
@@ -1323,7 +1325,7 @@
   };
 
   const parseUrl = (data, cityData, map, routeId) => {
-    removeAllMapMarkers(map);
+    //removeAllMapMarkers(map);
     addMarkersToMap(map, data, cityData, routeId);
   };
 
@@ -1374,23 +1376,23 @@
       const waypointChecked = `./assets/img/waypointdone.png`;
       const waypointUnChecked = `./assets/img/waypointnotdone.png`;
 
-      const iconChecked = new H.map.Icon(waypointChecked); // eslint-disable-line
-      const iconUnChecked = new H.map.Icon(waypointUnChecked); // eslint-disable-line
+      // const iconChecked = new H.map.Icon(waypointChecked); // eslint-disable-line
+      // const iconUnChecked = new H.map.Icon(waypointUnChecked); // eslint-disable-line
 
       if (waypoint.visited === `no`) {
-        const marker = new H.map.Marker( // eslint-disable-line
-          { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, // eslint-disable-line
-          { icon: iconUnChecked } // eslint-disable-line
-        );
-        makeMarker(marker, cityData, routeId);
+        // const marker = new H.map.Marker( // eslint-disable-line
+        //   { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, // eslint-disable-line
+        //   { icon: iconUnChecked } // eslint-disable-line
+        // );
+        makeMarker(waypointUnChecked, cityData, routeId, waypoint);
       }
 
       if (waypoint.visited === `yes`) {
-        const marker = new H.map.Marker( // eslint-disable-line
-          { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, // eslint-disable-line
-          { icon: iconChecked } // eslint-disable-line
-        );
-        makeMarker(marker, cityData, routeId);
+        // const marker = new H.map.Marker( // eslint-disable-line
+        //   { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, // eslint-disable-line
+        //   { icon: iconChecked } // eslint-disable-line
+        // );
+        makeMarker(waypointChecked, cityData, routeId, waypoint);
       }
     });
 
@@ -1406,64 +1408,109 @@
     // }
   };
 
-  const makeMarker = (marker, cityData, routeId) => {
-    var group = new H.map.Group(); //eslint-disable-line
+
+  const makeMarker = (markerImg, cityData, routeId, waypoint) => {
+    // var group = new H.map.Group(); //eslint-disable-line
     const route = cityData.routes[routeId];
-    map.addObject(group);
-    group.addObject(marker);
+    // map.addObject(group);
+    // group.addObject(marker);
 
-    markers.push(marker);
+    //markers.push(marker);
+    console.log(waypoint.marker.top);
 
-    if (cityData) {
-      marker.addEventListener(`tap`, e => {
-        const currentMarker = e.target;
-        const lat = currentMarker.b.lat;
-        const lng = currentMarker.b.lng;
-        const clickedWaypoint = findWaypoint(
-          lat,
-          lng,
-          cityData.routes[routeId].waypoints
-        );
+    const marker = document.createElement('div');
+    marker.classList.add(`marker`);
+    marker.style.left = `${waypoint.marker.left}`;
+    marker.style.top = `${waypoint.marker.top}`;
+    marker.style.backgroundImage = `url(${markerImg})`;
 
-        const $h1 = document.createElement(`h1`);
-        const $p = document.createElement(`p`);
-        const $button = document.createElement(`button`);
+    map.appendChild(marker);
 
-        const $content = document.querySelector(`.content`);
-        $content.textContent = ``;
-        $content.appendChild($h1);
-        $content.appendChild($p);
-        $content.appendChild($button);
+    const $content = document.querySelector(`.content`);
 
-        $h1.textContent = clickedWaypoint.name;
-        $p.textContent = clickedWaypoint.description;
-        $button.textContent = `Meer info`;
+    const $image = document.querySelector(`.map_img`);
+    $image.addEventListener(`click`, () => {
+      console.log($content);
+      $content.classList.add(`hidden`);
+    });
 
-        // let activeAudio;
+    marker.addEventListener(`click`, e => {
+      console.log(e.currentTarget);
 
-        map.addEventListener(`tap`, e => {
-          if (e.target instanceof H.map.Marker) {
-            // eslint-disable-line
-            // eslint-disable-line
-            getClickPosition(e);
-          } else {
-            const $content = document.querySelector(`.content`);
-            $content.classList.add(`hidden`);
-            //activeAudio.load();
-          }
-        });
+      const $h1 = document.createElement(`h1`);
+      const $p = document.createElement(`p`);
+      const $button = document.createElement(`a`);
 
-        map.addEventListener(`drag`, () => {
-          const $content = document.querySelector(`.content`);
-          $content.classList.add(`hidden`);
-          //activeAudio.load();
-        });
+      $content.classList.remove(`hidden`);
 
-        $button.addEventListener(`click`, () => {
-          handleClickMoreInfoButton(clickedWaypoint, route);
-        });
+      $content.textContent = ``;
+      $content.appendChild($h1);
+      $content.appendChild($p);
+      $content.appendChild($button);
+
+      $button.classList.add(`detail_content_a`);
+
+      $h1.style.color = route.color1;
+      $h1.textContent = waypoint.name;
+      $p.textContent = waypoint.description;
+      $button.textContent = `Meer info`;
+
+      $button.addEventListener(`click`, () => {
+        handleClickMoreInfoButton(waypoint, route);
       });
-    }
+    });
+
+
+    // if (cityData) {
+    //   marker.addEventListener(`tap`, e => {
+    //     const currentMarker = e.target;
+    //     const lat = currentMarker.b.lat;
+    //     const lng = currentMarker.b.lng;
+    //     const clickedWaypoint = findWaypoint(
+    //       lat,
+    //       lng,
+    //       cityData.routes[routeId].waypoints
+    //     );
+
+    //     const $h1 = document.createElement(`h1`);
+    //     const $p = document.createElement(`p`);
+    //     const $button = document.createElement(`button`);
+
+    //     const $content = document.querySelector(`.content`);
+    //     $content.textContent = ``;
+    //     $content.appendChild($h1);
+    //     $content.appendChild($p);
+    //     $content.appendChild($button);
+
+    //     $h1.textContent = clickedWaypoint.name;
+    //     $p.textContent = clickedWaypoint.description;
+    //     $button.textContent = `Meer info`;
+
+    //     // let activeAudio;
+
+    //     map.addEventListener(`tap`, e => {
+    //       if (e.target instanceof H.map.Marker) {
+    //         // eslint-disable-line
+    //         // eslint-disable-line
+    //         getClickPosition(e);
+    //       } else {
+    //         const $content = document.querySelector(`.content`);
+    //         $content.classList.add(`hidden`);
+    //         //activeAudio.load();
+    //       }
+    //     });
+
+    //     map.addEventListener(`drag`, () => {
+    //       const $content = document.querySelector(`.content`);
+    //       $content.classList.add(`hidden`);
+    //       //activeAudio.load();
+    //     });
+
+    //     $button.addEventListener(`click`, () => {
+    //       handleClickMoreInfoButton(clickedWaypoint, route);
+    //     });
+    //   });
+    // }
 
     // eslint-disable-next-line camelcase
     const $buttons_ar = document.querySelectorAll(`.route_choice_btn`);
@@ -1626,23 +1673,29 @@
       `index.php?page=ar&id=${cityRouteId}&city=${activeCityId}&cityRouteId=${cityRouteId}`
     );
 
-    const defaultLayers = platform.createDefaultLayers();
+    //const defaultLayers = platform.createDefaultLayers();
     /* eslint-disable*/
-    map = new H.Map(
-      document.getElementById("map"),
-      defaultLayers.vector.normal.map,
-      {
-        center: { lat: mapData.lat, lng: mapData.lng },
-        style: "default",
-        zoom: mapData.zm,
-        pixelRatio: window.devicePixelRatio || 1
-      }
-    );
+    // map = new H.Map(
+    //   document.getElementById("map"),
+    //   defaultLayers.vector.normal.map,
+    //   {
+    //     center: { lat: mapData.lat, lng: mapData.lng },
+    //     style: "default",
+    //     zoom: mapData.zm,
+    //     pixelRatio: window.devicePixelRatio || 1
+    //   }
+    // );
 
-    const ui = H.ui.UI.createDefault(map, defaultLayers);
-    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
-    /* eslint-enable*/
-    window.addEventListener(`resize`, () => map.getViewPort().resize());
+    const $mapImg = document.createElement(`img`);
+    map = document.getElementById("map");
+    map.appendChild($mapImg);
+    $mapImg.setAttribute(`src`, `./assets/img/kortrijk.jpg`);
+    $mapImg.classList.add(`map_img`);
+
+    // const ui = H.ui.UI.createDefault(map, defaultLayers);
+    // var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+    // /* eslint-enable*/
+    // window.addEventListener(`resize`, () => map.getViewPort().resize());
     console.log(cityRouteId);
     console.log(data.cities[cityId]);
 
@@ -1655,6 +1708,7 @@
       $map_info.remove();
     }
   };
+
 
   const fetchUserLocation = () => {
     navigator.geolocation.getCurrentPosition(function (location) {
