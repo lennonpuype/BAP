@@ -118,7 +118,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
   } ?>
 
   <?php if($_SESSION['user']['l'] == 'fr' && !empty($_SESSION['user']['unlockedroutes'])){ ?>
-    <div class="popup_code hidden"></div>
+    <div class="popup_code blur_hidden hidden"></div>
     <header class="header">
     <img src="././assets/img/stickerlogo.png" alt="Logo van a.r.u.next" width="29" height="47">
       <h1 class="logo_title">a.r.u.next</h1>
@@ -145,7 +145,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
     </nav>
 
     </header>
-    <main class="routePage">
+    <main class="routePage main_blur">
       <nav class="cities_nav">
         <ul class="cities">
           <li class="city_link active_city" data-id="0">Courtrai</li>
@@ -174,7 +174,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
 
   <?php if($_SESSION['user']['l'] == 'en' && !empty($_SESSION['user']['unlockedroutes'])){ ?>
 
-    <div class="popup_code hidden"></div>
+    <div class="popup_code blur_hidden hidden"></div>
     <header class="header">
     <img src="././assets/img/stickerlogo.png" alt="Logo van a.r.u.next" width="29" height="47">
       <h1 class="logo_title">a.r.u.next</h1>
@@ -200,7 +200,7 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
         </form>
     </nav>
     </header>
-    <main class="routePage">
+    <main class="routePage main_blur">
       <nav class="cities_nav">
         <ul class="cities">
           <li class="city_link active_city" data-id="0">Kortrijk</li>
