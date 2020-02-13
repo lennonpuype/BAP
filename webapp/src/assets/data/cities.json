@@ -18,9 +18,9 @@
           "descfr": "Découvrez les merveilleuses traces laissées par les rois, les légendes et bien sûr aussi les trains de la ville.",
           "descen": "Discover the wonderful traces left by kings, legends and of course also the trains in the city.",
           "img": "./assets/img/k_sporen.gif",
-          "stepsImg": "./assets/img/greensteps.png",
-          "wpImg": "./assets/img/grar.png",
-          "timeImg": "./assets/img/grc.png",
+          "stepsImg": "./assets/img/icons/steps_green.svg",
+          "wpImg": "./assets/img/icons/ar_green.svg",
+          "timeImg": "./assets/img/icons/time_green.svg",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.827667,3.265455&waypoint1=geo!50.830236,3.26461&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
           "color1": "#7BC88F",
           "color2": "#9AD7AA",
@@ -29,7 +29,8 @@
               "id": 0,
               "globalId": 0,
               "name": "Grote Markt Kortrijk",
-              "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "description": "Kijk eens naar boven! Zie je ze? De 2 helden van de stad, Manten en Kalle!",
+              "long_desc": "De 2 klokkenluiders Manten en Kalle zijn de spilfiguren van deze legendarische sage in Kortrijk. </br> </br> Manten en Kalle waren beide klokkenluider van het belfort tot op een dag het vijandige Franse leger hun intrede maakten.. Kortrijk lag al jaren in strijd met Frankrijk en zag deze invallers liever niet dan wel. Gelukkig zagen de 2 helden hen afkomen en waarschuwden ze de andere dorpelingen. Door hun heldendaad waren ze helaas zelf te prooi gevallen.. Eenmaal afgevoerd naar Dijon belanden ze in de kerker bij een kwaadwillige heks.. Deze betoverde Manten en Kalle waardoor ze veranderden in reuzen. Zo braken ze letterlijk uit hun cel heen en namen ze de benen terug naar hun geliefde Kortrijk…",
               "geolocation": {
                 "lat": 50.827578,
                 "lng": 3.266038
@@ -44,7 +45,8 @@
               "id": 1,
               "globalId": 1,
               "name": "Kunstcentrum Buda",
-              "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "description": "Creatief en nieuwsgierig? Dan ben je hier op je plek!",
+              "long_desc": "Welkom op het Buda-eiland! Een eiland waar creativiteit een thuis krijgt. Zo is er de Budafabriek, Budascoop en de BudaBeach waar doorheen het jaar kunst een plekje krijg, binnen en buiten. Zo vindt er elk jaar rond november het NEXT Festival plaats. Dit festival zet de deuren rekkewijd open voor kunst, performance en dans. P.S. Wist je trouwens dat de Budafabriek vroeger echt een fabriek was? Zo stond hier vroeger een hele grote textielfabriek.",
               "geolocation": {
                 "lat": 50.830599,
                 "lng": 3.264785
@@ -59,10 +61,11 @@
               "id": 2,
               "globalId": 2,
               "name": "Texture Museum",
-              "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "description": "Textiel en vlas, de grondstoffen voor de rijkdom van Kortrijk.",
+              "long_desc": "Ons vorige stop leidde het al een beetje in, maar textiel en vlasnijverheid waren vroeger big business in Kortrijk. Deze stoffen stonden vormden de bakermat voor heel wat rijkdom in en rond Kortrijk. Door de goeie kwaliteit en vooral lage prijzen stond Kortrijk al snel bekend als de textiel hoofdstad van de wereld in de jaren 60. Deze fabrieken waren meestal in handen van families, van vader op zoon en dat vaak tot op de dag vandaag!",
               "geolocation": {
-                "lat": 50.828895,
-                "lng": 3.263501
+                "lat": 50.830702,
+                "lng": 3.256092
               },
               "marker": {
                 "top": "12rem",
@@ -73,8 +76,8 @@
             {
               "id": 3,
               "globalId": 3,
-              "name": "Texture Museum",
-              "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "name": "Stationsplein Kortrijk",
+              "description": "Op dit punt kan je de route aanvatten!",
               "geolocation": {
                 "lat": 50.830722,
                 "lng": 3.256457
@@ -89,7 +92,8 @@
               "id": 4,
               "globalId": 4,
               "name": "Hangar K",
-              "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "description": "Dit driehoekige gebouw oogt modern maar heeft er al een heel leven opzitten.",
+              "long_desc": "Wat je hier zit is een prachtig staaltje ongekende geschiedenis door zelfs heel wat inwoners van Kortrijk. </br> Ongekend is niet onbemind, en al zeker niet op dit plein. Het gebouw deed vroeger dienst als grote opslag- en hersteldienst voor de treinen van heel West-Vlaanderen. Door de belangrijke textielindustrie beschikte Kortrijk over een uitmuntend uniek treinverbinding met groot steden zoals Parijs en Brussel. Waar we vandaag enkel nog maar van kunnen dromen…",
               "geolocation": {
                 "lat": 50.825494,
                 "lng": 3.255177
@@ -101,10 +105,11 @@
               "visited": "no"
             },
             {
-              "id": 5,
-              "globalId": 5,
+              "id": 4,
+              "globalId": 4,
               "name": "Conservatoriumplein",
-              "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "description": "test",
+              "long_desc": "test",
               "geolocation": {
                 "lat": 50.825546,
                 "lng": 3.259971
@@ -116,10 +121,11 @@
               "visited": "no"
             },
             {
-              "id": 6,
-              "globalId": 6,
+              "id": 5,
+              "globalId": 5,
               "name": "Julia's",
-              "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "description": "test",
+              "long_desc": "test",
               "geolocation": {
                 "lat": 50.825353,
                 "lng": 3.263917
@@ -144,16 +150,16 @@
           "descfr": "Promenez-vous dans la ville et découvrez les talents du passé et du présent qui étonnent et font de la ville ce qu'elle est aujourd'hui.",
           "descen": "Take a walk through the city and discover the talents of the past and present that amaze and make the city what it is today.",
           "img": "./assets/img/k_talent.gif",
-          "stepsImg": "./assets/img/yellowsteps.png",
-          "wpImg": "./assets/img/yar.png",
-          "timeImg": "./assets/img/yecr.png",
+          "stepsImg": "./assets/img/icons/steps_yellow.svg",
+          "wpImg": "./assets/img/icons/ar_yellow.svg",
+          "timeImg": "./assets/img/icons/time_yellow.svg",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
           "color1": "#FFBA00",
           "color2": "#FFD35C",
           "waypoints": [
             {
               "id": 0,
-              "globalId": 7,
+              "globalId": 6,
               "name": "Blablabla",
               "description": "Dit is een waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
               "geolocation": {
@@ -164,7 +170,7 @@
             },
             {
               "id": 1,
-              "globalId": 8,
+              "globalId": 7,
               "name": "Nanother",
               "description": "Dit is een waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
               "geolocation": {
@@ -175,7 +181,7 @@
             },
             {
               "id": 2,
-              "globalId": 9,
+              "globalId": 8,
               "name": "Nanderen",
               "description": "Dit is een waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
               "geolocation": {
@@ -198,16 +204,16 @@
           "descfr": "Apprenez à connaître les créateurs et les dirigeants de l'avenir: des empereurs aux héros et aux visions d'hier et de demain!",
           "descen": "Get to know the creators and rulers of the future: from emperors to heroes and visions of yesterday and tomorrow!",
           "img": "./assets/img/k_toekomst.gif",
-          "stepsImg": "./assets/img/redsteps.png",
-          "wpImg": "./assets/img/redar.png",
-          "timeImg": "./assets/img/redc.png",
+          "stepsImg": "./assets/img/icons/steps_red.svg",
+          "wpImg": "./assets/img/icons/ar_red.svg",
+          "timeImg": "./assets/img/icons/time_red.svg",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
           "color1": "#FF0031",
           "color2": "#FF5172",
           "waypoints": [
             {
               "id": 0,
-              "globalId": 10,
+              "globalId": 9,
               "name": "Kalle en manten",
               "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
               "geolocation": {
@@ -218,7 +224,7 @@
             },
             {
               "id": 1,
-              "globalId": 11,
+              "globalId": 10,
               "name": "Nanother",
               "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
               "geolocation": {
@@ -229,7 +235,7 @@
             },
             {
               "id": 2,
-              "globalId": 12,
+              "globalId": 11,
               "name": "Nanderen",
               "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
               "geolocation": {
@@ -261,9 +267,9 @@
           "descfr": "Découvrez les merveilleuses traces laissées par les rois, les légendes et bien sûr aussi les trains de la ville.",
           "descen": "Discover the wonderful traces left by kings, legends and of course also the trains in the city.",
           "img": "./assets/img/k_sporen.gif",
-          "stepsImg": "./assets/img/greensteps.png",
-          "wpImg": "./assets/img/grar.png",
-          "timeImg": "./assets/img/grc.png",
+          "stepsImg": "./assets/img/icons/steps_green.svg",
+          "wpImg": "./assets/img/icons/ar_green.svg",
+          "timeImg": "./assets/img/icons/time_green.svg",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.827667,3.265455&waypoint1=geo!50.830236,3.26461&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
           "color1": "#7BC88F",
           "color2": "#9AD7AA",
@@ -314,9 +320,9 @@
           "descfr": "Promenez-vous dans la ville et découvrez les talents du passé et du présent qui étonnent et font de la ville ce qu'elle est aujourd'hui.",
           "descen": "Take a walk through the city and discover the talents of the past and present that amaze and make the city what it is today.",
           "img": "./assets/img/k_talent.gif",
-          "stepsImg": "./assets/img/yellowsteps.png",
-          "wpImg": "./assets/img/yar.png",
-          "timeImg": "./assets/img/yecr.png",
+          "stepsImg": "./assets/img/icons/steps_yellow.svg",
+          "wpImg": "./assets/img/icons/ar_yellow.svg",
+          "timeImg": "./assets/img/icons/time_yellow.svg",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
           "color1": "#FFBA00",
           "color2": "#FFD35C",
@@ -367,9 +373,9 @@
           "descfr": "Apprenez à connaître les créateurs et les dirigeants de l'avenir: des empereurs aux héros et aux visions d'hier et de demain!",
           "descen": "Get to know the creators and rulers of the future: from emperors to heroes and visions of yesterday and tomorrow!",
           "img": "./assets/img/k_toekomst.gif",
-          "stepsImg": "./assets/img/redsteps.png",
-          "wpImg": "./assets/img/redar.png",
-          "timeImg": "./assets/img/redc.png",
+          "stepsImg": "./assets/img/icons/steps_red.svg",
+          "wpImg": "./assets/img/icons/ar_red.svg",
+          "timeImg": "./assets/img/icons/time_red.svg",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
           "color1": "#FF0031",
           "color2": "#FF5172",
@@ -430,7 +436,7 @@
           "descfr": "Découvrez les merveilleuses traces laissées par les rois, les légendes et bien sûr aussi les trains de la ville.",
           "descen": "Discover the wonderful traces left by kings, legends and of course also the trains in the city.",
           "img": "./assets/img/k_sporen.gif",
-          "stepsImg": "./assets/img/greensteps.png",
+          "stepsImg": "./assets/img/icons/steps_green.svg",
           "wpImg": "./assets/img/grar.png",
           "timeImg": "./assets/img/grc.png",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.827667,3.265455&waypoint1=geo!50.830236,3.26461&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
@@ -483,9 +489,9 @@
           "descfr": "Promenez-vous dans la ville et découvrez les talents du passé et du présent qui étonnent et font de la ville ce qu'elle est aujourd'hui.",
           "descen": "Take a walk through the city and discover the talents of the past and present that amaze and make the city what it is today.",
           "img": "./assets/img/k_talent.gif",
-          "stepsImg": "./assets/img/yellowsteps.png",
-          "wpImg": "./assets/img/yar.png",
-          "timeImg": "./assets/img/yecr.png",
+          "stepsImg": "./assets/img/icons/steps_yellow.svg",
+          "wpImg": "./assets/img/icons/ar_yellow.svg",
+          "timeImg": "./assets/img/icons/time_yellow.svg",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
           "color1": "#FFBA00",
           "color2": "#FFD35C",
@@ -536,9 +542,9 @@
           "descfr": "Apprenez à connaître les créateurs et les dirigeants de l'avenir: des empereurs aux héros et aux visions d'hier et de demain!",
           "descen": "Get to know the creators and rulers of the future: from emperors to heroes and visions of yesterday and tomorrow!",
           "img": "./assets/img/k_toekomst.gif",
-          "stepsImg": "./assets/img/redsteps.png",
-          "wpImg": "./assets/img/redar.png",
-          "timeImg": "./assets/img/redc.png",
+          "stepsImg": "./assets/img/icons/steps_red.svg",
+          "wpImg": "./assets/img/icons/ar_red.svg",
+          "timeImg": "./assets/img/icons/time_red.svg",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
           "color1": "#FF0031",
           "color2": "#FF5172",
@@ -599,9 +605,9 @@
           "descfr": "Découvrez les merveilleuses traces laissées par les rois, les légendes et bien sûr aussi les trains de la ville.",
           "descen": "Discover the wonderful traces left by kings, legends and of course also the trains in the city.",
           "img": "./assets/img/k_sporen.gif",
-          "stepsImg": "./assets/img/greensteps.png",
-          "wpImg": "./assets/img/grar.png",
-          "timeImg": "./assets/img/grc.png",
+          "stepsImg": "./assets/img/icons/steps_green.svg",
+          "wpImg": "./assets/img/icons/ar_green.svg",
+          "timeImg": "./assets/img/icons/time_green.svg",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.827667,3.265455&waypoint1=geo!50.830236,3.26461&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
           "color1": "#7BC88F",
           "color2": "#9AD7AA",
@@ -652,9 +658,9 @@
           "descfr": "Promenez-vous dans la ville et découvrez les talents du passé et du présent qui étonnent et font de la ville ce qu'elle est aujourd'hui.",
           "descen": "Take a walk through the city and discover the talents of the past and present that amaze and make the city what it is today.",
           "img": "./assets/img/k_talent.gif",
-          "stepsImg": "./assets/img/yellowsteps.png",
-          "wpImg": "./assets/img/yar.png",
-          "timeImg": "./assets/img/yecr.png",
+          "stepsImg": "./assets/img/icons/steps_yellow.svg",
+          "wpImg": "./assets/img/icons/ar_yellow.svg",
+          "timeImg": "./assets/img/icons/time_yellow.svg",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
           "color1": "#FFBA00",
           "color2": "#FFD35C",
@@ -705,9 +711,9 @@
           "descfr": "Apprenez à connaître les créateurs et les dirigeants de l'avenir: des empereurs aux héros et aux visions d'hier et de demain!",
           "descen": "Get to know the creators and rulers of the future: from emperors to heroes and visions of yesterday and tomorrow!",
           "img": "./assets/img/k_toekomst.gif",
-          "stepsImg": "./assets/img/redsteps.png",
-          "wpImg": "./assets/img/redar.png",
-          "timeImg": "./assets/img/redc.png",
+          "stepsImg": "./assets/img/icons/steps_red.svg",
+          "wpImg": "./assets/img/icons/ar_red.svg",
+          "timeImg": "./assets/img/icons/time_red.svg",
           "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
           "color1": "#FF0031",
           "color2": "#FF5172",

@@ -134,11 +134,14 @@
     </header>
   <!-- <h1 class="page_title">Route <?php if(!empty($_GET['id'])){echo $_GET['id'];} ?></h1> -->
   <!-- <div class="content"></div> -->
-  <div class="content"></div>
+  <div class="content_div">
+  <div class="content hidden"></div>
+</div>
   <div id="map" class="main_blur"></div>
   <div class="buttons_route blur_hidden">
-  <a href="#" class="active route_choice_btn">route</a>
-  <a class="arBtn route_choice_btn">AR-camera</a>
+  <a href="#" class="active route_choice_btn"><img src="././assets/img/icons/pin.svg" alt="Route" width="36" height="48"></a>
+  <a class="arBtn route_choice_btn rtn_btn_camera-inactive"><img src="././assets/img/icons/camera_yellow.svg" alt="Route" width="48" height="36"></a>
+
   </div>
 </section>
 <section class="detailPage main_blur">

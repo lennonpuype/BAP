@@ -65,6 +65,18 @@ a {
   height: 100%;
 }
 
+.page1 {
+  background: url(./assets/img/kort.jpg);
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(6px);
+}
+
 .page1 .page_btn,
 .page3 .page_btn,
 .page4 .page_btn {
@@ -133,10 +145,19 @@ a {
   display: none !important;
 }
 
-.content {
+.content_div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   position: absolute;
+  align-items: center;
+  margin-top: -5rem;
+}
+
+.content {
   z-index: 1;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255);
   text-align: left;
   font-family: sans-serif;
   padding: 3rem;

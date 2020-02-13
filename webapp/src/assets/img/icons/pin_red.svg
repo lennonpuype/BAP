@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="73px" height="137px" viewBox="0 0 73 137" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-422.000000, -461.000000)" stroke="#FF0031" stroke-width="4">
+            <g id="Group" transform="translate(424.000000, 463.000000)">
+                <ellipse id="Oval" cx="34.0870331" cy="128" rx="32" ry="5"></ellipse>
+                <path d="M34.0870331,123 C38.7565331,123 68.0870331,85.5183136 68.0870331,52.9438503 C68.0870331,20.3693869 71.5938631,0 34.0870331,0 C-3.41979701,0 0.0870330661,20.3693869 0.0870330661,52.9438503 C0.0870330661,85.5183136 29.417533,123 34.0870331,123 Z" id="Oval"></path>
+                <path d="M34.0870331,76 C36.1418467,76 49.0487342,59.2398963 49.0487342,44.6740794 C49.0487342,30.1082624 50.5919149,21 34.0870331,21 C17.5821513,21 19.125332,30.1082624 19.125332,44.6740794 C19.125332,59.2398963 32.0322194,76 34.0870331,76 Z" id="Oval"></path>
+            </g>
+        </g>
+    </g>
+</svg>

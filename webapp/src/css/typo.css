@@ -168,3 +168,10 @@ h1 {
   font-size: 1.7rem;
   line-height: 1.6;
 }
+
+/*DETAIL WAYPOINT*/
+.detail_description {
+  font-family: Lato, sans-serif;
+  font-size: 1.7rem;
+  line-height: 1.6;
+}

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="theme-color" content="#090909">
+  <meta name="theme-color" content="#F8F8F8">
 
   <link rel="icon" type="image/png" href="./assets/img/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Lato|Raleway:500,700&display=swap" rel="stylesheet">

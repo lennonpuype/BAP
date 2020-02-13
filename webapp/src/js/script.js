@@ -606,9 +606,15 @@
             $a.innerHTML = `Ga verder >`;
             $a.classList.remove(`hidden`);
             if ($routePage) {
-              $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}&action=enternewcode`);
+              $a.setAttribute(
+                `href`,
+                `index.php?page=routes&l=nl&code=${value}&action=enternewcode`
+              );
             } else {
-              $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}`);
+              $a.setAttribute(
+                `href`,
+                `index.php?page=routes&l=nl&code=${value}`
+              );
             }
           } else {
             $a.innerHTML = ``;
@@ -731,9 +737,15 @@
             $a.innerHTML = `Continuez >`;
             $a.classList.remove(`ongeldig`);
             if ($routePage) {
-              $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}&action=enternewcode`);
+              $a.setAttribute(
+                `href`,
+                `index.php?page=routes&l=nl&code=${value}&action=enternewcode`
+              );
             } else {
-              $a.setAttribute(`href`, `index.php?page=routes&l=fr&code=${value}`);
+              $a.setAttribute(
+                `href`,
+                `index.php?page=routes&l=fr&code=${value}`
+              );
             }
           } else {
             console.log(`Enter a valid code`);
@@ -814,9 +826,15 @@
             $a.innerHTML = `Continue >`;
             $a.classList.remove(`ongeldig`);
             if ($routePage) {
-              $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}&action=enternewcode`);
+              $a.setAttribute(
+                `href`,
+                `index.php?page=routes&l=nl&code=${value}&action=enternewcode`
+              );
             } else {
-              $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${value}`);
+              $a.setAttribute(
+                `href`,
+                `index.php?page=routes&l=en&code=${value}`
+              );
             }
           } else {
             console.log(`Enter a valid code`);
@@ -851,7 +869,6 @@
       if ($codeContent) {
         $codeContent.classList.remove(`code_div_popup`);
       }
-
     }
 
     const $code = document.querySelector(`.code`);
@@ -1043,7 +1060,6 @@
           $page3.classList.remove(`inactive`);
         });
       }
-
     });
   };
 
@@ -1089,8 +1105,6 @@
       let visitedWaypoints = []; // eslint-disable-line
       triggerFinishAllPoints(visitedWaypoints);
     }, 100);
-
-
   };
 
   const showARInfo = (activeRoute, $waypointInfoElement) => {
@@ -1187,7 +1201,10 @@
         const lineString = new H.geo.LineString();
 
         waypoints.map(waypoint => {
-          lineString.pushPoint({ lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng });
+          lineString.pushPoint({
+            lat: waypoint.geolocation.lat,
+            lng: waypoint.geolocation.lng
+          });
         });
 
         // map.addObject(new H.map.Polyline(
@@ -1297,8 +1314,6 @@
         $singleRoutePage.classList.remove(`hidden`);
       }
     }
-
-
   };
 
   const loadOnboardingView = currentOnboarding => {
@@ -1598,7 +1613,7 @@
     </div>
     <hr>
     <div class="article_detail_bottom">
-      <p class="detail_description">${waypoint.description}</p>
+      <p class="detail_description">${waypoint.long_desc}</p>
     </div>`;
 
     //Audio
