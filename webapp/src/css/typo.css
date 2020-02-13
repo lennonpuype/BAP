@@ -55,7 +55,8 @@ h1 {
 
 /* CODE SCREEN */
 
-.help_btn_code {
+.help_btn_code,
+.skip_onboarding_text {
   font-size: 1.6rem;
   font-family: Raleway, sans-serif;
   font-weight: bold;
