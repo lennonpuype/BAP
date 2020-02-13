@@ -26,7 +26,6 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       exit();
     }
   }
-
   if($_GET['l'] == 'fr'){
     if(empty($_SESSION)){
       $_SESSION['user']['l'] = "fr";

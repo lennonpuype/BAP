@@ -37,7 +37,6 @@ class NextController extends Controller {
 
      $_SESSION['user']['unlockedroutes'] = array();
      foreach($_SESSION['user']['codes'] as $code){
-
       $firstCharacter = $code[0];
       $secondCharacter = $code[1];
 

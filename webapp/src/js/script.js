@@ -417,7 +417,6 @@
 
   const routeDetailCarousel = waypoint => {
     //1. Routes section met Flickity aanmaken
-
     const $imagesContainer = document.querySelector(`.images_container`);
 
     const $section = document.createElement(`section`);
@@ -508,90 +507,22 @@
     }
   };
 
-  const showPopupCodeScreen = (language, $popup) => {
-    let codeValue = ``;
-    const $a = document.createElement(`a`);
-    const $routePage = document.querySelector(`.routePage`);
-
-    $popup.innerHTML = `
-    <div class="codeTest">
-    <h1 class="page_title_small">Voer je persoonlijke code<br/>hier in</h1>
-    <p class="sub_info">Deze kan je vinden op het door<br/>jou gekozen ticketje</p>
-    <form>
-    <input type="hidden" name="action" value="entercode"/>
-    <input type="hidden" name="l" value="nl"/>
-    <div class="code_div">
-    <div class="code_input">
-    <input type="text" name="code" class="code neumorphism_box" maxlength="5" disabled/>
-    <a class="help_btn_code">Hulp nodig TEST?</a>
-    </div>
-      <div class="character_btns">
-        <button class="char_btn code_btn" type="button">0</button>
-        <button class="char_btn code_btn" type="button">1</button>
-        <button class="char_btn code_btn" type="button">2</button>
-        <button class="char_btn code_btn" type="button">3</button>
-        <button class="char_btn code_btn" type="button">4</button>
-        <button class="char_btn code_btn" type="button">5</button>
-        <button class="char_btn code_btn" type="button">6</button>
-        <button class="char_btn code_btn" type="button">7</button>
-        <button class="char_btn code_btn" type="button">8</button>
-        <button class="char_btn code_btn" type="button">9</button>
-        <button class="char_btn code_btn" type="button">S</button>
-        <button class="char_btn code_btn" type="button">T</button>
-        <button class="char_btn code_btn" type="button">F</button>
-        <button class="char_btn code_btn" type="button">K</button>
-        <button class="char_btn code_btn" type="button">L</button>
-        <button class="char_btn code_btn" type="button">V</button>
-        <button class="extra_btn clear_btn code_btn" data-type="clear" type="button">C</button>
-        <button class="extra_btn delete_btn code_btn" data-type="remove" type="button"><</button>
-      </div>
-    </div>
-  </form></div>`;
-
-    const $codeDiv = document.querySelector(`.code_div`);
-    const $code = document.querySelector(`.code`);
-
-    const $allBtns = document.querySelectorAll(`.char_btn`);
-    const allBtnArray = Array.from($allBtns);
-
-    const $allExtraBtns = document.querySelectorAll(`.extra_btn`);
-    const allExtraBtnArray = Array.from($allExtraBtns);
-
-    allExtraBtnArray.map(btn => {
-      btn.addEventListener(`click`, e => {
-        if (e.currentTarget.dataset.type === `clear`) {
-          codeValue = ``;
-          $code.value = ``;
-        }
-
-        if (e.currentTarget.dataset.type === `remove`) {
-          codeValue = codeValue.substring(0, codeValue.length - 1);
-          $code.value = codeValue;
-        }
-      });
-    });
-
-    allBtnArray.map(btn => {
-      btn.addEventListener(`click`, e => {
-        if (codeValue.length >= 5) {
-          codeValue = codeValue; // eslint-disable-line
-        } else {
-          codeValue += e.currentTarget.textContent;
-        }
-
-        $a.setAttribute(
-          `href`,
-          `index.php?page=routes&l=nl&code=${codeValue}&action=enternewcode`
-        );
-        $code.value = codeValue;
-      });
-    });
-  };
-
   const showCodeScreen = (page, language) => {
     let codeValue = ``;
     const $a = document.createElement(`a`);
     const $routePage = document.querySelector(`.routePage`);
+
+    if (language === `dutch`) {
+      language = `nl`;
+    }
+
+    if (language === `french`) {
+      language = `fr`;
+    }
+
+    if (language === `english`) {
+      language = `nl`;
+    }
 
     if (language === `nl`) {
       // eslint-disable-line
@@ -657,7 +588,7 @@
           ) {
             $a.innerHTML = `Ga verder >`;
             $a.classList.remove(`hidden`);
-            $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${value}&action=enternewcode`);
+            $a.setAttribute(`href`, `index.php?page=routes&l=nl&code=${value}`);
           } else {
             $a.innerHTML = ``;
             $a.classList.add(`hidden`);
@@ -781,7 +712,7 @@
             console.log(`Code is valid`);
             $a.innerHTML = `Continuez >`;
             $a.classList.remove(`ongeldig`);
-            $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${value}&action=enternewcode`);
+            $a.setAttribute(`href`, `index.php?page=routes&l=fr&code=${value}`);
           } else {
             console.log(`Enter a valid code`);
             $a.innerHTML = `Code invalide`;
@@ -863,7 +794,7 @@
             console.log(`Code is valid`);
             $a.innerHTML = `Continue >`;
             $a.classList.remove(`ongeldig`);
-            $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${value}&action=enternewcode`);
+            $a.setAttribute(`href`, `index.php?page=routes&l=en&code=${value}`);
           } else {
             console.log(`Enter a valid code`);
             $a.innerHTML = `Invalid code`;
@@ -895,7 +826,10 @@
       $codeContent.classList.add(`code_div_popup`);
       $header.classList.add(`hidden`);
     } else {
-      $codeContent.classList.remove(`code_div_popup`);
+      if ($codeContent) {
+        $codeContent.classList.remove(`code_div_popup`);
+      }
+
     }
 
     const $code = document.querySelector(`.code`);
@@ -1084,10 +1018,13 @@
       }
 
       const pageBtn = $page4.querySelector(`.back_btn`);
-      pageBtn.addEventListener(`click`, () => {
-        $page4.classList.add(`inactive`);
-        $page3.classList.remove(`inactive`);
-      });
+      if (pageBtn) {
+        pageBtn.addEventListener(`click`, () => {
+          $page4.classList.add(`inactive`);
+          $page3.classList.remove(`inactive`);
+        });
+      }
+
     });
   };
 
