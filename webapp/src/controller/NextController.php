@@ -127,6 +127,11 @@ class NextController extends Controller {
         $_SESSION['user']['skiponboarding'] = 1;
       }
 
+        if(!empty($_POST['action']) && $_POST['action'] == 'changeLanguage'){
+          $_SESSION['user']['l'] = $_POST['language'];
+        }
+
+
       if(!empty($_POST['action']) && $_POST['action'] == 'sendCode'){
         if(!empty($_POST['email'])){
 
@@ -176,17 +181,53 @@ class NextController extends Controller {
     }
   }
 
-  public function ar(){}
+  public function ar(){
+    if(!empty($_POST)){
+        if(!empty($_POST['action']) && $_POST['action'] == 'changeLanguage'){
+          $_SESSION['user']['l'] = $_POST['language'];
+        }
+      }
+  }
 
-  public function arscene(){}
+  public function arscene(){
+    if(!empty($_POST)){
+        if(!empty($_POST['action']) && $_POST['action'] == 'changeLanguage'){
+          $_SESSION['user']['l'] = $_POST['language'];
+        }
+      }
+  }
 
-  public function desktop(){}
+  public function desktop(){
+    if(!empty($_POST)){
+        if(!empty($_POST['action']) && $_POST['action'] == 'changeLanguage'){
+          $_SESSION['user']['l'] = $_POST['language'];
+        }
+      }
+  }
 
-  public function mobile(){}
+  public function mobile(){
+    if(!empty($_POST)){
+        if(!empty($_POST['action']) && $_POST['action'] == 'changeLanguage'){
+          $_SESSION['user']['l'] = $_POST['language'];
+        }
+      }
+  }
 
-  public function faq(){}
+  public function faq(){
+    if(!empty($_POST)){
+        if(!empty($_POST['action']) && $_POST['action'] == 'changeLanguage'){
+          $_SESSION['user']['l'] = $_POST['language'];
+        }
+      }
+  }
 
-  public function thankyou(){}
+  public function thankyou(){
+    if(!empty($_POST)){
+        if(!empty($_POST['action']) && $_POST['action'] == 'changeLanguage'){
+          $_SESSION['user']['l'] = $_POST['language'];
+        }
+      }
+  }
 
   public function logout(){
     session_destroy();

@@ -401,9 +401,11 @@
     const lockedRoutesArray = Array.from($lockedRoutes);
     const $routePage = document.querySelector(`.routePage`);
     lockedRoutesArray.map(lockedRoute => {
-
       lockedRoute.addEventListener(`click`, () => {
-        if (lockedRoute.classList.contains(`route_button`) && lockedRoute.classList.contains(`locked`)) {
+        if (
+          lockedRoute.classList.contains(`route_button`) &&
+          lockedRoute.classList.contains(`locked`)
+        ) {
           const $popup = document.querySelector(`.popup_code`);
           $popup.classList.remove(`hidden`);
           $routePage.classList.add(`hidden`);
@@ -411,7 +413,6 @@
         }
         //showPopupCodeScreen(currentLanguage, $popup);
       });
-
     });
   };
 
@@ -818,7 +819,6 @@
       });
     }
 
-
     const $codeContent = document.querySelector(`.code_content`);
     const $header = document.querySelector(`.header`);
 
@@ -1206,6 +1206,13 @@
       .then(r => r.json())
       .then(parseMaps);
 
+    const $skipOnboarding = document.querySelector(`.skip_onboarding_form`);
+    if ($skipOnboarding) {
+      $skipOnboarding.classList.remove(`invalid`);
+      $skipOnboarding.removeAttribute(`novalidate`);
+      console.log($skipOnboarding);
+    }
+
     handleOnboarding();
 
     setInterval(() => {
@@ -1220,6 +1227,7 @@
     const $onboardingSeen = document.querySelector(`.onboardingSeen`);
     const $singleRoutePage = document.querySelector(`.singleRoutePage`);
     $singleRoutePage.classList.add(`hidden`);
+
     if ($onboarding) {
       let currentOnboarding = 1;
       loadOnboardingView(currentOnboarding);
@@ -1256,6 +1264,8 @@
         $singleRoutePage.classList.remove(`hidden`);
       }
     }
+
+
   };
 
   const loadOnboardingView = currentOnboarding => {
@@ -1353,16 +1363,16 @@
       }
     });
 
-    if (userLocation !== ``) {
-      setInterval(() => {
-        const userMarker = new H.map.Marker({
-          // eslint-disable-line
-          lat: userLocation.lat,
-          lng: userLocation.lng
-        }); // eslint-disable-line
-        map.addObject(userMarker);
-      }, 1000);
-    }
+    // if (userLocation !== ``) {
+    //   setInterval(() => {
+    //     const userMarker = new H.map.Marker({
+    //       // eslint-disable-line
+    //       lat: userLocation.lat,
+    //       lng: userLocation.lng
+    //     }); // eslint-disable-line
+    //     map.addObject(userMarker);
+    //   }, 1000);
+    // }
   };
 
   const makeMarker = (marker, cityData, routeId) => {
@@ -1423,6 +1433,17 @@
         });
       });
     }
+
+    // eslint-disable-next-line camelcase
+    const $buttons_ar = document.querySelectorAll(`.route_choice_btn`);
+
+    const buttonsArArray = Array.from($buttons_ar);
+
+    buttonsArArray.map(item => {
+      // item.style.backgroundColor = `linear-gradient(90deg, ${route.color1} 0%, ${route.color2} 100%);`;
+      // item.style.background = `linear-gradient(90deg, ${route.color1} 0%, ${route.color2} 100%); !important`;
+      item.classList.add(`btn_gradient_${route.id}`);
+    });
   };
 
   const handleClickMoreInfoButton = (waypoint, route) => {
@@ -1470,7 +1491,6 @@
     const $article = document.createElement(`article`);
     const $h1 = document.createElement(`h1`);
     const $button = document.createElement(`button`);
-    $article.classList.add(`detail_page`);
 
     $detailPage.appendChild($article);
     $article.appendChild($h1);
@@ -1600,6 +1620,11 @@
     fetch(data.cities[cityId].routes[cityRouteId].route)
       .then(r => r.json())
       .then(d => parseUrl(d, data.cities[cityId], map, cityRouteId));
+
+    const $map_info = document.querySelector(`.H_imprint`);
+    if ($map_info) {
+      $map_info.remove();
+    }
   };
 
   const fetchUserLocation = () => {

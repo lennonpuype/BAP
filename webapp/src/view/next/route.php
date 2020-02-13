@@ -108,11 +108,38 @@
 
       </div>
   </article>
-  <h1 class="page_title">Route <?php if(!empty($_GET['id'])){echo $_GET['id'];} ?></h1>
+  <header class="header">
+    <img src="././assets/img/stickerlogo.png" alt="Logo van a.r.u.next" width="29" height="47">
+      <h1 class="logo_title">a.r.u.next</h1>
+    <nav class="navbar">
+      <div class="hamburger-menu">
+      <div class="line line-1"></div>
+      <div class="line line-2"></div>
+      <div class="line line-3"></div>
+      </div>
+
+      <ul class="nav-list">
+      <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes">Alle tours</a></li>
+      <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq">Instructies & help</a></li>
+      <li class="nav-item nav-item-3"><a class="nav-link" target="_blank" href="http://www.nextfestival.eu/nl/internationaal-podiumkunstenfestival-voor-de-eurometropool-lille-kortrijk-tournai-valenciennes">Over NEXT Festival</a></li>
+      <li class="nav-item nav-item-4"><a class="nav-link" target="_blank" href="http://eurometropolis.eu/nl/">Over de Eurometropool</a></li>
+      </ul>
+      <form method="post">
+          <input type="hidden" name="action" value="changeLanguage"/>
+          <input type="submit" name="language" class="nav-language" value="nl" />
+          <input type="submit" name="language" class="nav-language" value="fr" />
+          <input type="submit" name="language" class="nav-language" value="en" class="active"/>
+      </form>
+    </nav>
+    </header>
+  <!-- <h1 class="page_title">Route <?php if(!empty($_GET['id'])){echo $_GET['id'];} ?></h1> -->
+  <!-- <div class="content"></div> -->
   <div class="content"></div>
-  <div id="map"></div>
-  <a href="#" class="active choise_btn">route</a>
-  <a class="arBtn choise_btn">AR-camera</a>
+  <div id="map" class="main_blur"></div>
+  <div class="buttons_route blur_hidden">
+  <a href="#" class="active route_choice_btn">route</a>
+  <a class="arBtn route_choice_btn">AR-camera</a>
+  </div>
 </section>
 <section class="detailPage main_blur">
   <div class="detail_container">

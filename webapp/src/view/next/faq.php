@@ -12,8 +12,8 @@
       <ul class="nav-list">
       <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes">Alle tours</a></li>
       <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq">Instructies & help</a></li>
-      <li class="nav-item nav-item-3"><a class="nav-link" href="#">Over NEXT Festival</a></li>
-      <li class="nav-item nav-item-4"><a class="nav-link" href="#">Over de Eurometropool</a></li>
+      <li class="nav-item nav-item-3"><a class="nav-link" target="_blank" href="http://www.nextfestival.eu/nl/internationaal-podiumkunstenfestival-voor-de-eurometropool-lille-kortrijk-tournai-valenciennes">Over NEXT Festival</a></li>
+      <li class="nav-item nav-item-4"><a class="nav-link" target="_blank" href="http://eurometropolis.eu/nl/">Over de Eurometropool</a></li>
       </ul>
       <form method="post">
           <input type="hidden" name="action" value="changeLanguage"/>

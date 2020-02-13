@@ -75,8 +75,8 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       <ul class="nav-list">
       <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes">Alle tours</a></li>
       <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq">Instructies & help</a></li>
-      <li class="nav-item nav-item-3"><a class="nav-link" href="#">Over NEXT Festival</a></li>
-      <li class="nav-item nav-item-4"><a class="nav-link" href="#">Over de Eurometropool</a></li>
+      <li class="nav-item nav-item-3"><a class="nav-link" target="_blank" href="http://www.nextfestival.eu/nl/internationaal-podiumkunstenfestival-voor-de-eurometropool-lille-kortrijk-tournai-valenciennes">Over NEXT Festival</a></li>
+      <li class="nav-item nav-item-4"><a class="nav-link" target="_blank" href="http://eurometropolis.eu/nl/">Over de Eurometropool</a></li>
       </ul>
       <form method="post">
           <input type="hidden" name="action" value="changeLanguage"/>
@@ -120,8 +120,8 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
   <?php if($_SESSION['user']['l'] == 'fr' && !empty($_SESSION['user']['unlockedroutes'])){ ?>
     <div class="popup_code hidden"></div>
     <header class="header">
-      <div class="icon"></div>
-      <h1 class="page_title">Trajets</h1>
+    <img src="././assets/img/stickerlogo.png" alt="Logo van a.r.u.next" width="29" height="47">
+      <h1 class="logo_title">a.r.u.next</h1>
       <nav class="navbar">
       <div class="hamburger-menu">
       <div class="line line-1"></div>
@@ -132,8 +132,9 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       <ul class="nav-list">
       <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes">Toutes les trajets</a></li>
       <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq">Instructions & aide</a></li>
-      <li class="nav-item nav-item-3"><a class="nav-link" href="#">En savoir plus sur NEXT Festival</a></li>
-      <li class="nav-item nav-item-4"><a class="nav-link" href="#">En savoir plus sur Eurometropole</a></li>
+      <li class="nav-item nav-item-3"><a class="nav-link" target="_blank" href="http://www.nextfestival.eu/fr/le-festival-international-des-arts-vivants-pour-l-eurometropole-lille-kortrijk-tournai-valenciennes">En savoir plus sur NEXT Festival</a></li>
+      <li class="nav-item nav-item-4"><a class="nav-link" target="_blank" href="http://eurometropolis.eu/fr/">En savoir plus sur Eurometropole</a></li>
+
       </ul>
       <form method="post">
           <input type="hidden" name="action" value="changeLanguage"/>
@@ -175,8 +176,9 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
 
     <div class="popup_code hidden"></div>
     <header class="header">
-      <div class="icon"></div>
-      <h1 class="page_title">Tours</h1>
+    <img src="././assets/img/stickerlogo.png" alt="Logo van a.r.u.next" width="29" height="47">
+      <h1 class="logo_title">a.r.u.next</h1>
+
       <nav class="navbar">
       <div class="hamburger-menu">
       <div class="line line-1"></div>
@@ -187,8 +189,8 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
       <ul class="nav-list">
       <li class="nav-item nav-item-1"><a class="nav-link" href="index.php?page=routes">All tours</a></li>
       <li class="nav-item nav-item-2"><a class="nav-link" href="index.php?page=faq">Instructions & help</a></li>
-      <li class="nav-item nav-item-3"><a class="nav-link" href="#">About NEXT Festival</a></li>
-      <li class="nav-item nav-item-4"><a class="nav-link" href="#">About Eurometropolis</a></li>
+      <li class="nav-item nav-item-3"><a class="nav-link" target="_blank" href="http://www.nextfestival.eu/en/about">About NEXT Festival</a></li>
+      <li class="nav-item nav-item-4"><a class="nav-link"  target="_blank"href="http://eurometropolis.eu/en/">About Eurometropolis</a></li>
       </ul>
       <form method="post">
           <input type="hidden" name="action" value="changeLanguage"/>
