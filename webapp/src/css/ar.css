@@ -55,3 +55,11 @@
 .arscene_buttons_div {
   margin: 0 auto;
 }
+
+.arscene_intro {
+  height: 40rem !important;
+}
+
+.test_ar_div {
+  margin-top: 1rem;
+}

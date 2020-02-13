@@ -176,13 +176,18 @@ a {
 
 .popup_text {
   color: white;
-  margin-top: 18rem;
   line-height: 1.6;
   text-align: center;
 }
 
 .popup_close {
   margin-left: auto;
+}
+
+.popup_image {
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
 }
 
 /* .arPage {

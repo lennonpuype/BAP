@@ -16,6 +16,10 @@ class NextController extends Controller {
   }
 
   public function routes(){
+    // unset($_SESSION);
+    // session_destroy();
+    // header('Location: index.php?page=mobile');
+    // exit();
     if(!empty($_GET['action']) && $_GET['action'] == "enternewcode"){
       if(!empty($_GET['code'])){
         array_push($_SESSION['user']['codes'], $_GET['code']);
