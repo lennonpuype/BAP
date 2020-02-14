@@ -52,7 +52,7 @@
   <a-entity gltf-model="#gltf8" scale=".02 .02 .02" animation-mixer></a-entity>
 </a-marker>
 
-<a-marker type='pattern' url='./assets/ar/data/pattern-colorsnew.patt' name="next" class="marker nextvertical">
+<a-marker type='pattern' url='./assets/ar/data/pattern-colorsnew.patt' name="nextnew" class="marker nextvertical">
   <a-entity gltf-model="#gltf9" scale=".02 .02 .02" animation-mixer></a-entity>
 </a-marker>
 
