@@ -175,3 +175,22 @@ h1 {
   font-size: 1.7rem;
   line-height: 1.6;
 }
+
+/*FOOTER*/
+
+.footer_text {
+  font-family: Lato, sans-serif;
+  color: white;
+  line-height: 1.6;
+}
+
+.footer_text-title {
+  font-family: Raleway, sans-serif;
+  font-weight: bold;
+}
+
+.rights-title {
+  color: white;
+  font-family: Lato, sans-serif;
+  color: white;
+}
