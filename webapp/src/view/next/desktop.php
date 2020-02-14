@@ -59,7 +59,7 @@
       <h1 class="route_title yellow">Talent Route</h1>
       <p class="route_description">Trek op pad door de stad en ontdek de talenten van nu en vroeger diede stad verwonderen</p>
     </article>
-    <article class="route_preview sporen_route" data-aos="fade-down">
+    <article class="route_preview sporen_route" data-aos="fade-up">
       <figure class="route_image"><img src="./assets/img/landingpagina/routes/k_sporen.gif" width="200" alt="Preview van wat je in de sporenroute kan verwachten"/></figure>
       <h1 class="route_title green">Sporen Route</h1>
       <p class="route_description">Ontdek de wondere sporen nagelaten door koningen, legendes en natuurlijk ook de treinen in de stad.</p>
@@ -168,7 +168,7 @@
       <h1 class="route_title yellow">Talent Route</h1>
       <p class="route_description">Take a walk through the city and discover the talents of the past and present that amaze and make the city what it is today.</p>
     </article>
-    <article class="route_preview sporen_route" data-aos="fade-down">
+    <article class="route_preview sporen_route" data-aos="fade-up">
       <figure class="route_image"><img src="./assets/img/landingpagina/routes/k_sporen.gif" width="200" alt="Preview van wat je in de sporenroute kan verwachten"/></figure>
       <h1 class="route_title green">Track Route</h1>
       <p class="route_description">Discover the wonderful traces left by kings, legends and of course also the trains in the city.</p>
@@ -273,7 +273,7 @@
       <h1 class="route_title yellow">Trajet des talents</h1>
       <p class="route_description">Promenez-vous dans la ville et découvrez les talents du passé et du présent qui étonnent et font de la ville ce qu'elle est aujourd'hui.</p>
     </article>
-    <article class="route_preview sporen_route" data-aos="fade-down">
+    <article class="route_preview sporen_route" data-aos="fade-up">
       <figure class="route_image"><img src="./assets/img/landingpagina/routes/k_sporen.gif" width="200" alt="Preview van wat je in de sporenroute kan verwachten"/></figure>
       <h1 class="route_title green">Trajet des trace</h1>
       <p class="route_description">Découvrez les merveilleuses traces laissées par les rois, les légendes et bien sûr aussi les trains de la ville.</p>
