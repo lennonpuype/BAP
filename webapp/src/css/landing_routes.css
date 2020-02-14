@@ -1,0 +1,48 @@
+.routes_section {
+  display: grid;
+  grid-template-columns: 3rem minmax(30, 33%) 1rem minmax(30, 33%) 1rem minmax(30, 33%) 3rem;
+  grid-template-rows: auto;
+  grid-template-areas: '. talent_route . sporen_route . toekomst_route .';
+
+  background-color: #F5F5F5;
+  padding: 5rem;
+  margin-top: 5rem;
+}
+
+.route_preview {
+  width: 26rem;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto 2rem auto;
+  grid-template-areas: 'route_image'
+  'route_name'
+  'route_description';
+
+  grid-row-gap: 2rem;
+}
+
+.route_image {
+  grid-area: route_image;
+  display: flex;
+  justify-content: center;
+}
+
+.route_name {
+  grid-area: route_name;
+}
+
+.route_description {
+  grid-area: route_description;
+}
+
+.talent_route {
+  grid-area: talent_route;
+}
+
+.sporen_route {
+  grid-area: sporen_route;
+}
+
+.toekomst_route {
+  grid-area: toekomst_route;
+}

@@ -1,0 +1,112 @@
+.intro {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: auto;
+  grid-template-areas: 'intro_image intro_text';
+}
+
+.intro_image {
+  grid-area: intro_image;
+}
+
+.intro_image_box {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.intro_text_title {
+  font-family: Raleway;
+  font-weight: bold;
+  color: black;
+  align-self: center;
+}
+
+.intro_text_title_big {
+  font-size: 3.5rem;
+  grid-area: intro_text_title1;
+}
+
+.intro_text_title_small {
+  font-size: 2.5rem;
+  grid-area: intro_text_title2;
+}
+
+.intro_text_paragraph {
+  font-size: 1.8rem;
+  line-height: 1.6;
+}
+
+.intro_text_paragraph1 {
+  grid-area: intro_text_paragraph1;
+}
+
+.intro_text_paragraph2 {
+  grid-area: intro_text_paragraph2;
+}
+
+.intro_text_highlight {
+  color: var(--darkpurple);
+  font-weight: bold;
+}
+
+.intro_text_url {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.intro_text {
+  grid-area: intro_text;
+
+  display: grid;
+  grid-template-columns: 5rem minmax(10rem, 50rem) 5rem;
+  grid-template-rows: 5rem repeat(2, auto) 1rem repeat(2, auto) 5rem;
+  grid-template-areas:
+      '. . .'
+      '. intro_text_title1 .'
+      '. intro_text_paragraph1 .'
+      '. . .'
+      '. intro_text_title2 .'
+      '. intro_text_paragraph2 .'
+      '. . .';
+}
+
+@media only screen and (max-width: 600px) {
+  .intro {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto 25rem;
+    grid-template-areas: 'intro_text' 'intro_image';
+  }
+
+  .intro_image_box {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media only screen and (max-width: 870px) {
+  .routes_section {
+    grid-template-columns: 3rem minmax(30rem, 33%) 1rem minmax(30rem, 33%) 3rem !important;
+    grid-template-rows: repeat(2, auto) !important;
+    grid-template-areas: '. talent_route . sporen_route  .'
+    'toekomst_route toekomst_route toekomst_route toekomst_route toekomst_route' !important;
+    grid-row-gap: 3rem;
+  }
+
+  .route_preview {
+    justify-self: center;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .routes_section {
+    grid-template-columns: 3rem minmax(30rem, 33%) 3rem !important;
+    grid-template-rows: repeat(3, auto) !important;
+    grid-template-areas: '. talent_route .'
+    '. sporen_route  .'
+    '. toekomst_route .' !important;
+    justify-content: center;
+  }
+}

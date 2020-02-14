@@ -1,0 +1,113 @@
+.test {
+  display: grid;
+  grid-template-columns: 1fr minmax(50vw, 50vw);
+  grid-template-rows: auto;
+  grid-template-areas: 'test_text test_image';
+  padding: 5rem;
+}
+
+.test_image {
+  grid-area: test_image;
+  justify-self: center;
+  width: 100%;
+}
+
+.test_text {
+  grid-area: test_text;
+
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 3rem 5rem 15rem;
+  grid-template-areas: 'test_text_title''test_text_paragraph''test_text_list';
+  justify-self: center;
+  align-self: center;
+}
+
+.test_text_list_item {
+  font-size: 1.8rem;
+  padding: .5rem;
+  font-family: Lato;
+}
+
+.test_text_list_item:nth-child(2){
+  margin: 1rem 0;
+}
+
+.test_text_bullet {
+  color: white;
+  padding-right: 1rem;
+}
+
+.test_text_bullet:after {
+  content: '';
+  position: absolute;
+  border-radius: 30rem;
+  width: 3rem;
+  height: 3rem;
+  transform: translate(-2rem, -.5rem);
+  z-index: -10000;
+}
+
+.test_text_paragraph {
+  grid-area: test_text_paragraph;
+  line-height: 1.6;
+  width: 40rem;
+}
+
+.test_text_title {
+  grid-area: test_text_title;
+}
+
+.test_text_list {
+  grid-area: test_text_list;
+  justify-self: center;
+  align-self: center;
+}
+
+.yellow_bg:after{
+  background-color: var(--yellow);
+}
+
+.green_bg:after{
+  background-color: var(--green);
+}
+
+.red_bg:after{
+  background-color: var(--red);
+}
+
+.test_image_responsive {
+  display: none;
+}
+
+@media only screen and (max-width: 760px){
+  .test_image_self {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 680px){
+  .test_image {
+    display: none;
+  }
+
+  .test_image_responsive {
+    display: block;
+    max-width: 30rem;
+    justify-self: center;
+  }
+
+  .test {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: 'test_text' 'test_image';
+    padding: 5rem;
+  }
+
+  .city_list {
+    grid-template-columns: repeat(2, 50%) !important;
+    grid-template-rows: repeat(2, 20rem) !important;
+    grid-template-areas: 'kortrijk tournai' 'lille valenciennes' !important;
+  }
+}

@@ -1,0 +1,69 @@
+.article_detail {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000000;
+  background: var(--grey);
+}
+
+.article_detail_top {
+  padding: 3rem 2rem 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.article_detail_bottom {
+  padding: 1rem 2rem 3rem;
+  max-height: 22rem;
+  overflow: scroll;
+}
+
+.back_button {
+  position: absolute;
+  border-radius: 0 2rem 2rem 0;
+  color: white;
+  top: 13rem;
+  padding: 2rem 4rem;
+  font-size: 2rem;
+  font-family: Raleway;
+  font-weight: bold;
+  border: none;
+  z-index: 100000;
+}
+
+.images {
+  top: 9rem;
+  height: 50rem;
+}
+
+.flickity-page-dots .dot {
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  background: transparent;
+  border: 2px solid white;
+}
+/* fill-in selected dot */
+.flickity-page-dots .dot.is-selected {
+  background: white;
+}
+
+.detail_description {
+  word-wrap: break-word;
+}
+
+.marker {
+  position: absolute;
+  width: 3rem;
+  height: 4rem;
+
+  background-size: 100% 100%;
+}
+
+.marker_waypointdone {
+  background-image: url(./../assets/img/waypointdone.png);
+}
+
+.marker_waypointnotdone {
+  background-image: url(./../assets/img/waypointnotdone.png);
+}

@@ -1,0 +1,83 @@
+.page_faq {
+  margin: 3rem 1.2rem;
+}
+
+.faq_option {
+  margin: 0.9rem 0 0 0;
+  padding-left: 1.2rem;
+  width: 100%;
+  background-color: white;
+  cursor: pointer;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  padding-left: 1.2rem;
+  transition: 0.3s;
+  -webkit-box-shadow: 0 1.7rem 2.3rem -2.4rem rgba(110, 110, 110, 1);
+  -moz-box-shadow: 0 1.7rem 2.3rem -2.4rem rgba(110, 110, 110, 1);
+  box-shadow: 0 1.7rem 2.3rem -2.4rem rgba(110, 110, 110, 1);
+}
+
+.faq_option:hover {
+  background-image: url(../assets/img/button_bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white;
+  font-weight: bold;
+  font-family: Raleway, sans-serif;
+}
+
+.faq_standards {
+  padding-right: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.faq_standard {
+  margin: 0 0 2rem 0;
+}
+
+.faq_standard_options {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+/*
+.active, .accordion:hover {
+  background-color: #ccc;
+} */
+
+.panel {
+  margin-top: 0;
+  padding: 2rem;
+  display: none;
+  background-color: var(--darkpurple);
+  overflow: hidden;
+  box-shadow: 0 1.7rem 2.3rem -2.4rem rgba(110, 110, 110, 1);
+  z-index: -1000;
+}
+
+.panel_list {
+  margin-left: 4rem;
+  list-style-type: circle;
+}
+
+.back_to_route {
+  padding: 2rem;
+  position: absolute;
+  box-shadow: 0 1.7rem 2.3rem -2.4rem rgba(110, 110, 110, 1);
+  background-color: var(--darkpurple);
+  color: white;
+  font-weight: bold;
+  border-radius: 1rem;
+}
+
+.route_div_faq {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}

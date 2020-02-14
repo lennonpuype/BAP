@@ -1,0 +1,77 @@
+#map {
+  height: 60rem;
+  min-width: 0;
+  max-width: 100%;
+  margin-top: 4rem;
+}
+
+.page_title {
+  position: absolute;
+  top: 2.5rem;
+  left: 0;
+  right: 0;
+}
+
+.buttons_route {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.route_choice_btn {
+  cursor: pointer;
+  font-size: 2rem;
+  text-decoration: none;
+  padding: 1.6rem;
+  text-align: center;
+  margin: 2rem;
+  border-radius: 1rem;
+  width: 14rem;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-shadow: 0 1.7rem 2.3rem -2.4rem rgba(110, 110, 110, 1);
+  -moz-box-shadow: 0 1.7rem 2.3rem -2.4rem rgba(110, 110, 110, 1);
+  box-shadow: 0 1.7rem 2.3rem -2.4rem rgba(110, 110, 110, 1);
+}
+
+.btn_gradient_0 {
+  background: linear-gradient(90deg, #7bc88f 0%, #9ad7aa 100%);
+}
+
+.btn_gradient_1 {
+  background: linear-gradient(90deg, #ffba00 0%, #ffd35c 100%);
+}
+
+.btn_gradient_2 {
+  background: linear-gradient(90deg, #ff0031 0%, #ff5172 100%);
+}
+
+.arscene_div_def {
+  width: 100%;
+  height: 50rem;
+  margin: 2rem 0;
+  border-radius: 0;
+  border: none;
+  overflow: hidden;
+}
+
+.arscene_buttons_div {
+  margin: 0 auto;
+}
+
+.arscene_intro {
+  height: 40rem !important;
+}
+
+.test_ar_div {
+  margin-top: 1rem;
+}
+
+.rtn_btn_camera-inactive,
+.rtn_btn_route-inactive {
+  background: var(--grey);
+  border: 0.1rem solid var(--yellow);
+}

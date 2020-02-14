@@ -1,0 +1,761 @@
+{
+  "cities": [
+    {
+      "city": "Kortrijk",
+      "maps": {
+        "lat": 50.830828,
+        "lng": 3.264135,
+        "zm": 15
+      },
+      "routes": [
+        {
+          "id": 0,
+          "globalId": 0,
+          "namenl": "Sporen Route",
+          "namefr": "Trajet des trace",
+          "nameen": "Track route",
+          "descnl": "Ontdek de wondere sporen nagelaten door koningen, legendes en natuurlijk ook de treinen in de stad.",
+          "descfr": "Découvrez les merveilleuses traces laissées par les rois, les légendes et bien sûr aussi les trains de la ville.",
+          "descen": "Discover the wonderful traces left by kings, legends and of course also the trains in the city.",
+          "img": "./assets/img/k_sporen.gif",
+          "stepsImg": "./assets/img/icons/steps_green.svg",
+          "wpImg": "./assets/img/icons/ar_green.svg",
+          "timeImg": "./assets/img/icons/time_green.svg",
+          "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.827667,3.265455&waypoint1=geo!50.830236,3.26461&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
+          "color1": "#7BC88F",
+          "color2": "#9AD7AA",
+          "waypoints": [
+            {
+              "id": 0,
+              "globalId": 0,
+              "name": "Grote Markt Kortrijk",
+              "description": "Kijk eens naar boven! Zie je ze? De 2 helden van de stad, Manten en Kalle!",
+              "long_desc": "De 2 klokkenluiders Manten en Kalle zijn de spilfiguren van deze legendarische sage in Kortrijk. </br> </br> Manten en Kalle waren beide klokkenluider van het belfort tot op een dag het vijandige Franse leger hun intrede maakten.. Kortrijk lag al jaren in strijd met Frankrijk en zag deze invallers liever niet dan wel. Gelukkig zagen de 2 helden hen afkomen en waarschuwden ze de andere dorpelingen. Door hun heldendaad waren ze helaas zelf te prooi gevallen.. Eenmaal afgevoerd naar Dijon belanden ze in de kerker bij een kwaadwillige heks.. Deze betoverde Manten en Kalle waardoor ze veranderden in reuzen. Zo braken ze letterlijk uit hun cel heen en namen ze de benen terug naar hun geliefde Kortrijk…",
+              "geolocation": {
+                "lat": 50.827578,
+                "lng": 3.266038
+              },
+              "marker": {
+                "top": "39rem",
+                "left": "31rem"
+              },
+              "visited": "no"
+            },
+            {
+              "id": 1,
+              "globalId": 1,
+              "name": "Kunstcentrum Buda",
+              "description": "Creatief en nieuwsgierig? Dan ben je hier op je plek!",
+              "long_desc": "Welkom op het Buda-eiland! Een eiland waar creativiteit een thuis krijgt. Zo is er de Budafabriek, Budascoop en de BudaBeach waar doorheen het jaar kunst een plekje krijg, binnen en buiten. Zo vindt er elk jaar rond november het NEXT Festival plaats. Dit festival zet de deuren rekkewijd open voor kunst, performance en dans. P.S. Wist je trouwens dat de Budafabriek vroeger echt een fabriek was? Zo stond hier vroeger een hele grote textielfabriek.",
+              "geolocation": {
+                "lat": 50.830599,
+                "lng": 3.264785
+              },
+              "marker": {
+                "top": "14rem",
+                "left": "22rem"
+              },
+              "visited": "no"
+            },
+            {
+              "id": 2,
+              "globalId": 2,
+              "name": "Texture Museum",
+              "description": "Textiel en vlas, de grondstoffen voor de rijkdom van Kortrijk.",
+              "long_desc": "Ons vorige stop leidde het al een beetje in, maar textiel en vlasnijverheid waren vroeger big business in Kortrijk. Deze stoffen stonden vormden de bakermat voor heel wat rijkdom in en rond Kortrijk. Door de goeie kwaliteit en vooral lage prijzen stond Kortrijk al snel bekend als de textiel hoofdstad van de wereld in de jaren 60. Deze fabrieken waren meestal in handen van families, van vader op zoon en dat vaak tot op de dag vandaag!",
+              "geolocation": {
+                "lat": 50.830702,
+                "lng": 3.256092
+              },
+              "marker": {
+                "top": "12rem",
+                "left": "1rem"
+              },
+              "visited": "no"
+            },
+            {
+              "id": 3,
+              "globalId": 3,
+              "name": "Stationsplein Kortrijk",
+              "description": "Op dit punt kan je de route aanvatten!",
+              "geolocation": {
+                "lat": 50.830722,
+                "lng": 3.256457
+              },
+              "marker": {
+                "top": "53rem",
+                "left": "26rem"
+              },
+              "visited": "no"
+            },
+            {
+              "id": 4,
+              "globalId": 4,
+              "name": "Hangar K",
+              "description": "Dit driehoekige gebouw oogt modern maar heeft er al een heel leven opzitten.",
+              "long_desc": "Wat je hier zit is een prachtig staaltje ongekende geschiedenis door zelfs heel wat inwoners van Kortrijk. </br> Ongekend is niet onbemind, en al zeker niet op dit plein. Het gebouw deed vroeger dienst als grote opslag- en hersteldienst voor de treinen van heel West-Vlaanderen. Door de belangrijke textielindustrie beschikte Kortrijk over een uitmuntend uniek treinverbinding met groot steden zoals Parijs en Brussel. Waar we vandaag enkel nog maar van kunnen dromen…",
+              "geolocation": {
+                "lat": 50.825494,
+                "lng": 3.255177
+              },
+              "marker": {
+                "top": "36rem",
+                "left": "1rem"
+              },
+              "visited": "no"
+            },
+            {
+              "id": 4,
+              "globalId": 4,
+              "name": "Conservatoriumplein",
+              "description": "test",
+              "long_desc": "test",
+              "geolocation": {
+                "lat": 50.825546,
+                "lng": 3.259971
+              },
+              "marker": {
+                "top": "41rem",
+                "left": "11rem"
+              },
+              "visited": "no"
+            },
+            {
+              "id": 5,
+              "globalId": 5,
+              "name": "Julia's",
+              "description": "test",
+              "long_desc": "test",
+              "geolocation": {
+                "lat": 50.825353,
+                "lng": 3.263917
+              },
+              "marker": {
+                "top": "28rem",
+                "left": "22rem"
+              },
+              "visited": "no"
+            }
+          ],
+          "time": "75min",
+          "distance": "6km"
+        },
+        {
+          "id": 1,
+          "globalId": 1,
+          "namenl": "Talent Route",
+          "namefr": "Trajet des talents",
+          "nameen": "Talent route",
+          "descnl": "Trek op pad door de stad en ontdek de talenten van vroeger en nu die de stad verwonderen en maken tot wat het nu is.",
+          "descfr": "Promenez-vous dans la ville et découvrez les talents du passé et du présent qui étonnent et font de la ville ce qu'elle est aujourd'hui.",
+          "descen": "Take a walk through the city and discover the talents of the past and present that amaze and make the city what it is today.",
+          "img": "./assets/img/k_talent.gif",
+          "stepsImg": "./assets/img/icons/steps_yellow.svg",
+          "wpImg": "./assets/img/icons/ar_yellow.svg",
+          "timeImg": "./assets/img/icons/time_yellow.svg",
+          "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
+          "color1": "#FFBA00",
+          "color2": "#FFD35C",
+          "waypoints": [
+            {
+              "id": 0,
+              "globalId": 6,
+              "name": "Blablabla",
+              "description": "Dit is een waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "geolocation": {
+                "lat": 50.830797,
+                "lng": 3.26461
+              },
+              "visited": "no"
+            },
+            {
+              "id": 1,
+              "globalId": 7,
+              "name": "Nanother",
+              "description": "Dit is een waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "geolocation": {
+                "lat": 50.829829,
+                "lng": 3.266776
+              },
+              "visited": "no"
+            },
+            {
+              "id": 2,
+              "globalId": 8,
+              "name": "Nanderen",
+              "description": "Dit is een waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "geolocation": {
+                "lat": 50.828895,
+                "lng": 3.263501
+              },
+              "visited": "no"
+            }
+          ],
+          "time": "30min",
+          "distance": "2km"
+        },
+        {
+          "id": 2,
+          "globalId": 2,
+          "namenl": "Toekomst Route",
+          "namefr": "Trajet des futures",
+          "nameen": "Future route",
+          "descnl": "Leer de scheppers en heersers van de toekomst kennen: van keizers tot helden en visies van gisteren en morgen!",
+          "descfr": "Apprenez à connaître les créateurs et les dirigeants de l'avenir: des empereurs aux héros et aux visions d'hier et de demain!",
+          "descen": "Get to know the creators and rulers of the future: from emperors to heroes and visions of yesterday and tomorrow!",
+          "img": "./assets/img/k_toekomst.gif",
+          "stepsImg": "./assets/img/icons/steps_red.svg",
+          "wpImg": "./assets/img/icons/ar_red.svg",
+          "timeImg": "./assets/img/icons/time_red.svg",
+          "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
+          "color1": "#FF0031",
+          "color2": "#FF5172",
+          "waypoints": [
+            {
+              "id": 0,
+              "globalId": 9,
+              "name": "Kalle en manten",
+              "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "geolocation": {
+                "lat": 50.830236,
+                "lng": 3.25619
+              },
+              "visited": "no"
+            },
+            {
+              "id": 1,
+              "globalId": 10,
+              "name": "Nanother",
+              "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "geolocation": {
+                "lat": 50.829829,
+                "lng": 3.266776
+              },
+              "visited": "no"
+            },
+            {
+              "id": 2,
+              "globalId": 11,
+              "name": "Nanderen",
+              "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "geolocation": {
+                "lat": 50.828895,
+                "lng": 3.263501
+              },
+              "visited": "no"
+            }
+          ],
+          "time": "130min",
+          "distance": "12km"
+        }
+      ]
+    },
+    {
+      "city": "Rijsel",
+      "maps": {
+        "lat": 50.830828,
+        "lng": 3.264135,
+        "zm": 15
+      },
+      "routes": [
+        {
+          "id": 0,
+          "namenl": "Sporen Route",
+          "namefr": "Trajet des trace",
+          "nameen": "Track route",
+          "descnl": "Ontdek de wondere sporen nagelaten door koningen, legendes en natuurlijk ook de treinen in de stad.",
+          "descfr": "Découvrez les merveilleuses traces laissées par les rois, les légendes et bien sûr aussi les trains de la ville.",
+          "descen": "Discover the wonderful traces left by kings, legends and of course also the trains in the city.",
+          "img": "./assets/img/l_sporen.gif",
+          "stepsImg": "./assets/img/icons/steps_green.svg",
+          "wpImg": "./assets/img/icons/ar_green.svg",
+          "timeImg": "./assets/img/icons/time_green.svg",
+          "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.827667,3.265455&waypoint1=geo!50.830236,3.26461&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
+          "color1": "#7BC88F",
+          "color2": "#9AD7AA",
+          "waypoints": [
+            {
+              "id": 0,
+              "globalId": 0,
+              "name": "BlablablaZDQSQDS",
+              "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "geolocation": {
+                "lat": 50.827667,
+                "lng": 3.265455
+              },
+              "visited": "no"
+            },
+            {
+              "id": 1,
+              "globalId": 1,
+              "name": "Vlas",
+              "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "geolocation": {
+                "lat": 50.830236,
+                "lng": 3.25619
+              },
+              "visited": "no"
+            },
+            {
+              "id": 2,
+              "globalId": 2,
+              "name": "Nanderen",
+              "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "geolocation": {
+                "lat": 50.828895,
+                "lng": 3.263501
+              },
+              "visited": "no"
+            }
+          ],
+          "time": "30min",
+          "distance": "2km"
+        },
+        {
+          "id": 1,
+          "namenl": "Talent Route",
+          "namefr": "Trajet des talents",
+          "nameen": "Talent route",
+          "descnl": "Trek op pad door de stad en ontdek de talenten van vroeger en nu die de stad verwonderen en maken tot wat het nu is.",
+          "descfr": "Promenez-vous dans la ville et découvrez les talents du passé et du présent qui étonnent et font de la ville ce qu'elle est aujourd'hui.",
+          "descen": "Take a walk through the city and discover the talents of the past and present that amaze and make the city what it is today.",
+          "img": "./assets/img/l_talent.gif",
+          "stepsImg": "./assets/img/icons/steps_yellow.svg",
+          "wpImg": "./assets/img/icons/ar_yellow.svg",
+          "timeImg": "./assets/img/icons/time_yellow.svg",
+          "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
+          "color1": "#FFBA00",
+          "color2": "#FFD35C",
+          "waypoints": [
+            {
+              "id": 0,
+              "globalId": 3,
+              "name": "Blablabla",
+              "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "geolocation": {
+                "lat": 50.830797,
+                "lng": 3.26461
+              },
+              "visited": "no"
+            },
+            {
+              "id": 1,
+              "globalId": 4,
+              "name": "Nanother",
+              "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "geolocation": {
+                "lat": 50.829829,
+                "lng": 3.266776
+              },
+              "visited": "no"
+            },
+            {
+              "id": 2,
+              "globalId": 5,
+              "name": "Nanderen",
+              "description": "Dit is het waypoint waar wat uitleg over te vinden is, maar dan eigenlijk toch gewoon niet. Dit is maar uitleg om te tonen hoe het eruit zou zien met echte uitleg",
+              "geolocation": {
+                "lat": 50.828895,
+                "lng": 3.263501
+              },
+              "visited": "no"
+            }
+          ],
+          "time": "30min",
+          "distance": "2km"
+        },
+        {
+          "id": 2,
+          "namenl": "Toekomst Route",
+          "namefr": "Trajet des futures",
+          "nameen": "Future route",
+          "descnl": "Leer de scheppers en heersers van de toekomst kennen: van keizers tot helden en visies van gisteren en morgen!",
+          "descfr": "Apprenez à connaître les créateurs et les dirigeants de l'avenir: des empereurs aux héros et aux visions d'hier et de demain!",
+          "descen": "Get to know the creators and rulers of the future: from emperors to heroes and visions of yesterday and tomorrow!",
+          "img": "./assets/img/l_toekomst.gif",
+          "stepsImg": "./assets/img/icons/steps_red.svg",
+          "wpImg": "./assets/img/icons/ar_red.svg",
+          "timeImg": "./assets/img/icons/time_red.svg",
+          "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
+          "color1": "#FF0031",
+          "color2": "#FF5172",
+          "waypoints": [
+            {
+              "id": 0,
+              "globalId": 7,
+              "name": "Kalle en manten",
+              "description": "This is Blabla",
+              "geolocation": {
+                "lat": 50.830236,
+                "lng": 3.25619
+              },
+              "visited": "no"
+            },
+            {
+              "id": 1,
+              "globalId": 8,
+              "name": "Nanother",
+              "description": "This is Nanother",
+              "geolocation": {
+                "lat": 50.829829,
+                "lng": 3.266776
+              },
+              "visited": "no"
+            },
+            {
+              "id": 2,
+              "globalId": 9,
+              "name": "Nanderen",
+              "description": "This is Nanderen",
+              "geolocation": {
+                "lat": 50.828895,
+                "lng": 3.263501
+              },
+              "visited": "no"
+            }
+          ],
+          "time": "130min",
+          "distance": "12km"
+        }
+      ]
+    },
+    {
+      "city": "Doornik",
+      "maps": {
+        "lat": 50.830828,
+        "lng": 3.264135,
+        "zm": 15
+      },
+      "routes": [
+        {
+          "id": 0,
+          "namenl": "Sporen Route",
+          "namefr": "Trajet des trace",
+          "nameen": "Track route",
+          "descnl": "Ontdek de wondere sporen nagelaten door koningen, legendes en natuurlijk ook de treinen in de stad.",
+          "descfr": "Découvrez les merveilleuses traces laissées par les rois, les légendes et bien sûr aussi les trains de la ville.",
+          "descen": "Discover the wonderful traces left by kings, legends and of course also the trains in the city.",
+          "img": "./assets/img/t_sporen.gif",
+          "stepsImg": "./assets/img/icons/steps_green.svg",
+          "wpImg": "./assets/img/grar.png",
+          "timeImg": "./assets/img/grc.png",
+          "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.827667,3.265455&waypoint1=geo!50.830236,3.26461&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
+          "color1": "#7BC88F",
+          "color2": "#9AD7AA",
+          "waypoints": [
+            {
+              "id": 0,
+              "globalId": 0,
+              "name": "BlablablaZDQSQDS",
+              "description": "This is Kalle en manten",
+              "geolocation": {
+                "lat": 50.827667,
+                "lng": 3.265455
+              },
+              "visited": "no"
+            },
+            {
+              "id": 1,
+              "globalId": 1,
+              "name": "Vlas",
+              "description": "This is Nanother",
+              "geolocation": {
+                "lat": 50.830236,
+                "lng": 3.25619
+              },
+              "visited": "no"
+            },
+            {
+              "id": 2,
+              "globalId": 2,
+              "name": "Nanderen",
+              "description": "This is Nanderen",
+              "geolocation": {
+                "lat": 50.828895,
+                "lng": 3.263501
+              },
+              "visited": "no"
+            }
+          ],
+          "time": "30min",
+          "distance": "2km"
+        },
+        {
+          "id": 1,
+          "namenl": "Talent Route",
+          "namefr": "Trajet des talents",
+          "nameen": "Talent route",
+          "descnl": "Trek op pad door de stad en ontdek de talenten van vroeger en nu die de stad verwonderen en maken tot wat het nu is.",
+          "descfr": "Promenez-vous dans la ville et découvrez les talents du passé et du présent qui étonnent et font de la ville ce qu'elle est aujourd'hui.",
+          "descen": "Take a walk through the city and discover the talents of the past and present that amaze and make the city what it is today.",
+          "img": "./assets/img/t_talent.gif",
+          "stepsImg": "./assets/img/icons/steps_yellow.svg",
+          "wpImg": "./assets/img/icons/ar_yellow.svg",
+          "timeImg": "./assets/img/icons/time_yellow.svg",
+          "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
+          "color1": "#FFBA00",
+          "color2": "#FFD35C",
+          "waypoints": [
+            {
+              "id": 0,
+              "globalId": 3,
+              "name": "Blablabla",
+              "description": "De Mythe van Kortrijk waarbij ...",
+              "geolocation": {
+                "lat": 50.830797,
+                "lng": 3.26461
+              },
+              "visited": "no"
+            },
+            {
+              "id": 1,
+              "globalId": 4,
+              "name": "Nanother",
+              "description": "This is Nanother",
+              "geolocation": {
+                "lat": 50.829829,
+                "lng": 3.266776
+              },
+              "visited": "no"
+            },
+            {
+              "id": 2,
+              "globalId": 5,
+              "name": "Nanderen",
+              "description": "This is Nanderen",
+              "geolocation": {
+                "lat": 50.828895,
+                "lng": 3.263501
+              },
+              "visited": "no"
+            }
+          ],
+          "time": "30min",
+          "distance": "2km"
+        },
+        {
+          "id": 2,
+          "namenl": "Toekomst Route",
+          "namefr": "Trajet des futures",
+          "nameen": "Future route",
+          "descnl": "Leer de scheppers en heersers van de toekomst kennen: van keizers tot helden en visies van gisteren en morgen!",
+          "descfr": "Apprenez à connaître les créateurs et les dirigeants de l'avenir: des empereurs aux héros et aux visions d'hier et de demain!",
+          "descen": "Get to know the creators and rulers of the future: from emperors to heroes and visions of yesterday and tomorrow!",
+          "img": "./assets/img/t_toekomst.gif",
+          "stepsImg": "./assets/img/icons/steps_red.svg",
+          "wpImg": "./assets/img/icons/ar_red.svg",
+          "timeImg": "./assets/img/icons/time_red.svg",
+          "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
+          "color1": "#FF0031",
+          "color2": "#FF5172",
+          "waypoints": [
+            {
+              "id": 0,
+              "globalId": 6,
+              "name": "Kalle en manten",
+              "description": "This is Blabla",
+              "geolocation": {
+                "lat": 50.830236,
+                "lng": 3.25619
+              },
+              "visited": "no"
+            },
+            {
+              "id": 1,
+              "globalId": 7,
+              "name": "Nanother",
+              "description": "This is Nanother",
+              "geolocation": {
+                "lat": 50.829829,
+                "lng": 3.266776
+              },
+              "visited": "no"
+            },
+            {
+              "id": 2,
+              "globalId": 8,
+              "name": "Nanderen",
+              "description": "This is Nanderen",
+              "geolocation": {
+                "lat": 50.828895,
+                "lng": 3.263501
+              },
+              "visited": "no"
+            }
+          ],
+          "time": "130min",
+          "distance": "12km"
+        }
+      ]
+    },
+    {
+      "city": "Valenciennes",
+      "maps": {
+        "lat": 50.830828,
+        "lng": 3.264135,
+        "zm": 15
+      },
+      "routes": [
+        {
+          "id": 0,
+          "namenl": "Sporen Route",
+          "namefr": "Trajet des trace",
+          "nameen": "Track route",
+          "descnl": "Ontdek de wondere sporen nagelaten door koningen, legendes en natuurlijk ook de treinen in de stad.",
+          "descfr": "Découvrez les merveilleuses traces laissées par les rois, les légendes et bien sûr aussi les trains de la ville.",
+          "descen": "Discover the wonderful traces left by kings, legends and of course also the trains in the city.",
+          "img": "./assets/img/v_sporen.gif",
+          "stepsImg": "./assets/img/icons/steps_green.svg",
+          "wpImg": "./assets/img/icons/ar_green.svg",
+          "timeImg": "./assets/img/icons/time_green.svg",
+          "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.827667,3.265455&waypoint1=geo!50.830236,3.26461&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
+          "color1": "#7BC88F",
+          "color2": "#9AD7AA",
+          "waypoints": [
+            {
+              "id": 0,
+              "globalId": 0,
+              "name": "BlablablaZDQSQDS",
+              "description": "This is Kalle en manten",
+              "geolocation": {
+                "lat": 50.827667,
+                "lng": 3.265455
+              },
+              "visited": "no"
+            },
+            {
+              "id": 1,
+              "globalId": 1,
+              "name": "Vlas",
+              "description": "This is Nanother",
+              "geolocation": {
+                "lat": 50.830236,
+                "lng": 3.25619
+              },
+              "visited": "no"
+            },
+            {
+              "id": 2,
+              "globalId": 2,
+              "name": "Nanderen",
+              "description": "This is Nanderen",
+              "geolocation": {
+                "lat": 50.828895,
+                "lng": 3.263501
+              },
+              "visited": "no"
+            }
+          ],
+          "time": "30min",
+          "distance": "2km"
+        },
+        {
+          "id": 1,
+          "namenl": "Talent Route",
+          "namefr": "Trajet des talents",
+          "nameen": "Talent route",
+          "descnl": "Trek op pad door de stad en ontdek de talenten van vroeger en nu die de stad verwonderen en maken tot wat het nu is.",
+          "descfr": "Promenez-vous dans la ville et découvrez les talents du passé et du présent qui étonnent et font de la ville ce qu'elle est aujourd'hui.",
+          "descen": "Take a walk through the city and discover the talents of the past and present that amaze and make the city what it is today.",
+          "img": "./assets/img/v_talent.gif",
+          "stepsImg": "./assets/img/icons/steps_yellow.svg",
+          "wpImg": "./assets/img/icons/ar_yellow.svg",
+          "timeImg": "./assets/img/icons/time_yellow.svg",
+          "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
+          "color1": "#FFBA00",
+          "color2": "#FFD35C",
+          "waypoints": [
+            {
+              "id": 0,
+              "globalId": 3,
+              "name": "Blablabla",
+              "description": "De Mythe van Kortrijk waarbij ...",
+              "geolocation": {
+                "lat": 50.830797,
+                "lng": 3.26461
+              },
+              "visited": "no"
+            },
+            {
+              "id": 1,
+              "globalId": 4,
+              "name": "Nanother",
+              "description": "This is Nanother",
+              "geolocation": {
+                "lat": 50.829829,
+                "lng": 3.266776
+              },
+              "visited": "no"
+            },
+            {
+              "id": 2,
+              "globalId": 5,
+              "name": "Nanderen",
+              "description": "This is Nanderen",
+              "geolocation": {
+                "lat": 50.828895,
+                "lng": 3.263501
+              },
+              "visited": "no"
+            }
+          ],
+          "time": "30min",
+          "distance": "2km"
+        },
+        {
+          "id": 2,
+          "namenl": "Toekomst Route",
+          "namefr": "Trajet des futures",
+          "nameen": "Future route",
+          "descnl": "Leer de scheppers en heersers van de toekomst kennen: van keizers tot helden en visies van gisteren en morgen!",
+          "descfr": "Apprenez à connaître les créateurs et les dirigeants de l'avenir: des empereurs aux héros et aux visions d'hier et de demain!",
+          "descen": "Get to know the creators and rulers of the future: from emperors to heroes and visions of yesterday and tomorrow!",
+          "img": "./assets/img/v_toekomst.gif",
+          "stepsImg": "./assets/img/icons/steps_red.svg",
+          "wpImg": "./assets/img/icons/ar_red.svg",
+          "timeImg": "./assets/img/icons/time_red.svg",
+          "route": "https://route.ls.hereapi.com/routing/7.2/calculateroute.json?apiKey=Lz01CfR2n3Qlau9MOxk3DhAmSGBXTxA-fTXfEc2u9Nw&waypoint0=geo!50.830797,3.264610&waypoint1=geo!50.829829,3.266776&waypoint2=geo!50.828895,3.263501&mode=fastest;pedestrian;",
+          "color1": "#FF0031",
+          "color2": "#FF5172",
+          "waypoints": [
+            {
+              "id": 0,
+              "globalId": 6,
+              "name": "Kalle en manten",
+              "description": "This is Blabla",
+              "geolocation": {
+                "lat": 50.830236,
+                "lng": 3.25619
+              },
+              "visited": "no"
+            },
+            {
+              "id": 1,
+              "globalId": 7,
+              "name": "Nanother",
+              "description": "This is Nanother",
+              "geolocation": {
+                "lat": 50.829829,
+                "lng": 3.266776
+              },
+              "visited": "no"
+            },
+            {
+              "id": 2,
+              "globalId": 8,
+              "name": "Nanderen",
+              "description": "This is Nanderen",
+              "geolocation": {
+                "lat": 50.828895,
+                "lng": 3.263501
+              },
+              "visited": "no"
+            }
+          ],
+          "time": "130min",
+          "distance": "12km"
+        }
+      ]
+    }
+  ]
+}

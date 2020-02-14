@@ -1,0 +1,161 @@
+footer {
+  display: grid;
+  grid-template-columns: 5rem 25rem 105rem 5rem;
+  grid-template-rows: 5rem 30rem 5rem;
+  background-color: var(--darkpurple);
+  margin-top: -3rem;
+
+  @media (--l) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 17rem 8rem 16rem 4rem;
+    grid-template-areas:
+      ". meer legal contact"
+      "logo meer legal contact"
+      ". partners partners ."
+      ". rights rights .";
+  }
+}
+
+h4 {
+  margin-bottom: 0.3rem;
+}
+
+.footer-logo {
+  grid-row: 2/2;
+  grid-column: 2/3;
+  justify-self: center;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: left;
+
+  @media (--l) {
+    grid-area: logo;
+
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: -0.5rem;
+    margin-left: -1.8rem;
+  }
+}
+
+.footer-logo-img {
+  margin-right: 1.8rem;
+  margin-bottom: 1rem;
+
+  @media (--l) {
+    margin-left: 0;
+    margin-right: -1rem;
+    margin-top: 0;
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+}
+
+.footer-sub {
+  padding-bottom: 0.8rem;
+}
+
+.footer-logo > h3 {
+  @media (--l) {
+    margin-left: 3rem;
+    font-size: 3.2rem;
+  }
+}
+
+.partners {
+  grid-column: 3/4;
+  grid-row: 2/3;
+  justify-self: center;
+
+  display: grid;
+  grid-template-rows: repeat(2, 10rem);
+  grid-template-columns: repeat(3, 22rem);
+  grid-row-gap: 3rem;
+
+  @media (--l) {
+    grid-area: partners;
+    grid-template-areas:
+      "europa federation lotto mel"
+      "regio val vlaanderen ";
+  }
+}
+
+.rights {
+  grid-column: 3/4;
+  grid-row: 3/4;
+  justify-self: center;
+  align-self: center;
+}
+
+.europa {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  align-self: center;
+  justify-self: center;
+}
+
+.federation {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  justify-self: center;
+  align-self: center;
+}
+
+.lotto {
+  grid-column: 3/4;
+  grid-row: 1/2;
+  align-self: center;
+  justify-self: center;
+}
+
+.mel {
+  grid-column: 4/5;
+  grid-row: 1/2;
+  justify-self: center;
+  align-self: center;
+}
+
+.regio {
+  grid-column: 1/2;
+  grid-row: 2/3;
+  align-self: center;
+  justify-self: center;
+
+  /* @media (--l) {
+    margin-right: 0;
+    margin-left: 4rem;
+  } */
+}
+
+.val {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  align-self: center;
+  justify-self: center;
+
+  /* @media (--l) {
+    margin-right: 0;
+    margin-left: 4rem;
+  } */
+}
+
+.vlaanderen {
+  grid-column: 3/4;
+  grid-row: 2/3;
+  align-self: center;
+  justify-self: center;
+
+  /* @media (--l) {
+    margin-right: 0;
+    margin-left: 4rem;
+  } */
+}
+
+.em {
+  grid-column: 4/5;
+  grid-row: 2/3;
+  align-self: center;
+  justify-self: center;
+}
