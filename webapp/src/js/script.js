@@ -12,8 +12,8 @@
   let activeCityId = 0;
   let unlockedRouteId = []; // eslint-disable-line
   let currentRouteId = 0; // eslint-disable-line
-  let clickedButton = false;
-  let currentColor;
+  let clickedButton = false;// eslint-disable-line
+  let currentColor;// eslint-disable-line
 
   const init = () => {
     hamburger();
@@ -30,46 +30,24 @@
       }
     });
 
-    const acc = document.getElementsByClassName("accordion");
+    const acc = document.getElementsByClassName("accordion");// eslint-disable-line
 
-    for (let i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function () {
-        //this.classList.toggle("active");
+    for (let i = 0; i < acc.length; i++) {// eslint-disable-line
+      acc[i].addEventListener("click", function () {// eslint-disable-line
         const panels = document.querySelectorAll(`.panel`);
         const allPanels = Array.from(panels);
         allPanels.map(panel => {
-          panel.style.display = "none";
+          panel.style.display = "none";// eslint-disable-line
         });
 
         const panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-          panel.style.display = "none";
+        if (panel.style.display === "block") {// eslint-disable-line
+          panel.style.display = "none";// eslint-disable-line
         } else {
-          panel.style.display = "block";
+          panel.style.display = "block";// eslint-disable-line
         }
       });
     }
-
-    // const $allNavItems = document.querySelectorAll(`.nav-link`);
-    // const navItemArray = Array.from($allNavItems);
-    // navItemArray.map(item => {
-    //   console.log(item);
-    //   item.addEventListener(`click`, e => {
-    //     console.log("jlkdsjklfdsjlkdfsjldskfjdsfklj");
-    //     const url = e.getAttribute(`href`);
-    //     console.log(url);
-
-    //     if (url) {
-    //       window.location.replace(url);
-    //     }
-    //   });
-    // });
-
-    // const $landingPage = document.querySelector(`.landingPage`);
-    // if ($landingPage) {
-    //   const $head = document.querySelector(`.head`);
-    //   $head.parentElement.style.overflow = `visible`;
-    // }
 
     const $index = document.querySelector(`.index`);
     if ($index) {
@@ -110,20 +88,6 @@
         const arrayArticles = Array.from($articles);
 
         arrayArticles.map(article => {
-          // Laats ingevulde route selecteren
-          // const $lastRouteId = document.querySelector(`.routeslist`).lastElementChild;
-          // if ($lastRouteId) {
-          //   const routeId = $lastRouteId.textContent;
-          //   if (article.dataset.id === routeId) {
-          //     console.log(article);
-          //     article.classList.add(`is-selected`);
-          //     article.removeAttribute(`aria-hidden`);
-          //   } else {
-          //     article.classList.remove(`is-selected`);
-          //     article.setAttribute(`aria-hidden`, true);
-          //   }
-          // }
-
           if (!article.classList.contains(`is-selected`)) {
             article.classList.add(`blur`);
           } else {
@@ -148,7 +112,6 @@
     if ($arDefPage) {
       // eslint-disable-next-line camelcase
       const $buttons_ar = document.querySelectorAll(`.route_choice_btn`);
-      console.log($buttons_ar);
 
       const buttonsArArray = Array.from($buttons_ar);
       const cityRouteId = document.querySelector(`.cityRouteId`).textContent;
@@ -156,8 +119,6 @@
         item.classList.add(`btn_gradient_${cityRouteId}`);
       });
     }
-
-    // hamburgerManager();
   };
 
   const arrows = () => {
@@ -169,28 +130,28 @@
 
     if ($faqs) {
       $faqsArray.map($item => {
-        $item.addEventListener("click", () => {
+        $item.addEventListener("click", () => {// eslint-disable-line
           $arrowArray.map(arrow => {
-            arrow.classList.remove("rotate_svg");
+            arrow.classList.remove("rotate_svg");// eslint-disable-line
           });
 
-          $item.firstElementChild.classList.add("rotate_svg");
+          $item.firstElementChild.classList.add("rotate_svg");// eslint-disable-line
         });
       });
     }
   };
 
   const hamburger = () => {
-    const $hamburger = document.querySelector(".hamburger-menu");
-    const $navbar = document.querySelector(".navbar");
-    const $contentRoute = document.querySelector(".main_blur");
-    const $contentBlur = document.querySelector(".blur_hidden");
+    const $hamburger = document.querySelector(".hamburger-menu");// eslint-disable-line
+    const $navbar = document.querySelector(".navbar");// eslint-disable-line
+    const $contentRoute = document.querySelector(".main_blur");// eslint-disable-line
+    const $contentBlur = document.querySelector(".blur_hidden");// eslint-disable-line
 
     if ($hamburger) {
-      $hamburger.addEventListener("click", () => {
-        $navbar.classList.toggle("change");
-        $contentRoute.classList.toggle("blur");
-        $contentBlur.classList.toggle("blur");
+      $hamburger.addEventListener("click", () => {// eslint-disable-line
+        $navbar.classList.toggle("change");// eslint-disable-line
+        $contentRoute.classList.toggle("blur");// eslint-disable-line
+        $contentBlur.classList.toggle("blur");// eslint-disable-line
       });
     }
   };
@@ -272,24 +233,6 @@
     $style.setAttribute(`id`, `style`);
 
     handleStartButtonLogics(routes);
-
-    // const $articles = document.querySelectorAll(`.route`);
-    // const arrayArticles = Array.from($articles);
-
-    // arrayArticles.map(article => {
-    //   const $lastRouteId = document.querySelector(`.routeslist`).lastElementChild;
-    //   if ($lastRouteId) {
-    //     const routeId = $lastRouteId.textContent;
-    //     if (article.dataset.id === routeId) {
-    //       console.log(article);
-    //       article.classList.add(`is-selected`);
-    //       article.removeAttribute(`aria-hidden`);
-    //     } else {
-    //       article.classList.remove(`is-selected`);
-    //       article.setAttribute(`aria-hidden`, true);
-    //     }
-    //   }
-    // });
   };
 
   const createRouteCards = (route, routes) => {
@@ -430,7 +373,6 @@
           $routePage.classList.add(`hidden`);
           showCodeScreen($popup, globalLanguage);
         }
-        //showPopupCodeScreen(currentLanguage, $popup);
       });
     });
   };
@@ -447,7 +389,7 @@
       `{ "contain": true, "wrapAround": true, "prevNextButtons": false, "pageDots": true, "lazyload": 100 }`
     );
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 3; i++) {// eslint-disable-line
       const $image = document.createElement(`img`);
       $section.appendChild($image);
       $image.classList.add(`image`);
@@ -495,7 +437,7 @@
       lastRouteArray.push(route.id);
     });
 
-    for (let i = 0; i < articleArray.length; i++) {
+    for (let i = 0; i < articleArray.length; i++) {// eslint-disable-line
       //eslint-disable-line
       lastAArray.push(aArray[i]);
 
@@ -522,8 +464,6 @@
         articleArray[i].classList.add(`unlocked`);
         articleArray[i].classList.remove(`locked`);
       }
-
-      console.log(routes[i].id, lastRouteArray[i]);
     }
   };
 
@@ -733,7 +673,6 @@
               secondCharacter === `T` ||
               secondCharacter === `F`)
           ) {
-            console.log(`Code is valid`);
             $a.innerHTML = `Continuez >`;
             $a.classList.remove(`ongeldig`);
             if ($routePage) {
@@ -748,7 +687,6 @@
               );
             }
           } else {
-            console.log(`Enter a valid code`);
             $a.innerHTML = `Code invalide`;
             $a.classList.add(`ongeldig`);
             $a.disabled = true;
@@ -822,7 +760,6 @@
               secondCharacter === `T` ||
               secondCharacter === `F`)
           ) {
-            console.log(`Code is valid`);
             $a.innerHTML = `Continue >`;
             $a.classList.remove(`ongeldig`);
             if ($routePage) {
@@ -837,7 +774,6 @@
               );
             }
           } else {
-            console.log(`Enter a valid code`);
             $a.innerHTML = `Invalid code`;
             $a.classList.add(`ongeldig`);
             $a.disabled = true;
@@ -919,8 +855,8 @@
     const $invisibleDiv = document.createElement(`div`);
     const $popupStyle = document.createElement(`div`);
     const $popupDiv = document.createElement(`div`);
-    const $popup_text = document.createElement(`p`);
-    const $popup_close = document.createElement(`a`);
+    const $popup_text = document.createElement(`p`);// eslint-disable-line
+    const $popup_close = document.createElement(`a`);// eslint-disable-line
     const $gif = document.createElement(`img`);
 
     $body.appendChild($invisibleDiv);
@@ -933,8 +869,8 @@
     $invisibleDiv.classList.add(`invisible_overlay`);
     $popupStyle.classList.add(`popup_style`);
     $popupDiv.classList.add(`help_popup`);
-    $popup_text.classList.add(`popup_text`);
-    $popup_close.classList.add(`popup_close`);
+    $popup_text.classList.add(`popup_text`);// eslint-disable-line
+    $popup_close.classList.add(`popup_close`);// eslint-disable-line
     $gif.classList.add(`popup_image`);
 
     $gif.setAttribute(`src`, `./assets/img/help.gif`);
@@ -943,8 +879,8 @@
     const $page4 = document.querySelector(`.page4`);
     $page4.classList.add(`blur`);
 
-    $popup_text.textContent = `Je vindt een code aan de installatie, deze laat je toe om een bepaalde wandeling te starten!`;
-    $popup_close.textContent = `sluit`;
+    $popup_text.textContent = `Je vindt een code aan de installatie, deze laat je toe om een bepaalde wandeling te starten!`;// eslint-disable-line
+    $popup_close.textContent = `sluit`;// eslint-disable-line
 
     $invisibleDiv.addEventListener(`click`, () => {
       $invisibleDiv.remove();
@@ -952,7 +888,7 @@
       $page4.classList.remove(`blur`);
     });
 
-    $popup_close.addEventListener(`click`, () => {
+    $popup_close.addEventListener(`click`, () => {// eslint-disable-line
       $invisibleDiv.remove();
       $popupDiv.remove();
       $page4.classList.remove(`blur`);
@@ -1070,8 +1006,7 @@
   /*AR*/
   const handleAR = () => {
     //Show AR Screen
-    const cityRouteId = document.querySelector(`.cityRouteId`).textContent;
-    console.log(cityRouteId);
+    const cityRouteId = document.querySelector(`.cityRouteId`).textContent;// eslint-disable-line
 
     const aframe = AFRAME; // eslint-disable-line
     let scanned = false; // eslint-disable-line
@@ -1101,7 +1036,6 @@
               marker.object3D.visible;
             if (marker.object3D.visible === true) {
               showARInfo(marker.object3D.el.classList[1], $waypointInfo);
-              console.log("active");
             }
           });
         }
@@ -1142,17 +1076,14 @@
           );
 
           $playBtn.addEventListener(`click`, () => {
-            console.log(`Play`);
             audio.play();
           });
 
           $pauseBtn.addEventListener(`click`, () => {
-            console.log(`Pause`);
             audio.pause();
           });
 
           $restartBtn.addEventListener(`click`, () => {
-            console.log(`Restart`);
             audio.load();
             audio.play();
           });
@@ -1202,7 +1133,7 @@
 
         const waypoints = currentRoute.waypoints;
 
-        const lineString = new H.geo.LineString();
+        const lineString = new H.geo.LineString();// eslint-disable-line
 
         waypoints.map(waypoint => {
           lineString.pushPoint({
@@ -1211,6 +1142,7 @@
           });
         });
 
+        // Deel van de HERE API
         // map.addObject(new H.map.Polyline(
         //   lineString, { style: { lineWidth: 8 } }
         // ));
@@ -1230,8 +1162,6 @@
   };
 
   const handlePrizePopup = e => {
-    console.log(e.currentTarget);
-
     const $popupForClaim = document.querySelector(`.popupForClaim`);
     $popupForClaim.classList.remove(`hidden`);
 
@@ -1243,14 +1173,14 @@
   };
 
   /*Routes*/
-  let mapData = {};
-  let userLocation = {};
+  let mapData = {};// eslint-disable-line
+  let userLocation = {};// eslint-disable-line
   let markers = []; // eslint-disable-line
   let map;
-  const platform = ``;
+  const platform = ``;// eslint-disable-line
 
+  // Deel van de HERE API
   // const platform = new H.service.Platform({
-  //   // eslint-disable-line
   //   apikey: `Ymzvxu_5jYrtjqdyrlORjoasI2KdTSwzdLZuyNkPH3k` // eslint-disable-line
   // });
 
@@ -1264,13 +1194,11 @@
     if ($skipOnboarding) {
       $skipOnboarding.classList.remove(`invalid`);
       $skipOnboarding.removeAttribute(`novalidate`);
-      console.log($skipOnboarding);
     }
 
     handleOnboarding();
 
     setInterval(() => {
-      //fetchUserLocation();
       let visitedWaypoints = []; // eslint-disable-line
       triggerFinishAllPoints(visitedWaypoints);
     }, 100);
@@ -1290,13 +1218,11 @@
       dispatcher.on(`SWIPE_LEFT`, () => {
         if (currentOnboarding < 3) {
           currentOnboarding += 1;
-          console.log(currentOnboarding);
         } else if (currentOnboarding === 3) {
           currentOnboarding = 3;
           $singleRoutePage.classList.remove(`hidden`);
           $onboarding.remove();
           location.reload();
-          console.log(`MAX EXCEEDED`);
         }
 
         loadOnboardingView(currentOnboarding);
@@ -1305,10 +1231,8 @@
       dispatcher.on(`SWIPE_RIGHT`, () => {
         if (currentOnboarding > 0) {
           currentOnboarding -= 1;
-          console.log(currentOnboarding);
         } else if (currentOnboarding === 0) {
           currentOnboarding = 1;
-          console.log(`MIN EXCEEDED`);
         }
 
         loadOnboardingView(currentOnboarding);
@@ -1346,10 +1270,6 @@
   const parseUrl = (data, cityData, map, routeId) => {
     //removeAllMapMarkers(map);
     addMarkersToMap(map, data, cityData, routeId);
-  };
-
-  const removeAllMapMarkers = map => {
-    map.removeObjects(map.getObjects());
   };
 
   const addMarkersToMap = (map, data, cityData, routeId) => {
@@ -1395,10 +1315,12 @@
       const waypointChecked = `./assets/img/waypointdone.png`;
       const waypointUnChecked = `./assets/img/waypointnotdone.png`;
 
+      // Deel van de HERE API
       // const iconChecked = new H.map.Icon(waypointChecked); // eslint-disable-line
       // const iconUnChecked = new H.map.Icon(waypointUnChecked); // eslint-disable-line
 
       if (waypoint.visited === `no`) {
+        // Deel van de HERE API
         // const marker = new H.map.Marker( // eslint-disable-line
         //   { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, // eslint-disable-line
         //   { icon: iconUnChecked } // eslint-disable-line
@@ -1407,6 +1329,7 @@
       }
 
       if (waypoint.visited === `yes`) {
+        // Deel van de HERE API
         // const marker = new H.map.Marker( // eslint-disable-line
         //   { lat: waypoint.geolocation.lat, lng: waypoint.geolocation.lng }, // eslint-disable-line
         //   { icon: iconChecked } // eslint-disable-line
@@ -1414,17 +1337,6 @@
         makeMarker(waypointChecked, cityData, routeId, waypoint);
       }
     });
-
-    // if (userLocation !== ``) {
-    //   setInterval(() => {
-    //     const userMarker = new H.map.Marker({
-    //       // eslint-disable-line
-    //       lat: userLocation.lat,
-    //       lng: userLocation.lng
-    //     }); // eslint-disable-line
-    //     map.addObject(userMarker);
-    //   }, 1000);
-    // }
   };
 
 
@@ -1435,7 +1347,6 @@
     // group.addObject(marker);
 
     //markers.push(marker);
-    console.log(waypoint.marker.top);
 
     const marker = document.createElement('div');
     marker.classList.add(`marker`);
@@ -1449,13 +1360,10 @@
 
     const $image = document.querySelector(`.map_img`);
     $image.addEventListener(`click`, () => {
-      console.log($content);
       $content.classList.add(`hidden`);
     });
 
-    marker.addEventListener(`click`, e => {
-      console.log(e.currentTarget);
-
+    marker.addEventListener(`click`, e => {// eslint-disable-line
       const $h1 = document.createElement(`h1`);
       const $p = document.createElement(`p`);
       const $button = document.createElement(`a`);
@@ -1479,7 +1387,7 @@
       });
     });
 
-
+    // Deel van de HERE API
     // if (cityData) {
     //   marker.addEventListener(`tap`, e => {
     //     const currentMarker = e.target;
@@ -1598,9 +1506,9 @@
     $button.addEventListener(`click`, () => {
       audio.pause();
 
-      window.location = `index.php?page=route&id=${getUrlVars()["id"]}&city=${
-        getUrlVars()["city"]
-        }&cityRouteId=${getUrlVars()["cityRouteId"]}`;
+      window.location = `index.php?page=route&id=${getUrlVars()["id"]}&city=${// eslint-disable-line
+        getUrlVars()["city"]// eslint-disable-line
+        }&cityRouteId=${getUrlVars()["cityRouteId"]}`;// eslint-disable-line
       // $existingPage.classList.remove(`hidden`);
       // $detailPage.classList.add(`hidden`);
     });
@@ -1644,6 +1552,7 @@
     });
   };
 
+  /*eslint-disable*/
   function getUrlVars() {
     var vars = {};
     var parts = window.location.href.replace(
@@ -1654,31 +1563,33 @@
     );
     return vars;
   }
+  /*eslint-enable*/
 
-  const getClickPosition = e => {
-    const $content = document.querySelector(`.content`);
+  //Deel van de HERE API
+  // const getClickPosition = e => {
+  //   const $content = document.querySelector(`.content`);
 
-    const contentStyle = getComputedStyle($content);
+  //   const contentStyle = getComputedStyle($content);
 
-    const xPosition =
-      e.currentPointer.viewportX - parseInt(contentStyle.width) / 2;
-    const yPosition =
-      e.currentPointer.viewportY - parseInt(contentStyle.height) / 2;
+  //   const xPosition =
+  //     e.currentPointer.viewportX - parseInt(contentStyle.width) / 2;
+  //   const yPosition =
+  //     e.currentPointer.viewportY - parseInt(contentStyle.height) / 2;
 
-    $content.style.top = `${yPosition} px`;
-    $content.style.left = `${xPosition} px`;
+  //   $content.style.top = `${yPosition} px`;
+  //   $content.style.left = `${xPosition} px`;
 
-    $content.classList.remove(`hidden`);
-  };
+  //   $content.classList.remove(`hidden`);
+  // };
 
-  const findWaypoint = (lat, lng, waypoints) => {
-    const triggeredWaypoint = waypoints.filter(
-      waypoint =>
-        String(waypoint.geolocation.lat).substring(0, 8) ===
-        String(lat).substring(0, 8)
-    );
-    return triggeredWaypoint[0];
-  };
+  // const findWaypoint = (lat, lng, waypoints) => {
+  //   const triggeredWaypoint = waypoints.filter(
+  //     waypoint =>
+  //       String(waypoint.geolocation.lat).substring(0, 8) ===
+  //       String(lat).substring(0, 8)
+  //   );
+  //   return triggeredWaypoint[0];
+  // };
 
   const parseMaps = data => {
     const cityId = document.querySelector(`.cityId`).textContent;
@@ -1692,6 +1603,7 @@
       `index.php?page=ar&id=${cityRouteId}&city=${activeCityId}&cityRouteId=${cityRouteId}`
     );
 
+    //Deel van de HERE API
     //const defaultLayers = platform.createDefaultLayers();
     /* eslint-disable*/
     // map = new H.Map(
@@ -1711,12 +1623,11 @@
     $mapImg.setAttribute(`src`, `./assets/img/kortrijk.jpg`);
     $mapImg.classList.add(`map_img`);
 
+    // Deel van de HERE Api
     // const ui = H.ui.UI.createDefault(map, defaultLayers);
     // var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
     // /* eslint-enable*/
     // window.addEventListener(`resize`, () => map.getViewPort().resize());
-    console.log(cityRouteId);
-    console.log(data.cities[cityId]);
 
     fetch(data.cities[cityId].routes[cityRouteId].route)
       .then(r => r.json())
@@ -1726,17 +1637,6 @@
     if ($map_info) {
       $map_info.remove();
     }
-  };
-
-
-  const fetchUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(function (location) {
-      userLocation = {
-        lat: location.coords.latitude,
-        lng: location.coords.longitude,
-        acc: location.coords.accuracy
-      };
-    });
   };
 
   init();

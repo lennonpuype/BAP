@@ -12,15 +12,10 @@ class NextController extends Controller {
   }
 
   public function index(){
-    // $this->detectMobile("mobile");
+    $this->detectMobile("mobile");
   }
 
   public function routes(){
-    // $this->detectMobile("mobile");
-    // unset($_SESSION);
-    // session_destroy();
-    // header('Location: index.php?page=mobile');
-    // exit();
     if(!empty($_GET['action']) && $_GET['action'] == "enternewcode"){
       if(!empty($_GET['code'])){
         array_push($_SESSION['user']['codes'], $_GET['code']);
@@ -251,7 +246,7 @@ class NextController extends Controller {
 
 
     // Check for any mobile device.
-    if (!$detect->isMobile()){
+    if ($detect->isMobile()){
       // mobile content
       header('Location: index.php?page='.$currentPage.'');
       exit();

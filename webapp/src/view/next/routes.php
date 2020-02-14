@@ -229,8 +229,3 @@ if(!empty($_GET['l']) && empty($_SESSION['user'])){
   exit();
 } ?>
 
-<?php if(!empty($_SESSION['user'])){ ?>
-        <a href="index.php?page=logout" class="logout">Logout</a>
-      <?php }else{
-        echo '<span class="logout">No active session</span>';
-      } ?>

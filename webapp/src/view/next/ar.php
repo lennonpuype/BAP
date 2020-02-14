@@ -54,9 +54,3 @@
 <aside class="hidden cityId"><?php echo $_GET['city'] ?></aside>
 <aside class="hidden routeId"><?php echo $_GET['id'] ?></aside>
 <aside class="hidden cityRouteId"><?php echo $_GET['cityRouteId'] ?></aside>
-
-<?php if(!empty($_SESSION['user'])){ ?>
-        <a href="index.php?page=logout" class="logout">Logout</a>
-      <?php }else{
-        echo '<span class="logout">No active session</span>';
-      } ?>

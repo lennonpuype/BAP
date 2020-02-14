@@ -162,9 +162,3 @@
     echo '<span class="visitedPoint">'. $visitedPoint . '</span>';
   }?>
 </aside>
-
-<?php if(!empty($_SESSION['user'])){ ?>
-        <a href="index.php?page=logout" class="logout">Logout</a>
-      <?php }else{
-        echo '<span class="logout">No active session</span>';
-      } ?>
