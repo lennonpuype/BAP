@@ -66,7 +66,7 @@ a {
 }
 
 .page1 {
-  background: url(./assets/img/kort.jpg);
+  background: url(./assets/img/background.png);
   /* Full height */
   height: 100%;
 
@@ -162,7 +162,7 @@ a {
   left: 10%;
 }
 
-.detail_content_a{
+.detail_content_a {
   text-decoration: underline;
   padding-top: 2rem;
 }
