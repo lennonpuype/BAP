@@ -3,6 +3,7 @@ footer {
   grid-template-columns: 5rem 25rem 105rem 5rem;
   grid-template-rows: 5rem 30rem 5rem;
   background-color: var(--darkpurple);
+  margin-top: -3rem;
 
   @media (--l) {
     grid-template-columns: repeat(4, 1fr);

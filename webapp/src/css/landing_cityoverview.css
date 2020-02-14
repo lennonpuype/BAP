@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(4, 25%);
   grid-template-rows: 40rem;
-  grid-template-areas: 'kortrijk tournai lille valenciennes';
+  grid-template-areas: "kortrijk tournai lille valenciennes";
 }
 
 .city_list_item {
@@ -16,25 +16,24 @@
   font-weight: bold;
   font-family: Raleway;
   text-align: center;
-
 }
 
 .kortrijk {
   grid-area: kortrijk;
-  background-image: url(./../assets/img/landingpagina/steden/kortrijk.png);
+  background-image: url(./../assets/img/landingpagina/steden/kortrijk_station.png);
 }
 
 .tournai {
   grid-area: tournai;
-  background-image: url(./../assets/img/landingpagina/steden/tournai.png);
+  background-image: url(./../assets/img/landingpagina/steden/tournai_station.png);
 }
 
 .lille {
   grid-area: lille;
-  background-image: url(./../assets/img/landingpagina/steden/lille.png);
+  background-image: url(./../assets/img/landingpagina/steden/lille_eura.png);
 }
 
 .valenciennes {
   grid-area: valenciennes;
-  background-image: url(./../assets/img/landingpagina/steden/valenciennes.png);
+  background-image: url(./../assets/img/landingpagina/steden/valcity.png);
 }
