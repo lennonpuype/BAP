@@ -74,7 +74,17 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: blur(6px);
+}
+
+.page2 {
+  background: url(./assets/img/background_blur.png);
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .page1 .page_btn,

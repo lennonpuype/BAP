@@ -16,10 +16,10 @@ h1 {
 .head_title {
   font-family: Raleway, sans-serif;
   color: var(--darkpurple);
-  font-size: 4rem;
-  -webkit-text-shadow: -0.1rem 0 0 0 rgba(255, 255, 255, 1);
-  -moz-text-shadow: -0.1 0 0 0 rgba(255, 255, 255, 1);
-  text-shadow: -0.1 0 0 white;
+  font-size: 5rem;
+  margin-bottom: 17rem;
+  text-shadow: -2.7px 0px 0px #ffffff;
+  margin-left: 3rem;
 }
 
 .page_title_small {
