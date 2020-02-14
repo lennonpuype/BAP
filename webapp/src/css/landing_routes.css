@@ -4,7 +4,7 @@
   grid-template-rows: auto;
   grid-template-areas: '. talent_route . sporen_route . toekomst_route .';
 
-  background-color: var(--darkergrey);
+  background-color: #F5F5F5;
   padding: 5rem;
   margin-top: 5rem;
 }

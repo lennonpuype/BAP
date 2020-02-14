@@ -854,9 +854,11 @@
 
     if ($routePage) {
       const pageBtn = document.querySelector(`.back_btn`);
-      pageBtn.addEventListener(`click`, () => {
-        window.location = `index.php?page=routes`;
-      });
+      if (pageBtn) {
+        pageBtn.addEventListener(`click`, () => {
+          window.location = `index.php?page=routes`;
+        });
+      }
     }
 
     const $codeContent = document.querySelector(`.code_content`);
@@ -1029,10 +1031,12 @@
 
   const goBackToPage2 = () => {
     const pageBtn = $page3.querySelector(`.back_btn`);
-    pageBtn.addEventListener(`click`, () => {
-      $page3.classList.add(`inactive`);
-      $page2.classList.remove(`inactive`);
-    });
+    if (pageBtn) {
+      pageBtn.addEventListener(`click`, () => {
+        $page3.classList.add(`inactive`);
+        $page2.classList.remove(`inactive`);
+      });
+    }
   };
 
   const openPage4 = () => {
