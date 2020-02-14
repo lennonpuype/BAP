@@ -14,6 +14,8 @@
 
 .article_detail_bottom {
   padding: 1rem 2rem 3rem;
+  max-height: 22rem;
+  overflow: scroll;
 }
 
 .back_button {
@@ -48,4 +50,20 @@
 
 .detail_description {
   word-wrap: break-word;
+}
+
+.marker {
+  position: absolute;
+  width: 3rem;
+  height: 4rem;
+
+  background-size: 100% 100%;
+}
+
+.marker_waypointdone {
+  background-image: url(./../assets/img/waypointdone.png);
+}
+
+.marker_waypointnotdone {
+  background-image: url(./../assets/img/waypointnotdone.png);
 }
