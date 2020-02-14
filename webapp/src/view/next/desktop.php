@@ -92,24 +92,22 @@
     </ul>
   </section>
 </main>
-<footer class="footer">
+<!-- <footer class="footer">
   <address class="footer_details">
-    <h1>NEXT Arts Festival</h1>
-    <p>Kapucijnenstraat 10</p>
-    <p>8500 Kortrijk</p>
-    <p>+32 56 22 10 01</p>
-    <p>info@nextfestival.eu</p>
+    <h1 class="footer_text footer_text-title">NEXT Arts Festival</h1>
+    <p class="footer_text">Kapucijnenstraat 10</p>
+    <p class="footer_text">8500 Kortrijk</p>
+    <p class="footer_text">+32 56 22 10 01</p>
+    <p class="footer_text">info@nextfestival.eu</p>
   </address>
   <article class="footer_sponsors">
-    <figure><img src="./assets/img/landingpagina/sponsors/vlaanderen.png" width="200" alt="Sponsor - Vlaanderen verbeelding werkt"/></figure>
-    <figure><img src="./assets/img/landingpagina/sponsors/federation.png" width="200" alt="Sponsor - Féderation Wallonie-Bruxelles"/></figure>
-    <figure><img src="./assets/img/landingpagina/sponsors/hauts.png" width="200" alt="Sponsor - Région Hauts-de-France"/></figure>
-    <figure><img src="./assets/img/landingpagina/sponsors/europe.png" width="200" alt="Sponsor - Europa"/></figure>
-    <figure><img src="./assets/img/landingpagina/sponsors/em.png" width="200" alt="Sponsor - Eurometropool"/></figure>
-    <figure><img src="./assets/img/landingpagina/sponsors/nl.png" width="200" alt="Sponsor - Nationale Lotterij"/></figure>
-    <figure><img src="./assets/img/landingpagina/sponsors/kortrijk.png" width="200" alt="Sponsor - Stad Kortrijk"/></figure>
-    <figure><img src="./assets/img/landingpagina/sponsors/valenciennes.png" width="200" alt="Sponsor - Valenciennes Metropole"/></figure>
-    <figure><img src="./assets/img/landingpagina/sponsors/mel.png" width="200" alt="Sponsor - Métropole Européene de Lille"/></figure>
+    <img src="./assets/img/footer/europa.png" width="200" height="134" alt="Sponsor - Europa"/>
+    <img src="./assets/img/footer/federation.png" width="200" height="157" alt="Sponsor - Féderation Wallonie-Bruxelles"/>
+    <img src="./assets/img/footer/lotto.png" width="200" height="125" alt="Sponsor - Lotto"/>
+    <img src="./assets/img/footer/mel.png" width="198" height="147" alt="Sponsor - Mel"/>
+    <img src="./assets/img/footer/region.png" width="198" height="139" alt="Sponsor - Eurometropool"/>
+    <img src="./assets/img/footer/valenciennes.png" width="200" height="134" alt="Sponsor - Nationale Lotterij"/>
+    <img src="./assets/img/footer/vlaanderen.png" width="200" height="120" alt="Sponsor - Stad Kortrijk"/>
   </article>
   <ul class="footer_tags">
     <li><a href="#">algemene voorwaarden</a></li>
@@ -117,10 +115,38 @@
     <li><a href="#">cookiebeleid</a></li>
     <a href="#">&copy; 2020</a>
   </ul>
-  <aside class="devine_logo">
-    <img src="./assets/img/landingpagina/sponsors/devine.png" width="200" alt="Devine Logo"/>
-  </aside>
-</footer>
+
+</footer> -->
+
+<footer>
+      <div class="footer-logo">
+      <img class="logo-img footer-logo-img" src="./assets/img/stickerlogo.png" alt="Logo Disegno" width="29" height="47">
+      <address class="footer_details logo-img footer-logo-title">
+        <h1 class="footer_text footer_text-title">NEXT Arts Festival</h1>
+        <p class="footer_text">Kapucijnenstraat 10</p>
+        <p class="footer_text">8500 Kortrijk</p>
+        <p class="footer_text">+32 56 22 10 01</p>
+        <p class="footer_text">info@nextfestival.eu</p>
+    </address>
+      </div>
+      <section class="partners">
+      <img src="./assets/img/footer/europa.png" class="europa" width="100" height="67" alt="Sponsor - Europa"/>
+      <img src="./assets/img/footer/federation.png" class="federation"   width="50" height="60" alt="Sponsor - Féderation Wallonie-Bruxelles"/>
+      <img src="./assets/img/footer/lotto.png" class="lotto" width="100" height="60" alt="Sponsor - Lotto"/>
+      <img src="./assets/img/footer/mel.png" class="mel" width="99" height="73,5" alt="Sponsor - Mel"/>
+      <img src="./assets/img/footer/region.png" class="regio" width="99" height="69,5" alt="Sponsor - Eurometropool"/>
+      <img src="./assets/img/footer/valenciennes.png" class="val" width="100" height="67" alt="Sponsor - Nationale Lotterij"/>
+      <img src="./assets/img/footer/vlaanderen.png" class="vlaanderen" width="100" height="60" alt="Sponsor - Stad Kortrijk"/>
+      <img src="./assets/img/footer/em.png" class="em" width="100" height="50" alt="Sponsor - Eurometropool"/>
+
+      </section>
+
+      <section class="rights">
+        <p class="rights-title"> &copy 2020 - Alle rechten voorbehouden</p>
+      </section>
+
+
+    </footer>
 <?php }?>
 
 
