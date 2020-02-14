@@ -10,15 +10,15 @@
     <article class="onboarding1">
       <?php
         if($_SESSION['user']['l'] === 'nl'){
-          echo '<h1 class="onboarding_title">Volg de route aangeduid via de gps...</h1>';
+          echo '<img src="./assets/img/onboarding1.gif" class="onboarding_image"/><h1 class="onboarding_title">Volg de route aangeduid via de gps...</h1>';
         }
 
         if($_SESSION['user']['l'] === 'fr'){
-          echo "<h1 class='onboarding_title'>Suivez l'itinéraire indiqué via le GPS...</h1>";
+          echo "<img src='./assets/img/onboarding1.gif' class='onboarding_image'/><h1 class='onboarding_title'>Suivez l'itinéraire indiqué via le GPS...</h1>";
         }
 
         if($_SESSION['user']['l'] === 'en'){
-          echo '<h1 class="onboarding_title">Follow the route on the GPS...</h1>';
+          echo '<img src="./assets/img/onboarding1.gif" class="onboarding_image"/><h1 class="onboarding_title">Follow the route on the GPS...</h1>';
         }
       ?>
     </article>
@@ -26,15 +26,15 @@
     <article class="onboarding2">
     <?php
         if($_SESSION['user']['l'] === 'nl'){
-          echo '<h1 class="onboarding_title">Hou de camera van je gsm voor de a.r.u.next stickers...</h1>';
+          echo '<img src="./assets/img/onboarding2.gif" class="onboarding_image"/><h1 class="onboarding_title">Hou de camera van je gsm voor de a.r.u.next stickers...</h1>';
         }
 
         if($_SESSION['user']['l'] === 'fr'){
-          echo "<h1 class='onboarding_title'>Tenez la caméra de votre mobile pour les autocollants a.r.u.next...</h1>";
+          echo "<img src='./assets/img/onboarding2.gif' class='onboarding_image'/><h1 class='onboarding_title'>Tenez la caméra de votre mobile pour les autocollants a.r.u.next...</h1>";
         }
 
         if($_SESSION['user']['l'] === 'en'){
-          echo '<h1 class="onboarding_title">Hold the camera in front of the a.r.u.next stickers...</h1>';
+          echo '<img src="./assets/img/onboarding2.gif" class="onboarding_image"/><h1 class="onboarding_title">Hold the camera in front of the a.r.u.next stickers...</h1>';
         }
       ?>
     </article>
@@ -42,15 +42,15 @@
     <article class="onboarding3">
     <?php
         if($_SESSION['user']['l'] === 'nl'){
-          echo '<h1 class="onboarding_title">En laat je verassen!</h1>';
+          echo '<img src="./assets/img/onboarding3.gif" class="onboarding_image"/><h1 class="onboarding_title">En laat je verassen!</h1>';
         }
 
         if($_SESSION['user']['l'] === 'fr'){
-          echo "<h1 class='onboarding_title'>Et soyez surpris!</h1>";
+          echo "<img src='./assets/img/onboarding3.gif' class='onboarding_image'/><h1 class='onboarding_title'>Et soyez surpris!</h1>";
         }
 
         if($_SESSION['user']['l'] === 'en'){
-          echo '<h1 class="onboarding_title">And be surprised!</h1>';
+          echo '<img src="./assets/img/onboarding3.gif" class="onboarding_image"/><h1 class="onboarding_title">And be surprised!</h1>';
         }
       ?>
     </article>

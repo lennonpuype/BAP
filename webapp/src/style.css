@@ -316,3 +316,12 @@ a {
   right: 0;
   left: 0;
 }
+
+.onboarding_image {
+  width: 100vw;
+  justify-content: center;
+  /* margin: 0 auto; */
+  left: 0;
+  position: fixed;
+  bottom: 18rem;
+}
